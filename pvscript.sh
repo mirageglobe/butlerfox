@@ -55,10 +55,14 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
   chmod +x /etc/init.d/nginx
   /usr/sbin/update-rc.d -f nginx defaults
   /etc/init.d/nginx start
-  echo "Installing ... DB Services"
+  echo "Installing ... DB Services MySQL"
   DEBIAN_FRONTEND=noninteractive apt-get -y --force-yes install mysql-server
   #have funny error when mysql server install. need to check better force install -works fine as normal script
   sleep 2
+  echo "Installing ... DB Services MongoDB"
+  sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
+  echo "deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen" >> /etc/apt/sources.list.d/mongodb.list
+  sudo service mongodb start
   echo "Installing ... Php"
   #to add Phpmyadmin if possible
   apt-get -y --force-yes install php5-fpm php5-mysql
