@@ -5,4 +5,21 @@ This script is a general bash script that installs and setups the basic applicat
 
 I had to suppress all the prompts as you can see; making most silent as this is meant to work nicely (ish) with Vagrant.
 
-Thanks.
+You can use it to deploy on a vanilla ubuntu machine. 
+
+
+Packages
+===========================
+- System Updates
+- Build-Essential
+- Debconf-Util
+- UFW
+- RVM
+- Ruby 2.x
+- Rails
+- Passenger
+- Nginx
+- MySQL
+- MongoDB
+- Php
+

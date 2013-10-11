@@ -33,18 +33,15 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
   echo "Installing ... Security"
   apt-get -y --force-yes install ufw
   sleep 2
-  echo "Installing ... Development Languages"
+  echo "Installing ... Ruby"
   curl -L get.rvm.io | bash -s stable
-  source ~/.rvm/scripts/rvm
+  source /etc/profile.d/rvm.sh
   rvm install 2.0.0
   rvm use 2.0.0 --default
+  echo "Installing ... Web Services and Nginx"
   gem install rails
   gem install passenger
   rvmsudo passenger-install-nginx-module
-  sleep 2
-  echo "Installing ... Web Services"
-  apt-get -y --force-yes install nginx
-  #need to add in passenger
   sleep 2
   echo "Installing ... DB Services"
   DEBIAN_FRONTEND=noninteractive apt-get -y --force-yes install mysql-server
