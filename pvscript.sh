@@ -39,17 +39,31 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
   rvm install 2.0.0
   rvm use 2.0.0 --default
   echo "Installing ... Web Services and Nginx"
-  gem install rails
-  gem install passenger
-  rvmsudo passenger-install-nginx-module
+  #gem install rails --no-ri --no-rdoc
+  #passenger req
+  export rvmsudo_secure_path=1
+  apt-get -y --force-yes install libcurl4-openssl-dev
+  gem install passenger --no-ri --no-rdoc
+  rvmsudo passenger-install-nginx-module --auto --auto-download --prefix=/opt/nginx
+  # use -help for more passenger install options
+  # Please specify a prefix directory [/opt/nginx]: 
   sleep 2
+  echo "Adding ... Nginx initialisation script"
+  # as this nginx is compiled via passenger, initialisation script has to be manually created
+  wget -O init-deb.sh http://library.linode.com/assets/1139-init-deb.sh
+  mv init-deb.sh /etc/init.d/nginx
+  chmod +x /etc/init.d/nginx
+  /usr/sbin/update-rc.d -f nginx defaults
+  /etc/init.d/nginx start
   echo "Installing ... DB Services"
   DEBIAN_FRONTEND=noninteractive apt-get -y --force-yes install mysql-server
-  #have funny error when mysql server install. need to check better force install
+  #have funny error when mysql server install. need to check better force install -works fine as normal script
   sleep 2
   echo "Installing ... Languages Php Phpmyadmin"
   apt-get -y --force-yes install php5-fpm php5-mysql
-  sleep 1
+  sleep 2
+  echo "Reboot Machine"
+  reboot
 fi
 
 # Information output here
