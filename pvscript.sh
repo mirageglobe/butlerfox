@@ -59,7 +59,8 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
   DEBIAN_FRONTEND=noninteractive apt-get -y --force-yes install mysql-server
   #have funny error when mysql server install. need to check better force install -works fine as normal script
   sleep 2
-  echo "Installing ... Languages Php Phpmyadmin"
+  echo "Installing ... Php"
+  #to add Phpmyadmin if possible
   apt-get -y --force-yes install php5-fpm php5-mysql
   sleep 2
   echo "Reboot Machine"
