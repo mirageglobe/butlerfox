@@ -47,6 +47,12 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
   sleep 2
   echo "Installing ... Security"
   apt-get -y --force-yes install ufw
+  ufw allow ssh
+  #allow ssh
+  ufw allow 80
+  #allow webservice
+  ufw allow 3306
+  #allow mysql
   sleep 2
   echo "Installing ... Ruby"
   curl -L get.rvm.io | bash -s stable
@@ -106,5 +112,7 @@ echo "Some notes to run; reset mysql server root pass: sudo dpkg-reconfigure mys
 # > mysqladmin -u root password NEWPASSWORD
 # to clear history of bash
 # > cat /dev/null > ~/.bash_history && history -c && exit
+# Ref https://help.ubuntu.com/community/UFW
+# 
 # ===================================================
 
