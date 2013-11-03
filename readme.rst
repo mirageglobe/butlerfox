@@ -7,6 +7,10 @@ I had to suppress all the prompts as you can see; making most silent as this is 
 
 You can use it to deploy on a vanilla ubuntu machine. 
 
+Aim
+===========================
+To create a simple bash script that installs a basic ruby, php, mysql, mongodb server. Try to be compatible with vagrant in the future.
+
 
 Packages
 ===========================
@@ -22,4 +26,3 @@ Packages
 - MySQL
 - MongoDB
 - Php
-
