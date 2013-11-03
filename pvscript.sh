@@ -1,4 +1,19 @@
 #!/bin/bash
+#BootLoader for new machines
+
+gnudate() {
+    if hash gdate 2>/dev/null; then
+        gdate "$@"
+    else
+        date "$@"
+    fi
+}
+
+# ===================================================
+# This script adds applications in order
+# - build-essentials, rvm, passenger, php-fpm, mysql, mongodb, 
+#
+# ===================================================
 
 # Timer start
 timerstart=$(date +"%s")
