@@ -78,6 +78,8 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
   echo "Installing ... DB Services MongoDB"
   sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
   echo "deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen" >> /etc/apt/sources.list.d/mongodb.list
+  sudo apt-get update
+  sudo apt-get install mongodb-10gen
   sudo service mongodb start
   echo "Installing ... Php"
   #to add Phpmyadmin if possible
@@ -95,3 +97,14 @@ timerdiff=$(($timerend-$timerstart))
 echo "$(($timerdiff / 60)) minutes and $(($timerdiff % 60)) seconds elapsed."
 echo "Done ..."
 echo "Some notes to run; reset mysql server root pass: sudo dpkg-reconfigure mysql-server-5.5"
+
+
+# ===================================================
+# Remember to run to following commands manually 
+# to change passwords
+# > sudo passwd
+# > mysqladmin -u root password NEWPASSWORD
+# to clear history of bash
+# > cat /dev/null > ~/.bash_history && history -c && exit
+# ===================================================
+
