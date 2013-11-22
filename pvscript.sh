@@ -59,9 +59,13 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
   source /etc/profile.d/rvm.sh
   rvm install 2.0.0
   rvm use 2.0.0 --default
+  gem upgrade
+  gem install rdoc
   echo "Installing ... Python 3"
   apt-get -y --force-yes install python3
-  sleep 2
+  sleep 2  
+  echo "Installing ... Web Services and Nginx"
+  gem install puma
   echo "Installing ... Web Services and Nginx"
   #gem install rails --no-ri --no-rdoc
   #passenger req
