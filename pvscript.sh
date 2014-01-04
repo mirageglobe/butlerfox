@@ -59,8 +59,7 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
   source /etc/profile.d/rvm.sh
   rvm install 2.0.0
   rvm use 2.0.0 --default
-  gem upgrade
-  gem install rdoc
+  gem update
   echo "Installing ... Python 3"
   apt-get -y --force-yes install python3
   sleep 2  
