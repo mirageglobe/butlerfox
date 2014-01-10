@@ -57,8 +57,8 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
   echo "Installing ... Ruby"
   curl -L get.rvm.io | bash -s stable
   source /etc/profile.d/rvm.sh
-  rvm install 2.0.0
-  rvm use 2.0.0 --default
+  rvm install 2.1.0-head
+  rvm use 2.1.0 --default
   gem update
   echo "Installing ... Python 3"
   apt-get -y --force-yes install python3
