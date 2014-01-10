@@ -1,6 +1,5 @@
-﻿# Copyright (C) by Jimmy Mian-Guan Lim
+﻿# Copyright (C) by Jimmy Mian-Guan Lim (www.mirageglobe.com)
 # MIT License
-# Version 0.2
 
 import os, platform
 
@@ -27,18 +26,22 @@ def startoptions():
 	print "[6] Install Bottle Python Framework (Via Apt-Get)"
 	print "=--------------------------------="
 	print "[7] Install SQLite"
-	print "[8] Install Pound LoadBalancer/VHost WebServer"
-	print "[9] Install Varnish"
 	print "=--------------------------------="
-	print "[20] Run BottleFeedUI (Make sure you have bottle installed)"
 	print "[0] Exit Program"
 	print "=================================="
+
+cmdlist = {50: 'cmd1', 51: 'cmd2'}
 
 gloop = True
 
 while gloop == True:
 	startoptions()
-	gchoice = int(raw_input('What is your choice: '))
+
+	gchoice = 99
+	gchoiceraw = raw_input('What is your choice [press enter to confirm]: ')
+
+	if gchoiceraw.isdigit():
+		gchoice = int(gchoiceraw)
 
 	if gchoice == 0:
 		print "Thanks for using ... Goodbye"
@@ -65,12 +68,7 @@ while gloop == True:
 	elif gchoice == 7:
 		print "Install SQLite "
 		runcommand('sudo apt-get install sqlite')
-	elif gchoice == 8:
-		print "Install Pound"
-		runcommand('sudo apt-get install pound')
-	elif gchoice == 20:
-		print "Run BottleFeed python server"
-		runcommand('sudo python bottlefeed.py')
-	elif gchoice == 9:
-		print "Install Varnish"
-		runcommand('sudo apt-get install varnish')
+	elif gchoice == 99:
+		print "Option does not exists, please enter other number"
+	else:
+		print "Option does not exists, please enter other number"

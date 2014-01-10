@@ -82,6 +82,7 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
   #chmod +x /etc/init.d/nginx
   #/usr/sbin/update-rc.d -f nginx defaults
   #/etc/init.d/nginx start
+  apt-get -y --force-yes install nginx
   echo "Installing ... DB Services MySQL"
   DEBIAN_FRONTEND=noninteractive apt-get -y --force-yes install mysql-server
   #have funny error when mysql server install. need to check better force install -works fine as normal script
