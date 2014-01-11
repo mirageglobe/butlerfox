@@ -5,6 +5,7 @@
 # project - http://www.dracoturtur.com/samurai
 
 import os, platform, sys
+from collections import OrderedDict
 
 # Samurai aims to be a fire and forget system orchestrating tool. It then summarises and reports the status of each.
 # Samurai is pure simplistic python with no dependancies.
@@ -28,6 +29,7 @@ ninjacmd = {
     11: 'sudo apt-get update && apt-get upgrade && apt-get autoremove', 
     12: 'sudo apt-get dist-upgrade',
     13: 'sudo apt-get install build-essential',
+    15: 'sudo apt-get install ufw && ufw allow ssh && ufw allow 80 && sudo ufw enable',
     30: 'sudo apt-get install sqlite',
     31: 'sudo apt-get install nginx',
     999: ''
@@ -39,6 +41,7 @@ samuraicmd = {
     11: 'sudo apt-get update && apt-get upgrade && apt-get autoremove', 
     12: 'sudo apt-get dist-upgrade',
     13: 'sudo apt-get install build-essential',
+    15: 'sudo apt-get install ufw && ufw allow ssh && ufw allow 80 && sudo ufw enable',
     19: 'passwd',
     30: 'sudo apt-get install sqlite',
     31: 'sudo apt-get install nginx',
@@ -47,10 +50,11 @@ samuraicmd = {
 
 samuraidesc = { 
     0:  'Exit System',
-    1:  'Clear this screen',
+    1:  'Clear this screen and show menu',
     11: 'Update ubuntu and cleanup', 
     12: 'Update ubuntu distribution',
     13: 'Install build-essential',
+    15: 'Install and arm ufw (allow ssh 22/80)',
     19: 'Change password for current user',
     30: 'Install SQlite',
     31: 'Install Nginx',
@@ -60,12 +64,6 @@ samuraidesc = {
 samurairespond  = { 
     0:  'See you later Sensei ... Goodbye',
     1:  'Screen Cleared',
-    11: 'Command is done',
-    12: 'Command is done',
-    13: 'Command is done',
-    19: 'Command is done',
-    30: 'Command is done',
-    31: 'Command is done',
     999: 'Hai! Joke this! I am serious.'
 }
 
@@ -76,7 +74,7 @@ def loadoptions():
     print("Detected System: {0} ({1})".format(platform.system(),platform.release()))
     print("==================================")
 
-    for key, value in samuraidesc.items():
+    for key, value in sorted(samuraidesc.items()):
         print("[", key, "] -", value)
 
 def runcommand(cmdstring):
@@ -109,7 +107,7 @@ loadoptions()
 while gloop == True:
     #print(chr(27) + "[2J")
     gchoice = 9999
-    gchoiceraw = input('[Samurai] What is your command? (press enter to confirm)(1 to show options): ')
+    gchoiceraw = input('================================== \n[Samurai] What is your command? \n{enter to confirm | 1 to clear and show menu}: ')
 
     if gchoiceraw.isdigit():
         gchoice = int(gchoiceraw)
@@ -118,6 +116,8 @@ while gloop == True:
             runcommand(samuraicmd[gchoice]) 
             if gchoice in samurairespond:
                 print("[Samurai]", samurairespond[gchoice])
+            else:
+                print("[Samurai]", "Command is done")
         else:
             print("[Samurai] Hmm ... your command does not exist, please other number")
     else:
