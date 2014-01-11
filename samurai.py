@@ -30,6 +30,7 @@ samuraicmd = {
     11: 'sudo apt-get update && apt-get upgrade && apt-get autoremove', 
     12: 'sudo apt-get dist-upgrade',
     13: 'sudo apt-get install build-essential',
+    19: 'passwd',
     30: 'sudo apt-get install sqlite',
     31: 'sudo apt-get install nginx',
     999: ''
@@ -41,6 +42,7 @@ samuraidesc = {
     11: 'Update ubuntu and cleanup', 
     12: 'Update ubuntu distribution',
     13: 'Install build-essential',
+    19: 'Change password for current user',
     30: 'Install SQlite',
     31: 'Install Nginx',
     999: 'Tell me a joke.. Samurai'
@@ -52,8 +54,9 @@ samurairespond  = {
     11: 'Command is done',
     12: 'Command is done',
     13: 'Command is done',
+    19: 'Command is done',
     30: 'Command is done',
-    999: 'Joke this! I am serious.'
+    999: 'Hai! Joke this! I am serious.'
 }
 
 
@@ -96,7 +99,7 @@ loadoptions()
 while gloop == True:
     #print(chr(27) + "[2J")
     gchoice = 9999
-    gchoiceraw = input('[Samurai] What is your command? [press enter to confirm]: ')
+    gchoiceraw = input('[Samurai] What is your command? (press enter to confirm): ')
 
     if gchoiceraw.isdigit():
         gchoice = int(gchoiceraw)
