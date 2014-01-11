@@ -72,7 +72,7 @@ def runcommand(cmdstring):
         #print("Command success.")
 
 # ===============================
-# Finding some commmands
+# Finding some commmand
 # ===============================
 
 for arg in sys.argv:
