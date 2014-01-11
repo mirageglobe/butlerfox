@@ -32,7 +32,8 @@ ninjacmd = {
     15: 'sudo apt-get install ufw && ufw allow ssh && ufw allow 80 && sudo ufw enable',
     30: 'sudo apt-get install sqlite',
     31: 'sudo apt-get install nginx',
-    32: 'sudo apt-get install nodejs',
+    32: 'sudo apt-get install -y python-software-properties python g++ make && add-apt-repository ppa:chris-lea/node.js && apt-get update && apt-get install nodejs',
+    33: 'sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10 && echo "deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen" >> /etc/apt/sources.list.d/mongodb.list && apt-get update && apt-get install mongodb-10gen',
     50: 'sudo apt-get install php5-fpm php5-mysql',
     999: ''
 }
@@ -47,7 +48,7 @@ samuraicmd = {
     19: 'passwd',
     30: 'sudo apt-get install sqlite',
     31: 'sudo apt-get install nginx',
-    32: 'sudo apt-get install nodejs',
+    32: 'sudo apt-get install -y python-software-properties python g++ make && add-apt-repository ppa:chris-lea/node.js && apt-get update && apt-get install nodejs',
     33: 'sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10 && echo "deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen" >> /etc/apt/sources.list.d/mongodb.list && apt-get update && apt-get install mongodb-10gen',
     50: 'sudo apt-get install php5-fpm php5-mysql',
     999: ''
