@@ -13,6 +13,15 @@ import os, platform, sys
 # http://www.python.org/dev/peps/pep-0008/#introduction
 # 4 spaces used as indentation
 
+# ===============================
+# Checks for python 3
+# ===============================
+if sys.version_info < (3, 0):
+    sys.stdout.write("=======================\nSamurai v0.2\n=======================\n")
+    sys.stdout.write("Sorry, Samurai requires Python 3.x, not Python 2.x\nYou can install by running sudo apt-get install python3\n")
+    sys.exit(1)
+
+
 ninjacmd = { 
     0:  '',
     1:  'clear',
@@ -56,6 +65,7 @@ samurairespond  = {
     13: 'Command is done',
     19: 'Command is done',
     30: 'Command is done',
+    31: 'Command is done',
     999: 'Hai! Joke this! I am serious.'
 }
 
@@ -99,16 +109,17 @@ loadoptions()
 while gloop == True:
     #print(chr(27) + "[2J")
     gchoice = 9999
-    gchoiceraw = input('[Samurai] What is your command? (press enter to confirm): ')
+    gchoiceraw = input('[Samurai] What is your command? (press enter to confirm)(1 to show options): ')
 
     if gchoiceraw.isdigit():
         gchoice = int(gchoiceraw)
 
         if gchoice in samuraicmd:
             runcommand(samuraicmd[gchoice]) 
-            print("[Samurai]", samurairespond[gchoice])
+            if gchoice in samurairespond:
+                print("[Samurai]", samurairespond[gchoice])
         else:
-            print("[Samurai] Hmm ... your command does not exist, please enter number")
+            print("[Samurai] Hmm ... your command does not exist, please other number")
     else:
         print("[Samurai] Hmm ... I am confused, please enter a number")
 
