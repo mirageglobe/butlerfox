@@ -35,6 +35,7 @@ ninjacmd = {
     32: 'sudo apt-get install -y python-software-properties python g++ make && add-apt-repository ppa:chris-lea/node.js && apt-get update && apt-get install nodejs',
     33: 'sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10 && echo "deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen" >> /etc/apt/sources.list.d/mongodb.list && apt-get update && apt-get install mongodb-10gen',
     50: 'sudo apt-get install php5-fpm php5-mysql',
+    71: 'npm install forever -g',
     999: ''
 }
 
@@ -47,10 +48,11 @@ samuraicmd = {
     15: 'sudo apt-get install ufw && ufw allow ssh && ufw allow 80 && sudo ufw enable',
     19: 'passwd',
     30: 'sudo apt-get install sqlite',
-    31: 'sudo apt-get install nginx',
+    31: 'sudo apt-get remove nginx && apt-get autoremove && -s && nginx=stable && add-apt-repository ppa:nginx/$nginx && apt-get install nginx',
     32: 'sudo apt-get install -y python-software-properties python g++ make && add-apt-repository ppa:chris-lea/node.js && apt-get update && apt-get install nodejs',
     33: 'sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10 && echo "deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen" >> /etc/apt/sources.list.d/mongodb.list && apt-get update && apt-get install mongodb-10gen',
     50: 'sudo apt-get install php5-fpm php5-mysql',
+    71: 'npm install forever -g',
     999: ''
 }
 
@@ -64,17 +66,19 @@ samuraidesc = {
     19: 'Change password for current user',
     30: 'Install sqlite',
     31: 'Install nginx',
-    32: 'Install nodejs',
+    32: 'Install nodejs and npm',
     33: 'Install mongodb',
     50: 'Install php5 (fpm version) and php5 mysql',
+    71: 'Install forever (via npm)',
     999: 'Tell me a joke.. Samurai'
 }
 
 samurairespond  = { 
     0:  'See you later Sensei ... Goodbye',
     1:  'Screen Cleared',
-    31: 'To start, service nginx start; To check config, nginx -t',
-    33: 'To start, service mongodb start',
+    31: 'To start, <service nginx start>; To check config, <nginx -t>',
+    33: 'To start, <service mongodb start>',
+    71: 'To start, go to folder and run <forever start --spinSleepTime 10000 main.js>',
     999: 'Hai! Joke this! I am serious.'
 }
 
@@ -82,8 +86,11 @@ samurairespond  = {
 def loadoptions():
     print("==================================") 
     print("Samurai is ready...")
+    if ninja_active:
+        print("Ninja mode is armed... All commands are executed sliently (beta)")
     print("Detected System: {0} ({1})".format(platform.system(),platform.release()))
     print("==================================")
+
 
     for key, value in sorted(samuraidesc.items()):
         print("[", key, "] -", value)
@@ -94,11 +101,17 @@ def runcommand(cmdstring):
         #print("Command success.")
 
 # ===============================
-# Finding some commmand
+# Checking arguments
 # ===============================
 
+ninja_active = False
+
 for arg in sys.argv:
-    print(arg)
+    #print(arg)
+    if arg == "-ninja":
+        ninja_active = True
+        #print("Ninja activated")
+
 # Adding ninja mode soon.
 # In ninja mode, the commands are not executed; until the end. if you run ninja, it will create a scroll.sh with bash commands which can be used with vagrant
 #export DEBIAN_FRONTEND=noninteractive
