@@ -19,7 +19,7 @@ from collections import OrderedDict
 # ===============================
 if sys.version_info < (3, 0):
     sys.stdout.write("=======================\nSamurai v0.2\n=======================\n")
-    sys.stdout.write("Sorry, Samurai requires Python 3.x, not Python 2.x\nYou can install by running sudo apt-get install python3\n")
+    sys.stdout.write("Sorry, Samurai requires Python 3.x, not Python 2.x\nYou can install by running sudo apt-get install python3 or run by python3 samurai.py\n")
     sys.exit(1)
 
 
