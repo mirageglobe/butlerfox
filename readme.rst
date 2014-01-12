@@ -4,16 +4,19 @@ Samurai
 Samurai (Kanji 武士 meaning Warrior To serve) provides a simple interface to control server for administrators.
 Samurai also runs in ninja (kanji 忍者 To shoulder responsibility) mode which is silent execution of commands.
 
-This application installs and setups the basic applications / packages for a ubuntu-based system. 
+Samurai installs and setups the basic applications / packages for a ubuntu-based system. Ideally you should use it to deploy on a vanilla ubuntu machine. Recommended 12.04 (LTS). Samurai consists of a samurai.py file which is an interactive installer and a ninja.sh which is a full install script. Samurai reports on every action take and confirms; whereas ninja is samurai's non-interactive mode and just executes all the commands in one silent go.
+
+Motivation: This application primarily acts as a self reminder, drastically reduces learning curve and makes things quicker. Feel free to add and improve this; by making it more efficient.
 
 
-Motivation: This application primarily acts as a self reminder and drastically reduces learning curve. Feel free to add and improve this; by making it more efficient.
+Some Quick Facts
+================================================
 
-I had to suppress all the prompts as you can see; making most silent as this is meant to work nicely (ish) with Vagrant.
-
-You can use it to deploy on a vanilla ubuntu machine. 
-
-Samurai consists of a samurai.py file which is an interactive installer and a ninja.sh which is a full install script. Samurai reports on every action take and confirms; whereas ninja just executes all the commands in one silent go.
+- Samurai aims to be a fire and forget system orchestrating tool. It then summarises and reports the status of each.
+- Samurai is pure simplistic python with no dependancies.
+- Samurai command is interactive
+- Ninja command is invisible non interactive
+- 4 spaces used as indentation
 
 To Install
 ================================================
@@ -26,6 +29,7 @@ To Run
 
 > sudo python3 samurai.py
 
+Volia! thats it, let Samurai be your faithful assistant.
 
 License
 ================================================
@@ -47,25 +51,36 @@ See the License for the specific language governing permissions and
 limitations under the License.
 
 
-Aim
+Aims
 ================================================
 
-- Enable cloud like python app hosting
-- Easy deployment of web servers
-- To create a simple bash script that installs a basic ruby, php, mysql, mongodb server. Try to be compatible with vagrant in the future.
+- Low learning curve by simple interface with little need for memorising of commands
+- Simple easy to understand architecture with standard deployment hardened by security checks
+- Enable nodejs / meteorjs / ruby / python / php script application hosting
+- Support 4 types of common dbs json / sqlite / mongodb and mariadb(which is the new open version of mysql)
+- Enable a simple bash script generation
+- Compatible with vagrant
+- Support auto scaling in mind (with DB and App all in a place)
 
 ToDo
 ================================================
 
-Ninja - Need to add ufw enable -> problem as ufw prompts for y/n confirmation
-Ninja - Need remote ninja....automation. 
-Samurai - Need to activate ninja mode so all commands output as codenumber and bash scripts? 
-Samurai - Need remote samurai....automation. 
+Ninja 
+
+- Need to add ufw enable -> problem as ufw prompts for y/n confirmation
+- Need remote ninja....automation. 
+
+Samurai 
+
+- add chrootkit
+- Need to activate ninja mode so all commands output as codenumber and bash scripts? 
+- Need remote samurai execution....automation. 
+- suppress all the prompts as you can see; making most silent as this is meant to work nicely (ish) with Vagrant.
 
 Done 
 ================================================
 
-Need to make some bash optional. not all server setups require ruby?
+- Need to make some bash optional. not all server setups require ruby?
 
 Packages
 ================================================
@@ -84,6 +99,7 @@ Packages
 References
 ================================================
 
+- http://www.python.org/dev/peps/pep-0008/#introduction
 - Python Pipy
 - Fabric
 - JSON

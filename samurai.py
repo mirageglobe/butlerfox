@@ -1,24 +1,19 @@
-﻿# Copyright (C) by Jimmy Mian-Guan Lim (www.mirageglobe.com)
-# MIT License
-# company - http://www.dracoturtur.com
+﻿#!/usr/bin/env python3
+
+# Copyright (C) by Jimmy Mian-Guan Lim (www.mirageglobe.com)
+# Apache 2.0 License
+# author company - http://www.dracoturtur.com
 # author website - http://www.mirageglobe.com
-# project - http://www.dracoturtur.com/samurai
 
 import os, platform, sys
 from collections import OrderedDict
 
-# Samurai aims to be a fire and forget system orchestrating tool. It then summarises and reports the status of each.
-# Samurai is pure simplistic python with no dependancies.
-# Samurai command is interactive
-# Ninja command is invisible non interactive
-# http://www.python.org/dev/peps/pep-0008/#introduction
-# 4 spaces used as indentation
-
 # ===============================
 # Checks for python 3
 # ===============================
+
 if sys.version_info < (3, 0):
-    sys.stdout.write("=======================\nSamurai v0.2\n=======================\n")
+    sys.stdout.write("=======================\nSamurai\n=======================\n")
     sys.stdout.write("Sorry, Samurai requires Python 3.x, not Python 2.x\nYou can install by running sudo apt-get install python3 or run by python3 samurai.py\n")
     sys.exit(1)
 
@@ -113,10 +108,10 @@ for arg in sys.argv:
         ninja_active = True
         #print("Ninja activated")
 
-# Adding ninja mode soon.
+# Adding ninja mode here
 # In ninja mode, the commands are not executed; until the end. if you run ninja, it will create a scroll.sh with bash commands which can be used with vagrant
-#export DEBIAN_FRONTEND=noninteractive
-#apt-get -y install package1 package2
+# export DEBIAN_FRONTEND=noninteractive
+# apt-get -y install package1 package2
 
 # ===============================
 # Default load of system
