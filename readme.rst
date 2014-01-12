@@ -2,7 +2,10 @@
 Samurai
 ================================================
 
-Samurai (To serve) provides a simple interface to control server for administrators. 
+Samurai (Kanji 武士 meaning Warrior To serve) provides a simple interface to control server for administrators.
+Samurai also runs in ninja (kanji 忍者 To shoulder responsibility) mode which is silent execution of commands.
+
+
 
 This script is a general bash script that installs and setups the basic applications and packages for a ubuntu based system. This primarily acts as a self reminder but feel free to add and improve this; by making it more efficient.
 
