@@ -89,6 +89,7 @@ def loadoptions():
     if ninja_active:
         print("Ninja mode is armed... All commands are executed sliently (beta)")
     print("Detected System: {0} ({1})".format(platform.system(),platform.release()))
+    print("Requires: Ubuntu 12.04 above")
     print("==================================")
 
 
