@@ -8,6 +8,13 @@ Samurai installs and setups the basic applications / packages for a ubuntu-based
 
 Motivation: This application primarily acts as a self reminder, drastically reduces learning curve and makes things quicker. Feel free to add and improve this; by making it more efficient.
 
+Information
+=============================
+
+- Author: Jimmy MG Lim
+- Email: mirageglobe@gmail.com
+- Website: www.mirageglobe.com
+- Company: www.dracoturtur.com
 
 Some Quick Facts
 ================================================

@@ -1,4 +1,6 @@
-﻿#!/usr/bin/env python3
+﻿#!/bin/sh
+#exec python3 -x "$0" "$@"
+#!python3
 
 # Copyright (C) by Jimmy Mian-Guan Lim (www.mirageglobe.com)
 # Apache 2.0 License
@@ -6,7 +8,6 @@
 # author website - http://www.mirageglobe.com
 
 import os, platform, sys
-from collections import OrderedDict
 
 # ===============================
 # Checks for python 3
