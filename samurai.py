@@ -1,11 +1,11 @@
-﻿#!/bin/sh
+#!/bin/sh
 #exec python3 -x "$0" "$@"
 #!python3
 
 # Copyright (C) by Jimmy Mian-Guan Lim (www.mirageglobe.com)
 # Apache 2.0 License
-# author company - http://www.dracoturtur.com
 # author website - http://www.mirageglobe.com
+# author company - http://www.dracoturtur.com
 
 import os, platform, sys
 

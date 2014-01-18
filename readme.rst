@@ -9,12 +9,11 @@ Samurai installs and setups the basic applications / packages for a ubuntu-based
 Motivation: This application primarily acts as a self reminder, drastically reduces learning curve and makes things quicker. Feel free to add and improve this; by making it more efficient.
 
 Information
-=============================
+================================================
 
-- Author: Jimmy MG Lim
-- Email: mirageglobe@gmail.com
-- Website: www.mirageglobe.com
-- Company: www.dracoturtur.com
+- Author: Jimmy MG Lim (mirageglobe@gmail.com)
+- Author Website: www.mirageglobe.com
+- Author Company: www.dracoturtur.com
 
 Some Quick Facts
 ================================================
@@ -56,6 +55,13 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
+
+Summary of License: http://www.tldrlegal.com/license/apache-license-2.0-(apache-2.0)
+
+Dependancies and Requirements
+================================================
+
+- Ubuntu 12.04 LTS (32 and 64)
 
 
 Aims
