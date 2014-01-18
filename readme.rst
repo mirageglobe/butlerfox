@@ -4,7 +4,7 @@ Samurai
 Samurai (Kanji 武士 meaning Warrior To serve) provides a simple interface to control server for administrators.
 Samurai also runs in ninja (kanji 忍者 To shoulder responsibility) mode which is silent execution of commands.
 
-Samurai installs and setups the basic applications / packages for a ubuntu-based system. Ideally you should use it to deploy on a vanilla ubuntu machine. Recommended 12.04 (LTS). Samurai consists of a samurai.py file which is an interactive installer and a ninja.sh which is a full install script. Samurai reports on every action take and confirms; whereas ninja is samurai's non-interactive mode and just executes all the commands in one silent go.
+Samurai installs and setups the basic applications / packages for a ubuntu-based system. Ideally you should use it to deploy on a vanilla ubuntu machine. Recommended 12.04 LTS 64bit. Samurai consists of a samurai.py file which is an interactive installer and a ninja.sh which is a full install script. Samurai reports on every action take and confirms; whereas ninja is samurai's non-interactive mode and just executes all the commands in one silent go.
 
 Motivation: This application primarily acts as a self reminder, drastically reduces learning curve and makes things quicker. Feel free to add and improve this; by making it more efficient.
 
@@ -73,7 +73,7 @@ Aims
 - Support 4 types of common dbs json / sqlite / mongodb and mariadb(which is the new open version of mysql)
 - Enable a simple bash script generation
 - Compatible with vagrant
-- Support auto scaling in mind (with DB and App all in a place)
+- Support auto scaling in mind (with DB and App all in a place)? 
 
 ToDo
 ================================================
@@ -89,6 +89,10 @@ Samurai
 - Need to activate ninja mode so all commands output as codenumber and bash scripts? 
 - Need remote samurai execution....automation. 
 - suppress all the prompts as you can see; making most silent as this is meant to work nicely (ish) with Vagrant.
+- check packages option to see a summary of what is installed.
+- test suite needed (minitest)
+- add log of chosen options to scroll.log
+- consider using https://bitbucket.org/mirageglobe/samurai/get/master.tar.gz as curl location and untar
 
 Done 
 ================================================
@@ -119,3 +123,4 @@ References
 - Ansible
 - Saltstack
 - http://stackoverflow.com/questions/17606340/how-to-deploy-a-meteor-application-to-my-own-server
+- http://stackoverflow.com/questions/17537390/how-to-install-a-package-using-the-python-apt-api

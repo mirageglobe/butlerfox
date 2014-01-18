@@ -2,10 +2,11 @@
 #exec python3 -x "$0" "$@"
 #!python3
 
+# License - Apache 2.0 License
 # Copyright (C) by Jimmy Mian-Guan Lim (www.mirageglobe.com)
-# Apache 2.0 License
-# author website - http://www.mirageglobe.com
-# author company - http://www.dracoturtur.com
+# Author website - http://www.mirageglobe.com
+# Author company - http://www.dracoturtur.com
+# Application page - https://bitbucket.org/mirageglobe/samurai
 
 import os, platform, sys
 
