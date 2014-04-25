@@ -12,5 +12,4 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 
-Full Licence Reference: http://www.apache.org/licenses/LICENSE-2.0
 License Breakdown: https://tldrlegal.com/license/apache-license-2.0-(apache-2.0)
