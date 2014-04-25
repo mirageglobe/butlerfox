@@ -6,7 +6,7 @@ Samurai
 
 Samurai (kanji 武士 meaning Warrior To serve) provides a simple interface to control server for administrators. Samurai also runs in ninja (kanji 忍者 To shoulder responsibility) mode which is silent execution of commands.
 
-Samurai installs and setups the basic applications / packages for a ubuntu-based system. Ideally you should use it to deploy on a vanilla ubuntu machine (Recommended 12.04 LTS 64bit). Samurai consists of a samurai.py file which is an interactive installer and a ninja.sh which is a full install script. Samurai reports on every action take and confirms; whereas ninja is samurai's non-interactive mode and just executes all the commands in one silent go.
+Samurai installs and setups the basic applications / packages for a ubuntu-based system. Ideally you should use it to deploy on a vanilla ubuntu machine (Recommended 12.04 LTS 64bit). Samurai consists of a minisamurai.py and samurai.py file which are both interactive installers. Samurai reports on every action take and confirms; whereas ninja is samurai's non-interactive mode and just executes all the commands in one silent go.
 
 In summary, this application primarily acts as a low memory toolkit, drastically reduces learning curve and makes things quicker. Feel free to add and improve this; by making it more efficient.
 
@@ -14,6 +14,7 @@ In summary, this application primarily acts as a low memory toolkit, drastically
 - Samurai is pure simplistic python with no dependancies.
 - Samurai command is interactive
 - Ninja command is non interactive
+- MiniSamurai is samurais mini version
 
 
 Operation
@@ -21,12 +22,12 @@ Operation
 
 To Install, fire up terminal
 
-	sudo apt-get install python3 && curl https://raw.github.com/mirageglobe/samurai/master/samurai.py -O
+	sudo apt-get install python3 && curl https://raw.github.com/mirageglobe/samurai/master/minisamurai.py -O
 
 
 To Run,
 
-	sudo python3 samurai.py
+	sudo python3 minisamurai.py
 
 
 System
@@ -64,6 +65,13 @@ Goals
 - Enable a simple bash script generation
 - Compatible with vagrant
 - Support auto scaling in mind (with DB and App all in a place)? 
+
+Change Log
+------------------------------------------------
+v0.1
+- Cleaned up old samurai code
+- Spawned new samuraiv2 as samurai.py
+- Created minisamurai which is the current minified version of samurai2 
 
 
 ToDo
