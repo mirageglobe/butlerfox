@@ -2,11 +2,6 @@
 #exec python3 -x "$0" "$@"
 #!python3
 
-# License - Apache 2.0 License
-# Copyright (C) by Jimmy Mian-Guan Lim (@mirageglobe)
-# Author website - http://www.mirageglobe.com
-# Author company - http://www.dracoturtur.com
-
 import os, platform, sys
 
 # ===============================
@@ -65,7 +60,7 @@ samuraidesc = {
     32: 'Install nodejs and npm',
     33: 'Install mongodb',
     50: 'Install php5 (fpm version) and php5 mysql',
-    71: 'Install forever (via npm)',
+    71: 'Install forever (requires npm)',
     999: 'Tell me a joke.. Samurai'
 }
 
@@ -77,6 +72,15 @@ samurairespond  = {
     71: 'To start, go to folder and run <forever start --spinSleepTime 10000 main.js>',
     999: 'Hai! Joke this! I am serious.'
 }
+
+samuraimap = {}
+
+samuraimap[0] = {   'name': 'Clear Screen',
+                    'cmd': 'clear',
+                    'cmdslient': 'clear',
+                    'responsesuccess': 'Success!',
+                    'responsefail': 'Oh no.'
+                    }
 
 
 def loadoptions():
@@ -94,8 +98,7 @@ def loadoptions():
 
 def runcommand(cmdstring):
     return_value = os.system(cmdstring)
-    #if return_value == 0:
-        #print("Command success.")
+
 
 # ===============================
 # Checking arguments

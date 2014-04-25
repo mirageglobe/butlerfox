@@ -4,18 +4,17 @@ Samurai
 - Author: Jimmy MG Lim (mirageglobe@gmail.com) @mirageglobe
 - Website: www.mirageglobe.com (blog) www.dracoturtur.com (company)
 
-Samurai (Kanji 武士 meaning Warrior To serve) provides a simple interface to control server for administrators.
-Samurai also runs in ninja (kanji 忍者 To shoulder responsibility) mode which is silent execution of commands.
+Samurai (kanji 武士 meaning Warrior To serve) provides a simple interface to control server for administrators. Samurai also runs in ninja (kanji 忍者 To shoulder responsibility) mode which is silent execution of commands.
 
-Samurai installs and setups the basic applications / packages for a ubuntu-based system. Ideally you should use it to deploy on a vanilla ubuntu machine. Recommended 12.04 LTS 64bit. Samurai consists of a samurai.py file which is an interactive installer and a ninja.sh which is a full install script. Samurai reports on every action take and confirms; whereas ninja is samurai's non-interactive mode and just executes all the commands in one silent go.
+Samurai installs and setups the basic applications / packages for a ubuntu-based system. Ideally you should use it to deploy on a vanilla ubuntu machine (Recommended 12.04 LTS 64bit). Samurai consists of a samurai.py file which is an interactive installer and a ninja.sh which is a full install script. Samurai reports on every action take and confirms; whereas ninja is samurai's non-interactive mode and just executes all the commands in one silent go.
 
 In summary, this application primarily acts as a low memory toolkit, drastically reduces learning curve and makes things quicker. Feel free to add and improve this; by making it more efficient.
 
 - Samurai aims to be a fire and forget system orchestrating tool. It then summarises and reports the status of each.
 - Samurai is pure simplistic python with no dependancies.
 - Samurai command is interactive
-- Ninja command is invisible non interactive
-- 4 spaces used as indentation
+- Ninja command is non interactive
+
 
 Operation
 ================================================
