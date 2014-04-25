@@ -3,10 +3,9 @@
 #!python3
 
 # License - Apache 2.0 License
-# Copyright (C) by Jimmy Mian-Guan Lim (www.mirageglobe.com)
+# Copyright (C) by Jimmy Mian-Guan Lim (@mirageglobe)
 # Author website - http://www.mirageglobe.com
 # Author company - http://www.dracoturtur.com
-# Application page - https://bitbucket.org/mirageglobe/samurai
 
 import os, platform, sys
 
