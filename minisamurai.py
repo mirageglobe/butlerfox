@@ -1,6 +1,4 @@
-#!/bin/sh
-#exec python3 -x "$0" "$@"
-#!python3
+#!/usr/bin/env python3
 
 import os, platform, sys
 
