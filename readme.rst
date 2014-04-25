@@ -1,9 +1,8 @@
 Samurai
 ================================================
 
-- Author: Jimmy MG Lim (mirageglobe@gmail.com)
-- Author Website: www.mirageglobe.com
-- Author Company: www.dracoturtur.com
+- Author: Jimmy MG Lim (mirageglobe@gmail.com) @mirageglobe
+- Website: www.mirageglobe.com (blog) www.dracoturtur.com (company)
 
 Samurai (Kanji 武士 meaning Warrior To serve) provides a simple interface to control server for administrators.
 Samurai also runs in ninja (kanji 忍者 To shoulder responsibility) mode which is silent execution of commands.
@@ -18,28 +17,33 @@ In summary, this application primarily acts as a low memory toolkit, drastically
 - Ninja command is invisible non interactive
 - 4 spaces used as indentation
 
+Operation
+================================================
 
 To Install
-================================================
+------------------------------------------------
 - Fire up terminal
 
 > sudo apt-get install python3 && curl https://raw.github.com/mirageglobe/samurai/master/samurai.py -O
 
 
 To Run
-================================================
+------------------------------------------------
 
 > sudo python3 samurai.py
 
 
-Dependancies and Requirements
+System
 ================================================
+
+Dependancies and Requirements
+------------------------------------------------
 
 - Ubuntu 12.04 LTS, 14.04 LTS, Python 3
 
 
 Functionality
-================================================
+------------------------------------------------
 Samurai currently supports the installation of the following packages
 
 - System (System Updates, Build-Essential, Debconf-Util)
@@ -49,8 +53,11 @@ Samurai currently supports the installation of the following packages
 - DB (MySQL, MongoDB
 
 
-Goals
+Project Development
 ================================================
+
+Goals
+------------------------------------------------
 
 - Low learning curve by simple interface with little need for memorising of commands
 - Simple to understand architecture with standard deployment
@@ -64,7 +71,7 @@ Goals
 
 
 ToDo
-================================================
+------------------------------------------------
 
 Ninja 
 
