@@ -56,15 +56,21 @@ Project Development
 Goals
 ------------------------------------------------
 
-- Low learning curve by simple interface with little need for memorising of commands
+Key Goal
+
+- To create a simple automation tool that has extremely low learning curve
+
+Objectives
+
+- Low learning curve by simple interface with little need for memorising of commands, or learning new ones
 - Simple to understand architecture with standard deployment
-- Enable silent installations of frameworks (nodejs / meteorjs / ruby / python / php script)
+- Enable silent installations of popular frameworks (nodejs / meteorjs / ruby / python / php script)
 - Enable slient installations of common dbs (json / sqlite / mongodb and mariadb)
 - Enable best practice security lockdowns 
-
 - Enable a simple bash script generation
 - Compatible with vagrant
-- Support auto scaling in mind (with DB and App all in a place)? 
+- Support auto scaling in mind (with DB and App all in a place)
+
 
 Change Log
 ------------------------------------------------
@@ -77,7 +83,7 @@ v0.1
 ToDo
 ------------------------------------------------
 
-Ninja 
+Ninja Mode
 
 - Need to add ufw enable -> problem as ufw prompts for y/n confirmation
 - Need remote ninja....automation. 
