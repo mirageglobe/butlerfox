@@ -47,7 +47,7 @@ Samurai currently supports the installation of the following packages
 - Security (UFW)
 - Languages (Ruby 2.x, Php)
 - Web Servers (Nginx)
-- DB (MySQL, MongoDB
+- DB (MySQL, MongoDB)
 
 
 Project Development
