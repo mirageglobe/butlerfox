@@ -11,10 +11,9 @@ import os, platform, sys
 # ===============================
 
 if sys.version_info < (3, 0):
-    sys.stdout.write("=======================\nSamurai\n=======================\n")
-    sys.stdout.write("Sorry, Samurai requires Python 3.x, not Python 2.x\nYou can install by running sudo apt-get install python3 or run by python3 samurai.py\n")
-    sys.exit(1)
-
+	sys.stdout.write("=======================\nSamurai\n=======================\n")
+	sys.stdout.write("Sorry, Samurai requires Python 3.x, not Python 2.x\nYou can install by running sudo apt-get install python3 or run by python3 samurai.py\n")
+	sys.exit(1)
     
 samuraimap = {}
 
@@ -130,7 +129,7 @@ samuraimap[60] = {  'name': 'Install php5 (fpm version) and php5 mysql',
 # 70s Apps
 # ===============================
 
-samuraimap[70] = {  'name': 'Install forever (requires npm)',
+samuraimap[70] = {	'name': 'Install forever (requires npm)',
                     'cmd': 'npm install forever -g',
                     'cmdslient': '',
                     'responsesuccess': 'To start, go to folder and run <forever start --spinSleepTime 10000 main.js>',
@@ -142,20 +141,19 @@ samuraimap[70] = {  'name': 'Install forever (requires npm)',
 # ===============================
 
 def loadoptions():
-    print("==================================") 
-    print("Samurai is ready...")
-    if ninja_active:
-      print("Ninja mode is armed... All commands are executed sliently (beta)")
-    print("Detected System: {0} ({1})".format(platform.system(),platform.release()))
-    print("Requires: Ubuntu 12.04 above")
-    print("==================================")
+	print("==================================") 
+	print("Samurai is ready...")
+  if ninja_active:
+		print("Ninja mode is armed... All commands are executed sliently (beta)")
+	print("Detected System: {0} ({1})".format(platform.system(),platform.release()))
+	print("Requires: Ubuntu 12.04 above")
+  print("==================================")
 
-
-    for key, value in sorted(samuraimap.items()):
-      print("[", key, "] -", value['name'])
+	for key, value in sorted(samuraimap.items()):
+  	print("[", key, "] -", value['name'])
 
 def runcommand(cmdstring):
-    return_value = os.system(cmdstring)
+  return_value = os.system(cmdstring)
 
 
 # ===============================
@@ -165,10 +163,9 @@ def runcommand(cmdstring):
 ninja_active = False
 
 for arg in sys.argv:
-    #print(arg)
-    if arg == "-ninja":
-        ninja_active = True
-        #print("Ninja activated")
+	#print(arg)
+  if arg == "-ninja":
+  	ninja_active = True
 
 # Adding ninja mode here
 # In ninja mode, the commands are not executed; until the end. if you run ninja, it will create a scroll.sh with bash commands which can be used with vagrant
