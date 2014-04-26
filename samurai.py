@@ -6,15 +6,7 @@
 
 import os, platform, sys
 
-# ===============================
-# Checks for python 3
-# ===============================
 
-if sys.version_info < (3, 0):
-	sys.stdout.write("=======================\nSamurai\n=======================\n")
-	sys.stdout.write("Sorry, Samurai requires Python 3.x, not Python 2.x\nYou can install by running sudo apt-get install python3 or run by python3 samurai.py\n")
-	sys.exit(1)
-    
 samuraimap = {}
 
 # ===============================
@@ -141,71 +133,86 @@ samuraimap[70] = {	'name': 'Install forever (requires npm)',
 # ===============================
 
 def loadoptions():
-	print("==================================") 
-	print("Samurai is ready...")
+  print("==================================") 
+  print("Samurai is ready...")
+  print("Detected System: {0} ({1})".format(platform.system(),platform.release()))
+  print("Requires: Ubuntu 12.04 above")
   if ninja_active:
-		print("Ninja mode is armed... All commands are executed sliently (beta)")
-	print("Detected System: {0} ({1})".format(platform.system(),platform.release()))
-	print("Requires: Ubuntu 12.04 above")
+    print("Ninja mode is armed... All commands are executed sliently (beta)")
   print("==================================")
 
-	for key, value in sorted(samuraimap.items()):
-  	print("[", key, "] -", value['name'])
+  for key, value in sorted(samuraimap.items()):
+    print("[", key, "] -", value['name'])
 
 def runcommand(cmdstring):
   return_value = os.system(cmdstring)
 
 
 # ===============================
-# Checking arguments
+# Main Code
 # ===============================
+  
+if __name__ == "__main__":
 
-ninja_active = False
+  # ===============================
+  # Checks for python 3
+  # ===============================
 
-for arg in sys.argv:
-	#print(arg)
-  if arg == "-ninja":
-  	ninja_active = True
+  if sys.version_info < (3, 0):
+    sys.stdout.write("[Samurai] Samurai requires Python 3.x, and you are running it as Python 2.x\n")
+    sys.stdout.write("[Samurai] You can install by running sudo apt-get install python3 or python3 samurai.py\n")
+    sys.exit(1)
+  
+  # ===============================
+  # Checking arguments
+  # ===============================
 
-# Adding ninja mode here
-# In ninja mode, the commands are not executed; until the end. if you run ninja, it will create a scroll.sh with bash commands which can be used with vagrant
-# export DEBIAN_FRONTEND=noninteractive
-# apt-get -y install package1 package2
+  ninja_active = False
 
-# ===============================
-# Default load of system
-# ===============================
+  for arg in sys.argv:
+    #print(arg)
+    if arg == "-ninja":
+      ninja_active = True
 
-avatar = "[samurai]"
-gloop = True
-loadoptions()
+  # Adding ninja mode here
+  # In ninja mode, the commands are not executed; until the end. if you run ninja, it will create a scroll.sh with bash commands which can be used with vagrant
+  # export DEBIAN_FRONTEND=noninteractive
+  # apt-get -y install package1 package2
 
-# ===============================
-# Entering loop of samurai
-# ===============================
+  # ===============================
+  # Default load of system
+  # ===============================
 
-while gloop:
-  gchoice = 9999
-  gchoiceraw = input("================================== \n{0} What is your command? : ".format(avatar))
+  avatar = "[samurai]"
+  gloop = True
+  loadoptions()
 
-  if gchoiceraw.isdigit():
-    gchoice = int(gchoiceraw)
+  # ===============================
+  # Entering loop of samurai
+  # ===============================
 
-    if gchoice in samuraimap:
-      runcommand(samuraimap[gchoice]['cmd']) 
+  while gloop:
+    gchoice = 9999
+    gchoiceraw = input("================================== \n{0} What is your command? : ".format(avatar))
+
+    if gchoiceraw.isdigit():
+      gchoice = int(gchoiceraw)
+
       if gchoice in samuraimap:
-        print("{0}".format(avatar), samuraimap[gchoice]['responsesuccess'])
+        runcommand(samuraimap[gchoice]['cmd']) 
+        if gchoice in samuraimap:
+          print("{0}".format(avatar), samuraimap[gchoice]['responsesuccess'])
+        else:
+          print("{0} Command is complete.".format(avatar))
       else:
-        print("{0} Command is complete.".format(avatar))
+        print("{0} Command is does not exist. Please enter number.".format(avatar))
     else:
-      print("{0} Command is does not exist. Please enter number.".format(avatar))
-  else:
-    print("{0} Hmm ... I am confused, please enter a number.".format(avatar))
+      print("{0} Hmm ... I am confused, please enter a number.".format(avatar))
 
-  if gchoice == 0:
-    gloop = False
-  elif gchoice == 1:
-    loadoptions()
-    #load the options again. does not work if placed in above array
-  elif gchoice not in samuraimap:
-    print("{0} Hmm ... I am confused, please enter a number.".format(avatar))
+    if gchoice == 0:
+      gloop = False
+    elif gchoice == 1:
+      loadoptions()
+      #load the options again. does not work if placed in above array
+    elif gchoice not in samuraimap:
+      print("{0} Hmm ... I am confused, please enter a number.".format(avatar))
