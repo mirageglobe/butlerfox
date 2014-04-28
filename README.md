@@ -83,20 +83,22 @@ v0.1
 ToDo
 ------------------------------------------------
 
-Ninja Mode
+Ninja
 
-- Need to add ufw enable -> problem as ufw prompts for y/n confirmation
-- Need remote ninja....automation. 
+- Ninja allows remote instructions running such as ninja scroll.sh <remote host>
+- maybe ninja should be a separate project?
 
 Samurai 
 
+- use scroll.sh for output bash script files
+- use default.json, custom.json for input rules. any scroll can be created in camp folder http://stackoverflow.com/questions/2835559/parsing-values-from-a-json-file-in-python
+- Need to add ufw enable -> problem as ufw prompts for y/n confirmation (silent mode problem)
 - add chrootkit
 - Need to activate ninja mode so all commands output as codenumber and bash scripts? 
 - Need remote samurai execution....automation. 
 - suppress all the prompts as you can see; making most silent as this is meant to work nicely (ish) with Vagrant.
 - check packages option to see a summary of what is installed.
 - test suite needed (minitest)
-- add log of chosen options to scroll.yml
 - consider using https://bitbucket.org/mirageglobe/samurai/get/master.tar.gz as curl location and untar
 
 
