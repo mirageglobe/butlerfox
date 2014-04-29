@@ -83,11 +83,6 @@ v0.1
 ToDo
 ------------------------------------------------
 
-Ninja
-
-- Ninja allows remote instructions running such as ninja scroll.sh <remote host>
-- maybe ninja should be a separate project?
-
 Samurai 
 
 - use scroll.sh for output bash script files
@@ -100,6 +95,11 @@ Samurai
 - check packages option to see a summary of what is installed.
 - test suite needed (minitest)
 - consider using https://bitbucket.org/mirageglobe/samurai/get/master.tar.gz as curl location and untar
+
+Ninja
+
+- Ninja allows remote instructions running such as ninja scroll.sh <remote host>
+- maybe ninja should be a separate project? (happy to discuss if anyone wishes to collaborate on this)
 
 
 References
