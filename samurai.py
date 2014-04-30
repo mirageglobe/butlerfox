@@ -1,9 +1,5 @@
 #!/usr/bin/env python3
 
-#!/bin/sh
-#exec python3 -x "$0" "$@"
-#!python3
-
 import os, platform, sys
 
 
