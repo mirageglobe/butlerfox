@@ -98,7 +98,7 @@ samuraimap[41] = {  'name': 'Install nginx',
 samuraimap[50] = {  'name': 'Install nodejs and npm',
                     'cmd': 'sudo apt-get install -y python-software-properties python g++ make && add-apt-repository ppa:chris-lea/node.js && apt-get update && apt-get install nodejs',
                     'cmdslient': '',
-                    'responsesuccess': 'To start, <service nginx start>; To check config, <nginx -t>',
+                    'responsesuccess': 'To install npm packages: <npm install>; To run node scripts: <node myscript.js>',
                     'responsefail': ''
                     }
 
