@@ -6,6 +6,8 @@ Samurai
 
 Samurai (武士 meaning Warrior Serve) provides a simple interface for server administrators. 
 
+![My image](https://raw.githubusercontent.com/mirageglobe/samurai/master/samuraiscreenshot.png)
+
 Samurai installs and setups the basic applications / packages for a ubuntu-based system (Recommended 14.04 LTS 64bit). In summary, this application drastically reduces learning curve and makes installations quicker.
 
 - Samurai aims to be a fire and forget system orchestrating tool
@@ -67,11 +69,6 @@ Objectives
 - Enable a simple bash script generation
 - Compatible with vagrant
 - Support auto scaling in mind (with DB and App all in a place)
-
-
-Screen Shot
-------------------------------------------------
-![My image](https://raw.githubusercontent.com/mirageglobe/samurai/master/samuraiscreenshot.png)
 
 
 Change Log
