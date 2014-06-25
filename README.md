@@ -4,17 +4,14 @@ Samurai
 - Author: Jimmy MG Lim (mirageglobe@gmail.com) @mirageglobe
 - Website: www.mirageglobe.com (blog) www.dracoturtur.com (company)
 
-Samurai (kanji 武士 meaning Warrior To serve) provides a simple interface to control server for administrators. Samurai also runs in ninja (kanji 忍者 To shoulder responsibility) mode which is silent execution of commands.
+Samurai (武士 meaning Warrior Serve) provides a simple interface for server administrators. 
 
-Samurai installs and setups the basic applications / packages for a ubuntu-based system. Ideally you should use it to deploy on a vanilla ubuntu machine (Recommended 12.04 LTS 64bit). Samurai consists of a minisamurai.py and samurai.py file which are both interactive installers. Samurai reports on every action take and confirms; whereas ninja is samurai's non-interactive mode and just executes all the commands in one silent go.
+Samurai installs and setups the basic applications / packages for a ubuntu-based system (Recommended 14.04 LTS 64bit). In summary, this application drastically reduces learning curve and makes installations quicker.
 
-In summary, this application primarily acts as a low memory toolkit, drastically reduces learning curve and makes things quicker. Feel free to add and improve this; by making it more efficient.
-
-- Samurai aims to be a fire and forget system orchestrating tool. It then summarises and reports the status of each.
-- Samurai is pure simplistic python with no dependancies.
+- Samurai aims to be a fire and forget system orchestrating tool
+- Samurai is pure simplistic python with no dependancies
 - Samurai command is interactive
 - Ninja command is non interactive
-- MiniSamurai is samurais mini version
 
 
 Operation
@@ -47,7 +44,7 @@ Samurai currently supports the installation of the following packages
 - Security (UFW)
 - Languages (Ruby 2.x, Php)
 - Web Servers (Nginx)
-- DB (MySQL, MongoDB)
+- DB (MySQL, MongoDB, MariaDB)
 
 
 Project Development
@@ -91,10 +88,9 @@ Samurai
 - add chrootkit
 - Need to activate ninja mode so all commands output as codenumber and bash scripts? 
 - Need remote samurai execution....automation. 
-- suppress all the prompts as you can see; making most silent as this is meant to work nicely (ish) with Vagrant.
+- [done] suppress all the prompts as you can see; making most silent as this is meant to work nicely (ish) with Vagrant.
 - check packages option to see a summary of what is installed.
 - test suite needed (minitest)
-- consider using https://bitbucket.org/mirageglobe/samurai/get/master.tar.gz as curl location and untar
 
 Ninja
 
