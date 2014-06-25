@@ -92,7 +92,7 @@ samuraimap[32] = {  'name': 'Install mariadb',
 # ===============================
 
 samuraimap[41] = {  'name': 'Install nginx',
-                    'cmd': 'sudo apt-get remove nginx && apt-get autoremove && -s && nginx=stable && add-apt-repository ppa:nginx/$nginx && apt-get install nginx',
+                    'cmd': 'sudo -s && nginx=stable && add-apt-repository ppa:nginx/$nginx && apt-get install nginx',
                     'cmdslient': '',
                     'responsesuccess': 'To start, <service nginx start>; To check config, <nginx -t>',
                     'responsefail': ''

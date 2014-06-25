@@ -22,12 +22,12 @@ Operation
 
 To Install, fire up terminal
 
-	sudo apt-get install python3 && curl https://raw.github.com/mirageglobe/samurai/master/samurai.py -O
+	sudo apt-get install python3 && curl https://raw.githubusercontent.com/mirageglobe/samurai/master/samurai.py >> samurai.py
 
 
 To Run,
 
-	sudo python3 minisamurai.py
+	sudo python3 samurai.py
 
 
 System
