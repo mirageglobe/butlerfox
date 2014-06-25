@@ -69,6 +69,11 @@ Objectives
 - Support auto scaling in mind (with DB and App all in a place)
 
 
+Screen Shot
+------------------------------------------------
+![My image](https://raw.githubusercontent.com/mirageglobe/samurai/master/samuraiscreenshot.png)
+
+
 Change Log
 ------------------------------------------------
 v0.1
