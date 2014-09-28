@@ -110,7 +110,7 @@ samuraimap[41] = {  'name': 'Install nginx',
                     }
 
 # ===============================
-# 50s Platform
+# 50s Platform and Pkg Managers
 # ===============================
 
 samuraimap[50] = {  'name': 'Install nodejs and npm',
@@ -119,6 +119,14 @@ samuraimap[50] = {  'name': 'Install nodejs and npm',
                     'responsesuccess': 'To install npm packages: <npm install>; To run node scripts: <node myscript.js>',
                     'responsefail': '',
                     'platform':'ubuntu'
+                    }
+
+samuraimap[51] = {  'name': 'Install HomeBrew',
+                    'cmd': 'ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"',
+                    'cmdslient': '',
+                    'responsesuccess': '',
+                    'responsefail': '',
+                    'platform':'Darwin'
                     }
 
 # ===============================
@@ -229,5 +237,3 @@ if __name__ == "__main__":
     elif gchoice == 1:
       loadoptions()
       #load the options again. does not work if placed in above array
-    elif gchoice not in samuraimap:
-      print("{0} Hmm ... I am confused, please enter a number.".format(avatar))
