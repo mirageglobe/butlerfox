@@ -6,12 +6,12 @@ Samurai
 
 Samurai (武士 meaning Warrior Serve) provides a simple interface for server administrators. 
 
-![My image](https://raw.githubusercontent.com/mirageglobe/samurai/master/samuraiscreenshot.png)
+![Samurai Menu](https://raw.githubusercontent.com/mirageglobe/samurai/master/samuraiscreenshot.png)
 
 Samurai installs and setups the basic applications / packages for a ubuntu-based system (Recommended 14.04 LTS 64bit). In summary, this application drastically reduces learning curve and makes installations quicker.
 
 - Samurai aims to be a fire and forget system orchestrating tool
-- Samurai is pure simplistic python with no dependancies
+- Samurai is pure simplistic python with minimal dependancies
 - Samurai command is interactive
 - Ninja command is non interactive
 
