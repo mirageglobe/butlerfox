@@ -19,12 +19,16 @@ Samurai installs and setups the basic applications / packages for a ubuntu-based
 Operation
 ================================================
 
-To Install, fire up terminal
+To install (on ubuntu / debian), fire up terminal
 
 	sudo apt-get install python3 && curl https://raw.githubusercontent.com/mirageglobe/samurai/master/samurai.py >> samurai.py
+	sudo chmod +x ./samurai.py
 
+or 
 
-To Run,
+	curl -L https://raw.githubusercontent.com/mirageglobe/samurai/master/install.sh | sh
+
+To run,
 
 	sudo python3 samurai.py
 
