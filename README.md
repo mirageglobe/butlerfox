@@ -21,21 +21,26 @@ Operation
 
 To install (on ubuntu / debian / mac), fire up terminal
 
-	> curl -L https://raw.githubusercontent.com/mirageglobe/samurai/master/install.sh | sh
+	curl -L https://raw.githubusercontent.com/mirageglobe/samurai/master/install.sh | sh
 
 To run,
 
-	> samurai.py
+	samurai.py
 
 
 System
 ================================================
 
-Dependancies and Requirements
+Requirements
 ------------------------------------------------
+- Python 3
+- Curl (should be installed already)
 
-- Ubuntu 12.04 LTS, 14.04 LTS, Python 3
-
+Works on
+------------------------------------------------
+- Ubuntu 12.04 LTS
+- Ubuntu 14.04 LTS
+- Mac OS X 10.9 (Mavericks)
 
 Functionality
 ------------------------------------------------
