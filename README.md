@@ -21,11 +21,15 @@ Operation
 
 To install (on ubuntu / debian / mac), fire up terminal
 
-	curl -L https://raw.githubusercontent.com/mirageglobe/samurai/master/install.sh | sh
+  curl -L https://raw.githubusercontent.com/mirageglobe/samurai/master/install.sh | sh
 
 To run,
 
-	samurai.py
+  samurai.py
+
+To uninstall,
+
+  sudo rm /usr/local/bin/samurai.py
 
 
 System

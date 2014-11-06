@@ -6,7 +6,7 @@ if [[ $(id -u) != 0 ]]; then
 	if command -v sudo >/dev/null 2>&1; then
 		SUDO="sudo"
 	else
-		echo >&2 "Requires sudo but it's not installed. Aborting."
+		echo >&2 "Sudo not installed. Aborting."
 		exit 1
 	fi
 fi
