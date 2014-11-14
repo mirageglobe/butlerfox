@@ -2,7 +2,6 @@
 
 import os, platform, sys
 
-
 samuraimap = {}
 
 # ===============================
@@ -61,8 +60,16 @@ samuraimap[13] = {  'name': 'Install build-essential',
                     'platform':'ubuntu'
                     }
 
-samuraimap[15] = {  'name': 'Install and arm ufw (allow ssh 22/80)',
+samuraimap[14] = {  'name': 'Install and arm ufw (allow ssh 22/80)',
                     'cmd': 'sudo apt-get install ufw && ufw allow ssh && ufw allow 80 && sudo ufw enable',
+                    'cmdslient': '',
+                    'responsesuccess': '',
+                    'responsefail': '',
+                    'platform':'ubuntu'
+                    }
+
+samuraimap[15] = {  'name': 'Add virtualbox guest additions for ubuntu',
+                    'cmd': 'sudo apt-get install virtualbox-guest-dkms virtualbox-guest-utils virtualbox-guest-x11',
                     'cmdslient': '',
                     'responsesuccess': '',
                     'responsefail': '',
