@@ -40,6 +40,14 @@ samuraimap[3] = {   'name': 'Toggle ShowCmd Mode',
                     'platform':'Darwin ubuntu'
                     }
 
+samuraimap[4] = {   'name': 'Show Stats Mem',
+                    'cmd': 'top -l 1 | head -n 10 | grep PhysMem',
+                    'cmdslient': '',
+                    'responsesuccess': '',
+                    'responsefail': '',
+                    'platform':'Darwin ubuntu'
+                    }
+
 samuraimap[9] = {   'name': 'Remove Samurai',
                     'cmd': 'sudo rm /usr/local/bin/samurai.py',
                     'cmdslient': '',
