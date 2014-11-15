@@ -24,6 +24,30 @@ samuraimap[1] = {   'name': 'Clear screen and show menu',
                     'platform':'Darwin ubuntu'
                     }
 
+samuraimap[2] = {   'name': 'Toggle Ninja Mode',
+                    'cmd': '',
+                    'cmdslient': '',
+                    'responsesuccess': '',
+                    'responsefail': '',
+                    'platform':'Darwin ubuntu'
+                    }
+
+samuraimap[3] = {   'name': 'Toggle ShowCmd Mode',
+                    'cmd': '',
+                    'cmdslient': '',
+                    'responsesuccess': '',
+                    'responsefail': '',
+                    'platform':'Darwin ubuntu'
+                    }
+
+samuraimap[9] = {   'name': 'Remove Samurai',
+                    'cmd': 'sudo rm /usr/local/bin/samurai.py',
+                    'cmdslient': '',
+                    'responsesuccess': 'Samurai removed.',
+                    'responsefail': '',
+                    'platform':'Darwin ubuntu'
+                    }
+
 # ===============================
 # 10s Operating System 
 # ===============================
@@ -169,15 +193,19 @@ samuraimap[70] = {  'name': 'Install forever (requires npm)',
 # Functions
 # ===============================
 
-def loadoptions(ninja=False):
+def loadoptions(ninja=False,showcmd=False):
   print("==================================") 
   print("Detected System: {0} ({1})".format(platform.system(),platform.release()))
   print("Ninja Mode: {0}".format(ninja))
+  print("Show Cmd: {0}".format(showcmd))
   print("==================================")
 
   for key, value in sorted(samuraimap.items()):
     if platform.system() in value['platform']:
-      print("[", key, "] -", value['name'])
+      if showcmd:
+        print("[", key, "] -", value['name'], " :|::> " , value['cmd'])
+      else:
+        print("[", key, "] -", value['name'])
 
 def runcommand(cmdstring):
   return_value = os.system(cmdstring)
@@ -203,6 +231,7 @@ if __name__ == "__main__":
   # ===============================
 
   ninja_active = False
+  showcmd_active = False
 
   # Adding ninja mode here - ninja mode activated within menu
   # In ninja mode, the commands are not executed; until the end. if you run ninja, it will create a scroll.sh with bash commands which can be used with vagrant
@@ -215,32 +244,41 @@ if __name__ == "__main__":
 
   avatar = "[samurai]"
   gloop = True
-  loadoptions()
-
+  
   # ===============================
   # Entering loop of samurai
   # ===============================
 
   while gloop:
     gchoice = 9999
-    gchoiceraw = input("================================== \n{0} What is your command? : ".format(avatar))
 
-    if gchoiceraw.isdigit():
-      gchoice = int(gchoiceraw)
+    loadoptions(ninja_active,showcmd_active)
+    gchoice = input("================================== \n{0} What is your command? : ".format(avatar))
 
-      if gchoice in samuraimap:
-        runcommand(samuraimap[gchoice]['cmd']) 
-        if gchoice in samuraimap:
-          print("{0}".format(avatar), samuraimap[gchoice]['responsesuccess'])
-        else:
-          print("{0} Command is complete.".format(avatar))
-      else:
-        print("{0} Command is does not exist. Please enter number.".format(avatar))
+    if gchoice.isdigit():
+      gchoice = int(gchoice)
     else:
-      print("{0} Hmm ... I am confused, please enter a number.".format(avatar))
+      gchoice = 9999
 
     if gchoice == 0:
-      gloop = False
-    elif gchoice == 1:
-      loadoptions()
+      runcommand("clear")
+      break
+
+    if gchoice == 2:
+      ninja_active = not ninja_active
+      # toggle ninja mode
+
+    if gchoice == 3:
+      showcmd_active = not showcmd_active
+      # toggle showcmd mode
+
+    if gchoice in samuraimap:
+      runcommand(samuraimap[gchoice]['cmd'])
+      if not samuraimap[gchoice]['responsesuccess']:
+        print("{0}".format(avatar), samuraimap[gchoice]['responsesuccess'])
+    else:
+      print("{0} Command is does not exist. Please enter number.".format(avatar))
       #load the options again. does not work if placed in above array
+
+    input("Enter to continue")
+    runcommand("clear")

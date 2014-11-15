@@ -108,6 +108,14 @@ Ninja
 - maybe ninja should be a separate project? (happy to discuss if anyone wishes to collaborate on this)
 
 
+CheatSheet
+================================================
+; = run regardless
+&& = run if previous succeed
+|| = run if previous fail
+& run in background
+
+
 References
 ================================================
 
