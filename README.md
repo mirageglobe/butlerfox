@@ -11,7 +11,7 @@ Samurai (武士 meaning Warrior Serve) provides a simple interface for server ad
 Samurai aims to be a fire and forget system orchestrating tool. Samurai installs and setups the basic applications / packages for a *nix system. In summary, this application drastically reduces learning curve and makes installations quicker.
 
 
-Operation
+Install and Run
 ================================================
 
 To install (on ubuntu / debian / mac), fire up terminal
@@ -30,30 +30,10 @@ To uninstall,
 System
 ================================================
 
-Requirements
-------------------------------------------------
-- Python 3
-- Curl (should be installed already)
+- Requirements : Python 3, Curl (should be installed already)
+- Tested on : Ubuntu 12.04 LTS, Ubuntu 14.04 LTS, Mac OS X 10.9 (Mavericks)
+- Functionality : System (System Updates, Build-Essential, Debconf-Util), Security (UFW), Languages (Ruby 2.x, Php), Web Servers (Nginx), DB (MySQL, MongoDB, MariaDB)
 
-Works on
-------------------------------------------------
-- Ubuntu 12.04 LTS
-- Ubuntu 14.04 LTS
-- Mac OS X 10.9 (Mavericks)
-
-Functionality
-------------------------------------------------
-Samurai currently supports the installation of the following packages
-
-- System (System Updates, Build-Essential, Debconf-Util)
-- Security (UFW)
-- Languages (Ruby 2.x, Php)
-- Web Servers (Nginx)
-- DB (MySQL, MongoDB, MariaDB)
-
-
-Project Development
-================================================
 
 Goals
 ------------------------------------------------
