@@ -13,8 +13,8 @@ Samurai (武士 meaning Warrior Serve) provides a simple interface for server ad
 ![Samurai Menu](https://raw.githubusercontent.com/mirageglobe/samurai/master/samuraiscreenshot.png)
 
 
-Install and Run
-================================================
+Installation
+-----------------------------
 
 To install (on ubuntu / debian / mac), fire up terminal
 
@@ -30,7 +30,7 @@ To uninstall,
 
 
 Technical
-================================================
+-----------------------------
 
 - Requirements : Python 3, Curl (should be installed already)
 - Tested on : Ubuntu 12.04 LTS, Ubuntu 14.04 LTS, Mac OS X 10.9 (Mavericks)
@@ -38,7 +38,7 @@ Technical
 
 
 Guidelines and Road Map
-================================================
+-----------------------------
 
 This project has some primary goals and guidelines:
 
@@ -57,16 +57,16 @@ Road Map:
 - use default.json, custom.json for input rules. any scroll can be created in camp folder http://stackoverflow.com/questions/2835559/parsing-values-from-a-json-file-in-python
 - Need to add ufw enable -> problem as ufw prompts for y/n confirmation (silent mode problem)
 - add chrootkit
-- [done] suppress all the prompts as you can see; making most silent as this is meant to work nicely (ish) with Vagrant.
 - check packages option to see a summary of what is installed.
 - test suite needed (minitest)
+- [done] suppress all the prompts as you can see; making most silent as this is meant to work nicely (ish) with Vagrant.
 - [done] Cleaned up old samurai code
 - [done] Spawned new samuraiv2 as samurai.py
 - [done] Created minisamurai which is the current minified version of samurai2 
 
 
-Info and References
-================================================
+References
+-----------------------------
 When adding bash commands, you can chain commands with four ways:
 
 - ; = run regardless
