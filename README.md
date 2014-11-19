@@ -18,7 +18,7 @@ Installation
 
 To install (on ubuntu / debian / mac), fire up terminal
 
-> curl -L https://raw.githubusercontent.com/mirageglobe/samurai/master/install.sh | sh
+> sudo curl -L https://raw.githubusercontent.com/mirageglobe/samurai/master/install.sh | sh
 
 To run,
 
@@ -32,7 +32,7 @@ To uninstall,
 Technical
 -----------------------------
 
-- Requirements : Python 3, Curl (should be installed already)
+- Requirements : Python 3, Curl (should be installed already or sudo apt-get install curl)
 - Tested on : Ubuntu 12.04 LTS, Ubuntu 14.04 LTS, Mac OS X 10.9 (Mavericks)
 - Functionality : System (System Updates, Build-Essential, Debconf-Util), Security (UFW), Languages (Ruby 2.x, Php), Web Servers (Nginx), DB (MySQL, MongoDB, MariaDB)
 
