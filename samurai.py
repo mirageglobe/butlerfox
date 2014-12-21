@@ -211,7 +211,7 @@ samuraimap[70] = {  'name': 'Install forever (requires npm)',
 
 def loadoptions(ninja=False,showcmd=False):
   print("==================================") 
-  print("Detected System: {0} ({1})".format(platform.system(),platform.release()))
+  print("Detected System: {0} ({1}) - showing compatible commands".format(platform.system(),platform.release()))
   print("Ninja Mode: {0}".format(ninja))
   print("Show Cmd: {0}".format(showcmd))
   print("==================================")
