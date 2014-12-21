@@ -189,9 +189,9 @@ samuraimap[51] = {  'name': 'Install HomeBrew',
 # ===============================
 
 samuraimap[60] = {  'name': 'Install php5 (fpm version) with MySQL/MariaDB',
-                    'cmd': 'sudo apt-get install php5-fpm php5-mysql',
+                    'cmd': 'sudo apt-get install php5-fpm php5-mysql php5-cli',
                     'cmdslient': '',
-                    'responsesuccess': 'To start, <service nginx start>; To check config, <nginx -t>',
+                    'responsesuccess': 'To start, <service nginx start>; To check config, <nginx -t>; refer to https://www.digitalocean.com/community/tutorials/how-to-install-linux-nginx-mysql-php-lemp-stack-on-ubuntu-14-04; remember to (1) edit /etc/php5/fpm/php.ini to set cgi.fix_pathinfo=0 and (2) /etc/nginx/sites-available/default to root /usr/share/nginx/html; Also to uncomment php location to use phpfpm; to test just drop a php file in the nginx html folder',
                     'responsefail': '',
                     'platform':'Linux'
                     }
