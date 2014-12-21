@@ -48,6 +48,14 @@ samuraimap[4] = {   'name': 'Show Stats Mem',
                     'platform':'Darwin Linux'
                     }
 
+samuraimap[8] = {   'name': 'Update Samurai.py',
+                    'cmd': 'curl -L https://raw.githubusercontent.com/mirageglobe/samurai/master/install.sh | bash',
+                    'cmdslient': '',
+                    'responsesuccess': '',
+                    'responsefail': '',
+                    'platform':'Darwin Linux'
+                    }
+
 samuraimap[9] = {   'name': 'Remove Samurai',
                     'cmd': 'sudo rm /usr/local/bin/samurai.py',
                     'cmdslient': '',
@@ -165,7 +173,7 @@ samuraimap[51] = {  'name': 'Install HomeBrew',
                     'cmdslient': '',
                     'responsesuccess': '',
                     'responsefail': '',
-                    'platform':'Linux'
+                    'platform':'Darwin'
                     }
 
 # ===============================
