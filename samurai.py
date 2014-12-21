@@ -257,6 +257,8 @@ if __name__ == "__main__":
   # Entering loop of samurai
   # ===============================
 
+  runcommand("clear")
+  
   while gloop:
     gchoice = 9999
 

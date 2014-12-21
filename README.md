@@ -18,7 +18,7 @@ Installation
 
 To install (on ubuntu / debian / mac), fire up terminal
 
-> sudo curl -L https://raw.githubusercontent.com/mirageglobe/samurai/master/install.sh | sh
+> sudo curl -L https://raw.githubusercontent.com/mirageglobe/samurai/master/install.sh | bash
 
 To run,
 
