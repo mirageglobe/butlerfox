@@ -48,6 +48,14 @@ samuraimap[4] = {   'name': 'Show Stats Mem',
                     'platform':'Darwin Linux'
                     }
 
+samuraimap[7] = {   'name': 'Show IP Address',
+                    'cmd': 'ifconfig -a',
+                    'cmdslient': '',
+                    'responsesuccess': '',
+                    'responsefail': '',
+                    'platform':'Darwin Linux'
+                    }
+
 samuraimap[8] = {   'name': 'Update Samurai.py',
                     'cmd': 'curl -L https://raw.githubusercontent.com/mirageglobe/samurai/master/install.sh | bash',
                     'cmdslient': '',
@@ -219,7 +227,7 @@ def loadoptions(ninja=False,showcmd=False):
   for key, value in sorted(samuraimap.items()):
     if platform.system() in value['platform']:
       if showcmd:
-        print("[", key, "] -", value['name'], " :|::> " , value['cmd'])
+        print("[", key, "] -", value['name'], " ::> " , value['cmd'])
       else:
         print("[", key, "] -", value['name'])
 
