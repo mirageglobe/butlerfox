@@ -49,7 +49,7 @@ samuraimap[4] = {   'name': 'Show Stats Mem',
                     }
 
 samuraimap[7] = {   'name': 'Show IP Address',
-                    'cmd': 'ifconfig -a',
+                    'cmd': 'curl http://icanhazip.com',
                     'cmdslient': '',
                     'responsesuccess': '',
                     'responsefail': '',
@@ -188,7 +188,7 @@ samuraimap[51] = {  'name': 'Install HomeBrew',
 # 60s Languages
 # ===============================
 
-samuraimap[60] = {  'name': 'Install php5 (fpm version) and php5 mysql',
+samuraimap[60] = {  'name': 'Install php5 (fpm version) with MySQL/MariaDB',
                     'cmd': 'sudo apt-get install php5-fpm php5-mysql',
                     'cmdslient': '',
                     'responsesuccess': 'To start, <service nginx start>; To check config, <nginx -t>',
