@@ -13,7 +13,7 @@ samuraimap[0] = {   'name': 'Exit system',
                     'cmdslient': '',
                     'responsesuccess': 'See you later Sensei ... Goodbye.',
                     'responsefail': '',
-                    'platform':'Darwin ubuntu'
+                    'platform':'Darwin Linux'
                     }
 
 samuraimap[1] = {   'name': 'Clear screen and show menu',
@@ -21,7 +21,7 @@ samuraimap[1] = {   'name': 'Clear screen and show menu',
                     'cmdslient': 'clear',
                     'responsesuccess': 'Screen Cleared',
                     'responsefail': '',
-                    'platform':'Darwin ubuntu'
+                    'platform':'Darwin Linux'
                     }
 
 samuraimap[2] = {   'name': 'Toggle Ninja Mode',
@@ -29,7 +29,7 @@ samuraimap[2] = {   'name': 'Toggle Ninja Mode',
                     'cmdslient': '',
                     'responsesuccess': '',
                     'responsefail': '',
-                    'platform':'Darwin ubuntu'
+                    'platform':'Darwin Linux'
                     }
 
 samuraimap[3] = {   'name': 'Toggle ShowCmd Mode',
@@ -37,7 +37,7 @@ samuraimap[3] = {   'name': 'Toggle ShowCmd Mode',
                     'cmdslient': '',
                     'responsesuccess': '',
                     'responsefail': '',
-                    'platform':'Darwin ubuntu'
+                    'platform':'Darwin Linux'
                     }
 
 samuraimap[4] = {   'name': 'Show Stats Mem',
@@ -45,7 +45,7 @@ samuraimap[4] = {   'name': 'Show Stats Mem',
                     'cmdslient': '',
                     'responsesuccess': '',
                     'responsefail': '',
-                    'platform':'Darwin ubuntu'
+                    'platform':'Darwin Linux'
                     }
 
 samuraimap[9] = {   'name': 'Remove Samurai',
@@ -53,7 +53,7 @@ samuraimap[9] = {   'name': 'Remove Samurai',
                     'cmdslient': '',
                     'responsesuccess': 'Samurai removed.',
                     'responsefail': '',
-                    'platform':'Darwin ubuntu'
+                    'platform':'Darwin Linux'
                     }
 
 # ===============================
@@ -65,7 +65,7 @@ samuraimap[10] = {  'name': 'Change my login password',
                     'cmdslient': '',
                     'responsesuccess': '',
                     'responsefail': '',
-                    'platform':'Darwin ubuntu'
+                    'platform':'Darwin Linux'
                     }
 
 samuraimap[11] = {  'name': 'Update ubuntu and cleanup',
@@ -73,7 +73,7 @@ samuraimap[11] = {  'name': 'Update ubuntu and cleanup',
                     'cmdslient': '',
                     'responsesuccess': '',
                     'responsefail': '',
-                    'platform':'ubuntu'
+                    'platform':'Linux'
                     }
 
 samuraimap[12] = {  'name': 'Update ubuntu distribution',
@@ -81,7 +81,7 @@ samuraimap[12] = {  'name': 'Update ubuntu distribution',
                     'cmdslient': '',
                     'responsesuccess': '',
                     'responsefail': '',
-                    'platform':'ubuntu'
+                    'platform':'Linux'
                     }
 
 samuraimap[13] = {  'name': 'Install build-essential',
@@ -89,7 +89,7 @@ samuraimap[13] = {  'name': 'Install build-essential',
                     'cmdslient': '',
                     'responsesuccess': '',
                     'responsefail': '',
-                    'platform':'ubuntu'
+                    'platform':'Linux'
                     }
 
 samuraimap[14] = {  'name': 'Install and arm ufw (allow ssh 22/80)',
@@ -97,7 +97,7 @@ samuraimap[14] = {  'name': 'Install and arm ufw (allow ssh 22/80)',
                     'cmdslient': '',
                     'responsesuccess': '',
                     'responsefail': '',
-                    'platform':'ubuntu'
+                    'platform':'Linux'
                     }
 
 samuraimap[15] = {  'name': 'Add virtualbox guest additions for ubuntu',
@@ -105,7 +105,7 @@ samuraimap[15] = {  'name': 'Add virtualbox guest additions for ubuntu',
                     'cmdslient': '',
                     'responsesuccess': '',
                     'responsefail': '',
-                    'platform':'ubuntu'
+                    'platform':'Linux'
                     }
 
 # ===============================
@@ -117,7 +117,7 @@ samuraimap[30] = {  'name': 'Install sqlite',
                     'cmdslient': '',
                     'responsesuccess': '',
                     'responsefail': '',
-                    'platform':'ubuntu'
+                    'platform':'Linux'
                     }
 
 samuraimap[31] = {  'name': 'Install mongodb',
@@ -125,7 +125,7 @@ samuraimap[31] = {  'name': 'Install mongodb',
                     'cmdslient': '',
                     'responsesuccess': 'To start, <service mongodb start>',
                     'responsefail': '',
-                    'platform':'ubuntu'
+                    'platform':'Linux'
                     }
 
 samuraimap[32] = {  'name': 'Install mariadb',
@@ -133,7 +133,7 @@ samuraimap[32] = {  'name': 'Install mariadb',
                     'cmdslient': '',
                     'responsesuccess': '',
                     'responsefail': '',
-                    'platform':'ubuntu'
+                    'platform':'Linux'
                     }
 
 # ===============================
@@ -145,7 +145,7 @@ samuraimap[41] = {  'name': 'Install nginx',
                     'cmdslient': '',
                     'responsesuccess': 'To start, <service nginx start>; To check config, <nginx -t>',
                     'responsefail': '',
-                    'platform':'ubuntu'
+                    'platform':'Linux'
                     }
 
 # ===============================
@@ -157,7 +157,7 @@ samuraimap[50] = {  'name': 'Install nodejs and npm',
                     'cmdslient': '',
                     'responsesuccess': 'To install npm packages: <npm install>; To run node scripts: <node myscript.js>',
                     'responsefail': '',
-                    'platform':'ubuntu'
+                    'platform':'Linux'
                     }
 
 samuraimap[51] = {  'name': 'Install HomeBrew',
@@ -165,7 +165,7 @@ samuraimap[51] = {  'name': 'Install HomeBrew',
                     'cmdslient': '',
                     'responsesuccess': '',
                     'responsefail': '',
-                    'platform':'Darwin'
+                    'platform':'Linux'
                     }
 
 # ===============================
@@ -177,7 +177,7 @@ samuraimap[60] = {  'name': 'Install php5 (fpm version) and php5 mysql',
                     'cmdslient': '',
                     'responsesuccess': 'To start, <service nginx start>; To check config, <nginx -t>',
                     'responsefail': '',
-                    'platform':'ubuntu'
+                    'platform':'Linux'
                     }
 
 # ===============================
@@ -189,7 +189,7 @@ samuraimap[70] = {  'name': 'Install forever (requires npm)',
                     'cmdslient': '',
                     'responsesuccess': 'To start, go to folder and run <forever start --spinSleepTime 10000 main.js>',
                     'responsefail': '',
-                    'platform':'ubuntu'
+                    'platform':'Linux'
                     }
 
 # ===============================
