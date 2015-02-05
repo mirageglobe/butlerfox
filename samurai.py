@@ -11,7 +11,7 @@ samuraimap = {}
 samuraimap[0] = {   'name': 'Exit system',
                     'cmd': '',
                     'cmdslient': '',
-                    'responsesuccess': 'See you later Sensei ... Goodbye.',
+                    'responsesuccess': '',
                     'responsefail': '',
                     'platform':'Darwin Linux'
                     }
@@ -45,7 +45,7 @@ samuraimap[4] = {   'name': 'Show Stats Mem',
                     'cmdslient': '',
                     'responsesuccess': '',
                     'responsefail': '',
-                    'platform':'Darwin Linux'
+                    'platform':'Darwin'
                     }
 
 samuraimap[7] = {   'name': 'Show IP Address',
