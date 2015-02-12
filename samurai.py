@@ -40,8 +40,16 @@ samuraimap[3] = {   'name': 'Toggle ShowCmd Mode',
                     'platform':'Linux'
                     }
 
-samuraimap[7] = {   'name': 'Show IP Address',
+samuraimap[6] = {   'name': 'Show IP Address',
                     'cmd': 'curl http://icanhazip.com',
+                    'cmdslient': '',
+                    'responsesuccess': '',
+                    'responsefail': '',
+                    'platform':'Linux'
+                    }
+
+samuraimap[7] = {   'name': 'Show Disk Space',
+                    'cmd': 'df',
                     'cmdslient': '',
                     'responsesuccess': '',
                     'responsefail': '',
