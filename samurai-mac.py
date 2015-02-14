@@ -5,7 +5,7 @@ import os, platform, sys, socket
 samuraimap = {}
 
 # ===============================
-# 1s Core
+# Samurai Specific
 # ===============================
 
 samuraimap[0] = {   'name': 'Exit system',
@@ -22,7 +22,7 @@ samuraimap[1] = {   'name': 'Clear screen and show menu',
                     'responsefail': '',
                     }
 
-samuraimap[2] = {   'name': 'Toggle Ninja Mode',
+samuraimap[2] = {   'name': 'Toggle Ninja Mode (Alpha)',
                     'cmd': '',
                     'cmdslient': '',
                     'responsesuccess': '',
@@ -36,28 +36,14 @@ samuraimap[3] = {   'name': 'Toggle ShowCmd Mode',
                     'responsefail': '',
                     }
 
-samuraimap[4] = {   'name': 'Show Stats Mem',
-                    'cmd': 'top -l 1 | head -n 10 | grep PhysMem',
-                    'cmdslient': '',
-                    'responsesuccess': '',
-                    'responsefail': '',
-                    }
-
-samuraimap[7] = {   'name': 'Show IP Address (Global)',
-                    'cmd': 'curl http://icanhazip.com',
-                    'cmdslient': '',
-                    'responsesuccess': '',
-                    'responsefail': '',
-                    }
-
-samuraimap[8] = {   'name': 'Update Samurai.py',
+samuraimap[4] = {   'name': 'Update Samurai.py',
                     'cmd': 'curl -L https://raw.githubusercontent.com/mirageglobe/samurai/master/install.sh | bash',
                     'cmdslient': '',
                     'responsesuccess': '',
                     'responsefail': '',
                     }
 
-samuraimap[9] = {   'name': 'Remove Samurai',
+samuraimap[5] = {   'name': 'Remove Samurai',
                     'cmd': 'sudo rm /usr/local/bin/samurai.py',
                     'cmdslient': '',
                     'responsesuccess': 'Samurai removed.',
@@ -75,19 +61,26 @@ samuraimap[10] = {  'name': 'Change my login password',
                     'responsefail': '',
                     }
 
-# ===============================
-# 30s Databases
-# ===============================
+samuraimap[11] = {   'name': 'Show Stats Mem',
+                    'cmd': 'top -l 1 | head -n 10 | grep PhysMem',
+                    'cmdslient': '',
+                    'responsesuccess': '',
+                    'responsefail': '',
+                    }
+
+samuraimap[12] = {   'name': 'Show IP Address (Global)',
+                    'cmd': 'curl http://icanhazip.com',
+                    'cmdslient': '',
+                    'responsesuccess': '',
+                    'responsefail': '',
+                    }
+
 
 # ===============================
-# 40s Servers
+# 30s Platform and Pkg Managers
 # ===============================
 
-# ===============================
-# 50s Platform and Pkg Managers
-# ===============================
-
-samuraimap[51] = {  'name': 'Install HomeBrew',
+samuraimap[31] = {  'name': 'Install HomeBrew',
                     'cmd': 'ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"',
                     'cmdslient': '',
                     'responsesuccess': '',
@@ -95,11 +88,15 @@ samuraimap[51] = {  'name': 'Install HomeBrew',
                     }
 
 # ===============================
-# 60s Languages
+# 40s Servers and Databases
 # ===============================
 
 # ===============================
-# 70s Apps
+# 50s Languages
+# ===============================
+
+# ===============================
+# 60s Apps
 # ===============================
 
 # ===============================
@@ -138,7 +135,7 @@ if __name__ == "__main__":
   # ===============================
 
   if platform.system() != 'Darwin':
-    print("[!] System incompatible, please run samurai.py instead.")
+    print("[Samurai] System incompatible, please run samurai.py instead.")
     sys.exit(1)
   
   # ===============================
