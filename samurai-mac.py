@@ -61,31 +61,60 @@ samuraimap[10] = {  'name': 'Change my login password',
                     'responsefail': '',
                     }
 
-samuraimap[11] = {   'name': 'Show Stats Mem',
+samuraimap[11] = {  'name': 'Show Stats Mem',
                     'cmd': 'top -l 1 | head -n 10 | grep PhysMem',
                     'cmdslient': '',
                     'responsesuccess': '',
                     'responsefail': '',
                     }
 
-samuraimap[12] = {   'name': 'Show IP Address (Global)',
+samuraimap[12] = {  'name': 'Show IP Address (Global)',
                     'cmd': 'curl http://icanhazip.com',
                     'cmdslient': '',
                     'responsesuccess': '',
                     'responsefail': '',
                     }
 
+samuraimap[13] = {  'name': 'Show Mac invisible files',
+                    'cmd': 'defaults write com.apple.finder AppleShowAllFiles YES && killall Finder /System/Library/CoreServices/Finder.app',
+                    'cmdslient': '',
+                    'responsesuccess': '',
+                    'responsefail': '',
+                    }
+
+
+samuraimap[14] = {  'name': 'Hide Mac invisible files',
+                    'cmd': 'defaults write com.apple.finder AppleShowAllFiles NO && killall Finder /System/Library/CoreServices/Finder.app',
+                    'cmdslient': '',
+                    'responsesuccess': '',
+                    'responsefail': '',
+                    }
 
 # ===============================
 # 30s Platform and Pkg Managers
 # ===============================
 
 samuraimap[31] = {  'name': 'Install HomeBrew',
-                    'cmd': 'ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"',
+                    'cmd': 'which brew || ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"',
                     'cmdslient': '',
                     'responsesuccess': '',
                     'responsefail': '',
                     }
+
+samuraimap[32] = {  'name': 'Install Cask for HomeBrew',
+                    'cmd': 'brew install caskroom/cask/brew-cask',
+                    'cmdslient': '',
+                    'responsesuccess': '',
+                    'responsefail': '',
+                    }
+
+samuraimap[33] = {  'name': 'Update and Cleanup HomeBrew',
+                    'cmd': 'brew update && brew upgrade && brew cleanup',
+                    'cmdslient': '',
+                    'responsesuccess': '',
+                    'responsefail': '',
+                    }
+
 
 # ===============================
 # 40s Servers and Databases
