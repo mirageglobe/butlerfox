@@ -85,7 +85,7 @@ samuraimap[10] = {  'name': 'Change my login password',
                     }
 
 samuraimap[11] = {  'name': 'Update ubuntu and cleanup',
-                    'cmd': 'sudo apt-get update && apt-get upgrade && apt-get autoclean && apt-get autoremove',
+                    'cmd': 'sudo apt-get update && sudo apt-get upgrade && sudo apt-get autoclean && sudo apt-get autoremove',
                     'cmdslient': '',
                     'responsesuccess': '',
                     'responsefail': '',
