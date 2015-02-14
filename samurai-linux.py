@@ -65,7 +65,7 @@ samuraimap[8] = {   'name': 'Update Samurai.py',
                     }
 
 samuraimap[9] = {   'name': 'Remove Samurai',
-                    'cmd': 'sudo rm /usr/local/bin/samurai.py',
+                    'cmd': 'sudo rm /usr/local/bin/samurai && sudo rm /usr/local/bin/samurai-mac.py && sudo rm /usr/local/bin/samurai-linux.py',
                     'cmdslient': '',
                     'responsesuccess': 'Samurai removed.',
                     'responsefail': '',
@@ -144,7 +144,7 @@ samuraimap[31] = {  'name': 'Install mongodb',
                     'platform':'Linux'
                     }
 
-samuraimap[32] = {  'name': 'Install mariadb (for ubuntu 14.04)',
+samuraimap[32] = {  'name': 'Install mariadb 10.0 (for ubuntu 14.04.x trusty)',
                     'cmd': 'sudo apt-get install software-properties-common && sudo apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0xcbcb082a1bb943db && sudo add-apt-repository "deb http://lon1.mirrors.digitalocean.com/mariadb/repo/10.0/ubuntu trusty main" && sudo apt-get update && sudo apt-get install mariadb-server',
                     'cmdslient': '',
                     'responsesuccess': '',
@@ -241,7 +241,7 @@ if __name__ == "__main__":
     sys.stdout.write("[Samurai] Samurai requires Python 3.x, and you are running it as Python 2.x\n")
     sys.stdout.write("[Samurai] You can install by running sudo apt-get install python3 or python3 samurai.py\n")
     sys.exit(1)
-  
+
   # ===============================
   # Checking arguments
   # ===============================
@@ -260,13 +260,13 @@ if __name__ == "__main__":
 
   avatar = "[samurai]"
   gloop = True
-  
+
   # ===============================
   # Entering loop of samurai
   # ===============================
 
   runcommand("clear")
-  
+
   while gloop:
     gchoice = 9999
 
