@@ -22,18 +22,18 @@ To install (on ubuntu / debian / mac), fire up terminal
 
 To run,
 
-> samurai.py
+> samurai
 
 To uninstall,
 
-> sudo rm /usr/local/bin/samurai.py
+> sudo rm /usr/local/bin/samurai && rm /usr/local/bin/samurai-mac.py && rm /usr/local/bin/samurai-linux.py
 
 
 Technical
 -----------------------------
 
 - Requirements : Python 3, Curl (should be installed already or sudo apt-get install curl)
-- Tested on : Ubuntu 12.04 LTS, Ubuntu 14.04 LTS, Mac OS X 10.9 (Mavericks)
+- Tested on : Ubuntu 12.04 LTS, Ubuntu 14.04 LTS, Mac OS X 10.9+
 - Functionality : System (System Updates, Build-Essential, Debconf-Util), Security (UFW), Languages (Ruby 2.x, Php), Web Servers (Nginx), DB (MySQL, MongoDB, MariaDB)
 
 
@@ -47,15 +47,14 @@ Guidelines:
 - (Goal) To create a simple automation tool that has extremely low learning curve
 - Low learning curve by simple interface with little need for memorising of commands, or learning new ones
 - Simple to understand architecture with standard deployment
-- Support installations of popular basic frameworks and DBMS 
-- Enable best practice security lockdowns 
+- Support installations of popular basic frameworks and DBMS
+- Enable best practice security lockdowns
 - Enable a simple bash script generation
-- One file
 
 Road Map:
 
 - use default.json, custom.json for input rules. any scroll can be created in camp folder http://stackoverflow.com/questions/2835559/parsing-values-from-a-json-file-in-python
-- Need to add ufw enable -> problem as ufw prompts for y/n confirmation (silent mode problem)
+- [done] Need to add ufw enable -> problem as ufw prompts for y/n confirmation (silent mode problem)
 - add chrootkit
 - check packages option to see a summary of what is installed.
 - test suite needed (minitest)
