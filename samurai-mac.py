@@ -17,7 +17,7 @@ samuraimap[0] = {   'name': 'Exit system',
 
 samuraimap[1] = {   'name': 'Clear screen and show menu',
                     'cmd': 'clear',
-                    'cmdslient': 'clear',
+                    'cmdslient': '',
                     'responsesuccess': 'Screen Cleared',
                     'responsefail': '',
                     }
@@ -90,6 +90,13 @@ samuraimap[14] = {  'name': 'Hide Mac invisible files',
                     'responsefail': '',
                     }
 
+samuraimap[15] = {  'name': 'Reload Shell',
+                    'cmd': 'exec $SHELL -l',
+                    'cmdslient': '',
+                    'responsesuccess': '',
+                    'responsefail': '',
+                    }
+
 # ===============================
 # 30s Platform and Pkg Managers
 # ===============================
@@ -138,8 +145,8 @@ samuraimap[33] = {  'name': 'Update and Cleanup HomeBrew',
 # ===============================
 
 def loadoptions(ninja=False,showcmd=False):
-  print("==================================") 
-  print("Samurai for Mac") 
+  print("==================================")
+  print("Samurai for Mac")
   print("Modes: Ninja={0},".format(ninja), "ShowCMD={0}".format(showcmd))
   print("System:","{0}".format(platform.system()),"({0}),".format(platform.release()), "LocalIP={0}".format(socket.gethostbyname(socket.gethostname())))
   print("==================================")
@@ -156,7 +163,7 @@ def runcommand(cmdstring):
 # ===============================
 # Main Code
 # ===============================
-  
+
 if __name__ == "__main__":
 
   # ===============================
@@ -166,7 +173,7 @@ if __name__ == "__main__":
   if platform.system() != 'Darwin':
     print("[Samurai] System incompatible, please run samurai.py instead.")
     sys.exit(1)
-  
+
   # ===============================
   # Setting arguments
   # ===============================
@@ -185,13 +192,13 @@ if __name__ == "__main__":
 
   avatar = "[samurai]"
   gloop = True
-  
+
   # ===============================
   # Entering loop of samurai
   # ===============================
 
   runcommand("clear")
-  
+
   while gloop:
     gchoice = 9999
 
