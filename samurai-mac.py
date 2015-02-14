@@ -44,7 +44,7 @@ samuraimap[4] = {   'name': 'Update Samurai.py',
                     }
 
 samuraimap[5] = {   'name': 'Remove Samurai',
-                    'cmd': 'sudo rm /usr/local/bin/samurai && rm /usr/local/bin/samurai-mac.py && rm /usr/local/bin/samurai-linux.py',
+                    'cmd': 'sudo rm /usr/local/bin/samurai && sudo rm /usr/local/bin/samurai-mac.py && sudo rm /usr/local/bin/samurai-linux.py',
                     'cmdslient': '',
                     'responsesuccess': 'Samurai removed.',
                     'responsefail': '',
