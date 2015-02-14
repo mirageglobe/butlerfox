@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-import os, platform, sys
+import os, platform, sys, socket
 
 samuraimap = {}
 
@@ -43,7 +43,7 @@ samuraimap[4] = {   'name': 'Show Stats Mem',
                     'responsefail': '',
                     }
 
-samuraimap[7] = {   'name': 'Show IP Address',
+samuraimap[7] = {   'name': 'Show IP Address (Global)',
                     'cmd': 'curl http://icanhazip.com',
                     'cmdslient': '',
                     'responsesuccess': '',
@@ -113,10 +113,9 @@ samuraimap[51] = {  'name': 'Install HomeBrew',
 
 def loadoptions(ninja=False,showcmd=False):
   print("==================================") 
-  print("Samurai Mac") 
-  print("Detected System: {0} ({1}) - showing compatible commands".format(platform.system(),platform.release()))
-  print("Ninja Mode: {0}".format(ninja))
-  print("Show Cmd: {0}".format(showcmd))
+  print("Samurai for Mac") 
+  print("Modes: Ninja={0},".format(ninja), "ShowCMD={0}".format(showcmd))
+  print("System:","{0}".format(platform.system()),"({0}),".format(platform.release()), "LocalIP={0}".format(socket.gethostbyname(socket.gethostname())))
   print("==================================")
 
   for key, value in sorted(samuraimap.items()):
@@ -133,15 +132,6 @@ def runcommand(cmdstring):
 # ===============================
   
 if __name__ == "__main__":
-
-  # ===============================
-  # Checks for python 3
-  # ===============================
-
-  if sys.version_info < (3, 0):
-    sys.stdout.write("[Samurai] Samurai requires Python 3.x, and you are running it as Python 2.x\n")
-    sys.stdout.write("[Samurai] You can install by running sudo apt-get install python3 or python3 samurai.py\n")
-    sys.exit(1)
 
   # ===============================
   # Checks for system
