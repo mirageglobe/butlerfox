@@ -5,7 +5,7 @@ import os, platform, sys
 # ===============================
 # Main Code
 # ===============================
-  
+
 if __name__ == "__main__":
 
   # ===============================
@@ -20,6 +20,6 @@ if __name__ == "__main__":
   # Launch samurai (either mac or linux)
   print("[Samurai] All Okay ... ")
   if platform.system() == 'Darwin':
-    os.system("./samurai-mac.py")
+    os.system("samurai-mac.py")
   elif platform.system() == 'Linux':
-    os.system("./samurai-linux.py")
+    os.system("samurai-linux.py")
