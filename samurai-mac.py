@@ -68,14 +68,21 @@ samuraimap[11] = {  'name': 'Show Stats Mem',
                     'responsefail': '',
                     }
 
-samuraimap[12] = {  'name': 'Show IP Address (Global)',
+samuraimap[12] = {  'name': 'Show top 10 CPU usage',
+                    'cmd': 'top -o cpu -n 10',
+                    'cmdslient': '',
+                    'responsesuccess': '',
+                    'responsefail': '',
+                    }
+
+samuraimap[13] = {  'name': 'Show IP Address (Global)',
                     'cmd': 'curl http://icanhazip.com',
                     'cmdslient': '',
                     'responsesuccess': '',
                     'responsefail': '',
                     }
 
-samuraimap[13] = {  'name': 'Show Mac invisible files',
+samuraimap[14] = {  'name': 'Show Mac invisible files',
                     'cmd': 'defaults write com.apple.finder AppleShowAllFiles YES && killall Finder /System/Library/CoreServices/Finder.app',
                     'cmdslient': '',
                     'responsesuccess': '',
@@ -83,14 +90,14 @@ samuraimap[13] = {  'name': 'Show Mac invisible files',
                     }
 
 
-samuraimap[14] = {  'name': 'Hide Mac invisible files',
+samuraimap[15] = {  'name': 'Hide Mac invisible files',
                     'cmd': 'defaults write com.apple.finder AppleShowAllFiles NO && killall Finder /System/Library/CoreServices/Finder.app',
                     'cmdslient': '',
                     'responsesuccess': '',
                     'responsefail': '',
                     }
 
-samuraimap[15] = {  'name': 'Reload Shell',
+samuraimap[16] = {  'name': 'Reload Shell',
                     'cmd': 'exec $SHELL -l',
                     'cmdslient': '',
                     'responsesuccess': '',
