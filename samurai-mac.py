@@ -104,6 +104,14 @@ samuraimap[16] = {  'name': 'Reload Shell',
                     'responsefail': '',
                     }
 
+samuraimap[17] = {  'name': 'List current users',
+                    'cmd': 'cat /etc/passwd',
+                    'cmdslient': '',
+                    'responsesuccess': '',
+                    'responsefail': '',
+                    }
+
+
 # ===============================
 # 30s Platform and Pkg Managers
 # ===============================
