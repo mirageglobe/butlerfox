@@ -124,6 +124,16 @@ samuraimap[15] = {  'name': 'Add virtualbox guest additions for ubuntu',
                     'platform':'Linux'
                     }
 
+samuraimap[16] = {  'name': 'Show users list',
+                    'cmd': 'sudo cat /etc/passwd',
+                    'cmdslient': '',
+                    'responsesuccess': '',
+                    'responsefail': '',
+                    'platform':'Linux'
+                    }
+
+
+
 # ===============================
 # 30s Databases
 # ===============================
