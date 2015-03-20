@@ -221,10 +221,9 @@ samuraimap[70] = {  'name': 'Install forever (requires npm)',
 
 def loadoptions(ninja=False,showcmd=False):
   print("==================================")
-  print("Samurai Linux") 
-  print("Detected System: {0} ({1}) - showing compatible commands".format(platform.system(),platform.release()))
-  print("Ninja Mode: {0}".format(ninja))
-  print("Show Cmd: {0}".format(showcmd))
+  print("Samurai for Linux") 
+  print("Modes: Ninja={0} ShowCMD={1}".format(ninja,showcmd))
+  print("System: {0} ({1})".format(platform.system(),platform.release()))
   print("==================================")
 
   for key, value in sorted(samuraimap.items()):
@@ -258,11 +257,6 @@ if __name__ == "__main__":
 
   ninja_active = False
   showcmd_active = False
-
-  # Adding ninja mode here - ninja mode activated within menu
-  # In ninja mode, the commands are not executed; until the end. if you run ninja, it will create a scroll.sh with bash commands which can be used with vagrant
-  # export DEBIAN_FRONTEND=noninteractive
-  # apt-get -y install package1 package2
 
   # ===============================
   # Default load of system
