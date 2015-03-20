@@ -138,7 +138,7 @@ samuraimap[16] = {  'name': 'Show users list',
 # 30s Databases
 # ===============================
 
-samuraimap[30] = {  'name': 'Install sqlite',
+samuraimap[30] = {  'name': 'Install sqlite (for all)',
                     'cmd': 'sudo apt-get install sqlite',
                     'cmdslient': '',
                     'responsesuccess': '',
@@ -146,7 +146,7 @@ samuraimap[30] = {  'name': 'Install sqlite',
                     'platform':'Linux'
                     }
 
-samuraimap[31] = {  'name': 'Install mongodb',
+samuraimap[31] = {  'name': 'Install mongodb (for all)',
                     'cmd': 'sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10 && echo "deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen" >> /etc/apt/sources.list.d/mongodb.list && apt-get update && apt-get install mongodb-10gen',
                     'cmdslient': '',
                     'responsesuccess': 'To start, <service mongodb start>',
@@ -166,7 +166,7 @@ samuraimap[32] = {  'name': 'Install mariadb 10.0 (for ubuntu 14.04.x trusty)',
 # 40s Servers
 # ===============================
 
-samuraimap[41] = {  'name': 'Install nginx',
+samuraimap[41] = {  'name': 'Install nginx (for all)',
                     'cmd': 'sudo apt-get install python-software-properties && sudo add-apt-repository ppa:nginx/stable && apt-get update && sudo apt-get install nginx',
                     'cmdslient': '',
                     'responsesuccess': 'To start, <service nginx start>; To check config, <nginx -t>',
@@ -179,7 +179,7 @@ samuraimap[41] = {  'name': 'Install nginx',
 # ===============================
 
 samuraimap[50] = {  'name': 'Install nodejs and npm',
-                    'cmd': 'sudo apt-get install -y python-software-properties python g++ make && add-apt-repository ppa:chris-lea/node.js && apt-get update && apt-get install nodejs',
+                    'cmd': 'sudo apt-get install -y python-software-properties python g++ make && sudo add-apt-repository ppa:chris-lea/node.js && apt-get update && sudo apt-get install nodejs',
                     'cmdslient': '',
                     'responsesuccess': 'To install npm packages: <npm install>; To run node scripts: <node myscript.js>',
                     'responsefail': '',
