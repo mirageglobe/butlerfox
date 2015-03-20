@@ -63,6 +63,31 @@ Road Map:
 - [done] Spawned new samuraiv2 as samurai.py
 - [done] Created minisamurai which is the current minified version of samurai2 
 
+ToDo Commands
+-----------------------------
+Get server name {
+  uname -a
+}
+
+Add user {
+  sudo useradd -m myuser
+  sudo passwd myuser
+  sudo usermod -s /bin/bash myuser
+}
+
+Check for open ports {
+  nmap
+  netstat | grep 
+}
+
+Mac Check local connects {
+  lsof -i -P
+}
+
+Restart Apache {
+  sudo /usr/sbin/apachectl restart 
+}
+
 
 References
 -----------------------------
