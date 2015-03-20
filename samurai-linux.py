@@ -49,7 +49,7 @@ samuraimap[6] = {   'name': 'Show IP Address',
                     }
 
 samuraimap[7] = {   'name': 'Show Disk Space',
-                    'cmd': 'df',
+                    'cmd': 'df -h --total',
                     'cmdslient': '',
                     'responsesuccess': '',
                     'responsefail': '',
