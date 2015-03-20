@@ -98,7 +98,7 @@ samuraimap[30] = {  'name': 'Install sqlite (for all)',
 
 samuraimap[31] = {  'name': 'Install mongodb 3.0 (for ubuntu 14.04.x trusty)',
                     'cmd': 'sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10 && echo "deb http://repo.mongodb.org/apt/ubuntu "$(lsb_release -sc)"/mongodb-org/3.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.0.list && sudo apt-get update && sudo apt-get install -y mongodb-org',
-                    'responsesuccess': 'To start, <service mongodb start>'
+                    'responsesuccess': 'To start, sudo service mongod start. stop and restart supported'
                     }
 
 samuraimap[32] = {  'name': 'Install mariadb 10.0 (for ubuntu 14.04.x trusty)',
