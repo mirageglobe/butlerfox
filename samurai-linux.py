@@ -178,8 +178,8 @@ samuraimap[41] = {  'name': 'Install nginx (for all)',
 # 50s Platform and Pkg Managers
 # ===============================
 
-samuraimap[50] = {  'name': 'Install nodejs and npm',
-                    'cmd': 'sudo apt-get install -y python-software-properties python g++ make && sudo add-apt-repository ppa:chris-lea/node.js && apt-get update && sudo apt-get install nodejs',
+samuraimap[50] = {  'name': 'Install nodejs, NPM via NVM',
+                    'cmd': 'sudo apt-get update && sudo apt-get install nvm',
                     'cmdslient': '',
                     'responsesuccess': 'To install npm packages: <npm install>; To run node scripts: <node myscript.js>',
                     'responsefail': '',
