@@ -167,7 +167,7 @@ samuraimap[32] = {  'name': 'Install mariadb 10.0 (for ubuntu 14.04.x trusty)',
 # ===============================
 
 samuraimap[41] = {  'name': 'Install nginx',
-                    'cmd': 'sudo apt-get install python-software-properties && add-apt-repository ppa:nginx/stable && apt-get update && apt-get install nginx',
+                    'cmd': 'sudo apt-get install python-software-properties && sudo add-apt-repository ppa:nginx/stable && apt-get update && sudo apt-get install nginx',
                     'cmdslient': '',
                     'responsesuccess': 'To start, <service nginx start>; To check config, <nginx -t>',
                     'responsefail': '',
