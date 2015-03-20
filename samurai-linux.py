@@ -87,8 +87,6 @@ samuraimap[16] = {  'name': 'Show users list',
                     'responsesuccess': ''
                     }
 
-
-
 # ===============================
 # 30s Databases
 # ===============================
@@ -98,8 +96,8 @@ samuraimap[30] = {  'name': 'Install sqlite (for all)',
                     'responsesuccess': ''
                     }
 
-samuraimap[31] = {  'name': 'Install mongodb (for all)',
-                    'cmd': 'sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10 && echo "deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen" >> /etc/apt/sources.list.d/mongodb.list && apt-get update && apt-get install mongodb-10gen',
+samuraimap[31] = {  'name': 'Install mongodb 3.0 (for ubuntu 14.04.x trusty)',
+                    'cmd': 'sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10 && echo "deb http://repo.mongodb.org/apt/ubuntu "$(lsb_release -sc)"/mongodb-org/3.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.0.list && sudo apt-get update && sudo apt-get install -y mongodb-org',
                     'responsesuccess': 'To start, <service mongodb start>'
                     }
 
