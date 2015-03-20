@@ -122,7 +122,7 @@ samuraimap[41] = {  'name': 'Install nginx (for all)',
 # ===============================
 
 samuraimap[50] = {  'name': 'Install nodejs, NPM via NVM',
-                    'cmd': 'sudo apt-get update && curl https://raw.githubusercontent.com/creationix/nvm/v0.24.0/install.sh | bash && source ~/.profile',
+                    'cmd': 'sudo apt-get update && curl https://raw.githubusercontent.com/creationix/nvm/v0.24.0/install.sh | bash',
                     'responsesuccess': 'To install nodejs or npm run nvm; To run node scripts: <node myscript.js>'
                     }
 
