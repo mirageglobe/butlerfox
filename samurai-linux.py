@@ -13,40 +13,31 @@ samuraimap[0] = {   'name': 'Exit system',
                     'responsesuccess': ''
                     }
 
-samuraimap[1] = {   'name': 'Clear screen and show menu',
-                    'cmd': 'clear',
-                    'responsesuccess': 'Screen Cleared'
-                    }
-
-samuraimap[2] = {   'name': 'Toggle Ninja Mode',
-                    'cmd': '',
-                    'responsesuccess': ''
-                    }
-
-samuraimap[3] = {   'name': 'Toggle ShowCmd Mode',
-                    'cmd': '',
-                    'responsesuccess': ''
-                    }
-
-samuraimap[6] = {   'name': 'Show IP Address',
-                    'cmd': 'curl http://icanhazip.com',
-                    'responsesuccess': ''
-                    }
-
-samuraimap[7] = {   'name': 'Show Disk Space',
-                    'cmd': 'df -h --total',
-                    'responsesuccess': ''
-                    }
-
-samuraimap[8] = {   'name': 'Update Samurai.py',
+samuraimap[1] = {   'name': 'Update Samurai.py',
                     'cmd': 'curl -L https://raw.githubusercontent.com/mirageglobe/samurai/master/install.sh | bash',
                     'responsesuccess': ''
                     }
 
-samuraimap[9] = {   'name': 'Remove Samurai',
+samuraimap[2] = {   'name': 'Remove Samurai',
                     'cmd': 'sudo rm /usr/local/bin/samurai && sudo rm /usr/local/bin/samurai-mac.py && sudo rm /usr/local/bin/samurai-linux.py',
                     'responsesuccess': 'Samurai removed.'
                     }
+
+samuraimap[3] = {   'name': 'Toggle Ninja Mode',
+                    'cmd': '',
+                    'responsesuccess': ''
+                    }
+
+samuraimap[4] = {   'name': 'Toggle ShowCmd Mode',
+                    'cmd': '',
+                    'responsesuccess': ''
+                    }
+
+samuraimap[5] = {   'name': 'Clear screen and show menu',
+                    'cmd': 'clear',
+                    'responsesuccess': 'Screen Cleared'
+                    }
+
 
 # ===============================
 # 10s Operating System 
@@ -86,6 +77,22 @@ samuraimap[16] = {  'name': 'Show users list',
                     'cmd': 'sudo cat /etc/passwd',
                     'responsesuccess': ''
                     }
+
+samuraimap[17] = {  'name': 'Restart shell',
+                    'cmd': 'sudo exec bash -l',
+                    'responsesuccess': ''
+                    }
+
+samuraimap[18] = {  'name': 'Show IP Address',
+                    'cmd': 'curl http://icanhazip.com',
+                    'responsesuccess': ''
+                    }
+
+samuraimap[19] = {  'name': 'Show Disk Space',
+                    'cmd': 'df -h --total',
+                    'responsesuccess': ''
+                    }
+
 
 # ===============================
 # 30s Databases
