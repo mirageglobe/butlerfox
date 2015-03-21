@@ -8,12 +8,12 @@ samuraimap = {}
 # 1s Core
 # ===============================
 
-samuraimap[0] = {   'name': 'Exit system',
-                    'cmd': '',
+samuraimap[0] = {   'name': 'Exit Samurai',
+                    'cmd': 'clear',
                     'responsesuccess': ''
                     }
 
-samuraimap[1] = {   'name': 'Update Samurai.py',
+samuraimap[1] = {   'name': 'Update Samurai',
                     'cmd': 'curl -L https://raw.githubusercontent.com/mirageglobe/samurai/master/install.sh | bash',
                     'responsesuccess': ''
                     }
@@ -23,17 +23,12 @@ samuraimap[2] = {   'name': 'Remove Samurai',
                     'responsesuccess': 'Samurai removed.'
                     }
 
-samuraimap[3] = {   'name': 'Toggle Ninja Mode',
+samuraimap[3] = {   'name': 'Toggle ShowCmd Mode',
                     'cmd': '',
                     'responsesuccess': ''
                     }
 
-samuraimap[4] = {   'name': 'Toggle ShowCmd Mode',
-                    'cmd': '',
-                    'responsesuccess': ''
-                    }
-
-samuraimap[5] = {   'name': 'Clear screen and show menu',
+samuraimap[4] = {   'name': 'Clear screen and show menu',
                     'cmd': 'clear',
                     'responsesuccess': 'Screen Cleared'
                     }
@@ -227,24 +222,17 @@ if __name__ == "__main__":
       gchoice = 9999
 
     if gchoice == 0:
-      runcommand("clear")
       break
 
-    if gchoice == 2:
-      ninja_active = not ninja_active
-      # toggle ninja mode
-
     if gchoice == 3:
-      showcmd_active = not showcmd_active
-      # toggle showcmd mode
+      showcmd_active = not showcmd_active       # toggle showcmd mode
 
     if gchoice in samuraimap:
       runcommand(samuraimap[gchoice]['cmd'])
       if not samuraimap[gchoice]['responsesuccess']:
         print("{0}".format(avatar), samuraimap[gchoice]['responsesuccess'])
     else:
-      print("{0} Command is does not exist. Please enter number.".format(avatar))
-      #load the options again. does not work if placed in above array
+      print("{0} Command is does not exist. Please enter number.".format(avatar))       #load the options again. does not work if placed in above array
 
     input("Enter to continue")
     runcommand("clear")
