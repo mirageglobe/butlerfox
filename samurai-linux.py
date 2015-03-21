@@ -33,7 +33,6 @@ samuraimap[4] = {   'name': 'Clear screen and show menu',
                     'responsesuccess': 'Screen Cleared'
                     }
 
-
 # ===============================
 # 10s Operating System 
 # ===============================
@@ -87,7 +86,6 @@ samuraimap[19] = {  'name': 'Show disk space',
                     'cmd': 'df -h --total',
                     'responsesuccess': ''
                     }
-
 
 # ===============================
 # 30s Databases

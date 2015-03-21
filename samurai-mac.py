@@ -10,37 +10,27 @@ samuraimap = {}
 
 samuraimap[0] = {   'name': 'Exit samurai',
                     'cmd': 'clear',
-                    'cmdslient': '',
-                    'responsesuccess': '',
-                    'responsefail': '',
+                    'responsesuccess': ''
                     }
 
-samuraimap[1] = {   'name': 'Clear screen and show menu',
-                    'cmd': 'clear',
-                    'cmdslient': '',
-                    'responsesuccess': 'Screen Cleared',
-                    'responsefail': '',
+samuraimap[1] = {   'name': 'Update Samurai',
+                    'cmd': 'curl -L https://raw.githubusercontent.com/mirageglobe/samurai/master/install.sh | bash',
+                    'responsesuccess': ''
+                    }
+
+samuraimap[2] = {   'name': 'Remove Samurai',
+                    'cmd': 'sudo rm /usr/local/bin/samurai && sudo rm /usr/local/bin/samurai-mac.py && sudo rm /usr/local/bin/samurai-linux.py',
+                    'responsesuccess': 'Samurai removed.'
                     }
 
 samuraimap[3] = {   'name': 'Toggle ShowCmd mode',
                     'cmd': '',
-                    'cmdslient': '',
-                    'responsesuccess': '',
-                    'responsefail': '',
+                    'responsesuccess': ''
                     }
 
-samuraimap[4] = {   'name': 'Update Samurai',
-                    'cmd': 'curl -L https://raw.githubusercontent.com/mirageglobe/samurai/master/install.sh | bash',
-                    'cmdslient': '',
-                    'responsesuccess': '',
-                    'responsefail': '',
-                    }
-
-samuraimap[5] = {   'name': 'Remove Samurai',
-                    'cmd': 'sudo rm /usr/local/bin/samurai && sudo rm /usr/local/bin/samurai-mac.py && sudo rm /usr/local/bin/samurai-linux.py',
-                    'cmdslient': '',
-                    'responsesuccess': 'Samurai removed.',
-                    'responsefail': '',
+samuraimap[4] = {   'name': 'Clear screen and show menu',
+                    'cmd': 'clear',
+                    'responsesuccess': 'Screen Cleared'
                     }
 
 # ===============================
@@ -49,59 +39,43 @@ samuraimap[5] = {   'name': 'Remove Samurai',
 
 samuraimap[10] = {  'name': 'Change my login password',
                     'cmd': 'passwd',
-                    'cmdslient': '',
-                    'responsesuccess': '',
-                    'responsefail': '',
+                    'responsesuccess': ''
                     }
 
 samuraimap[11] = {  'name': 'Show Stats Mem',
                     'cmd': 'top -l 1 | head -n 10 | grep PhysMem',
-                    'cmdslient': '',
-                    'responsesuccess': '',
-                    'responsefail': '',
+                    'responsesuccess': ''
                     }
 
 samuraimap[12] = {  'name': 'Show top 10 CPU usage',
                     'cmd': 'top -o cpu -n 10',
-                    'cmdslient': '',
-                    'responsesuccess': '',
-                    'responsefail': '',
+                    'responsesuccess': ''
                     }
 
 samuraimap[13] = {  'name': 'Show IP Address (Global)',
                     'cmd': 'curl http://icanhazip.com',
-                    'cmdslient': '',
-                    'responsesuccess': '',
-                    'responsefail': '',
+                    'responsesuccess': ''
                     }
 
 samuraimap[14] = {  'name': 'Show Mac invisible files',
                     'cmd': 'defaults write com.apple.finder AppleShowAllFiles YES && killall Finder /System/Library/CoreServices/Finder.app',
-                    'cmdslient': '',
-                    'responsesuccess': '',
-                    'responsefail': '',
+                    'responsesuccess': ''
                     }
 
 
 samuraimap[15] = {  'name': 'Hide Mac invisible files',
                     'cmd': 'defaults write com.apple.finder AppleShowAllFiles NO && killall Finder /System/Library/CoreServices/Finder.app',
-                    'cmdslient': '',
-                    'responsesuccess': '',
-                    'responsefail': '',
+                    'responsesuccess': ''
                     }
 
 samuraimap[16] = {  'name': 'Reload Shell',
                     'cmd': 'exec $SHELL -l',
-                    'cmdslient': '',
-                    'responsesuccess': '',
-                    'responsefail': '',
+                    'responsesuccess': ''
                     }
 
 samuraimap[17] = {  'name': 'List current users',
                     'cmd': 'cat /etc/passwd',
-                    'cmdslient': '',
-                    'responsesuccess': '',
-                    'responsefail': '',
+                    'responsesuccess': ''
                     }
 
 
@@ -111,42 +85,18 @@ samuraimap[17] = {  'name': 'List current users',
 
 samuraimap[31] = {  'name': 'Install HomeBrew',
                     'cmd': 'which brew || ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"',
-                    'cmdslient': '',
-                    'responsesuccess': '',
-                    'responsefail': '',
+                    'responsesuccess': ''
                     }
 
 samuraimap[32] = {  'name': 'Install Cask for HomeBrew',
                     'cmd': 'brew install caskroom/cask/brew-cask',
-                    'cmdslient': '',
-                    'responsesuccess': '',
-                    'responsefail': '',
+                    'responsesuccess': ''
                     }
 
 samuraimap[33] = {  'name': 'Update and Cleanup HomeBrew',
                     'cmd': 'brew update && brew upgrade && brew cleanup',
-                    'cmdslient': '',
-                    'responsesuccess': '',
-                    'responsefail': '',
+                    'responsesuccess': ''
                     }
-
-
-# ===============================
-# 40s Servers and Databases
-# ===============================
-
-# ===============================
-# 50s Languages
-# ===============================
-
-# ===============================
-# 60s Apps
-# ===============================
-
-# ===============================
-# Custom Apps Start from 100
-# ===============================
-
 
 # ===============================
 # Functions
@@ -222,16 +172,14 @@ if __name__ == "__main__":
       break
 
     if gchoice == 3:
-      showcmd_active = not showcmd_active
-      # toggle showcmd mode
+      showcmd_active = not showcmd_active       # toggle showcmd mode
 
     if gchoice in samuraimap:
       runcommand(samuraimap[gchoice]['cmd'])
       if not samuraimap[gchoice]['responsesuccess']:
         print("{0}".format(avatar), samuraimap[gchoice]['responsesuccess'])
     else:
-      print("{0} Command is does not exist. Please enter number.".format(avatar))
-      #load the options again. does not work if placed in above array
+      print("{0} Command is does not exist. Please enter number.".format(avatar))       #load the options again. does not work if placed in above array
 
     input("Enter to continue")
     runcommand("clear")
