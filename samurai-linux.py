@@ -23,7 +23,7 @@ samuraimap[2] = {   'name': 'Remove Samurai',
                     'responsesuccess': 'Samurai removed.'
                     }
 
-samuraimap[3] = {   'name': 'Toggle ShowCmd Mode',
+samuraimap[3] = {   'name': 'Toggle ShowCmd mode',
                     'cmd': '',
                     'responsesuccess': ''
                     }
@@ -43,7 +43,7 @@ samuraimap[10] = {  'name': 'Change my login password',
                     'responsesuccess': ''
                     }
 
-samuraimap[11] = {  'name': 'Update ubuntu and cleanup',
+samuraimap[11] = {  'name': 'Update ubuntu and cleanup cache',
                     'cmd': 'sudo apt-get update && sudo apt-get upgrade && sudo apt-get autoclean && sudo apt-get autoremove',
                     'responsesuccess': ''
                     }
@@ -78,12 +78,12 @@ samuraimap[17] = {  'name': 'Restart shell',
                     'responsesuccess': ''
                     }
 
-samuraimap[18] = {  'name': 'Show IP Address',
+samuraimap[18] = {  'name': 'Show IP address',
                     'cmd': 'curl http://icanhazip.com',
                     'responsesuccess': ''
                     }
 
-samuraimap[19] = {  'name': 'Show Disk Space',
+samuraimap[19] = {  'name': 'Show disk space',
                     'cmd': 'df -h --total',
                     'responsesuccess': ''
                     }
