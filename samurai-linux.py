@@ -126,7 +126,12 @@ samuraimap[41] = {  'name': 'Install nginx (for all)',
 # 50s Platform and Pkg Managers
 # ===============================
 
-samuraimap[50] = {  'name': 'Install nodejs, NPM via NVM',
+samuraimap[50] = {  'name': 'Install linuxbrew (homebrew for linux)',
+                    'cmd': 'sudo apt-get install build-essential curl git m4 ruby texinfo libbz2-dev libcurl4-openssl-dev libexpat-dev libncurses-dev zlib1g-dev && ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/linuxbrew/go/install)"',
+                    'responsesuccess': 'Refer to http://brew.sh/linuxbrew/ for adding shims to bashrc'
+                    }
+
+samuraimap[51] = {  'name': 'Install nodejs, NPM via NVM',
                     'cmd': 'sudo apt-get update && curl https://raw.githubusercontent.com/creationix/nvm/v0.24.0/install.sh | bash',
                     'responsesuccess': 'To install nodejs or npm run nvm; To run node scripts: <node myscript.js>'
                     }
