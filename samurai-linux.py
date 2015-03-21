@@ -73,7 +73,7 @@ samuraimap[16] = {  'name': 'Show users list',
                     }
 
 samuraimap[17] = {  'name': 'Restart shell',
-                    'cmd': 'exec bash -l',
+                    'cmd': 'exec $SHELL -l',
                     'responsesuccess': ''
                     }
 
@@ -88,20 +88,34 @@ samuraimap[19] = {  'name': 'Show disk space',
                     }
 
 # ===============================
-# 30s Databases
+# 30s Platform and Pkg Managers
 # ===============================
 
-samuraimap[30] = {  'name': 'Install sqlite (for all)',
+samuraimap[30] = {  'name': 'Install linuxbrew (homebrew for linux)',
+                    'cmd': 'sudo apt-get install build-essential curl git m4 ruby texinfo libbz2-dev libcurl4-openssl-dev libexpat-dev libncurses-dev zlib1g-dev && ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/linuxbrew/go/install)"',
+                    'responsesuccess': 'Refer to http://brew.sh/linuxbrew/ for adding shims to bashrc'
+                    }
+
+samuraimap[31] = {  'name': 'Install nodejs, NPM via NVM',
+                    'cmd': 'sudo apt-get update && curl https://raw.githubusercontent.com/creationix/nvm/v0.24.0/install.sh | bash',
+                    'responsesuccess': 'To install nodejs or npm run nvm; To run node scripts: <node myscript.js>'
+                    }
+
+# ===============================
+# 50s Databases
+# ===============================
+
+samuraimap[50] = {  'name': 'Install sqlite (for all)',
                     'cmd': 'sudo apt-get install sqlite',
                     'responsesuccess': ''
                     }
 
-samuraimap[31] = {  'name': 'Install mongodb 3.0 (for ubuntu 14.04.x trusty)',
+samuraimap[51] = {  'name': 'Install mongodb 3.0 (for ubuntu 14.04.x trusty)',
                     'cmd': 'sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10 && echo "deb http://repo.mongodb.org/apt/ubuntu "$(lsb_release -sc)"/mongodb-org/3.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.0.list && sudo apt-get update && sudo apt-get install -y mongodb-org',
                     'responsesuccess': 'To start, sudo service mongod start. stop and restart supported'
                     }
 
-samuraimap[32] = {  'name': 'Install mariadb 10.0 (for ubuntu 14.04.x trusty)',
+samuraimap[52] = {  'name': 'Install mariadb 10.0 (for ubuntu 14.04.x trusty)',
                     'cmd': 'sudo apt-get install software-properties-common && sudo apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0xcbcb082a1bb943db && sudo add-apt-repository "deb http://lon1.mirrors.digitalocean.com/mariadb/repo/10.0/ubuntu trusty main" && sudo apt-get update && sudo apt-get install mariadb-server',
                     'responsesuccess': ''
                     }
@@ -113,20 +127,6 @@ samuraimap[32] = {  'name': 'Install mariadb 10.0 (for ubuntu 14.04.x trusty)',
 samuraimap[41] = {  'name': 'Install nginx (for all)',
                     'cmd': 'apt-get update && sudo apt-get install nginx',
                     'responsesuccess': 'To start, <service nginx start>; To check config, <nginx -t>'
-                    }
-
-# ===============================
-# 50s Platform and Pkg Managers
-# ===============================
-
-samuraimap[50] = {  'name': 'Install linuxbrew (homebrew for linux)',
-                    'cmd': 'sudo apt-get install build-essential curl git m4 ruby texinfo libbz2-dev libcurl4-openssl-dev libexpat-dev libncurses-dev zlib1g-dev && ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/linuxbrew/go/install)"',
-                    'responsesuccess': 'Refer to http://brew.sh/linuxbrew/ for adding shims to bashrc'
-                    }
-
-samuraimap[51] = {  'name': 'Install nodejs, NPM via NVM',
-                    'cmd': 'sudo apt-get update && curl https://raw.githubusercontent.com/creationix/nvm/v0.24.0/install.sh | bash',
-                    'responsesuccess': 'To install nodejs or npm run nvm; To run node scripts: <node myscript.js>'
                     }
 
 # ===============================
@@ -172,11 +172,10 @@ def loadoptions(ninja=False,showcmd=False):
 def runcommand(cmdstring):
   return_value = os.system(cmdstring)
 
-
 # ===============================
 # Main Code
 # ===============================
-  
+
 if __name__ == "__main__":
 
   # ===============================

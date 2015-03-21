@@ -8,7 +8,7 @@ samuraimap = {}
 # Samurai Specific
 # ===============================
 
-samuraimap[0] = {   'name': 'Exit samurai',
+samuraimap[0] = {   'name': 'Exit Samurai',
                     'cmd': 'clear',
                     'responsesuccess': ''
                     }
@@ -88,7 +88,7 @@ samuraimap[31] = {  'name': 'Install homebrew',
                     'responsesuccess': ''
                     }
 
-samuraimap[32] = {  'name': 'Install Cask for homebrew',
+samuraimap[32] = {  'name': 'Install cask for homebrew',
                     'cmd': 'brew install caskroom/cask/brew-cask',
                     'responsesuccess': ''
                     }
