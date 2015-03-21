@@ -8,8 +8,8 @@ samuraimap = {}
 # Samurai Specific
 # ===============================
 
-samuraimap[0] = {   'name': 'Exit system',
-                    'cmd': '',
+samuraimap[0] = {   'name': 'Exit samurai',
+                    'cmd': 'clear',
                     'cmdslient': '',
                     'responsesuccess': '',
                     'responsefail': '',
@@ -22,21 +22,14 @@ samuraimap[1] = {   'name': 'Clear screen and show menu',
                     'responsefail': '',
                     }
 
-samuraimap[2] = {   'name': 'Toggle Ninja Mode (Alpha)',
+samuraimap[3] = {   'name': 'Toggle ShowCmd mode',
                     'cmd': '',
                     'cmdslient': '',
                     'responsesuccess': '',
                     'responsefail': '',
                     }
 
-samuraimap[3] = {   'name': 'Toggle ShowCmd Mode',
-                    'cmd': '',
-                    'cmdslient': '',
-                    'responsesuccess': '',
-                    'responsefail': '',
-                    }
-
-samuraimap[4] = {   'name': 'Update Samurai.py',
+samuraimap[4] = {   'name': 'Update Samurai',
                     'cmd': 'curl -L https://raw.githubusercontent.com/mirageglobe/samurai/master/install.sh | bash',
                     'cmdslient': '',
                     'responsesuccess': '',
@@ -226,12 +219,7 @@ if __name__ == "__main__":
       gchoice = 9999
 
     if gchoice == 0:
-      runcommand("clear")
       break
-
-    if gchoice == 2:
-      ninja_active = not ninja_active
-      # toggle ninja mode
 
     if gchoice == 3:
       showcmd_active = not showcmd_active
