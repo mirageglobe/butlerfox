@@ -10,7 +10,7 @@ Samurai
 
 Samurai (武士 meaning Warrior Serve) provides a simple interface for server administrators. Samurai aims to be a fire and forget system orchestrating tool. Samurai installs and setups the basic applications / packages for a *nix system. In summary, this application drastically reduces learning curve and makes installations quicker.
 
-![Samurai Menu](https://raw.githubusercontent.com/mirageglobe/samurai/master/samuraiscreenshot.png)
+![Samurai Menu](https://raw.githubusercontent.com/mirageglobe/samurai/master/samurai.png)
 
 
 Installation
