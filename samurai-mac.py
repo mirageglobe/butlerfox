@@ -42,7 +42,7 @@ samuraimap[10] = {  'name': 'Change my login password',
                     'responsesuccess': ''
                     }
 
-samuraimap[11] = {  'name': 'Show Stats Mem',
+samuraimap[11] = {  'name': 'Show stats Mem',
                     'cmd': 'top -l 1 | head -n 10 | grep PhysMem',
                     'responsesuccess': ''
                     }
@@ -52,7 +52,7 @@ samuraimap[12] = {  'name': 'Show top 10 CPU usage',
                     'responsesuccess': ''
                     }
 
-samuraimap[13] = {  'name': 'Show IP Address (Global)',
+samuraimap[13] = {  'name': 'Show IP address (Global)',
                     'cmd': 'curl http://icanhazip.com',
                     'responsesuccess': ''
                     }
@@ -68,7 +68,7 @@ samuraimap[15] = {  'name': 'Hide Mac invisible files',
                     'responsesuccess': ''
                     }
 
-samuraimap[16] = {  'name': 'Reload Shell',
+samuraimap[16] = {  'name': 'Reload shell',
                     'cmd': 'exec $SHELL -l',
                     'responsesuccess': ''
                     }
@@ -83,17 +83,17 @@ samuraimap[17] = {  'name': 'List current users',
 # 30s Platform and Pkg Managers
 # ===============================
 
-samuraimap[31] = {  'name': 'Install HomeBrew',
+samuraimap[31] = {  'name': 'Install homebrew',
                     'cmd': 'which brew || ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"',
                     'responsesuccess': ''
                     }
 
-samuraimap[32] = {  'name': 'Install Cask for HomeBrew',
+samuraimap[32] = {  'name': 'Install Cask for homebrew',
                     'cmd': 'brew install caskroom/cask/brew-cask',
                     'responsesuccess': ''
                     }
 
-samuraimap[33] = {  'name': 'Update and Cleanup HomeBrew',
+samuraimap[33] = {  'name': 'Update and clean homebrew',
                     'cmd': 'brew update && brew upgrade && brew cleanup',
                     'responsesuccess': ''
                     }
