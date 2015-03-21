@@ -79,7 +79,7 @@ samuraimap[16] = {  'name': 'Show users list',
                     }
 
 samuraimap[17] = {  'name': 'Restart shell',
-                    'cmd': 'sudo exec bash -l',
+                    'cmd': 'exec bash -l',
                     'responsesuccess': ''
                     }
 
