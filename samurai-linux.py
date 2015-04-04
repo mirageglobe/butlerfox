@@ -142,10 +142,6 @@ samuraimap[60] = {  'name': 'Install php5 (fpm)',
 # 70s Apps
 # ===============================
 
-samuraimap[70] = {  'name': 'Install forever (requires npm)',
-                    'cmd': 'npm install forever -g',
-                    'responsesuccess': 'To start, go to folder and run <forever start --spinSleepTime 10000 main.js>'
-                    }
 
 # ===============================
 # Custom Apps Start from 100

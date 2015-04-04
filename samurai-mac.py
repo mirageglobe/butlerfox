@@ -62,7 +62,6 @@ samuraimap[14] = {  'name': 'Show Mac invisible files',
                     'responsesuccess': ''
                     }
 
-
 samuraimap[15] = {  'name': 'Hide Mac invisible files',
                     'cmd': 'defaults write com.apple.finder AppleShowAllFiles NO && killall Finder /System/Library/CoreServices/Finder.app',
                     'responsesuccess': ''
@@ -89,14 +88,25 @@ samuraimap[31] = {  'name': 'Install homebrew',
                     }
 
 samuraimap[32] = {  'name': 'Install cask for homebrew',
-                    'cmd': 'brew install caskroom/cask/brew-cask',
+                    'cmd': 'which brew || brew install caskroom/cask/brew-cask',
                     'responsesuccess': ''
                     }
 
 samuraimap[33] = {  'name': 'Update and clean homebrew',
-                    'cmd': 'brew update && brew upgrade && brew cleanup',
+                    'cmd': 'which brew || brew update && brew upgrade && brew cleanup',
                     'responsesuccess': ''
                     }
+
+samuraimap[34] = {  'name': 'Install pyenv (python manager)',
+                    'cmd': 'which brew || brew update && brew install pyenv',
+                    'responsesuccess': ''
+                    }
+
+samuraimap[35] = {  'name': 'Install chruby and ruby-install (ruby manager)',
+                    'cmd': 'which brew || brew update && brew install chruby ruby-install',
+                    'responsesuccess': ''
+                    }
+
 
 # ===============================
 # Functions
