@@ -77,6 +77,10 @@ samuraimap[17] = {  'name': 'List current users',
                     'responsesuccess': ''
                     }
 
+samuraimap[18] = {  'name': 'Show local listening ports',
+                    'cmd': 'lsof -i -P',
+                    'responsesuccess': ''
+                    }
 
 # ===============================
 # 30s Platform and Pkg Managers

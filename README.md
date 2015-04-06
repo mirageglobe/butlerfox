@@ -16,9 +16,13 @@ Samurai (武士 meaning Warrior Serve) provides a simple interface for server ad
 Installation
 -----------------------------
 
-To install (on ubuntu / debian / mac), fire up terminal
+To install (on ubuntu / debian / *buntu), fire up terminal and run:
 
-> sudo curl -L https://raw.githubusercontent.com/mirageglobe/samurai/master/install.sh | bash
+> sudo apt-get install curl
+
+To install on mac, fire up terminal and run:
+
+> which curl || sudo curl -L https://raw.githubusercontent.com/mirageglobe/samurai/master/install.sh | bash
 
 To run,
 
@@ -27,6 +31,8 @@ To run,
 To uninstall,
 
 > sudo rm /usr/local/bin/samurai && rm /usr/local/bin/samurai-mac.py && rm /usr/local/bin/samurai-linux.py
+
+or use the uninstall option in samurai itself.
 
 
 Technical
@@ -65,6 +71,8 @@ Road Map:
 
 ToDo Commands
 -----------------------------
+- add caffeine in linux
+
 Get server name {
   uname -a
 }
