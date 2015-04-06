@@ -73,10 +73,6 @@ ToDo Commands
 -----------------------------
 - add caffeine in linux
 
-Get server name {
-  uname -a
-}
-
 Add user {
   sudo useradd -m myuser
   sudo passwd myuser
@@ -86,10 +82,6 @@ Add user {
 Check for open ports {
   nmap
   netstat | grep 
-}
-
-Mac Check local connects {
-  lsof -i -P
 }
 
 Restart Apache {

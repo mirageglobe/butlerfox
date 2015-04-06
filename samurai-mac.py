@@ -82,6 +82,12 @@ samuraimap[18] = {  'name': 'Show local listening ports',
                     'responsesuccess': ''
                     }
 
+samuraimap[19] = {  'name': 'Show kernel and OS information',
+                    'cmd': 'uname -a',
+                    'responsesuccess': ''
+                    }
+
+
 # ===============================
 # 30s Platform and Pkg Managers
 # ===============================

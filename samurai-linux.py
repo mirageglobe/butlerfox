@@ -34,7 +34,7 @@ samuraimap[4] = {   'name': 'Clear screen and show menu',
                     }
 
 # ===============================
-# 10s Operating System 
+# 10 - 20 Operating System 
 # ===============================
 
 samuraimap[10] = {  'name': 'Change my login password',
@@ -86,6 +86,12 @@ samuraimap[19] = {  'name': 'Show disk space',
                     'cmd': 'df -h --total',
                     'responsesuccess': ''
                     }
+
+samuraimap[20] = {  'name': 'Show kernel and OS information',
+                    'cmd': 'uname -a',
+                    'responsesuccess': ''
+                    }
+
 
 # ===============================
 # 30s Platform and Pkg Managers
