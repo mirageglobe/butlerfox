@@ -87,8 +87,13 @@ samuraimap[19] = {  'name': 'Show disk space',
                     'responsesuccess': ''
                     }
 
-samuraimap[20] = {  'name': 'Show kernel and OS information',
+samuraimap[20] = {  'name': 'Show kernel build information',
                     'cmd': 'uname -a',
+                    'responsesuccess': ''
+                    }
+
+samuraimap[21] = {  'name': 'Show ubuntu or *buntu-like version information',
+                    'cmd': 'lsb_release -a',
                     'responsesuccess': ''
                     }
 
