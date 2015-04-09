@@ -18,8 +18,7 @@ Installation and Removal
 
 To install (on ubuntu / debian / *buntu), fire up terminal and run:
 
-> sudo apt-get install curl
-> sudo curl -L https://raw.githubusercontent.com/mirageglobe/samurai/master/install.sh | bash
+> sudo apt-get install curl && sudo curl -L https://raw.githubusercontent.com/mirageglobe/samurai/master/install.sh | bash
 
 To install on mac, fire up terminal and run:
 
@@ -70,6 +69,7 @@ Road Map:
 - [done] Spawned new samuraiv2 as samurai.py
 - [done] Created minisamurai which is the current minified version of samurai2 
 
+
 ToDo Commands
 -----------------------------
 - add caffeine in linux
@@ -88,6 +88,15 @@ Check for open ports {
 Restart Apache {
   sudo /usr/sbin/apachectl restart 
 }
+
+
+Contributing
+-----------------------------
+If you wish to contribute to samurai, you can use the vagrantfile to fire up and test samurai. Feel free to suggest commands. You can read more about vagrant at http://docs.vagrantup.com/v2/getting-started/index.html
+
+To start vagrant:
+
+> vagrant up
 
 
 References
