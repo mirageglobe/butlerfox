@@ -158,6 +158,11 @@ samuraimap[60] = {  'name': 'Install php5 (fpm)',
 # 70s Apps
 # ===============================
 
+samuraimap[70] = {  'name': 'Install AV suite (avconv pngquant graphicsmagick)',
+                    'cmd': 'apt-get install libav-tools pngquant graphicsmagick',
+                    'responsesuccess': 'These tools are the best of breed. To run use avconv / pngquant / gm. AVconv is one of the fastest video converter. PNGquant is one of the best png compressor. GM is one of the best graphics manipulator.'
+                    }
+
 
 # ===============================
 # Custom Apps Start from 100
