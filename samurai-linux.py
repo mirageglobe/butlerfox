@@ -112,6 +112,11 @@ samuraimap[31] = {  'name': 'Install nodejs, NPM via NVM',
                     'responsesuccess': 'To install nodejs or npm run nvm; To run node scripts: <node myscript.js>'
                     }
 
+samuraimap[32] = {  'name': 'Install latest stable git',
+                    'cmd': 'sudo add-apt-repository ppa:git-core/ppa && sudo apt-get update && sudo apt-get install git',
+                    'responsesuccess': ''
+                    }
+
 # ===============================
 # 50s Databases
 # ===============================
