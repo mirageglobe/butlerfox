@@ -57,12 +57,12 @@ samuraimap[13] = {  'name': 'Install build-essential',
                     'responsesuccess': ''
                     }
 
-samuraimap[14] = {  'name': 'Install and arm ufw (allow ssh 22/80)',
+samuraimap[14] = {  'name': 'Install, arm ufw and allow ssh port 22/80',
                     'cmd': 'sudo apt-get install ufw && ufw allow ssh && ufw allow 80 && sudo ufw enable',
                     'responsesuccess': ''
                     }
 
-samuraimap[15] = {  'name': 'Add virtualbox guest additions for ubuntu',
+samuraimap[15] = {  'name': 'Add virtualbox guest additions for ubuntu (for virtualbox *buntu VMs)',
                     'cmd': 'sudo apt-get install virtualbox-guest-dkms virtualbox-guest-utils virtualbox-guest-x11',
                     'responsesuccess': ''
                     }
