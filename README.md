@@ -63,6 +63,7 @@ Road Map:
 - test suite needed (minitest)
 - Enable a simple bash script generation
 - install to home directory and symlink commands
+- use 1.1.1 to access sub commands
 - [done] Need to add ufw enable -> problem as ufw prompts for y/n confirmation (silent mode problem)
 - [done] suppress all the prompts as you can see; making most silent as this is meant to work nicely (ish) with Vagrant.
 - [done] Cleaned up old samurai code
