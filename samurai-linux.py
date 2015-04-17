@@ -140,8 +140,8 @@ samuraimap[52] = {  'name': 'Install mariadb 10.0 (for ubuntu 14.04.x trusty)',
 # 40s Servers
 # ===============================
 
-samuraimap[41] = {  'name': 'Install nginx (for all)',
-                    'cmd': 'apt-get update && sudo apt-get install nginx',
+samuraimap[41] = {  'name': 'Install nginx - ppa latest stable (for all)',
+                    'cmd': 'apt-get update && sudo add-apt-repository ppa:nginx/stable && sudo apt-get install nginx',
                     'responsesuccess': 'To start, <service nginx start>; To check config, <nginx -t>'
                     }
 
