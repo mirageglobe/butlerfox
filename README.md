@@ -8,9 +8,13 @@ Samurai
 - Source: https://github.com/mirageglobe/samurai
 - License: Apache License 2.0
 
+
+![samurai logo](https://raw.githubusercontent.com/mirageglobe/samurai/master/samurailogo.png)
+
+
 Samurai (武士 meaning Warrior Serve) provides a simple interface for server administrators. Samurai aims to be a fire and forget system orchestrating tool. Samurai installs and setups the basic applications / packages for a *nix system. In summary, this application drastically reduces learning curve and makes installations quicker.
 
-![Samurai Menu](https://raw.githubusercontent.com/mirageglobe/samurai/master/samurai.png)
+![samurai menu](https://raw.githubusercontent.com/mirageglobe/samurai/master/samurai.png)
 
 
 Installation and Removal
