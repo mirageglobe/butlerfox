@@ -118,6 +118,25 @@ samuraimap[32] = {  'name': 'Install latest stable git',
                     }
 
 # ===============================
+# 40s Security
+# ===============================
+
+samuraimap[40] = {  'name': 'Install clamav',
+                    'cmd': 'sudo apt-get install clamav',
+                    'responsesuccess': 'Refer to http://www.clamav.net/ for additional instructions. To run, sudo clamav. to update: sudo freshclam'
+                    }
+
+samuraimap[41] = {  'name': 'Install chkrootkit',
+                    'cmd': 'sudo apt-get install chkrootkit',
+                    'responsesuccess': 'Refer to http://www.chkrootkit.org/ for additional instructions. To run, sudo chkrootkit'
+                    }
+
+samuraimap[42] = {  'name': 'Install rkhunter',
+                    'cmd': 'sudo apt-get install rkhunter',
+                    'responsesuccess': 'Refer to http://rkhunter.sourceforge.net/ for additional instructions. To run, sudo rkhunter --check'
+                    }
+
+# ===============================
 # 50s Databases
 # ===============================
 
