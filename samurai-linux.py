@@ -121,9 +121,9 @@ samuraimap[32] = {  'name': 'Install latest stable git',
 # 40s Security
 # ===============================
 
-samuraimap[40] = {  'name': 'Install clamav',
-                    'cmd': 'sudo apt-get install clamav',
-                    'responsesuccess': 'Refer to http://www.clamav.net/ for additional instructions. To run, sudo clamav. to update: sudo freshclam'
+samuraimap[40] = {  'name': 'Install clamav and clam daemon',
+                    'cmd': 'sudo apt-get install clamav clamav-daemon',
+                    'responsesuccess': 'Refer to http://www.clamav.net/ and https://github.com/vrtadmin/clamav-faq/blob/master/manual/clamdoc.pdf for additional instructions. To run, sudo clamscan or sudo clamd. to update: sudo freshclam'
                     }
 
 samuraimap[41] = {  'name': 'Install chkrootkit',
@@ -156,19 +156,15 @@ samuraimap[52] = {  'name': 'Install mariadb 10.0 (for ubuntu 14.04.x trusty)',
                     }
 
 # ===============================
-# 40s Servers
+# 60s Servers and Languages
 # ===============================
 
-samuraimap[41] = {  'name': 'Install nginx - ppa latest stable (for all)',
+samuraimap[60] = {  'name': 'Install nginx - ppa latest stable (for all)',
                     'cmd': 'apt-get update && sudo add-apt-repository ppa:nginx/stable && sudo apt-get install nginx',
                     'responsesuccess': 'To start, <service nginx start>; To check config, <nginx -t>'
                     }
 
-# ===============================
-# 60s Languages
-# ===============================
-
-samuraimap[60] = {  'name': 'Install php5 (fpm)',
+samuraimap[61] = {  'name': 'Install php5 (fpm)',
                     'cmd': 'sudo apt-get install php5-fpm php5-mysql php5-cli',
                     'responsesuccess': 'To start, <service nginx start>; To check config, <nginx -t>; refer to https://www.digitalocean.com/community/tutorials/how-to-install-linux-nginx-mysql-php-lemp-stack-on-ubuntu-14-04; remember to (1) edit /etc/php5/fpm/php.ini to set cgi.fix_pathinfo=0 and (2) /etc/nginx/sites-available/default to root /usr/share/nginx/html; Also to uncomment php location to use phpfpm; to test just drop a php file in the nginx html folder'
                     }
