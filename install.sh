@@ -96,7 +96,7 @@ fi
 # install new samurai files
 
 echo "$DTTITLE installing samurai"
-
+# example : curl -L -o master.zip http://github.com/zoul/Finch/zipball/master/
 if git ls-files >& /dev/null && [[ -f samurai ]]; then
   # if installing via git pull/clone
   $SUDO cp samurai /usr/local/bin/samurai || { echo "Failed to install samurai into /usr/local/bin."; exit 1; }
