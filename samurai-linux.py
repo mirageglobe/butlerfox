@@ -103,7 +103,7 @@ samuraimap[22] = {  'name': 'Show open ports and listening apps',
                     }
 
 samuraimap[23] = {  'name': 'Show local SMB/CIFS shares on network',
-                    'cmd': 'nmblookup -S __SAMBA__',
+                    'cmd': 'nmblookup -S "*"',
                     'responsesuccess': ''
                     }
 
