@@ -97,6 +97,11 @@ samuraimap[21] = {  'name': 'Show ubuntu or *buntu-like version information',
                     'responsesuccess': ''
                     }
 
+samuraimap[22] = {  'name': 'Show open ports and listening apps',
+                    'cmd': 'netstat -lnptu',
+                    'responsesuccess': ''
+                    }
+
 
 # ===============================
 # 30s Platform and Pkg Managers
