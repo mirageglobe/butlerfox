@@ -107,6 +107,11 @@ samuraimap[23] = {  'name': 'Show local SMB/CIFS shares on network',
                     'responsesuccess': ''
                     }
 
+samuraimap[24] = {  'name': 'Show local mounted or mapped drives',
+                    'cmd': 'df',
+                    'responsesuccess': ''
+                    }
+
 
 # ===============================
 # 30s Platform and Pkg Managers
