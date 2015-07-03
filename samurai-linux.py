@@ -180,7 +180,7 @@ samuraimap[60] = {  'name': 'Install nginx - ppa latest stable (for all)',
                     }
 
 samuraimap[61] = {  'name': 'Install php5 (fpm)',
-                    'cmd': 'sudo apt-get install php5-fpm php5-mysql php5-cli',
+                    'cmd': 'sudo apt-get install php5-fpm php5-cli php5-mysqlnd',
                     'responsesuccess': 'To start, <service nginx start>; To check config, <nginx -t>; refer to https://www.digitalocean.com/community/tutorials/how-to-install-linux-nginx-mysql-php-lemp-stack-on-ubuntu-14-04; remember to (1) edit /etc/php5/fpm/php.ini to set cgi.fix_pathinfo=0 and (2) /etc/nginx/sites-available/default to root /usr/share/nginx/html; Also to uncomment php location to use phpfpm; to test just drop a php file in the nginx html folder'
                     }
 
