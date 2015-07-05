@@ -54,7 +54,7 @@ This project has some primary goals and guidelines:
 
 Guidelines:
 
-- (Goal) To create a simple automation tool that has extremely low learning curve by means of a simple interface with little need for memorising of commands, or learning new ones
+- [goal] To create a simple automation tool that has extremely low learning curve by means of a simple interface with little need for memorising of commands, or learning new ones
 - Simple to understand architecture with standard deployment
 - Support installations of popular basic frameworks and DBMS (Database Management Systems)
 - Enable best practice security lockdowns
@@ -65,14 +65,14 @@ Road Map:
 - add chrootkit
 - check packages option to see a summary of what is installed.
 - test suite needed (minitest)
-- Enable a simple bash script generation
+- enable a simple bash script generation
 - install to home directory and symlink commands
-- use 1.1.1 to access sub commands
+- [drop] use 1.1.1 to access sub commands
 - [done] Need to add ufw enable -> problem as ufw prompts for y/n confirmation (silent mode problem)
 - [done] suppress all the prompts as you can see; making most silent as this is meant to work nicely (ish) with Vagrant.
 - [done] Cleaned up old samurai code
 - [done] Spawned new samuraiv2 as samurai.py
-- [done] Created minisamurai which is the current minified version of samurai2 
+- [done] Created minisamurai which is the current minified version of samurai2
 
 
 ToDo Commands
@@ -87,11 +87,11 @@ Add user {
 
 Check for open ports {
   nmap
-  netstat | grep 
+  netstat | grep
 }
 
 Restart Apache {
-  sudo /usr/sbin/apachectl restart 
+  sudo /usr/sbin/apachectl restart
 }
 
 
