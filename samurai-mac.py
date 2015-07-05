@@ -88,7 +88,7 @@ samuraimap[19] = {  'name': 'Show kernel and OS information',
                     }
 
 samuraimap[20] = {  'name': 'Use Caffeinated and prevent mac from sleeping',
-                    'cmd': 'caffeinate -s',
+                    'cmd': 'echo "running caffeinate. ctrl-c to exit" && caffeinate -s',
                     'responsesuccess': ''
                     }
 
