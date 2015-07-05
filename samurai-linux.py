@@ -34,7 +34,7 @@ samuraimap[4] = {   'name': 'Clear screen and show menu',
                     }
 
 # ===============================
-# 10 - 20 Operating System 
+# 10 - 20 Operating System
 # ===============================
 
 samuraimap[10] = {  'name': 'Change my login password',
@@ -205,7 +205,7 @@ samuraimap[70] = {  'name': 'Install AV suite (avconv pngquant graphicsmagick)',
 
 def loadoptions(ninja=False,showcmd=False):
   print("==================================")
-  print("Samurai for Linux") 
+  print("Samurai for Linux")
   print("Modes: Ninja={0} ShowCMD={1}".format(ninja,showcmd))
   print("System: {0} ({1})".format(platform.system(),platform.release()))
   print("==================================")

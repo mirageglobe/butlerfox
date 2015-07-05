@@ -87,7 +87,7 @@ samuraimap[19] = {  'name': 'Show kernel and OS information',
                     'responsesuccess': ''
                     }
 
-samuraimap[20] = {  'name': 'Use Caffeinated, to prevent mac from sleeping',
+samuraimap[20] = {  'name': 'Use Caffeinated and prevent mac from sleeping',
                     'cmd': 'caffeinate -s',
                     'responsesuccess': ''
                     }
@@ -119,6 +119,11 @@ samuraimap[34] = {  'name': 'Install pyenv (python manager)',
 
 samuraimap[35] = {  'name': 'Install chruby and ruby-install (ruby manager)',
                     'cmd': 'which brew || brew update && brew install chruby ruby-install',
+                    'responsesuccess': ''
+                    }
+
+samuraimap[36] = {  'name': 'Install nvm (node manager)',
+                    'cmd': 'which nvm || curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.25.4/install.sh | bash',
                     'responsesuccess': ''
                     }
 
