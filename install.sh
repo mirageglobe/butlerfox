@@ -19,10 +19,10 @@
 #       echo "[!] warning - includebash.sh not found. things may look uglier."
 #     fi
 
-# [›] limitations: 
+# [›] limitations:
 #     - script has to be in same directory of running
 
-# [›] tips: 
+# [›] tips:
 #     - exit code such as exit 0 or exit 1 in bash. 0 is successful exit, and 1 or more is failed exit
 
 # ----- functions
@@ -43,7 +43,7 @@ spinner()
 }
 
 # define a timestamp function
-timestamp() 
+timestamp()
 {
   date +"%T"
 }
