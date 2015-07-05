@@ -34,7 +34,7 @@ samuraimap[4] = {   'name': 'Clear screen and show menu',
                     }
 
 # ===============================
-# 10s Operating System 
+# 10s Operating System
 # ===============================
 
 samuraimap[10] = {  'name': 'Change my login password',
@@ -84,6 +84,11 @@ samuraimap[18] = {  'name': 'Show local listening ports',
 
 samuraimap[19] = {  'name': 'Show kernel and OS information',
                     'cmd': 'uname -a',
+                    'responsesuccess': ''
+                    }
+
+samuraimap[20] = {  'name': 'Use Caffeinated, to prevent mac from sleeping',
+                    'cmd': 'caffeinate -s',
                     'responsesuccess': ''
                     }
 
