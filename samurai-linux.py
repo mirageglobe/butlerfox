@@ -112,6 +112,11 @@ samuraimap[24] = {  'name': 'Show local mounted or mapped drives',
                     'responsesuccess': ''
                     }
 
+samuraimap[25] = {  'name': 'Setup Ubuntu Auto Upgrade (Ubuntu Recommended)',
+                    'cmd': 'sudo apt-get install unattended-upgrades && dpkg-reconfigure --priority=low unattended-upgrades',
+                    'responsesuccess': ''
+                    }
+
 
 # ===============================
 # 30s Platform and Pkg Managers
