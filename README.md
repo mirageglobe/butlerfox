@@ -12,7 +12,7 @@ Samurai
 ![samurai logo](https://raw.githubusercontent.com/mirageglobe/samurai/master/samurailogo.png)
 
 
-Samurai (武士 meaning Warrior Serve) provides a simple interface for server administrators. Samurai aims to be a fire and forget system orchestrating tool. Samurai installs and setups the basic applications / packages for a *nix system. In summary, this application drastically reduces learning curve and makes installations quicker.
+Samurai (武士 meaning Warrior Serve) provides a simple interface for managing your machine. Samurai installs and setups the basic applications / packages for a *nix system. Samurai aims to drastically reduce learning curve and makes installations/monitoring easier.
 
 ![samurai menu](https://raw.githubusercontent.com/mirageglobe/samurai/master/samurai.png)
 
@@ -43,7 +43,7 @@ Technical
 -----------------------------
 
 - Requirements : Python 3, Curl (should be installed already or sudo apt-get install curl as shown above)
-- Tested on : Ubuntu 12.04 LTS, Ubuntu 14.04.x LTS, Mac OS X 10.9+
+- Tested on : Ubuntu 12.04 LTS, Ubuntu 14.04.x LTS, Mac OS X 10.9+ (Maverick and above)
 - Functionality : System (System Updates, Build-Essential, Debconf-Util), Security (UFW), Languages (Ruby 2.x, Php), Web Servers (Nginx), DB (MySQL, MongoDB, MariaDB)
 
 
@@ -52,47 +52,22 @@ Guidelines and Road Map
 
 This project has some primary goals and guidelines:
 
-Guidelines:
+Goals:
 
-- [goal] To create a simple automation tool that has extremely low learning curve by means of a simple interface with little need for memorising of commands, or learning new ones
-- Simple to understand architecture with standard deployment
-- Support installations of popular basic frameworks and DBMS (Database Management Systems)
-- Enable best practice security lockdowns
+- [primary] To create a simple automation tool that has extremely low learning curve by means of a simple interface with little need for memorising of commands, or learning new ones
+- To have a simple to understand architecture with standard deployment
+- To enable best practice security lockdowns
 
 Road Map:
 
-- use default.json, custom.json for input rules. any scroll can be created in camp folder http://stackoverflow.com/questions/2835559/parsing-values-from-a-json-file-in-python
-- add chrootkit
-- check packages option to see a summary of what is installed.
-- test suite needed (minitest)
-- enable a simple bash script generation
-- install to home directory and symlink commands
+- [drop] install to home directory and symlink commands
+- [done] add chrootkit
 - [drop] use 1.1.1 to access sub commands
 - [done] Need to add ufw enable -> problem as ufw prompts for y/n confirmation (silent mode problem)
 - [done] suppress all the prompts as you can see; making most silent as this is meant to work nicely (ish) with Vagrant.
 - [done] Cleaned up old samurai code
 - [done] Spawned new samuraiv2 as samurai.py
 - [done] Created minisamurai which is the current minified version of samurai2
-
-
-ToDo Commands
------------------------------
-- add caffeine in linux
-
-Add user {
-  sudo useradd -m myuser
-  sudo passwd myuser
-  sudo usermod -s /bin/bash myuser
-}
-
-Check for open ports {
-  nmap
-  netstat | grep
-}
-
-Restart Apache {
-  sudo /usr/sbin/apachectl restart
-}
 
 
 Contributing
@@ -103,9 +78,6 @@ To start vagrant:
 
 > vagrant up
 
-
-References
------------------------------
 When adding bash commands, you can chain commands with four ways:
 
 - ; = run regardless
@@ -113,7 +85,8 @@ When adding bash commands, you can chain commands with four ways:
 - || = run if previous fail
 - & run in background
 
-More Information can be found:
+References
+-----------------------------
 
 - http://www.python.org/dev/peps/pep-0008/#introduction
 - Python Pipy

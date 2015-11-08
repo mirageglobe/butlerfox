@@ -37,13 +37,33 @@ example:
 Roadmap
 -----------------------------
 
+- install to home directory and symlink commands
 - support raw folder for custom native bashscripts.
-
+- use default.json, custom.json for input rules. any scroll can be created in camp folder http://stackoverflow.com/questions/2835559/parsing-values-from-a-json-file-in-python
+- check packages option to see a summary of what is installed.
+- test suite needed (minitest)
 
 Common Questions
 -----------------------------
 
+Some Dev QA
+-----------------------------
+- add caffeine in linux
 
+Add user {
+  sudo useradd -m myuser
+  sudo passwd myuser
+  sudo usermod -s /bin/bash myuser
+}
+
+Check for open ports {
+  nmap
+  netstat | grep
+}
+
+Restart Apache {
+  sudo /usr/sbin/apachectl restart
+}
 
 References
 -----------------------------
