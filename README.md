@@ -1,20 +1,18 @@
 Samurai
 ================================================
 
+![samurai menu](https://raw.githubusercontent.com/mirageglobe/samurai/master/samurai.png)
+
+Samurai (武士 meaning Warrior Serve) provides a simple interface for managing your machine. Samurai installs and setups the basic applications / packages for a *nix system. Samurai aims to drastically reduce learning curve and makes installations/monitoring easier.
+
+Project Information
+-----------------------------
 - Author: Jimmy MG Lim (mirageglobe@gmail.com)
 - Twitter: @mirageglobe
 - Blog: http://www.mirageglobe.com
 - Company: http://www.dracoturtur.com
 - Source: https://github.com/mirageglobe/samurai
 - License: Apache License 2.0
-
-
-![samurai logo](https://raw.githubusercontent.com/mirageglobe/samurai/master/samurailogo.png)
-
-
-Samurai (武士 meaning Warrior Serve) provides a simple interface for managing your machine. Samurai installs and setups the basic applications / packages for a *nix system. Samurai aims to drastically reduce learning curve and makes installations/monitoring easier.
-
-![samurai menu](https://raw.githubusercontent.com/mirageglobe/samurai/master/samurai.png)
 
 
 Installation and Removal
