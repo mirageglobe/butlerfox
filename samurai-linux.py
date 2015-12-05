@@ -209,11 +209,10 @@ samuraimap[70] = {  'name': 'Install AV suite (avconv pngquant graphicsmagick)',
 # ===============================
 
 def loadoptions(ninja=False,showcmd=False):
-  print("==================================")
+  print("=======================================")
   print("Samurai for Linux")
-  print("Modes: Ninja={0} ShowCMD={1}".format(ninja,showcmd))
-  print("System: {0} ({1})".format(platform.system(),platform.release()))
-  print("==================================")
+  print("[ShowCMD:{0}|System:{1}({2})]".format(showcmd,platform.system(),platform.release()))
+  print("=======================================")
 
   for key, value in sorted(samuraimap.items()):
     if showcmd:

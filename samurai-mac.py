@@ -133,12 +133,10 @@ samuraimap[36] = {  'name': 'Install nvm (node manager)',
 # ===============================
 
 def loadoptions(ninja=False,showcmd=False):
-  print("==================================")
+  print("=======================================")
   print("Samurai for Mac")
-  print("Modes: Ninja={0},".format(ninja), "ShowCMD={0}".format(showcmd))
-  print("System:","{0}".format(platform.system()),"({0})".format(platform.release()))
-  #print("System:","{0}".format(platform.system()),"({0}),".format(platform.release()), "LocalIP={0}".format(socket.gethostbyname(socket.gethostname())))
-  print("==================================")
+  print("[ShowCMD={0}|System:{1}({2})]".format(showcmd,platform.system(),platform.release()))
+  print("=======================================")
 
   for key, value in sorted(samuraimap.items()):
     if showcmd:
