@@ -22,11 +22,11 @@ Installation and Removal
 
 To install (on ubuntu / debian), fire up terminal and run:
 
-> sudo apt-get install curl && sudo curl -L https://raw.githubusercontent.com/mirageglobe/samurai/master/install.sh | bash
+> sudo apt-get install curl && sudo curl -L https://raw.githubusercontent.com/mirageglobe/samurai/master/samurai/install.sh | bash
 
 To install on mac, fire up terminal and run:
 
-> which curl && sudo curl -L https://raw.githubusercontent.com/mirageglobe/samurai/master/install.sh | bash
+> which curl && sudo curl -L https://raw.githubusercontent.com/mirageglobe/samurai/master/samurai/install.sh | bash
 
 To run,
 
