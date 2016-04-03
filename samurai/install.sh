@@ -83,12 +83,13 @@ if git ls-files >& /dev/null && [[ -f samurai ]]; then
   $SUDO cp samurai-linux.py /opt/samurai/samurai-linux.py || { echo "[-] failed to install samurai-linux.py"; exit 1; }
 else
   # if install via github curl
-  $SUDO curl -L https://raw.githubusercontent.com/mirageglobe/samurai/master/samurai/samurai -o /usr/local/bin/samurai
+  $SUDO curl -L https://raw.githubusercontent.com/mirageglobe/samurai/master/samurai/samurai -o /opt/samurai/samurai
   $SUDO chmod g+x /opt/samurai/samurai || { echo "[-] failed to install samurai"; exit 1; }
   $SUDO curl -L https://raw.githubusercontent.com/mirageglobe/samurai/master/samurai/samurai-mac.py -o /opt/samurai/samurai-mac.py
   $SUDO chmod g+x /opt/samurai/samurai-mac.py || { echo "[-] failed to install samurai-mac.py"; exit 1; }
   $SUDO curl -L https://raw.githubusercontent.com/mirageglobe/samurai/master/samurai/samurai-linux.py -o /opt/samurai/samurai-linux.py
   $SUDO chmod g+x /opt/samurai/samurai-linux.py || { echo "[-] failed to install samurai-linux.py"; exit 1; }
+  $SUDO ln -s /opt/samurai/samurai /usr/local/bin/samurai
 fi
 
 # summary
