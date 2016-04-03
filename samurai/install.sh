@@ -42,7 +42,7 @@ datestamp()
 
 # checking sudo
 
-echo "$DTTITLE checking sudo"
+echo "[+] checking sudo"
 
 if [[ $(id -u) != 0 ]]; then
   if command -v sudo >/dev/null 2>&1; then
@@ -79,23 +79,41 @@ echo "[+] installing samurai"
 if git ls-files >& /dev/null && [[ -f samurai ]]; then
   # if installing via git pull/clone
   $SUDO mkdir /opt/samurai || { echo "[-] failed to create directory samurai"; exit 1; }
-  $SUDO cp samurai /opt/samurai/ || { echo "[-] failed to install samurai"; exit 1; }
   $SUDO cp samurai-mac.py /opt/samurai/samurai-mac.py || { echo "[-] failed to install samurai-mac.py"; exit 1; }
   $SUDO cp samurai-linux.py /opt/samurai/samurai-linux.py || { echo "[-] failed to install samurai-linux.py"; exit 1; }
 else
   # if install via github curl
   $SUDO mkdir /opt/samurai || { echo "[-] failed to create directory samurai"; exit 1; }
-  $SUDO curl -L https://raw.githubusercontent.com/mirageglobe/samurai/master/samurai/samurai -o /opt/samurai/samurai
-  $SUDO chmod g+x /opt/samurai/samurai || { echo "[-] failed to install samurai"; exit 1; }
   $SUDO curl -L https://raw.githubusercontent.com/mirageglobe/samurai/master/samurai/samurai-mac.py -o /opt/samurai/samurai-mac.py
   $SUDO chmod g+x /opt/samurai/samurai-mac.py || { echo "[-] failed to install samurai-mac.py"; exit 1; }
   $SUDO curl -L https://raw.githubusercontent.com/mirageglobe/samurai/master/samurai/samurai-linux.py -o /opt/samurai/samurai-linux.py
   $SUDO chmod g+x /opt/samurai/samurai-linux.py || { echo "[-] failed to install samurai-linux.py"; exit 1; }
-  $SUDO ln -s /opt/samurai/samurai /usr/local/bin/samurai
 fi
+
+echo "[+] symlinking samurai"
+
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+  echo "[-] linux found"
+  $SUDO ln -s /opt/samurai/samurai-linux.py /usr/local/bin/samurai
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+  echo "[-] mac os darwin found"
+  $SUDO ln -s /opt/samurai/samurai-mac.py /usr/local/bin/samurai
+elif [[ "$OSTYPE" == "cygwin" ]]; then
+  echo "[-] cygwin found error"
+  exit 1;
+elif [[ "$OSTYPE" == "freebsd"* ]]; then
+  echo "[-] freebsd found error"
+  exit 1;
+else
+  echo "[-] os not found"
+  exit 1;
+fi
+
 
 # summary
 
 echo "[+] SUMMARY"
-echo "[+] installed samurai into /usr/local/bin. To uninstall, delete samurai/samurai-mac.py/samurai-linux.py from folder." exit 0
+echo "[+] installed samurai into /opt/samurai"
+echo "[+] symlinked /usr/local/bin/samurai to /opt/samurai"
+echo "[+] to uninstall, delete samurai/samurai-mac.py/samurai-linux.py from folder"
 
