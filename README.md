@@ -9,6 +9,7 @@ Samurai (武士 meaning Warrior Serve) provides a simple interface for managing 
 
 Project Information
 -----------------------------
+
 - Author: Jimmy MG Lim (mirageglobe@gmail.com)
 - Twitter: @mirageglobe
 - Blog: http://www.mirageglobe.com
@@ -89,10 +90,6 @@ References
 -----------------------------
 
 - http://www.python.org/dev/peps/pep-0008/#introduction
-- Python Pipy
-- Fabric
-- JSON
-- Ansible
-- Saltstack
 - http://stackoverflow.com/questions/17606340/how-to-deploy-a-meteor-application-to-my-own-server
 - http://stackoverflow.com/questions/17537390/how-to-install-a-package-using-the-python-apt-api
+
