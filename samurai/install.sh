@@ -95,9 +95,11 @@ echo "[+] symlinking samurai"
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
   echo "[-] linux found"
   $SUDO ln -s /opt/samurai/samurai-linux.py /usr/local/bin/samurai
+  $SUDO chmod a+x /usr/local/bin/samurai
 elif [[ "$OSTYPE" == "darwin"* ]]; then
   echo "[-] mac os darwin found"
   $SUDO ln -s /opt/samurai/samurai-mac.py /usr/local/bin/samurai
+  $SUDO chmod a+x /usr/local/bin/samurai
 elif [[ "$OSTYPE" == "cygwin" ]]; then
   echo "[-] cygwin found error"
   exit 1;
