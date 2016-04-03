@@ -78,11 +78,13 @@ echo "[+] installing samurai"
 
 if git ls-files >& /dev/null && [[ -f samurai ]]; then
   # if installing via git pull/clone
+  $SUDO mkdir /opt/samurai || { echo "[-] failed to create directory samurai"; exit 1; }
   $SUDO cp samurai /opt/samurai/ || { echo "[-] failed to install samurai"; exit 1; }
   $SUDO cp samurai-mac.py /opt/samurai/samurai-mac.py || { echo "[-] failed to install samurai-mac.py"; exit 1; }
   $SUDO cp samurai-linux.py /opt/samurai/samurai-linux.py || { echo "[-] failed to install samurai-linux.py"; exit 1; }
 else
   # if install via github curl
+  $SUDO mkdir /opt/samurai || { echo "[-] failed to create directory samurai"; exit 1; }
   $SUDO curl -L https://raw.githubusercontent.com/mirageglobe/samurai/master/samurai/samurai -o /opt/samurai/samurai
   $SUDO chmod g+x /opt/samurai/samurai || { echo "[-] failed to install samurai"; exit 1; }
   $SUDO curl -L https://raw.githubusercontent.com/mirageglobe/samurai/master/samurai/samurai-mac.py -o /opt/samurai/samurai-mac.py
