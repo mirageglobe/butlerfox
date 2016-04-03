@@ -3,7 +3,9 @@ Samurai
 
 ![samurai menu](https://raw.githubusercontent.com/mirageglobe/samurai/master/samurai.png)
 
-Samurai (武士 meaning Warrior Serve) provides a simple interface for managing your machine. Samurai installs and setups the basic applications / packages for a *nix system. Samurai aims to drastically reduce learning curve and makes installations/monitoring easier.
+NOTE: Samuraiv2 is now in development. No newer features will be added to current v1.
+
+Samurai (武士 meaning Warrior Serve) provides a simple interface for managing your machine. Samurai installs and setups the basic applications / packages for a linux system. Samurai aims to drastically reduce learning curve and makes installations/monitoring easier.
 
 Project Information
 -----------------------------
@@ -18,7 +20,7 @@ Project Information
 Installation and Removal
 -----------------------------
 
-To install (on ubuntu / debian / *buntu), fire up terminal and run:
+To install (on ubuntu / debian), fire up terminal and run:
 
 > sudo apt-get install curl && sudo curl -L https://raw.githubusercontent.com/mirageglobe/samurai/master/install.sh | bash
 

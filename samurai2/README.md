@@ -19,7 +19,7 @@ Guidelines for script contribution or custom scripts
 - samurai recognises only the number 12 in the example linux.12.yaml. this means its for linux number 12th script. All other files will be ignored. [dropped]
 - you can do linux.12.1.2.yaml (representing sub commands). this means that linux12 is just a header and 12.1.2 is the actual script, with 12 as title, 1 as sub title and 2 as source script.
 - there are different flavours of linux. the default command list is debian ubuntu. sorry, but thats life. good news is that you can still create yum or pacman or other flavours using raw prefix. raw.12.1.2 will run bash scripts.
-- use json files "_comment": "" as comments
+- use json files "\_comment": "" as comments
 
 example:
 
@@ -42,11 +42,9 @@ Roadmap
 - use default.json, custom.json for input rules. any scroll can be created in camp folder http://stackoverflow.com/questions/2835559/parsing-values-from-a-json-file-in-python
 - check packages option to see a summary of what is installed.
 - test suite needed (minitest)
+- add fail2ban in core scroll
 
-Common Questions
------------------------------
-
-Some Dev QA
+Common Commands
 -----------------------------
 - add caffeine in linux
 
