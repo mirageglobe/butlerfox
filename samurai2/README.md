@@ -66,4 +66,4 @@ Restart Apache {
 References
 -----------------------------
 
-- NA
+- http://www.shellhacks.com/en/Running-Commands-on-a-Remote-Linux-Server-over-SSH
