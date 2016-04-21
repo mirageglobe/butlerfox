@@ -133,10 +133,17 @@ samuraimap[24] = {
     }
 
 samuraimap[25] = {
+    'name': 'Show memory, cache and swap',
+    'cmd': 'egrep --color "Mem|Cache|Swap" /proc/meminfo',
+    'responsesuccess': ''
+    }
+
+samuraimap[26] = {
     'name': 'Setup Ubuntu Auto Upgrade (Ubuntu Recommended)',
     'cmd': 'sudo apt-get install unattended-upgrades && dpkg-reconfigure --priority=low unattended-upgrades',
     'responsesuccess': ''
     }
+
 
 
 # ===============================
