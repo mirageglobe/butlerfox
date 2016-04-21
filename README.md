@@ -12,13 +12,14 @@ Project Information
 
 - Author: Jimmy MG Lim (mirageglobe@gmail.com)
 - Twitter: @mirageglobe
+- Web: http://www.mglim.com
 - Blog: http://www.mirageglobe.com
 - Company: http://www.dracoturtur.com
 - Source: https://github.com/mirageglobe/samurai
 - License: Apache License 2.0
 
 
-Installation and Removal
+Installation Samurai 1.x
 -----------------------------
 
 To install (on ubuntu / debian), fire up terminal and run:
@@ -40,7 +41,7 @@ To uninstall,
 or use the uninstall option in samurai itself.
 
 
-Technical
+Technical Samurai 1.x
 -----------------------------
 
 - Requirements : Python 3, Curl (should be installed already or sudo apt-get install curl as shown above)
