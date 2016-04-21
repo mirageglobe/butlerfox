@@ -76,18 +76,18 @@ fi
 echo "[+] installing samurai"
 # example : curl -L -o master.zip http://github.com/zoul/Finch/zipball/master/
 
-if git ls-files >& /dev/null && [[ -f samurai ]]; then
-  # if installing via git pull/clone
-  $SUDO mkdir /opt/samurai || { echo "[-] failed to create directory samurai"; exit 1; }
+if git ls-files >& /dev/null && [[ -f samurai-linux.py ]]; then
+  # if installing via git pull/clone ; checking if samurai directory exists
+  $SUDO mkdir -p /opt/samurai || { echo "[-] failed to create directory samurai"; exit 1; }
+  $SUDO chmod g+x -R /opt/samurai
   $SUDO cp samurai-mac.py /opt/samurai/samurai-mac.py || { echo "[-] failed to install samurai-mac.py"; exit 1; }
   $SUDO cp samurai-linux.py /opt/samurai/samurai-linux.py || { echo "[-] failed to install samurai-linux.py"; exit 1; }
 else
   # if install via github curl
-  $SUDO mkdir /opt/samurai || { echo "[-] failed to create directory samurai"; exit 1; }
+  $SUDO mkdir -p /opt/samurai || { echo "[-] failed to create directory samurai"; exit 1; }
   $SUDO curl -L https://raw.githubusercontent.com/mirageglobe/samurai/master/samurai/samurai-mac.py -o /opt/samurai/samurai-mac.py
-  $SUDO chmod g+x /opt/samurai/samurai-mac.py || { echo "[-] failed to install samurai-mac.py"; exit 1; }
   $SUDO curl -L https://raw.githubusercontent.com/mirageglobe/samurai/master/samurai/samurai-linux.py -o /opt/samurai/samurai-linux.py
-  $SUDO chmod g+x /opt/samurai/samurai-linux.py || { echo "[-] failed to install samurai-linux.py"; exit 1; }
+  $SUDO chmod g+x -R /opt/samurai || { echo "[-] failed to install samurai-linux.py"; exit 1; }
 fi
 
 echo "[+] symlinking samurai"
