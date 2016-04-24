@@ -80,7 +80,7 @@ samuraimap[15] = {
 
 samuraimap[16] = {
     'name': 'Show users list',
-    'cmd': 'paste -d: /etc/passwd <(groups $(cut -d: -f1 /etc/passwd) | sed "s/.*: //") | column -ts: | sort',
+    'cmd': 'sudo paste -d: /etc/passwd <(groups $(cut -d: -f1 /etc/passwd) | sed "s/.*: //") | column -ts: | sort',
     'responsesuccess': ''
     }
 
