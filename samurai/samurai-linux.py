@@ -190,6 +190,12 @@ samuraimap[42] = {
     'responsesuccess': 'Refer to http://rkhunter.sourceforge.net/ for additional instructions. To run, sudo rkhunter --check'
     }
 
+samuraimap[43] = {
+    'name': 'Install fail2ban with sendmail dependancy',
+    'cmd': 'sudo apt-get install sendmail fail2ban',
+    'responsesuccess': 'Ref: http://http://www.fail2ban.org .'
+    }
+
 # ===============================
 # 50s Databases
 # ===============================
