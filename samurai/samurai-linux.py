@@ -67,78 +67,72 @@ samuraimap[13] = {
     }
 
 samuraimap[14] = {
-    'name': 'Install, arm ufw and allow ssh port 22/80',
-    'cmd': 'sudo apt-get install ufw && ufw allow ssh && ufw allow 80 && sudo ufw enable',
-    'responsesuccess': ''
-    }
-
-samuraimap[15] = {
     'name': 'Add virtualbox guest additions for ubuntu (for virtualbox *buntu VMs)',
     'cmd': 'sudo apt-get install virtualbox-guest-dkms virtualbox-guest-utils virtualbox-guest-x11',
     'responsesuccess': ''
     }
 
-samuraimap[16] = {
+samuraimap[15] = {
     'name': 'Show users list',
     'cmd': 'column -ts: /etc/passwd | sort',
     'responsesuccess': ''
     }
 
-samuraimap[17] = {
+samuraimap[16] = {
     'name': 'Restart shell',
     'cmd': 'exec $SHELL -l',
     'responsesuccess': ''
     }
 
-samuraimap[18] = {
+samuraimap[17] = {
     'name': 'Show IP address',
     'cmd': 'curl http://icanhazip.com',
     'responsesuccess': ''
     }
 
-samuraimap[19] = {
+samuraimap[18] = {
     'name': 'Show disk space',
     'cmd': 'df -h --total',
     'responsesuccess': ''
     }
 
-samuraimap[20] = {
+samuraimap[19] = {
     'name': 'Show kernel build information',
     'cmd': 'uname -a',
     'responsesuccess': ''
     }
 
-samuraimap[21] = {
+samuraimap[20] = {
     'name': 'Show ubuntu or *buntu-like version information',
     'cmd': 'lsb_release -a',
     'responsesuccess': ''
     }
 
-samuraimap[22] = {
+samuraimap[21] = {
     'name': 'Show open ports and listening apps',
     'cmd': 'netstat -lnptu',
     'responsesuccess': ''
     }
 
-samuraimap[23] = {
+samuraimap[22] = {
     'name': 'Show local SMB/CIFS shares on network',
     'cmd': 'nmblookup -S "*"',
     'responsesuccess': ''
     }
 
-samuraimap[24] = {
+samuraimap[23] = {
     'name': 'Show local mounted or mapped drives',
     'cmd': 'df',
     'responsesuccess': ''
     }
 
-samuraimap[25] = {
+samuraimap[24] = {
     'name': 'Show memory, cache and swap',
     'cmd': 'egrep --color "Mem|Cache|Swap" /proc/meminfo',
     'responsesuccess': ''
     }
 
-samuraimap[26] = {
+samuraimap[25] = {
     'name': 'Setup Ubuntu Auto Upgrade (Ubuntu Recommended)',
     'cmd': 'sudo apt-get install unattended-upgrades && dpkg-reconfigure --priority=low unattended-upgrades',
     'responsesuccess': ''
@@ -191,6 +185,12 @@ samuraimap[42] = {
     }
 
 samuraimap[43] = {
+    'name': 'Install, arm ufw and allow ssh port 22/80',
+    'cmd': 'sudo apt-get install ufw && ufw allow ssh && ufw allow 80 && sudo ufw enable',
+    'responsesuccess': ''
+    }
+
+samuraimap[44] = {
     'name': 'Install fail2ban with sendmail dependancy',
     'cmd': 'sudo apt-get install sendmail fail2ban',
     'responsesuccess': 'Ref: http://http://www.fail2ban.org .'
