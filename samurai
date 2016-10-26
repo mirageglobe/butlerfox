@@ -1,0 +1,96 @@
+#!/usr/bin/env bash
+
+# Author Jimmy <mirageglobe@gmail.com / jimmy@geniac.com>
+
+# ----- common functions
+
+yell() { echo "$0: $*" >&2; }
+die() { yell "$*"; exit 111; }
+try() { "$@" || die "cannot $*"; }
+
+# ----- local functions
+
+printHeader() {
+  echo "*** -----"
+  echo "*** Samurai v2"
+  echo "*** -----"
+
+}
+
+printHelp() {
+  echo "*** USAGE :"
+  echo "    $0                                 # help"
+  echo "    $0 help                            # help"
+  echo "    $0 ui                              # ui"
+  echo "    $0 <yaml file> <command number>    # run custom script file"
+  echo "    $0 <commandnumber>                 # run command"
+  echo "*** EXAMPLES :"
+  echo "    $0 ui"
+  echo "    $0 1"
+}
+
+runScript() {
+  echo "hello"
+}
+
+# ----- old ref scripts
+
+buildReport() {
+  LOCAL_LOGIN=$1
+  LOCAL_SERVER=$2
+
+  if [[ -z "$LOCAL_LOGIN" ]] || [[ -z "$LOCAL_SERVER" ]]; then
+    echo "missing variables (login name). retype bash command to see."
+  else
+    echo "Logging onto server environment ($LOCAL_SERVER)"
+    ssh $LOCAL_LOGIN@$LOCAL_SERVER 'sudo bash -s' < script.docker.report.sh
+    ssh $LOCAL_LOGIN@$LOCAL_SERVER 'tail -10 report.yml'
+  fi
+}
+
+# ----- check arguments
+
+EXPECTED_ARGS=1
+E_BADARGS=65
+
+if [ "$#" -lt "$EXPECTED_ARGS" ]; then
+  printHeader
+  printHelp $0
+  exit $E_BADARGS
+fi
+
+# ----- main functions
+
+# Core UI Options
+#UI_CMD[0]=("echo test" "stufff")
+#Set UI_CMD_<command number> = <bash command> <command definition>
+#declare -a UI_CMD_0=("echo test" "display core all commands")
+#declare -a UI_CMD_1=("echo test" "stufff")
+UI_CMD_0=( "echo test" "stufff" )
+#declare -a UI_CMD_A=(
+#  'd0=("echo test" "stuff")'
+#)
+
+SK_CMD=$1
+SK_OPT=$2
+
+case "$SK_CMD" in
+  help)
+    echo "Help options"
+    printHelp $0
+    ;;
+  ui)
+    echo "Show core samurai options"
+    # runs ui_cmd with $2 and array 0 which is the command; see declare core ui options
+    #echo ${UI_CMD_${SK_OPT}[1]}
+    #eval ${UI_CMD_0[0]}
+    SK_CMD_CMD=$(eval echo \${UI_CMD_$SK_OPT[0]})
+    SK_CMD_DESC=$(eval echo \${UI_CMD_$SK_OPT[1]})
+
+    eval $SK_CMD_CMD
+    echo $SK_CMD_DESC
+    ;;
+  *)
+    die
+esac
+
