@@ -14,7 +14,6 @@ printHeader() {
   echo "*** -----"
   echo "*** Samurai v2"
   echo "*** -----"
-
 }
 
 printHelp() {
@@ -77,6 +76,7 @@ SK_OPT=$2
 # print empty space
 echo
 
+# default checks
 case "$SK_CMD" in
   help)
     echo "Help options"
