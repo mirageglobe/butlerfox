@@ -48,7 +48,7 @@ fi
 
 # Core UI Options
 #Set UI_CMD_<command number> = <bash command> <command definition>
-UI_CMD_0=( "Exit Samurai" "clear")
+UI_CMD_0=( "Exit Samurai" "clear" )
 UI_CMD_1=( "Update Samurai" "curl -L https://raw.githubusercontent.com/mirageglobe/samurai/master/samurai/install.sh | bash" )
 UI_CMD_2=( "Remove Samurai" "sudo rm /usr/local/bin/samurai && sudo rm /usr/local/bin/samurai-mac.py && sudo rm /usr/local/bin/samurai-linux.py" )
 UI_CMD_3=( "Toggle ShowCmd mode" "" )
@@ -74,6 +74,9 @@ UI_CMD_25=( "Setup Ubuntu Auto Upgrade (Ubuntu Recommended)" "sudo apt-get insta
 SK_CMD=$1
 SK_OPT=$2
 
+# print empty space
+echo
+
 case "$SK_CMD" in
   help)
     echo "Help options"
@@ -81,12 +84,26 @@ case "$SK_CMD" in
     ;;
   ui)
     printHeader
-    # runs ui_cmd with $2 and array 0 which is the command; see declare core ui options
-    SK_CMD_CMD=$(eval echo \${UI_CMD_$SK_OPT[0]})
-    SK_CMD_DESC=$(eval echo \${UI_CMD_$SK_OPT[1]})
 
-    echo "    Executing :: $SK_CMD_CMD"
-    eval $SK_CMD_DESC
+    if [ -z $SK_OPT ]; then
+      # if variable $2 for ui exists
+      echo "    Print options"
+      echo
+      for i in  {1..100}; do
+        SK_CMD_DESC=$(eval echo \${UI_CMD_$i[0]})
+        if [ -n "$SK_CMD_DESC" ]; then
+          echo "    [$i] - $SK_CMD_DESC"
+        fi
+      done
+      echo
+    else
+      # runs ui_cmd with $2 and array 0 which is the command; see declare core ui options
+      SK_CMD_CMD=$(eval echo \${UI_CMD_$SK_OPT[0]})
+      SK_CMD_DESC=$(eval echo \${UI_CMD_$SK_OPT[1]})
+
+      echo "    Executing :: $SK_CMD_CMD"
+      eval $SK_CMD_DESC
+    fi
     ;;
   *)
     die
