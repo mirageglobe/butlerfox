@@ -6,4 +6,4 @@ before_install:
 install:
   - sudo apt-get install -qq bc
 script:
-  - bats ./test/simple.bats
+  - bats ./test.bats
