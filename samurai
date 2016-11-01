@@ -78,7 +78,6 @@ UI_CMD_30=( "Install linuxbrew (homebrew for linux)" "sudo apt-get install build
 UI_CMD_31=( "Install nodejs, NPM via NVM" "sudo apt-get update && curl https://raw.githubusercontent.com/creationix/nvm/v0.24.0/install.sh | bash" )
 UI_CMD_32=( "Install latest stable git" "sudo add-apt-repository ppa:git-core/ppa && sudo apt-get update && sudo apt-get install git" )
 
-
 ## 4x Security
 UI_CMD_40=( "Install clamav and clam daemon" "sudo apt-get install clamav clamav-daemon" )
 UI_CMD_41=( "Install chkrootkit" "sudo apt-get install chkrootkit" )
