@@ -10,22 +10,27 @@ try() { "$@" || die "cannot $*"; }
 
 # ----- local functions
 
+hasInternet() {
+  echo "false"
+}
+
 printHeader() {
-  echo "*** -----"
-  echo "*** Samurai v2"
-  echo "*** -----"
+  echo ""
+  echo "Samurai v2"
+  echo ""
 }
 
 printHelp() {
-  echo "*** USAGE :"
-  echo "    $0                                 # help"
-  echo "    $0 help                            # help"
-  echo "    $0 ui                              # ui"
-  echo "    $0 <yaml file> <command number>    # run custom script file"
-  echo "    $0 <commandnumber>                 # run command"
-  echo "*** EXAMPLES :"
-  echo "    $0 ui"
-  echo "    $0 1"
+  echo ""
+  echo "USAGE :"
+  echo "  $0                                 # help"
+  echo "  $0 help                            # help"
+  echo "  $0 ui                              # ui"
+  echo "  $0 ui <commandnumber>              # run command"
+  echo ""
+  echo "EXAMPLES :"
+  echo "  $0 ui"
+  echo "  $0 ui 1"
 }
 
 runScript() {
@@ -49,11 +54,11 @@ fi
 #Set UI_CMD_<command number> = <bash command> <command definition>
 
 ## x Core
-UI_CMD_0=( "Exit Samurai" "clear" )
+#UI_CMD_0=( "Exit Samurai" "clear" )
 UI_CMD_1=( "Update Samurai" "curl -L https://raw.githubusercontent.com/mirageglobe/samurai/master/samurai/install.sh | bash" )
 UI_CMD_2=( "Remove Samurai" "sudo rm /usr/local/bin/samurai && sudo rm /usr/local/bin/samurai-mac.py && sudo rm /usr/local/bin/samurai-linux.py" )
 UI_CMD_3=( "Toggle ShowCmd mode" "" )
-UI_CMD_4=( "Clear screen and show menu" "clear" )
+#UI_CMD_4=( "Clear screen and show menu" "clear" )
 
 ## 1x / 2x Operating System
 UI_CMD_10=( "Change my login password" "passwd" )
@@ -74,7 +79,6 @@ UI_CMD_24=( "Show memory, cache and swap" "egrep --color 'Mem|Cache|Swap' /proc/
 UI_CMD_25=( "Setup Ubuntu Auto Upgrade (Ubuntu Recommended)" "sudo apt-get install unattended-upgrades && dpkg-reconfigure --priority=low unattended-upgrades" )
 
 ## 3x Platform and Pkg Managers
-UI_CMD_30=( "Install linuxbrew (homebrew for linux)" "sudo apt-get install build-essential curl git m4 ruby texinfo libbz2-dev libcurl4-openssl-dev libexpat-dev libncurses-dev zlib1g-dev && ruby -e '$(curl -fsSL https://raw.githubusercontent.com/Homebrew/linuxbrew/go/install)'" )
 UI_CMD_31=( "Install nodejs, NPM via NVM" "sudo apt-get update && curl https://raw.githubusercontent.com/creationix/nvm/v0.24.0/install.sh | bash" )
 UI_CMD_32=( "Install latest stable git" "sudo add-apt-repository ppa:git-core/ppa && sudo apt-get update && sudo apt-get install git" )
 
@@ -98,7 +102,9 @@ UI_CMD_61=( "Install php5 (fpm)" "sudo apt-get install php5-fpm php5-cli php5-my
 UI_CMD_70=( "Install AV suite (avconv pngquant graphicsmagick)" "apt-get install libav-tools pngquant graphicsmagick" )
 
 SK_CMD=$1
+# the 2nd tier variable such as "ui"
 SK_OPT=$2
+# the 3rd tier variable such as "12"
 
 # print empty space
 echo
@@ -113,7 +119,7 @@ case "$SK_CMD" in
     printHeader
 
     if [ -z $SK_OPT ]; then
-      # if variable $2 for ui exists
+      # if variable $2 for ui does not exist, print out list of variable
       echo "    Print options"
       echo
       for i in  {1..100}; do
@@ -125,11 +131,11 @@ case "$SK_CMD" in
       echo
     else
       # runs ui_cmd with $2 and array 0 which is the command; see declare core ui options
-      SK_CMD_CMD=$(eval echo \${UI_CMD_$SK_OPT[0]})
-      SK_CMD_DESC=$(eval echo \${UI_CMD_$SK_OPT[1]})
+      SK_CMD_TITLE=$(eval echo \${UI_CMD_$SK_OPT[0]})
+      SK_CMD_CMD=$(eval echo \${UI_CMD_$SK_OPT[1]})
 
-      echo "    Executing :: $SK_CMD_CMD"
-      eval $SK_CMD_DESC
+      echo "    Executing :: $SK_CMD_TITLE :: $SK_CMD_CMD"
+      eval $SK_CMD_CMD
     fi
     ;;
   *)
