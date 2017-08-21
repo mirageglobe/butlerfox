@@ -86,7 +86,7 @@ UI_CMD_32=( "Install latest stable git" "sudo add-apt-repository ppa:git-core/pp
 UI_CMD_40=( "Install clamav and clam daemon" "sudo apt-get install clamav clamav-daemon" )
 UI_CMD_41=( "Install chkrootkit" "sudo apt-get install chkrootkit" )
 UI_CMD_42=( "Install rkhunter" "sudo apt-get install rkhunter" )
-UI_CMD_43=( "Install, arm ufw and allow ssh port 22/80" "sudo apt-get install ufw && ufw allow ssh && ufw allow 80 && sudo ufw enable" )
+UI_CMD_43=( "Install ufw and allow ssh port 22/80" "sudo apt-get install ufw && ufw allow ssh && ufw allow 80 && sudo ufw enable" )
 UI_CMD_44=( "Install fail2ban with sendmail dependancy" "sudo apt-get install sendmail fail2ban" )
 
 ## 5x Databases
