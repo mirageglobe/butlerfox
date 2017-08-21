@@ -15,14 +15,16 @@ hasInternet() {
 }
 
 printHeader() {
-  printf '\n%s\n' 'Samurai v2'
+  printf "\n%s\n" "Samurai v2 - your local assistant to run common commands on Linux(bash) and MacOSX(bash)."
 }
 
 printHelp() {
-  printf "\n%s\n" "USAGE :"
-  printf "\t%s \t\t\t\t %s\n" "$0" "# help"
-  printf "\t%s \t\t\t\t %s\n" "$0" "# help"
-  printf "\t%s \t\t\t\t %s\n" "$0" "# ui"
+  printf "\n%s\n" "Usage:"
+  printf "\t%s \t\t\t\t %s\n" "$0 <command> [args]"
+  printf "\n%s\n" "Commands :"
+  printf "\t%s \t\t\t\t %s\n" "$0" ""
+  printf "\t%s \t\t\t\t %s\n" "$0 help" "# loads help"
+  printf "\t%s \t\t\t\t %s\n" "$0 ui" "# loads default list of ui commands"
   printf "\t%s \t\t %s\n" "$0 ui <commandnumber>" "# run command"
   printf "\n%s\n" "Examples :"
   printf "\t%s\n" "$0 ui"
@@ -103,21 +105,16 @@ SK_CMD=$1
 SK_OPT=$2
 # the 3rd tier variable such as "12"
 
-# print empty space
-printf "\n"
-
 # default checks
 case "$SK_CMD" in
   help)
-    printf "Help options"
+    printf "\n%s\n" "$0 Help"
     printHelp $0
     ;;
   ui)
-    printHeader
-
     if [ -z $SK_OPT ]; then
       # if variable $2 for ui does not exist, print out list of variable
-      printf "\t%s\n" "Print options"
+      printf "\n%s\n" "$0 UI"
       printf "\n"
       for i in  {1..100}; do
         SK_CMD_DESC=$(eval echo \${UI_CMD_$i[0]})
