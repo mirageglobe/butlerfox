@@ -11,30 +11,27 @@ try() { "$@" || die "cannot $*"; }
 # ----- local functions
 
 hasInternet() {
-  echo "false"
+  printf "false"
 }
 
 printHeader() {
-  echo ""
-  echo "Samurai v2"
-  echo ""
+  printf '\n%s\n' 'Samurai v2'
 }
 
 printHelp() {
-  echo ""
-  echo "USAGE :"
-  echo "  $0                                 # help"
-  echo "  $0 help                            # help"
-  echo "  $0 ui                              # ui"
-  echo "  $0 ui <commandnumber>              # run command"
-  echo ""
-  echo "EXAMPLES :"
-  echo "  $0 ui"
-  echo "  $0 ui 1"
+  printf "\n%s\n" "USAGE :"
+  printf "\t%s \t\t\t\t %s\n" "$0" "# help"
+  printf "\t%s \t\t\t\t %s\n" "$0" "# help"
+  printf "\t%s \t\t\t\t %s\n" "$0" "# ui"
+  printf "\t%s \t\t %s\n" "$0 ui <commandnumber>" "# run command"
+  printf "\n%s\n" "Examples :"
+  printf "\t%s\n" "$0 ui"
+  printf "\t%s\n" "$0 ui 1"
+  printf "\n"
 }
 
 runScript() {
-  echo "hello"
+  printf "hello"
 }
 
 # ----- check arguments
@@ -107,12 +104,12 @@ SK_OPT=$2
 # the 3rd tier variable such as "12"
 
 # print empty space
-echo
+printf "\n"
 
 # default checks
 case "$SK_CMD" in
   help)
-    echo "Help options"
+    printf "Help options"
     printHelp $0
     ;;
   ui)
@@ -120,21 +117,21 @@ case "$SK_CMD" in
 
     if [ -z $SK_OPT ]; then
       # if variable $2 for ui does not exist, print out list of variable
-      echo "    Print options"
-      echo
+      printf "\t%s\n" "Print options"
+      printf "\n"
       for i in  {1..100}; do
         SK_CMD_DESC=$(eval echo \${UI_CMD_$i[0]})
         if [ -n "$SK_CMD_DESC" ]; then
           echo "    [$i] - $SK_CMD_DESC"
         fi
       done
-      echo
+      printf "\n"
     else
       # runs ui_cmd with $2 and array 0 which is the command; see declare core ui options
       SK_CMD_TITLE=$(eval echo \${UI_CMD_$SK_OPT[0]})
       SK_CMD_CMD=$(eval echo \${UI_CMD_$SK_OPT[1]})
 
-      echo "    Executing :: $SK_CMD_TITLE :: $SK_CMD_CMD"
+      printf "\t%s" "Executing :: $SK_CMD_TITLE :: $SK_CMD_CMD"
       eval $SK_CMD_CMD
     fi
     ;;
