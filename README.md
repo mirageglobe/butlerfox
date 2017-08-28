@@ -3,22 +3,19 @@
 
 ![samurai menu](https://raw.githubusercontent.com/mirageglobe/samurai/master/samurai.png)
 
-NOTE: Samuraiv2 is now in development. No newer features will be added to current v1.
-
 Samurai (武士 meaning Warrior Serve) provides a simple interface for managing your machine. Samurai installs and setups the basic applications / packages for a linux system. Samurai aims to drastically reduce learning curve and makes installations/monitoring easier.
 
 ## Project Information
 
 - Author: Jimmy MG Lim (mirageglobe@gmail.com)
 - Twitter: @mirageglobe
-- Web: http://www.mglim.com
 - Blog: http://www.mirageglobe.com
 - Company: http://www.dracoturtur.com
 - Source: https://github.com/mirageglobe/samurai
 - License: Apache License 2.0
 
 
-## Installation Samurai 1.x
+## Installation Samurai
 
 To install (on ubuntu / debian), fire up terminal and run:
 
@@ -36,26 +33,12 @@ To uninstall,
 
 > sudo rm /usr/local/bin/samurai && rm /usr/local/bin/samurai-mac.py && rm /usr/local/bin/samurai-linux.py
 
-or use the uninstall option in samurai itself.
-
-## Installation Samurai 2.x [Beta]
-
-To install (on ubuntu / debian), fire up terminal and run:
-
-- clone www.github.com/mirageglobe/samurai
-
-To run,
-
-> bash samurai
-
-To uninstall,
-
-- delete the samurai git folder
+or use the uninstall option within samurai itself.
 
 ## Technical Samurai 1.x
 
-- Requirements : Python 3, Curl (should be installed already or sudo apt-get install curl as shown above)
-- Tested on : Ubuntu 12.04 LTS, Ubuntu 14.04.x LTS, Mac OS X 10.9+ (Maverick and above)
+- Requirements : bash, curl (should be installed already or sudo apt-get install curl as shown above)
+- Supports : Ubuntu 12.04 LTS, Ubuntu 14.04 LTS, Ubuntu 16.04 LTS, Mac OS X 10.9+ (Maverick and above)
 - Functionality : System (System Updates, Build-Essential, Debconf-Util), Security (UFW), Languages (Ruby 2.x, Php), Web Servers (Nginx), DB (MySQL, MongoDB, MariaDB)
 
 ## Guidelines and Road Map
@@ -64,8 +47,7 @@ This project has some primary goals and guidelines:
 
 Goals:
 
-- [primary] To create a simple automation tool that has extremely low learning curve by means of a simple interface with little need for memorising of commands, or learning new ones
-- To have a simple to understand architecture with standard deployment
+- To enable a simple tool that runs common commands with best practises
 - To enable best practice security lockdowns
 
 Road Map:
