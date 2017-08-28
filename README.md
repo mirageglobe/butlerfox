@@ -71,6 +71,12 @@ To start vagrant:
 
 > vagrant up
 
+To test, install bats (bash automated testing system - https://github.com/sstephenson/bats):
+
+> bats test.bats
+
+## Other Notes
+
 When adding bash commands, you can chain commands with four ways:
 
 - ; = run regardless
