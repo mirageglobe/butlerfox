@@ -15,7 +15,7 @@ Samurai (武士 meaning Warrior Serve) provides a simple interface for managing 
 - License: Apache License 2.0
 
 
-## Installation Samurai
+## Installation
 
 To install (on ubuntu / debian), fire up terminal and run:
 
@@ -35,10 +35,10 @@ To uninstall,
 
 or use the uninstall option within samurai itself.
 
-## Technical Samurai 1.x
+## Technical
 
-- Requirements : bash, curl (should be installed already or sudo apt-get install curl as shown above)
-- Supports : Ubuntu 12.04 LTS, Ubuntu 14.04 LTS, Ubuntu 16.04 LTS, Mac OS X 10.9+ (Maverick and above)
+- Requirements : bourne shell, curl (should be installed already or sudo apt-get install curl as shown above)
+- Supports : Debian, Ubuntu 12.04 LTS, Ubuntu 14.04 LTS, Ubuntu 16.04 LTS, Mac OS X 10.9+ (Maverick and above)
 - Functionality : System (System Updates, Build-Essential, Debconf-Util), Security (UFW), Languages (Ruby 2.x, Php), Web Servers (Nginx), DB (MySQL, MongoDB, MariaDB)
 
 ## Guidelines and Road Map
