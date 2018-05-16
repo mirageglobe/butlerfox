@@ -26,7 +26,7 @@ if you do not have curl, on debian/ubuntu you can do
 
 To run,
 
-> $samurai
+> $sh samurai.sh
 
 To uninstall,
 
