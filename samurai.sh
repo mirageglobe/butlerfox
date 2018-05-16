@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
 # Author Jimmy MG Lim <mirageglobe@gmail.com>
 
@@ -10,15 +10,15 @@ try() { "$@" || die "cannot $*"; }
 
 # ----- local functions
 
-hasInternet() {
+has_internet() {
   printf "false"
 }
 
-printHeader() {
-  printf "\n%s\n" "Samurai v2 - your local assistant to run common commands on Linux(bash) and MacOSX(bash)."
+print_header() {
+  printf "\n%s\n" "Samurai v2 - your local assistant to run common commands on Linux and MacOSX(Darwin) using automated shell commands."
 }
 
-printHelp() {
+print_help() {
   printf "\n%s\n" "Usage:"
   printf "\t%s \t\t\t\t %s\n" "$0 <command> [args]"
   printf "\n%s\n" "Commands :"
@@ -32,7 +32,7 @@ printHelp() {
   printf "\n"
 }
 
-runScript() {
+run_script() {
   printf "hello"
 }
 
@@ -42,8 +42,8 @@ EXPECTED_ARGS=1
 E_BADARGS=65
 
 if [ "$#" -lt "$EXPECTED_ARGS" ]; then
-  printHeader
-  printHelp $0
+  print_header
+  print_help $0
   exit $E_BADARGS
 fi
 
@@ -109,7 +109,7 @@ SK_OPT=$2
 case "$SK_CMD" in
   help)
     printf "\n%s\n" "$0 Help"
-    printHelp $0
+    print_help $0
     ;;
   ui)
     if [ -z $SK_OPT ]; then

@@ -9,35 +9,36 @@ Samurai (武士 meaning Warrior Serve) provides a simple interface for managing 
 
 - Author: Jimmy MG Lim (mirageglobe@gmail.com)
 - Twitter: @mirageglobe
-- Blog: http://www.mirageglobe.com
-- Company: http://www.dracoturtur.com
+- Website: http://www.mirageglobe.com
 - Source: https://github.com/mirageglobe/samurai
 - License: Apache License 2.0
 
 
 ## Installation
 
-To install (on ubuntu / debian), fire up terminal and run:
+To install on (debian / ubuntu / mac), fire up terminal and run:
 
-> sudo apt-get install curl && sudo curl -L https://raw.githubusercontent.com/mirageglobe/samurai/master/samurai/install.sh | bash
+> which curl && sudo curl -L https://raw.githubusercontent.com/mirageglobe/samurai/master/samurai/install.sh | sh
 
-To install on mac, fire up terminal and run:
+if you do not have curl, on debian/ubuntu you can do
 
-> which curl && sudo curl -L https://raw.githubusercontent.com/mirageglobe/samurai/master/samurai/install.sh | bash
+> $sudo apt install curl
 
 To run,
 
-> samurai
+> $samurai
 
 To uninstall,
 
-> sudo rm /usr/local/bin/samurai && rm /usr/local/bin/samurai-mac.py && rm /usr/local/bin/samurai-linux.py
+> $samurai.sh ui 2
 
-or use the uninstall option within samurai itself.
+To uninstall (legacy files),
+
+> $sudo rm /usr/local/bin/samurai && rm /usr/local/bin/samurai-mac.py && rm /usr/local/bin/samurai-linux.py
 
 ## Technical
 
-- Requirements : bourne shell, curl (should be installed already or sudo apt-get install curl as shown above)
+- Requirements : bourne shell, curl (should be installed already or sudo apt install curl as shown above)
 - Supports : Debian, Ubuntu 12.04 LTS, Ubuntu 14.04 LTS, Ubuntu 16.04 LTS, Mac OS X 10.9+ (Maverick and above)
 - Functionality : System (System Updates, Build-Essential, Debconf-Util), Security (UFW), Languages (Ruby 2.x, Php), Web Servers (Nginx), DB (MySQL, MongoDB, MariaDB)
 
@@ -52,6 +53,8 @@ Goals:
 
 Road Map:
 
+- change to new unit test
+- create user based executabe rather than system wide executable
 - [done] replicate most functionalities in bash; due to achieving minimal server side installations.
 - [drop] install to home directory and symlink commands
 - [done] add chrootkit
@@ -77,7 +80,7 @@ To test, install bats (bash automated testing system - https://github.com/ssteph
 
 ## Other Notes
 
-When adding bash commands, you can chain commands with four ways:
+When adding shell(sh/bash) commands, you can chain commands with four ways:
 
 - ; = run regardless
 - && = run if previous succeed
