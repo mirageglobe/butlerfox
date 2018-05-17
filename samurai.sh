@@ -31,6 +31,7 @@ print_help() {
   printf "$MG_TITLE Commands :"
   printf "\n"
   printf "$MG_TEXT $0 help                    # loads help"
+  printf "$MG_TEXT $0 ui-verbose              # loads default list of ui commands with verbose actual commands"
   printf "$MG_TEXT $0 ui                      # loads default list of ui commands"
   printf "$MG_TEXT $0 ui <commandnumber>      # run command"
   printf "\n"
@@ -98,45 +99,63 @@ UI_CMD_NIX_3=( "List UI commands with verbose" "" )
 UI_CMD_NIX_10=( "Change my login password" "passwd" )
 UI_CMD_MAC_10=( "Change my login password" "passwd" )
 
-UI_CMD_NIX_11=( "Update ubuntu and cleanup cache" "sudo apt-get update && sudo apt-get upgrade && sudo apt-get autoclean && sudo apt-get autoremove" )
+UI_CMD_NIX_11=( "Update debian/ubuntu and cleanup cache" "sudo apt-get update && sudo apt-get upgrade && sudo apt-get autoclean && sudo apt-get autoremove" )
 
-UI_CMD_NIX_12=( "Update ubuntu distribution" "sudo apt-get dist-upgrade" )
+UI_CMD_NIX_12=( "Update debian/ubuntu distribution" "sudo apt-get dist-upgrade" )
 
 UI_CMD_NIX_13=( "Install build-essential" "sudo apt-get install build-essential" )
-UI_CMD_NIX_14=( "Add virtualbox guest additions for ubuntu (for virtualbox *buntu VMs)" "sudo apt-get install virtualbox-guest-dkms virtualbox-guest-utils virtualbox-guest-x11" )
+
+UI_CMD_NIX_14=( "Add virtualbox guest additions for debian/ubuntu (for virtualbox VMs)" "sudo apt-get install virtualbox-guest-dkms virtualbox-guest-utils virtualbox-guest-x11" )
+
 UI_CMD_NIX_15=( "Show users list" "column -ts: /etc/passwd | sort" )
+
 UI_CMD_NIX_16=( "Restart shell" "exec \$SHELL -l" )
 
 UI_CMD_NIX_17=( "Show IP address" "curl http://icanhazip.com" )
 UI_CMD_MAC_17=( "Show IP address" "curl http://icanhazip.com" )
 
 UI_CMD_NIX_18=( "Show disk space" "df -h --total" )
+
 UI_CMD_NIX_19=( "Show kernel build information" "uname -a" )
+
 UI_CMD_NIX_20=( "Show ubuntu or *buntu-like version information" "lsb_release -a" )
+
 UI_CMD_NIX_21=( "Show open ports and listening apps" "netstat -lnptu" )
+
 UI_CMD_NIX_22=( "Show local SMB/CIFS shares on network" "nmblookup -S '*'" )
+
 UI_CMD_NIX_23=( "Show local mounted or mapped drives" "df" )
+
 UI_CMD_NIX_24=( "Show memory, cache and swap" "egrep --color 'Mem|Cache|Swap' /proc/meminfo" )
+
 UI_CMD_NIX_25=( "Setup Ubuntu Auto Upgrade (Ubuntu Recommended)" "sudo apt-get install unattended-upgrades && dpkg-reconfigure --priority=low unattended-upgrades" )
 
 ## 3x Platform and Pkg Managers
 UI_CMD_NIX_31=( "Install nodejs, NPM via NVM" "sudo apt-get update && curl https://raw.githubusercontent.com/creationix/nvm/v0.24.0/install.sh | bash" )
+
 UI_CMD_NIX_32=( "Install latest stable git" "sudo add-apt-repository ppa:git-core/ppa && sudo apt-get update && sudo apt-get install git" )
 
 ## 4x Security
 UI_CMD_NIX_40=( "Install clamav and clam daemon" "sudo apt-get install clamav clamav-daemon" )
+
 UI_CMD_NIX_41=( "Install chkrootkit" "sudo apt-get install chkrootkit" )
+
 UI_CMD_NIX_42=( "Install rkhunter" "sudo apt-get install rkhunter" )
+
 UI_CMD_NIX_43=( "Install ufw and allow ssh port 22/80" "sudo apt-get install ufw && ufw allow ssh && ufw allow 80 && sudo ufw enable" )
+
 UI_CMD_NIX_44=( "Install fail2ban with sendmail dependancy" "sudo apt-get install sendmail fail2ban" )
 
 ## 5x Databases
 UI_CMD_NIX_50=( "Install sqlite (for all)" "sudo apt-get install sqlite" )
+
 UI_CMD_NIX_51=( "Install mongodb 3.0 (for ubuntu 14.04.x trusty)" 'sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10 && echo "deb http://repo.mongodb.org/apt/ubuntu "$(lsb_release -sc)"/mongodb-org/3.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.0.list && sudo apt-get update && sudo apt-get install -y mongodb-org' )
+
 UI_CMD_NIX_52=( "Install mariadb 10.0 (for ubuntu 14.04.x trusty)" 'sudo apt-get install software-properties-common && sudo apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0xcbcb082a1bb943db && sudo add-apt-repository "deb http://lon1.mirrors.digitalocean.com/mariadb/repo/10.0/ubuntu trusty main" && sudo apt-get update && sudo apt-get install mariadb-server' )
 
 ## 6x Servers and Languages
 UI_CMD_NIX_60=( "Install nginx - ppa latest stable (for all)" "apt-get update && sudo add-apt-repository ppa:nginx/stable && sudo apt-get install nginx" )
+
 UI_CMD_NIX_61=( "Install php5 (fpm)" "sudo apt-get install php5-fpm php5-cli php5-mysqlnd" )
 
 ## 7x Apps
@@ -162,6 +181,20 @@ if [ "$MG_OS" != "NIL" ]; then
       printf "$MG_TITLE $0 Help"
       print_help $0
       ;;
+    ui-verbose)
+      printf "$MG_TITLE $0 UI"
+      printf "\n"
+
+      for i in  {1..100}; do
+        MG_CMD_DESC=$(eval echo \${UI_CMD_${MG_OS}_$i[0]})
+        MG_CMD_CMD=$(eval echo \${UI_CMD_${MG_OS}_$i[1]})
+        if [ -n "$MG_CMD_DESC" ]; then
+          printf "$MG_TEXT [$i] - $MG_CMD_DESC ( $MG_CMD_CMD )"
+        fi
+      done
+
+      printf "\n"
+      ;;
     ui)
       #print out list for os
       if [ -z $MG_OPT ]; then
@@ -171,19 +204,20 @@ if [ "$MG_OS" != "NIL" ]; then
 
         for i in  {1..100}; do
           MG_CMD_DESC=$(eval echo \${UI_CMD_${MG_OS}_$i[0]})
+          MG_CMD_CMD=$(eval echo \${UI_CMD_${MG_OS}_$i[1]})
           if [ -n "$MG_CMD_DESC" ]; then
-            echo "    [$i] - $MG_CMD_DESC"
+            printf "$MG_TEXT [$i] - $MG_CMD_DESC"
           fi
         done
 
         printf "\n"
       else
         # runs ui_cmd with $2 and array 0 which is the command; see declare core ui options
-        MG_CMD_TITLE=$(eval echo \${UI_CMD_${MG_OS}_$MG_OPT[0]})
+        MG_CMD_DESC=$(eval echo \${UI_CMD_${MG_OS}_$MG_OPT[0]})
         MG_CMD_CMD=$(eval echo \${UI_CMD_${MG_OS}_$MG_OPT[1]})
 
         printf "$MG_TITLE executing command"
-        print_success "$MG_CMD_TITLE ( $MG_CMD_CMD )\n"
+        print_success "$MG_CMD_DESC ( $MG_CMD_CMD )\n"
         printf "\n"
         eval $MG_CMD_CMD
       fi
