@@ -25,16 +25,19 @@ print_header() {
 }
 
 print_help() {
-  printf "\n%s\n" "Usage:"
-  printf "\t%s \t\t\t\t %s\n" "$0 <command> [args]"
-  printf "\n%s\n" "Commands :"
-  printf "\t%s \t\t\t\t %s\n" "$0" ""
-  printf "\t%s \t\t\t\t %s\n" "$0 help" "# loads help"
-  printf "\t%s \t\t\t\t %s\n" "$0 ui" "# loads default list of ui commands"
-  printf "\t%s \t\t %s\n" "$0 ui <commandnumber>" "# run command"
-  printf "\n%s\n" "Examples :"
-  printf "\t%s\n" "$0 ui"
-  printf "\t%s\n" "$0 ui 1"
+  printf "$MG_TITLE Usage:"
+  printf "$MG_TEXT $0 <command> [args]"
+  printf "\n"
+  printf "$MG_TITLE Commands :"
+  printf "\n"
+  printf "$MG_TEXT $0 help                    # loads help"
+  printf "$MG_TEXT $0 ui                      # loads default list of ui commands"
+  printf "$MG_TEXT $0 ui <commandnumber>      # run command"
+  printf "\n"
+  printf "$MG_TITLE Examples :"
+  printf "$MG_TEXT $0 ui"
+  printf "$MG_TEXT $0 ui 1"
+  printf "\n"
   printf "\n"
 }
 
@@ -52,7 +55,6 @@ is_macos() {
   local rtn_val=1 #note rtn boolean for error codes is 0 = true / 1 = false (reversed with boolean statements)
 
   if [[ "$OSTYPE" == "darwin"* ]]; then
-    printf "os : macos darwin (POSIX compatible)"
     rtn_val=0
   fi
 
@@ -63,7 +65,6 @@ is_linux() {
   local rtn_val=1 #note rtn boolean for error codes is 0 = true / 1 = false (reversed with boolean statements)
 
   if [[ "$OSTYPE" == "linux-gnu" ]]; then
-    printf "os : linux (POSIX compatible)"
     rtn_val=0
   fi
 
@@ -95,13 +96,20 @@ UI_CMD_NIX_3=( "List UI commands with verbose" "" )
 
 ## 1x / 2x Operating System
 UI_CMD_NIX_10=( "Change my login password" "passwd" )
+UI_CMD_MAC_10=( "Change my login password" "passwd" )
+
 UI_CMD_NIX_11=( "Update ubuntu and cleanup cache" "sudo apt-get update && sudo apt-get upgrade && sudo apt-get autoclean && sudo apt-get autoremove" )
+
 UI_CMD_NIX_12=( "Update ubuntu distribution" "sudo apt-get dist-upgrade" )
+
 UI_CMD_NIX_13=( "Install build-essential" "sudo apt-get install build-essential" )
 UI_CMD_NIX_14=( "Add virtualbox guest additions for ubuntu (for virtualbox *buntu VMs)" "sudo apt-get install virtualbox-guest-dkms virtualbox-guest-utils virtualbox-guest-x11" )
 UI_CMD_NIX_15=( "Show users list" "column -ts: /etc/passwd | sort" )
 UI_CMD_NIX_16=( "Restart shell" "exec \$SHELL -l" )
+
 UI_CMD_NIX_17=( "Show IP address" "curl http://icanhazip.com" )
+UI_CMD_MAC_17=( "Show IP address" "curl http://icanhazip.com" )
+
 UI_CMD_NIX_18=( "Show disk space" "df -h --total" )
 UI_CMD_NIX_19=( "Show kernel build information" "uname -a" )
 UI_CMD_NIX_20=( "Show ubuntu or *buntu-like version information" "lsb_release -a" )
@@ -139,38 +147,50 @@ MG_CMD=$1
 MG_OPT=$2
 # the 3rd tier variable such as "12"
 
-is_macos
+MG_OS="NIL"
+
+if is_macos; then
+  MG_OS="MAC"
+elif is_nix; then
+  MG_OS="NIX"
+fi
 
 # default checks
-case "$MG_CMD" in
-  help)
-    printf "\n%s\n" "$0 Help"
-    print_help $0
-    ;;
-  ui)
-    if [ -z $MG_OPT ]; then
-      # if variable $2 for ui does not exist, print out list of variable
-      printf "\n%s\n" "$0 UI"
-      printf "\n"
+if [ "$MG_OS" != "NIL" ]; then
+  case "$MG_CMD" in
+    help)
+      printf "$MG_TITLE $0 Help"
+      print_help $0
+      ;;
+    ui)
+      #print out list for os
+      if [ -z $MG_OPT ]; then
+        # if variable $2 for ui does not exist, print out list of variable
+        printf "$MG_TITLE $0 UI"
+        printf "\n"
 
-      for i in  {1..100}; do
-        MG_CMD_DESC=$(eval echo \${UI_CMD_NIX_$i[0]})
-        if [ -n "$MG_CMD_DESC" ]; then
-          echo "    [$i] - $MG_CMD_DESC"
-        fi
-      done
+        for i in  {1..100}; do
+          MG_CMD_DESC=$(eval echo \${UI_CMD_${MG_OS}_$i[0]})
+          if [ -n "$MG_CMD_DESC" ]; then
+            echo "    [$i] - $MG_CMD_DESC"
+          fi
+        done
 
-      printf "\n"
-    else
-      # runs ui_cmd with $2 and array 0 which is the command; see declare core ui options
-      MG_CMD_TITLE=$(eval echo \${UI_CMD_NIX_$MG_OPT[0]})
-      MG_CMD_CMD=$(eval echo \${UI_CMD_NIX_$MG_OPT[1]})
+        printf "\n"
+      else
+        # runs ui_cmd with $2 and array 0 which is the command; see declare core ui options
+        MG_CMD_TITLE=$(eval echo \${UI_CMD_${MG_OS}_$MG_OPT[0]})
+        MG_CMD_CMD=$(eval echo \${UI_CMD_${MG_OS}_$MG_OPT[1]})
 
-      printf "executing :: $MG_CMD_TITLE :: $MG_CMD_CMD\n"
-      eval $MG_CMD_CMD
-    fi
-    ;;
-  *)
-    die
-esac
+        printf "$MG_TITLE executing command"
+        print_success "$MG_CMD_TITLE ( $MG_CMD_CMD )\n"
+        printf "\n"
+        eval $MG_CMD_CMD
+      fi
+      ;;
+    *)
+      die
+  esac
+fi
 
+printf "\n"
