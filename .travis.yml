@@ -1,10 +1,10 @@
 language: bash
 dist: trusty
+sudo: required
 before_install:
   - sudo add-apt-repository ppa:duggan/bats --yes
-  - sudo apt-get update -qq
-  - sudo apt-get install -qq bats
+  - sudo apt update --yes
 install:
-  - sudo apt-get install -qq bc
+  - sudo apt install bats --yes
 script:
-  - bats ./test.bats
+  - bats test.bats
