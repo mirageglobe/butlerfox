@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/bin/sh
 
 # Author Jimmy MG Lim <mirageglobe@gmail.com>
 # Website www.mirageglobe.com
@@ -7,48 +7,42 @@
 
 # ----- arguments
 
-MG_TITLE="\n**"
-MG_TEXT="\n  "
-MG_SUCCESS="\n\342\234\224 "
-MG_ERROR="\n\342\234\226 "
+MG_TITLE="\\n**"
+MG_TEXT="\\n  "
+MG_SUCCESS="\\n\\342\\234\\224 "
+MG_ERROR="\\n\\342\\234\\226 "
 
 # ----- constants
 
 # ----- common functions
 
-yell() { echo "$0: $*" >&2; }
-die() { yell "$*"; exit 111; }
-try() { "$@" || die "cannot $*"; }
-
-print_header() {
-  printf "\n%s\n" "Samurai v2 - your local assistant to run common commands on Linux and MacOSX(Darwin) using automated shell commands."
+print_header () {
+  printf "\\n%s\\n" "Samurai v2 - your local assistant to run common commands on Linux and MacOSX(Darwin) using automated shell commands."
 }
 
-print_help() {
+print_help () {
   printf "$MG_TITLE Usage:"
   printf "$MG_TEXT $0 <command> [args]"
-  printf "\n"
+  printf "\\n"
   printf "$MG_TITLE Commands :"
-  printf "\n"
+  printf "\\n"
   printf "$MG_TEXT $0 help                    # loads help"
   printf "$MG_TEXT $0 ui-verbose              # loads default list of ui commands with verbose actual commands"
   printf "$MG_TEXT $0 ui                      # loads default list of ui commands"
   printf "$MG_TEXT $0 ui <commandnumber>      # run command"
-  printf "\n"
+  printf "\\n"
   printf "$MG_TITLE Examples :"
   printf "$MG_TEXT $0 ui"
   printf "$MG_TEXT $0 ui 1"
-  printf "\n"
-  printf "\n"
+  printf "\\n"
+  printf "\\n"
 }
 
-function print_success()
-{
+function print_success () {
   printf "$MG_SUCCESS $1"
 }
 
-function print_error()
-{
+function print_error () {
   printf "$MG_ERROR $1"
 }
 
@@ -170,7 +164,7 @@ MG_OS="NIL"
 
 if is_macos; then
   MG_OS="MAC"
-elif is_nix; then
+elif is_linux; then
   MG_OS="NIX"
 fi
 
