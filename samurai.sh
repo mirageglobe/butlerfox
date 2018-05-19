@@ -11,8 +11,6 @@ set -o posix #ensure even if bash is used, conform to posix
 
 MG_TITLE='**'
 MG_TEXT='  '
-MG_SUCCESS='\\342\\234\\224 '
-MG_ERROR='\\342\\234\\226 '
 
 MG_OSTYPE=$(uname -s)
 # ----- constants
@@ -41,11 +39,11 @@ print_help () {
 }
 
 print_success () {
-  printf "\\n%s %s" "$MG_SUCCESS" "$1"
+  printf "\\n\\342\\234\\224  %s" "$1"
 }
 
 print_error () {
-  printf "\\n%s %s" "$MG_ERROR" "$1"
+  printf "\\n\\342\\234\\226  %s" "$1"
 }
 
 is_macos() {
@@ -215,12 +213,14 @@ if [ "$MG_OS" != "NIL" ]; then
       printf "\\n%s %s UI" "$MG_TITLE" "$0"
       printf "\\n"
 
-      for i in {1..100}; do
-        MG_CMD_DESC=$(eval echo \${UI_CMD_${MG_OS}_$i[0]})
-        MG_CMD_CMD=$(eval echo \${UI_CMD_${MG_OS}_$i[1]})
-        if [ -n "$MG_CMD_DESC" ]; then
-          printf "\\n%s [%s] - %s ( %s )" "$MG_TEXT" "$i" "$MG_CMD_DESC" "$MG_CMD_CMD"
+      #for i in {1..100}; do\
+      i=0; while [ $i -le 100 ]; do
+        MG_CMD_DES=$(eval "echo \${UI_CMD_DES_$i}")
+        MG_CMD_CMD=$(eval "echo \${UI_CMD_${MG_OS}_$i}")
+        if [ -n "$MG_CMD_CMD" ]; then
+          printf "\\n%s [%s] - %s ( %s )" "$MG_TEXT" "$i" "$MG_CMD_DES" "$MG_CMD_CMD"
         fi
+        i=$(( i + 1 ))
       done
 
       printf "\\n"
@@ -232,24 +232,26 @@ if [ "$MG_OS" != "NIL" ]; then
         printf "\\n%s %s UI" "$MG_TITLE" "$0"
         printf "\\n"
 
-        for i in {1..100}; do
-          MG_CMD_DESC=$(eval echo \${UI_CMD_${MG_OS}_$i[0]})
-          MG_CMD_CMD=$(eval echo \${UI_CMD_${MG_OS}_$i[1]})
-          if [ -n "$MG_CMD_DESC" ]; then
-            printf "\\n%s [%s] - %s" "$MG_TEXT" "$i" "$MG_CMD_DESC"
+        #for i in {1..100}; do
+        i=0; while [ $i -le 100 ]; do
+          MG_CMD_DES=$(eval "echo \${UI_CMD_${MG_OS}_$i}")
+          MG_CMD_CMD=$(eval "echo \${UI_CMD_${MG_OS}_$i}")
+          if [ -n "$MG_CMD_CMD" ]; then
+            printf "\\n%s [%s] - %s" "$MG_TEXT" "$i" "$MG_CMD_DES"
           fi
+          i=$(( i + 1 ))
         done
 
         printf "\\n"
       else
         # runs ui_cmd with $2 and array 0 which is the command; see declare core ui options
-        MG_CMD_DESC=$(eval echo \${UI_CMD_DES_$MG_OPT[0]})
-        MG_CMD_CMD=$(eval echo \${UI_CMD_${MG_OS}_$MG_OPT[1]})
+        MG_CMD_DES=$(eval "echo \${UI_CMD_DES_$MG_OPT}")
+        MG_CMD_CMD=$(eval "echo \${UI_CMD_${MG_OS}_$MG_OPT}")
 
         printf "\\n%s executing command" "$MG_TITLE"
-        print_success "$MG_CMD_DESC ( $MG_CMD_CMD )\\n"
+        print_success "$MG_CMD_DES ( $MG_CMD_CMD )"
         printf "\\n"
-        #eval $MG_CMD_CMD
+        eval $MG_CMD_CMD
       fi
       ;;
     *)
