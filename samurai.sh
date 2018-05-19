@@ -18,7 +18,7 @@ MG_OSTYPE=$(uname -s)
 # ----- common functions
 
 print_header () {
-  printf "\\n%s Samurai v2 - your local assistant to run common commands on Linux and MacOSX(Darwin) using automated shell commands." "$MG_TITLE"
+  printf "\\n%s Samurai v2 (Mac/Linux) - your local assistant to run common commands on Linux and MacOSX(Darwin) using automated shell commands." "$MG_TITLE"
 }
 
 print_help () {
@@ -35,6 +35,7 @@ print_help () {
   printf "\\n%s Examples :" "$MG_TITLE"
   printf "\\n%s %s ui" "$MG_TEXT" "$0"
   printf "\\n%s %s ui 1" "$MG_TEXT" "$0"
+  printf "\\n"
   printf "\\n"
 }
 
@@ -205,12 +206,11 @@ fi
 if [ "$MG_OS" != "NIL" ]; then
   case "$MG_CMD" in
     help)
-      printf "\\n%s %s Help" "$MG_TITLE" "$0"
+      printf "\\n%s %s Help (%s)" "$MG_TITLE" "$0" "$MG_OS"
       print_help "$0"
-      printf "\\n"
       ;;
     ui-verbose)
-      printf "\\n%s %s UI" "$MG_TITLE" "$0"
+      printf "\\n%s %s UI (%s)" "$MG_TITLE" "$0" "$MG_OS"
       printf "\\n"
 
       #for i in {1..100}; do\
@@ -224,12 +224,13 @@ if [ "$MG_OS" != "NIL" ]; then
       done
 
       printf "\\n"
+      printf "\\n"
       ;;
     ui)
       #print out list for os
       if [ -z "$MG_OPT" ]; then
         # if variable $2 for ui does not exist, print out list of variable
-        printf "\\n%s %s UI" "$MG_TITLE" "$0"
+        printf "\\n%s %s UI (%s)" "$MG_TITLE" "$0" "$MG_OS"
         printf "\\n"
 
         #for i in {1..100}; do
@@ -243,6 +244,7 @@ if [ "$MG_OS" != "NIL" ]; then
         done
 
         printf "\\n"
+        printf "\\n"
       else
         # runs ui_cmd with $2 and array 0 which is the command; see declare core ui options
         MG_CMD_DES=$(eval "echo \${UI_CMD_DES_$MG_OPT}")
@@ -251,7 +253,11 @@ if [ "$MG_OS" != "NIL" ]; then
         printf "\\n%s executing command" "$MG_TITLE"
         print_success "$MG_CMD_DES ( $MG_CMD_CMD )"
         printf "\\n"
-        eval $MG_CMD_CMD
+        printf "\\n"
+
+        eval "$MG_CMD_CMD"
+
+        printf "\\n"
       fi
       ;;
     *)
@@ -259,4 +265,3 @@ if [ "$MG_OS" != "NIL" ]; then
   esac
 fi
 
-printf "\\n"
