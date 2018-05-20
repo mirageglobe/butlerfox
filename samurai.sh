@@ -26,13 +26,13 @@ print_help () {
   printf "\\n"
   printf "\\n%s Commands :" "$MG_TITLE"
   printf "\\n%s %s help                    # loads help" "$MG_TEXT" "$0"
-  printf "\\n%s %s ui-verbose              # loads default list of ui commands with verbose actual commands" "$MG_TEXT" "$0"
   printf "\\n%s %s ui                      # loads default list of ui commands" "$MG_TEXT" "$0"
-  printf "\\n%s %s ui <commandnumber>      # run command" "$MG_TEXT" "$0"
+  printf "\\n%s %s ui-verbose              # loads default list of ui commands with verbose actual commands" "$MG_TEXT" "$0"
+  printf "\\n%s %s ui-run <commandnumber>  # run command" "$MG_TEXT" "$0"
   printf "\\n"
   printf "\\n%s Examples :" "$MG_TITLE"
   printf "\\n%s %s ui" "$MG_TEXT" "$0"
-  printf "\\n%s %s ui 1" "$MG_TEXT" "$0"
+  printf "\\n%s %s ui-run 1" "$MG_TEXT" "$0"
   printf "\\n"
   printf "\\n"
 }
@@ -95,16 +95,16 @@ export UI_CMD_NIX_10="passwd"
 export UI_CMD_MAC_10="passwd"
 
 export UI_CMD_DES_11="Update debian/ubuntu and cleanup cache"
-export UI_CMD_NIX_11="sudo apt-get update && sudo apt-get upgrade && sudo apt-get autoclean && sudo apt-get autoremove"
+export UI_CMD_NIX_11="sudo apt update && sudo apt upgrade && sudo apt autoclean && sudo apt autoremove"
 
 export UI_CMD_DES_12="Update debian/ubuntu distribution"
-export UI_CMD_NIX_12="sudo apt-get dist-upgrade"
+export UI_CMD_NIX_12="sudo apt dist-upgrade"
 
 export UI_CMD_DES_13="Install build-essential"
-export UI_CMD_NIX_13="sudo apt-get install build-essential"
+export UI_CMD_NIX_13="sudo apt install build-essential"
 
 export UI_CMD_DES_14="Add virtualbox guest additions for debian/ubuntu (for virtualbox VMs)"
-export UI_CMD_NIX_14="sudo apt-get install virtualbox-guest-dkms virtualbox-guest-utils virtualbox-guest-x11"
+export UI_CMD_NIX_14="sudo apt install virtualbox-guest-dkms virtualbox-guest-utils virtualbox-guest-x11"
 
 export UI_CMD_DES_15="Show users list"
 export UI_CMD_NIX_15="column -ts: /etc/passwd | sort"
@@ -138,34 +138,34 @@ export UI_CMD_DES_24="Show memory, cache and swap"
 export UI_CMD_NIX_24="egrep --color 'Mem|Cache|Swap' /proc/meminfo"
 
 export UI_CMD_DES_25="Setup Ubuntu Auto Upgrade (Ubuntu Recommended)"
-export UI_CMD_NIX_25="sudo apt-get install unattended-upgrades && dpkg-reconfigure --priority=low unattended-upgrades"
+export UI_CMD_NIX_25="sudo apt install unattended-upgrades && dpkg-reconfigure --priority=low unattended-upgrades"
 
 ## 3x Platform and Pkg Managers
 export UI_CMD_DES_31="Install nodejs, NPM via NVM"
-export UI_CMD_NIX_31="sudo apt-get update && curl https://raw.githubusercontent.com/creationix/nvm/v0.24.0/install.sh | bash"
+export UI_CMD_NIX_31="sudo apt update && curl https://raw.githubusercontent.com/creationix/nvm/v0.24.0/install.sh | bash"
 
 export UI_CMD_DES_32="Install latest stable git"
-export UI_CMD_NIX_32="sudo add-apt-repository ppa:git-core/ppa && sudo apt-get update && sudo apt-get install git"
+export UI_CMD_NIX_32="sudo add-apt-repository ppa:git-core/ppa && sudo apt update && sudo apt install git"
 
 ## 4x Security
 export UI_CMD_DES_40="Install clamav and clam daemon"
-export UI_CMD_NIX_40="sudo apt-get install clamav clamav-daemon"
+export UI_CMD_NIX_40="sudo apt install clamav clamav-daemon"
 
 export UI_CMD_DES_41="Install chkrootkit"
-export UI_CMD_NIX_41="sudo apt-get install chkrootkit"
+export UI_CMD_NIX_41="sudo apt install chkrootkit"
 
 export UI_CMD_DES_42="Install rkhunter"
-export UI_CMD_NIX_42="sudo apt-get install rkhunter"
+export UI_CMD_NIX_42="sudo apt install rkhunter"
 
 export UI_CMD_DES_43="Install ufw and allow ssh port 22/80"
-export UI_CMD_NIX_43="sudo apt-get install ufw && ufw allow ssh && ufw allow 80 && sudo ufw enable"
+export UI_CMD_NIX_43="sudo apt install ufw && ufw allow ssh && ufw allow 80 && sudo ufw enable"
 
 export UI_CMD_DES_44="Install fail2ban with sendmail dependancy"
-export UI_CMD_NIX_44="sudo apt-get install sendmail fail2ban"
+export UI_CMD_NIX_44="sudo apt install sendmail fail2ban"
 
 ## 5x Databases
 export UI_CMD_DES_50="Install sqlite (for all)"
-export UI_CMD_NIX_50="sudo apt-get install sqlite"
+export UI_CMD_NIX_50="sudo apt install sqlite"
 
 export UI_CMD_DES_51="Install mongodb 3.0 (for ubuntu 14.04.x trusty)"
 export UI_CMD_NIX_51="sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10 && echo \"deb http://repo.mongodb.org/apt/ubuntu \"\$(lsb_release -sc)\"/mongodb-org/3.0 multiverse\" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.0.list && sudo apt-get update && sudo apt-get install -y mongodb-org"
@@ -175,10 +175,10 @@ export UI_CMD_NIX_52="sudo apt-get install software-properties-common && sudo ap
 
 ## 6x Servers and Languages
 export UI_CMD_DES_60="Install nginx - ppa latest stable (for all)"
-export UI_CMD_NIX_60="apt-get update && sudo add-apt-repository ppa:nginx/stable && sudo apt-get install nginx"
+export UI_CMD_NIX_60="apt update && sudo add-apt-repository ppa:nginx/stable && sudo apt install nginx"
 
 export UI_CMD_DES_61="Install php5 (fpm)"
-export UI_CMD_NIX_61="sudo apt-get install php5-fpm php5-cli php5-mysqlnd"
+export UI_CMD_NIX_61="sudo apt install php5-fpm php5-cli php5-mysqlnd"
 
 ## 7x Apps
 export UI_CMD_DES_70="Install AV suite (avconv pngquant graphicsmagick)"
@@ -204,23 +204,6 @@ if [ "$MG_OS" != "NIL" ]; then
       printf "\\n%s %s Help (%s)" "$MG_TITLE" "$0" "$MG_OS"
       print_help "$0"
       ;;
-    ui-verbose)
-      printf "\\n%s %s UI (%s)" "$MG_TITLE" "$0" "$MG_OS"
-      printf "\\n"
-
-      #for i in {1..100}; do\
-      i=0; while [ $i -le 100 ]; do
-        MG_CMD_DES=$(eval "echo \${UI_CMD_DES_$i}")
-        MG_CMD_CMD=$(eval "echo \${UI_CMD_${MG_OS}_$i}")
-        if [ -n "$MG_CMD_CMD" ]; then
-          printf "\\n%s [%s] - %s ( %s )" "$MG_TEXT" "$i" "$MG_CMD_DES" "$MG_CMD_CMD"
-        fi
-        i=$(( i + 1 ))
-      done
-
-      printf "\\n"
-      printf "\\n"
-      ;;
     ui)
       #print out list for os
       if [ -z "$MG_OPT" ]; then
@@ -241,6 +224,18 @@ if [ "$MG_OS" != "NIL" ]; then
         printf "\\n"
         printf "\\n"
       else
+        print_error "no options required - use ui-run instead"
+        printf "\\n"
+        printf "\\n"
+      fi
+      ;;
+    ui-run)
+      #print out list for os
+      if [ -z "$MG_OPT" ]; then
+        # if variable $2 for ui does not exist, print out list of variable
+        print_error "command does not exist"
+        printf "\\n"
+      else
         # runs ui_cmd with $2 and array 0 which is the command; see declare core ui options
         MG_CMD_DES=$(eval "echo \${UI_CMD_DES_$MG_OPT}")
         MG_CMD_CMD=$(eval "echo \${UI_CMD_${MG_OS}_$MG_OPT}")
@@ -254,6 +249,23 @@ if [ "$MG_OS" != "NIL" ]; then
 
         printf "\\n"
       fi
+      ;;
+    ui-verbose)
+      printf "\\n%s %s UI (%s)" "$MG_TITLE" "$0" "$MG_OS"
+      printf "\\n"
+
+      #for i in {1..100}; do\
+      i=0; while [ $i -le 100 ]; do
+        MG_CMD_DES=$(eval "echo \${UI_CMD_DES_$i}")
+        MG_CMD_CMD=$(eval "echo \${UI_CMD_${MG_OS}_$i}")
+        if [ -n "$MG_CMD_CMD" ]; then
+          printf "\\n%s [%s] - %s ( %s )" "$MG_TEXT" "$i" "$MG_CMD_DES" "$MG_CMD_CMD"
+        fi
+        i=$(( i + 1 ))
+      done
+
+      printf "\\n"
+      printf "\\n"
       ;;
     *)
       die
