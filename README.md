@@ -53,9 +53,9 @@ Goals:
 
 Road Map:
 
-- conform to shellcheck linter
 - change to new unit test
-- create user based executabe rather than system wide executable
+- create user based executable rather than system wide executable
+- [done] conform to shellcheck linter
 - [done] replicate most functionalities in bash; due to achieving minimal server side installations.
 - [drop] install to home directory and symlink commands
 - [done] add chrootkit
