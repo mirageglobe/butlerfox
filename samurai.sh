@@ -4,8 +4,6 @@
 # Website www.mirageglobe.com
 
 # ----- include libaries
-set -o posix #ensure even if bash is used, conform to posix
-
 
 # ----- arguments
 
@@ -90,9 +88,6 @@ export UI_CMD_NIX_1="curl -L https://raw.githubusercontent.com/mirageglobe/samur
 
 export UI_CMD_DES_2="Remove Samurai"
 export UI_CMD_NIX_2="sudo rm /usr/local/bin/samurai && sudo rm /usr/local/bin/samurai-mac.py && sudo rm /usr/local/bin/samurai-linux.py"
-export UI_CMD_DES_3="List UI commands with verbose"
-export UI_CMD_NIX_3=""
-#UI_CMD_4=( "Clear screen and show menu" "clear" )
 
 ## 1x / 2x Operating System
 export UI_CMD_DES_10="Change my login password"
@@ -235,7 +230,7 @@ if [ "$MG_OS" != "NIL" ]; then
 
         #for i in {1..100}; do
         i=0; while [ $i -le 100 ]; do
-          MG_CMD_DES=$(eval "echo \${UI_CMD_${MG_OS}_$i}")
+          MG_CMD_DES=$(eval "echo \${UI_CMD_DES_$i}")
           MG_CMD_CMD=$(eval "echo \${UI_CMD_${MG_OS}_$i}")
           if [ -n "$MG_CMD_CMD" ]; then
             printf "\\n%s [%s] - %s" "$MG_TEXT" "$i" "$MG_CMD_DES"
