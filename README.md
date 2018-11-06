@@ -1,17 +1,32 @@
 # Samurai #
 
+[![Build Status](https://travis-ci.org/mirageglobe/samurai.svg?branch=master)](https://travis-ci.org/mirageglobe/samurai)
+
 - author/site : Jimmy MG Lim (mirageglobe@gmail.com) / www.mirageglobe.com
 - source : https://github.com/mirageglobe/samurai
 
-![samurai menu](https://raw.githubusercontent.com/mirageglobe/samurai/master/samurai.png)
-
 Samurai (武士 meaning Warrior Serve) provides a simple interface for managing your machine. Samurai installs and setups the basic applications / packages for a linux system. Samurai aims to drastically reduce learning curve and makes installations/monitoring easier.
 
-- Requirements : bourne shell, curl (should be installed already or sudo apt install curl as shown above)
-- Supports : Debian, Ubuntu 12.04 LTS, Ubuntu 14.04 LTS, Ubuntu 16.04 LTS, Mac OS X 10.9+ (Maverick and above)
-- Functionality : System (System Updates, Build-Essential, Debconf-Util), Security (UFW), Languages (Ruby 2.x, Php), Web Servers (Nginx), DB (MySQL, MongoDB, MariaDB)
+this project has two key goals
+
+- To enable a simple tool that runs common commands with best practises
+- To enable best practice security lockdowns
+
+![samurai menu](https://raw.githubusercontent.com/mirageglobe/samurai/master/samurai.png)
+
+# Features #
+
+- System (System Updates, Build-Essential, Debconf-Util)
+- Security (UFW)
+- Languages (Ruby 2.x, Php)
+- Web Servers (Nginx)
+- DB (MySQL, MongoDB, MariaDB)
 
 # To use #
+
+ensure that the following is present
+- bourne shell
+- curl (should be installed already or sudo apt install curl as shown above)
 
 to install on (debian / ubuntu / mac), fire up terminal and run:
 ```
@@ -40,9 +55,6 @@ to uninstall (legacy files),
 
 # Guidelines #
 
-- To enable a simple tool that runs common commands with best practises
-- To enable best practice security lockdowns
-
 if you wish to contribute to samurai, you can use the vagrantfile to fire up and test samurai. Feel free to suggest commands. You can read more about vagrant at http://docs.vagrantup.com/v2/getting-started/index.html
 
 to start vagrant:
@@ -58,6 +70,7 @@ to test, install bats (bash automated testing system - https://github.com/ssteph
 a few points to note before submitting PR :
 
 - ensure this is tested on debian (as indicated in vagrantfile)
+- test on Debian, Ubuntu 12.04 LTS, Ubuntu 14.04 LTS, Ubuntu 16.04 LTS, Mac OS X 10.9+ (Maverick and above)
 
 when adding shell(sh/bash) commands, you can chain commands with four ways:
 ```
