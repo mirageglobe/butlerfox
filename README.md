@@ -62,7 +62,7 @@ to start vagrant:
  $ vagrant up
 ```
 
-to test, install bats (bash automated testing system - https://github.com/sstephenson/bats):
+to test, install bats (bash automated testing system - ~~https://github.com/sstephenson/bats~~ https://github.com/bats-core/bats-core):
 ```
   bats test.bats
 ```
