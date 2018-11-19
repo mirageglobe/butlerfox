@@ -82,6 +82,7 @@ when adding shell(sh/bash) commands, you can chain commands with four ways:
 
 # Road Map #
 
+- consider https://shields.io/#/
 - change to new unit test
 - create user based executable rather than system wide executable
 - [done] conform to shellcheck linter
