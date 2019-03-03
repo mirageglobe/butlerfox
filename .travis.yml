@@ -1,14 +1,14 @@
-language: bash
-
-matrix:
-  include:
-    - os: linux
-      dist: trusty
-      sudo: required
-    - os: linux
-      dist: xenial
-      sudo: required
+language: node_js
+dist: trusty
 before_script:
+  - $SHELL --version 2> /dev/null || dpkg -s $SHELL 2> /dev/null || which $SHELL
+  - curl --version
+  - shellcheck --version
+  - command -v nvm
+  - curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+  - echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+  - sudo apt-get update && sudo apt-get install yarn
+  - yarn --version
   - yarn global add bats
 script:
   - make lint
