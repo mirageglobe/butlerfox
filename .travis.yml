@@ -5,12 +5,9 @@ before_script:
   - curl --version
   - shellcheck --version
   - command -v nvm
-  - sudo npm install n -g
-  - curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-  - echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-  - apt-get update && apt-get install yarn
-  - yarn --version
-  - yarn global add bats
+  - nvm install node
+  - nvm use node
+  - npm install -g bats
 script:
   - make lint
   - make test
