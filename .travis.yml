@@ -8,10 +8,8 @@ matrix:
     - os: linux
       dist: xenial
       sudo: required
-install:
-  - curl -sL https://deb.nodesource.com/setup_11.x | sudo -E bash -
-  - sudo apt-get install -y nodejs
-  - npm install -g bats
+before_script:
+  - yarn global add bats
 script:
   - make lint
   - make test
