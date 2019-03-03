@@ -11,7 +11,7 @@ build: 						## builds project
 
 lint: 						## set up lints using shellcheck
 	$(info :: running lint ::)
-	@shellcheck -a -s sh samurai.sh
+	@shellcheck samurai.sh
 
 test: 						## set up tests using bats-core
 	$(info :: running test(s) ::)
