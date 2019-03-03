@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/mirageglobe/samurai.svg?branch=master)](https://travis-ci.org/mirageglobe/samurai)
 
-- author/site : Jimmy MG Lim (mirageglobe@gmail.com) / www.mirageglobe.com
+- maintainer : Jimmy MG Lim (mirageglobe@gmail.com) / www.mirageglobe.com
 - source : https://github.com/mirageglobe/samurai
 
 Samurai (武士 meaning Warrior Serve) provides a simple interface for managing your machine. Samurai installs and setups the basic applications / packages for a linux system. Samurai aims to drastically reduce learning curve and makes installations/monitoring easier.
@@ -24,9 +24,9 @@ this project has two key goals
 
 # To use #
 
-ensure that the following is present
-- bourne shell
-- curl (should be installed already or sudo apt install curl as shown above)
+requirements:
+- bourne shell (bash 4.0+)
+- curl
 
 to install on (debian / ubuntu / mac), fire up terminal and run:
 ```
@@ -53,18 +53,28 @@ to uninstall (legacy files),
   $ sudo rm /usr/local/bin/samurai && rm /usr/local/bin/samurai-mac.py && rm /usr/local/bin/samurai-linux.py
 ```
 
-# Guidelines #
+# Contribute #
 
 if you wish to contribute to samurai, you can use the vagrantfile to fire up and test samurai. Feel free to suggest commands. You can read more about vagrant at http://docs.vagrantup.com/v2/getting-started/index.html
 
+requirements :
+- bats-core test suite (https://github.com/bats-core/bats-core)
+- vagrant (optional)
+- semver (optional)
+
 to start vagrant:
 ```
- $ vagrant up
+$ vagrant up
+```
+
+to lint, ensure that shellcheck is present
+```
+$ make lint
 ```
 
 to test, install bats (bash automated testing system - ~~https://github.com/sstephenson/bats~~ https://github.com/bats-core/bats-core):
 ```
-  bats test.bats
+$ make test
 ```
 
 a few points to note before submitting PR :
@@ -83,8 +93,8 @@ when adding shell(sh/bash) commands, you can chain commands with four ways:
 # Road Map #
 
 - consider https://shields.io/#/
-- change to new unit test
-- create user based executable rather than system wide executable
+- [done] change to new unit test (bats-core)
+- create user based executable rather than system wide executable (in home/usrbin directory)
 - [done] conform to shellcheck linter
 - [done] replicate most functionalities in bash; due to achieving minimal server side installations.
 - [drop] install to home directory and symlink commands
