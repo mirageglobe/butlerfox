@@ -7,32 +7,32 @@
 
 # ----- arguments
 
-MG_TITLE='**'
-MG_TEXT='  '
+JMG_TITLE='**'
+JMG_TEXT='  '
 
-MG_OSTYPE=$(uname -s)
+JMG_OSTYPE=$(uname -s)
 # ----- constants
 
 # ----- common functions
 
 print_header () {
-  printf "\\n%s Samurai v2 (Mac/Linux) - your local assistant to run common commands on Linux and MacOSX(Darwin) using automated shell commands." "$MG_TITLE"
+  printf "\\n%s Samurai v2 (Mac/Linux) - your local assistant to run common commands on Linux and MacOSX(Darwin) using automated shell commands." "$JMG_TITLE"
 }
 
 print_help () {
   printf "\\n"
-  printf "\\n%s Usage:" "$MG_TITLE"
-  printf "\\n%s %s <command> [args]" "$MG_TEXT" "$0"
+  printf "\\n%s Usage:" "$JMG_TITLE"
+  printf "\\n%s %s <command> [args]" "$JMG_TEXT" "$0"
   printf "\\n"
-  printf "\\n%s Commands :" "$MG_TITLE"
-  printf "\\n%s %s help                    # loads help" "$MG_TEXT" "$0"
-  printf "\\n%s %s ui                      # loads default list of ui commands" "$MG_TEXT" "$0"
-  printf "\\n%s %s ui-verbose              # loads default list of ui commands with verbose actual commands" "$MG_TEXT" "$0"
-  printf "\\n%s %s ui-run <commandnumber>  # run command" "$MG_TEXT" "$0"
+  printf "\\n%s Commands :" "$JMG_TITLE"
+  printf "\\n%s %s help                    # loads help" "$JMG_TEXT" "$0"
+  printf "\\n%s %s ui                      # loads default list of ui commands" "$JMG_TEXT" "$0"
+  printf "\\n%s %s ui-verbose              # loads default list of ui commands with verbose actual commands" "$JMG_TEXT" "$0"
+  printf "\\n%s %s ui-run <commandnumber>  # run command" "$JMG_TEXT" "$0"
   printf "\\n"
-  printf "\\n%s Examples :" "$MG_TITLE"
-  printf "\\n%s %s ui" "$MG_TEXT" "$0"
-  printf "\\n%s %s ui-run 1" "$MG_TEXT" "$0"
+  printf "\\n%s Examples :" "$JMG_TITLE"
+  printf "\\n%s %s ui" "$JMG_TEXT" "$0"
+  printf "\\n%s %s ui-run 1" "$JMG_TEXT" "$0"
   printf "\\n"
   printf "\\n"
 }
@@ -48,7 +48,7 @@ print_error () {
 is_macos() {
   rtn_val=1 #note rtn boolean for error codes is 0 = true / 1 = false (reversed with boolean statements)
 
-  if echo "$MG_OSTYPE" | grep -Fq 'Darwin'; then
+  if echo "$JMG_OSTYPE" | grep -Fq 'Darwin'; then
     rtn_val=0
   fi
 
@@ -58,7 +58,7 @@ is_macos() {
 is_linux() {
   rtn_val=1 #note rtn boolean for error codes is 0 = true / 1 = false (reversed with boolean statements)
 
-  if echo "$MG_OSTYPE" | grep -Fq 'Linux'; then
+  if echo "$JMG_OSTYPE" | grep -Fq 'Linux'; then
     rtn_val=0
   fi
 
@@ -201,14 +201,14 @@ fi
 if [ "$MG_OS" != "NIL" ]; then
   case "$MG_CMD" in
     help)
-      printf "\\n%s %s Help (%s)" "$MG_TITLE" "$0" "$MG_OS"
+      printf "\\n%s %s Help (%s)" "$JMG_TITLE" "$0" "$MG_OS"
       print_help "$0"
       ;;
     ui)
       #print out list for os
       if [ -z "$MG_OPT" ]; then
         # if variable $2 for ui does not exist, print out list of variable
-        printf "\\n%s %s UI (%s)" "$MG_TITLE" "$0" "$MG_OS"
+        printf "\\n%s %s UI (%s)" "$JMG_TITLE" "$0" "$MG_OS"
         printf "\\n"
 
         #for i in {1..100}; do
