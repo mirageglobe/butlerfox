@@ -1,0 +1,7 @@
+#!/usr/bin/env bats
+
+@test "ensure that main app exists" {
+  run stat al.sh
+  [ $status = 0 ]
+}
+

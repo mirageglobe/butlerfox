@@ -1,7 +1,0 @@
-#!/usr/bin/env bats
-
-@test "ensure that samurai file exists" {
-  run stat samurai.sh
-  [ $status = 0 ]
-}
-
