@@ -184,39 +184,39 @@ export UI_CMD_NIX_61="sudo apt install php5-fpm php5-cli php5-mysqlnd"
 export UI_CMD_DES_70="Install AV suite (avconv pngquant graphicsmagick)"
 export UI_CMD_NIX_70="apt-get install libav-tools pngquant graphicsmagick"
 
-MG_CMD=$1
+JMG_CMD=$1
 # the 2nd tier variable such as "ui"
-MG_OPT=$2
+JMG_OPT=$2
 # the 3rd tier variable such as "12"
 
-MG_OS="NIL"
+JMG_OS="NIL"
 
 if is_macos; then
-  MG_OS="MAC"
+  JMG_OS="MAC"
 elif is_linux; then
-  MG_OS="NIX"
+  JMG_OS="NIX"
 fi
 
 # default checks
-if [ "$MG_OS" != "NIL" ]; then
-  case "$MG_CMD" in
+if [ "$JMG_OS" != "NIL" ]; then
+  case "$JMG_CMD" in
     help)
-      printf "\\n%s %s Help (%s)" "$JMG_TITLE" "$0" "$MG_OS"
+      printf "\\n%s %s Help (%s)" "$JMG_TITLE" "$0" "$JMG_OS"
       print_help "$0"
       ;;
     ui)
       #print out list for os
-      if [ -z "$MG_OPT" ]; then
+      if [ -z "$JMG_OPT" ]; then
         # if variable $2 for ui does not exist, print out list of variable
-        printf "\\n%s %s UI (%s)" "$JMG_TITLE" "$0" "$MG_OS"
+        printf "\\n%s %s UI (%s)" "$JMG_TITLE" "$0" "$JMG_OS"
         printf "\\n"
 
         #for i in {1..100}; do
         i=0; while [ $i -le 100 ]; do
-          MG_CMD_DES=$(eval "echo \${UI_CMD_DES_$i}")
-          MG_CMD_CMD=$(eval "echo \${UI_CMD_${MG_OS}_$i}")
-          if [ -n "$MG_CMD_CMD" ]; then
-            printf "\\n%s [%s] - %s" "$MG_TEXT" "$i" "$MG_CMD_DES"
+          JMG_CMD_DES=$(eval "echo \${UI_CMD_DES_$i}")
+          JMG_CMD_CMD=$(eval "echo \${UI_CMD_${JMG_OS}_$i}")
+          if [ -n "$JMG_CMD_CMD" ]; then
+            printf "\\n%s [%s] - %s" "$JMG_TEXT" "$i" "$JMG_CMD_DES"
           fi
           i=$(( i + 1 ))
         done
@@ -231,35 +231,35 @@ if [ "$MG_OS" != "NIL" ]; then
       ;;
     ui-run)
       #print out list for os
-      if [ -z "$MG_OPT" ]; then
+      if [ -z "$JMG_OPT" ]; then
         # if variable $2 for ui does not exist, print out list of variable
         print_error "command does not exist"
         printf "\\n"
       else
         # runs ui_cmd with $2 and array 0 which is the command; see declare core ui options
-        MG_CMD_DES=$(eval "echo \${UI_CMD_DES_$MG_OPT}")
-        MG_CMD_CMD=$(eval "echo \${UI_CMD_${MG_OS}_$MG_OPT}")
+        JMG_CMD_DES=$(eval "echo \${UI_CMD_DES_$JMG_OPT}")
+        JMG_CMD_CMD=$(eval "echo \${UI_CMD_${JMG_OS}_$JMG_OPT}")
 
-        printf "\\n%s executing command" "$MG_TITLE"
-        print_success "$MG_CMD_DES ( $MG_CMD_CMD )"
+        printf "\\n%s executing command" "$JMG_TITLE"
+        print_success "$JMG_CMD_DES ( $JMG_CMD_CMD )"
         printf "\\n"
         printf "\\n"
 
-        eval "$MG_CMD_CMD"
+        eval "$JMG_CMD_CMD"
 
         printf "\\n"
       fi
       ;;
     ui-verbose)
-      printf "\\n%s %s UI (%s)" "$MG_TITLE" "$0" "$MG_OS"
+      printf "\\n%s %s UI (%s)" "$JMG_TITLE" "$0" "$JMG_OS"
       printf "\\n"
 
       #for i in {1..100}; do\
       i=0; while [ $i -le 100 ]; do
-        MG_CMD_DES=$(eval "echo \${UI_CMD_DES_$i}")
-        MG_CMD_CMD=$(eval "echo \${UI_CMD_${MG_OS}_$i}")
-        if [ -n "$MG_CMD_CMD" ]; then
-          printf "\\n%s [%s] - %s ( %s )" "$MG_TEXT" "$i" "$MG_CMD_DES" "$MG_CMD_CMD"
+        JMG_CMD_DES=$(eval "echo \${UI_CMD_DES_$i}")
+        JMG_CMD_CMD=$(eval "echo \${UI_CMD_${JMG_OS}_$i}")
+        if [ -n "$JMG_CMD_CMD" ]; then
+          printf "\\n%s [%s] - %s ( %s )" "$JMG_TEXT" "$i" "$JMG_CMD_DES" "$JMG_CMD_CMD"
         fi
         i=$(( i + 1 ))
       done
