@@ -1,4 +1,4 @@
-# Samurai #
+# Butler Alice / Alfred #
 
 [![Build](https://img.shields.io/travis/mirageglobe/samurai.svg)](https://travis-ci.org/mirageglobe/samurai)
 ![License](https://img.shields.io/github/license/mirageglobe/samurai.svg)
@@ -6,7 +6,7 @@
 - maintainer : Jimmy MG Lim (mirageglobe@gmail.com) / www.mirageglobe.com
 - source : https://github.com/mirageglobe/samurai
 
-Samurai (武士 meaning Warrior Serve) provides a simple interface for managing your machine. Samurai installs and setups the basic applications / packages for a linux system. Samurai aims to drastically reduce learning curve and makes installations/monitoring easier.
+Butler (alice/alfred) provides a simple interface for managing your machine. Butler installs and setups the basic applications / packages for a linux system. Butler aims to drastically reduce learning curve and makes installations/monitoring easier.
 
 this project has two key goals
 
@@ -41,12 +41,12 @@ if you do not have curl, on debian/ubuntu you can do
 
 to run and see options/help,
 ```
-  $ sh samurai.sh
+  $ sh alice.sh
 ```
 
 to uninstall,
 ```
-  $ samurai.sh ui 2
+  $ alice.sh ui 2
 ```
 
 to uninstall (legacy files),
