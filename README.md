@@ -93,9 +93,10 @@ when adding shell(sh/bash) commands, you can chain commands with four ways:
 
 # Road Map #
 
-- consider https://shields.io/#/
-- [done] change to new unit test (bats-core)
+- consider butler names - AL[ICE] AL[FRED] / sebastian (anime) / walter (anime) / boye (famous dog)
 - create user based executable rather than system wide executable (in home/usrbin directory)
+- [done] consider https://shields.io/#/
+- [done] change to new unit test (bats-core)
 - [done] conform to shellcheck linter
 - [done] replicate most functionalities in bash; due to achieving minimal server side installations.
 - [drop] install to home directory and symlink commands
