@@ -1,6 +1,7 @@
 # Samurai #
 
-[![Build Status](https://travis-ci.org/mirageglobe/samurai.svg?branch=master)](https://travis-ci.org/mirageglobe/samurai)
+[![Build](https://img.shields.io/travis/mirageglobe/samurai.svg)](https://travis-ci.org/mirageglobe/samurai)
+![License](https://img.shields.io/github/license/mirageglobe/samurai.svg)
 
 - maintainer : Jimmy MG Lim (mirageglobe@gmail.com) / www.mirageglobe.com
 - source : https://github.com/mirageglobe/samurai
