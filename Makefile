@@ -7,17 +7,15 @@ SHELL:=/bin/bash
 # phony is used to make sure theres no similar file such as <target> that cause the make recipie not to work
 
 build: 						## builds project
-	$(info :: building project ::)
+	@echo ":: building project ::"
 
 lint: 						## set up lints using shellcheck
-	$(info :: running lint ::)
-	@shellcheck al.sh
+	@echo ":: running lint ::"
+	shellcheck al.sh
 
 test: 						## set up tests using bats-core
-	$(info :: running test(s) ::)
-	@bats -r test/*
-
-
+	@echo ":: running test(s) ::"
+	bats -r test/*
 
 ##@ Helpers
 
