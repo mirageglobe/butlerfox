@@ -3,8 +3,8 @@
 [![build](https://img.shields.io/travis/mirageglobe/butlerfox.svg)](https://travis-ci.org/mirageglobe/butlerfox)
 ![license](https://img.shields.io/github/license/mirageglobe/butlerfox.svg)
 
-- maintainer : Jimmy MG Lim (mirageglobe@gmail.com) / www.mirageglobe.com
-- source : https://github.com/mirageglobe/samurai
+- maintainer : jimmy mg lim (mirageglobe@gmail.com) / www.mirageglobe.com
+- source : https://github.com/mirageglobe/butlerfox
 
 Butler Fox (inspired by batman's chief scientist, as well as various uber powered manga butlers) is an opinionated system helper tool that provides a simple interface for managing your machine. Butler Fox installs, manages, basic applications / packages for mac or linux systems. Butler Fox aims to drastically reduce learning curve and makes installations/monitoring easier.
 
@@ -13,8 +13,7 @@ this project has two key goals
 - to enable a simple common commands with best practises
 - to enable best practice security lockdowns
 
-
-![butlerfox menu](https://raw.githubusercontent.com/mirageglobe/butlerfox/master/gh-samurai.png)
+![butlerfox menu](https://raw.githubusercontent.com/mirageglobe/butlerfox/master/gh-heroimage.png)
 
 # features #
 
