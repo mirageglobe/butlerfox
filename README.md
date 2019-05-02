@@ -1,7 +1,7 @@
 # Butler Fox #
 
 [![build](https://img.shields.io/travis/mirageglobe/butlerfox.svg)](https://travis-ci.org/mirageglobe/butlerfox)
-![license](https://img.shields.io/github/license/mirageglobe/butlerfox.svg)
+![GitHub](https://img.shields.io/github/license/mirageglobe/butlerfox.svg)
 
 - maintainer : jimmy mg lim (mirageglobe@gmail.com) / www.mirageglobe.com
 - source : https://github.com/mirageglobe/butlerfox
