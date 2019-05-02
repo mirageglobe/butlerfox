@@ -11,10 +11,10 @@ build: 						## builds project
 
 lint: 						## set up lints using shellcheck
 	@echo ":: running lint ::"
-	shellcheck al.sh
+	shellcheck src/fox.sh
 
 test: 						## set up tests using bats-core
-	@echo ":: running test(s) ::"
+	@echo ":: running bats-core test(s) ::"
 	bats -r test/*
 
 ##@ Helpers

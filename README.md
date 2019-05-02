@@ -1,7 +1,7 @@
 # Butler Fox #
 
-[![Build](https://img.shields.io/travis/mirageglobe/samurai.svg)](https://travis-ci.org/mirageglobe/samurai)
-![License](https://img.shields.io/github/license/mirageglobe/samurai.svg)
+[![build](https://img.shields.io/travis/mirageglobe/butlerfox.svg)](https://travis-ci.org/mirageglobe/butlerfox)
+![license](https://img.shields.io/github/license/mirageglobe/butlerfox.svg)
 
 - maintainer : Jimmy MG Lim (mirageglobe@gmail.com) / www.mirageglobe.com
 - source : https://github.com/mirageglobe/samurai
@@ -14,17 +14,17 @@ this project has two key goals
 - to enable best practice security lockdowns
 
 
-![samurai menu](https://raw.githubusercontent.com/mirageglobe/samurai/master/samurai.png)
+![butlerfox menu](https://raw.githubusercontent.com/mirageglobe/butlerfox/master/gh-samurai.png)
 
-# Features #
+# features #
 
-- System (System Updates, Build-Essential, Debconf-Util)
-- Security (UFW)
-- Languages (Ruby 2.x, Php)
-- Web Servers (Nginx)
-- DB (MySQL, MongoDB, MariaDB)
+- system (system updates, build-essential, debconf-util)
+- security (ufw)
+- languages (ruby 2.x, php)
+- web servers (nginx)
+- db (mysql, mongodb, mariadb)
 
-# To use #
+# to use
 
 requirements:
 - bourne shell (bash 4.0+)
@@ -32,7 +32,7 @@ requirements:
 
 to install on (debian / ubuntu / mac), fire up terminal and run:
 ```
-  $ which curl && sudo curl -L https://raw.githubusercontent.com/mirageglobe/samurai/master/samurai/install.sh | sh
+  $ which curl && sudo curl -L https://raw.githubusercontent.com/mirageglobe/butlerfox/master/install.sh | sh
 ```
 
 if you do not have curl, on debian/ubuntu you can do
@@ -42,12 +42,12 @@ if you do not have curl, on debian/ubuntu you can do
 
 to run and see options/help,
 ```
-  $ sh alice.sh
+  $ sh butlerfox.sh
 ```
 
 to uninstall,
 ```
-  $ alice.sh ui 2
+  $ butlerfox.sh ui 2
 ```
 
 to uninstall (legacy files),
@@ -55,9 +55,9 @@ to uninstall (legacy files),
   $ sudo rm /usr/local/bin/samurai && rm /usr/local/bin/samurai-mac.py && rm /usr/local/bin/samurai-linux.py
 ```
 
-# Contribute #
+# contribute
 
-if you wish to contribute to samurai, you can use the vagrantfile to fire up and test samurai. Feel free to suggest commands. You can read more about vagrant at http://docs.vagrantup.com/v2/getting-started/index.html
+if you wish to contribute, you can use the vagrantfile to fire up and test. Feel free to suggest commands. You can read more about vagrant at http://docs.vagrantup.com/v2/getting-started/index.html
 
 requirements :
 - bats-core test suite (https://github.com/bats-core/bats-core)
@@ -82,7 +82,7 @@ $ make test
 a few points to note before submitting PR :
 
 - ensure this is tested on debian (as indicated in vagrantfile)
-- test on Debian, Ubuntu 12.04 LTS, Ubuntu 14.04 LTS, Ubuntu 16.04 LTS, Mac OS X 10.9+ (Maverick and above)
+- test on debian, ubuntu 12.04 lts, ubuntu 14.04 lts, ubuntu 16.04 lts, mac os x 10.9+ (maverick and above)
 
 when adding shell(sh/bash) commands, you can chain commands with four ways:
 ```
@@ -92,9 +92,9 @@ when adding shell(sh/bash) commands, you can chain commands with four ways:
   & run in background
 ```
 
-# Road Map #
+# road map #
 
-- consider butler names - AL[ICE] AL[FRED] / sebastian (anime) / walter (anime) / boye (famous dog)
+- consider butler names - al[ice] al[fred] / sebastian (anime) / walter (anime) / boye (famous dog)
 - create user based executable rather than system wide executable (in home/usrbin directory)
 - [done] consider https://shields.io/#/
 - [done] change to new unit test (bats-core)
@@ -103,19 +103,19 @@ when adding shell(sh/bash) commands, you can chain commands with four ways:
 - [drop] install to home directory and symlink commands
 - [done] add chrootkit
 - [drop] use 1.1.1 to access sub commands
-- [done] Need to add ufw enable -> problem as ufw prompts for y/n confirmation (silent mode problem)
-- [done] suppress all the prompts as you can see; making most silent as this is meant to work nicely (ish) with Vagrant.
-- [done] Cleaned up old samurai code
-- [done] Spawned new samuraiv2 as samurai.py
-- [done] Created minisamurai which is the current minified version of samurai2
+- [done] need to add ufw enable -> problem as ufw prompts for y/n confirmation (silent mode problem)
+- [done] suppress all the prompts as you can see; making most silent as this is meant to work nicely (ish) with vagrant.
+- [done] cleaned up old samurai code
+- [done] spawned new samuraiv2 as samurai.py
+- [done] created minisamurai which is the current minified version of samurai2
 
-# References #
+# references
 
 - http://www.python.org/dev/peps/pep-0008/#introduction
 - http://stackoverflow.com/questions/17606340/how-to-deploy-a-meteor-application-to-my-own-server
 - http://stackoverflow.com/questions/17537390/how-to-install-a-package-using-the-python-apt-api
 
-# License
+# license
 
 Copyright 2013 Jimmy MG Lim (mirageglobe@gmail.com)
 
