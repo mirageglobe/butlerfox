@@ -3,8 +3,12 @@ SHELL:=/bin/bash
 
 ##@ Tools
 
-.PHONY: build lint test
+.PHONY: initenv build lint test
 # phony is used to make sure theres no similar file such as <target> that cause the make recipie not to work
+
+initenv: 					## preps and checks local development environment
+	@echo ":: checking build dependancies ::"
+	@echo ":: checking environment variables ::"
 
 build: 						## builds project
 	@echo ":: building project ::"
