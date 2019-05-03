@@ -13,6 +13,9 @@ initenv: 					## preps and checks local development environment
 build: 						## builds project
 	@echo ":: building project ::"
 
+run: 							## runs project
+	@echo ":: run project ::"
+
 lint: 						## set up lints using shellcheck
 	@echo ":: running lint ::"
 	shellcheck src/fox.sh

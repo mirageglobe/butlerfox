@@ -25,14 +25,14 @@ print_help () {
   printf "\\n%s %s <command> [args]" "$JMG_TEXT" "$0"
   printf "\\n"
   printf "\\n%s Commands :" "$JMG_TITLE"
-  printf "\\n%s %s help                    # loads help" "$JMG_TEXT" "$0"
-  printf "\\n%s %s ui                      # loads default list of ui commands" "$JMG_TEXT" "$0"
-  printf "\\n%s %s ui-verbose              # loads default list of ui commands with verbose actual commands" "$JMG_TEXT" "$0"
-  printf "\\n%s %s ui-run <commandnumber>  # run command" "$JMG_TEXT" "$0"
+  printf "\\n%s %s help                     # loads help" "$JMG_TEXT" "$0"
+  printf "\\n%s %s ui                       # loads default list of ui commands" "$JMG_TEXT" "$0"
+  printf "\\n%s %s ui-verbose               # loads default list of ui commands with verbose actual commands" "$JMG_TEXT" "$0"
+  printf "\\n%s %s run <commandnumber>      # run command" "$JMG_TEXT" "$0"
   printf "\\n"
   printf "\\n%s Examples :" "$JMG_TITLE"
   printf "\\n%s %s ui" "$JMG_TEXT" "$0"
-  printf "\\n%s %s ui-run 1" "$JMG_TEXT" "$0"
+  printf "\\n%s %s run 1" "$JMG_TEXT" "$0"
   printf "\\n"
   printf "\\n"
 }
@@ -213,62 +213,62 @@ if [ "$JMG_OS" != "NIL" ]; then
 
         #for i in {1..100}; do
         i=0; while [ $i -le 100 ]; do
-          JMG_CMD_DES=$(eval "echo \${UI_CMD_DES_$i}")
-          JMG_CMD_CMD=$(eval "echo \${UI_CMD_${JMG_OS}_$i}")
-          if [ -n "$JMG_CMD_CMD" ]; then
-            printf "\\n%s [%s] - %s" "$JMG_TEXT" "$i" "$JMG_CMD_DES"
-          fi
-          i=$(( i + 1 ))
-        done
-
-        printf "\\n"
-        printf "\\n"
-      else
-        print_error "no options required - use ui-run instead"
-        printf "\\n"
-        printf "\\n"
-      fi
-      ;;
-    ui-run)
-      #print out list for os
-      if [ -z "$JMG_OPT" ]; then
-        # if variable $2 for ui does not exist, print out list of variable
-        print_error "command does not exist"
-        printf "\\n"
-      else
-        # runs ui_cmd with $2 and array 0 which is the command; see declare core ui options
-        JMG_CMD_DES=$(eval "echo \${UI_CMD_DES_$JMG_OPT}")
-        JMG_CMD_CMD=$(eval "echo \${UI_CMD_${JMG_OS}_$JMG_OPT}")
-
-        printf "\\n%s executing command" "$JMG_TITLE"
-        print_success "$JMG_CMD_DES ( $JMG_CMD_CMD )"
-        printf "\\n"
-        printf "\\n"
-
-        eval "$JMG_CMD_CMD"
-
-        printf "\\n"
-      fi
-      ;;
-    ui-verbose)
-      printf "\\n%s %s UI (%s)" "$JMG_TITLE" "$0" "$JMG_OS"
-      printf "\\n"
-
-      #for i in {1..100}; do\
-      i=0; while [ $i -le 100 ]; do
         JMG_CMD_DES=$(eval "echo \${UI_CMD_DES_$i}")
         JMG_CMD_CMD=$(eval "echo \${UI_CMD_${JMG_OS}_$i}")
         if [ -n "$JMG_CMD_CMD" ]; then
-          printf "\\n%s [%s] - %s ( %s )" "$JMG_TEXT" "$i" "$JMG_CMD_DES" "$JMG_CMD_CMD"
+          printf "\\n%s [%s] - %s" "$JMG_TEXT" "$i" "$JMG_CMD_DES"
         fi
         i=$(( i + 1 ))
       done
 
       printf "\\n"
       printf "\\n"
+    else
+      print_error "no options required - use ui-run instead"
+      printf "\\n"
+      printf "\\n"
+        fi
+        ;;
+      ui-verbose)
+        printf "\\n%s %s UI (%s)" "$JMG_TITLE" "$0" "$JMG_OS"
+        printf "\\n"
+
+      #for i in {1..100}; do\
+      i=0; while [ $i -le 100 ]; do
+      JMG_CMD_DES=$(eval "echo \${UI_CMD_DES_$i}")
+      JMG_CMD_CMD=$(eval "echo \${UI_CMD_${JMG_OS}_$i}")
+      if [ -n "$JMG_CMD_CMD" ]; then
+        printf "\\n%s [%s] - %s ( %s )" "$JMG_TEXT" "$i" "$JMG_CMD_DES" "$JMG_CMD_CMD"
+      fi
+      i=$(( i + 1 ))
+    done
+
+    printf "\\n"
+    printf "\\n"
+    ;;
+  run)
+    #print out list for os
+    if [ -z "$JMG_OPT" ]; then
+      # if variable $2 for ui does not exist, print out list of variable
+      print_error "command does not exist"
+      printf "\\n"
+    else
+      # runs ui_cmd with $2 and array 0 which is the command; see declare core ui options
+      JMG_CMD_DES=$(eval "echo \${UI_CMD_DES_$JMG_OPT}")
+      JMG_CMD_CMD=$(eval "echo \${UI_CMD_${JMG_OS}_$JMG_OPT}")
+
+      printf "\\n%s executing command" "$JMG_TITLE"
+      print_success "$JMG_CMD_DES ( $JMG_CMD_CMD )"
+      printf "\\n"
+      printf "\\n"
+
+      eval "$JMG_CMD_CMD"
+
+      printf "\\n"
+      fi
       ;;
     *)
       die
   esac
-fi
+    fi
 
