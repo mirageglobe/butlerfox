@@ -42,12 +42,12 @@ if you do not have curl, on debian/ubuntu you can do
 
 to run and see options/help,
 ```
-  $ sh butlerfox.sh
+  $ sh fox.sh
 ```
 
 to uninstall,
 ```
-  $ butlerfox.sh ui 2
+  $ fox.sh ui 2
 ```
 
 to uninstall (legacy files),
