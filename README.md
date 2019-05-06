@@ -94,6 +94,7 @@ when adding shell(sh/bash) commands, you can chain commands with four ways:
 
 # road map #
 
+- add bash completion commands
 - create user based executable rather than system wide executable (in home/.butlerfox directory and symlink from /usr/local/bin)
 - [done] consider butler names - al[ice] al[fred] / sebastian (anime) / walter (anime) / boye (famous dog) / fox
 - [done] consider https://shields.io/#/
