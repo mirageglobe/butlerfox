@@ -8,34 +8,34 @@ SHELL:=/bin/bash
 
 # core commands
 
-build: 						## builds project
-	@echo ":: building project ::"
+build: build-init											## build project
+	@echo ":: build project - ok ::"
 
-test: 						## test project
-	@echo ":: testing project ::"
+test: test-suite test-lint 						## test project
+	@echo ":: test project - ok ::"
 
-deploy: 					## deploy files
-	@echo ":: deploying project ::"
+deploy: 															## deploy files
+	@echo ":: deploy project - ok ::"
 
 # helper commands
 
-build-init: 			## preps and checks local development environment
+build-init: 													## preps and checks local development environment
 	@echo ":: checking build dependancies ::"
 	command -v shellcheck
 	command -v bats
 	@echo ":: checking environment variables ::"
-	
-test-suite: 			## test project
+
+test-suite: 													## test project
 	@echo ":: testing project ::"
 	bats -r test/*
 
-test-lint: 				## set up lints using shellcheck
+test-lint: 														## set up lints using shellcheck
 	@echo ":: running lint ::"
 	shellcheck src/fox.sh
 
 # misc commands
 
-run: 							## runs project
+run: 																	## runs project
 	@echo ":: run project ::"
 
 ##@ Helpers
