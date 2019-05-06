@@ -14,7 +14,7 @@ this project has two key goals
 - to enable best practice security lockdowns
 - minimal to no dynamic linked 3rd party dependancies
 
-![butlerfox menu](https://raw.githubusercontent.com/mirageglobe/butlerfox/master/gh-heroimage.png)
+![butlerfox heroimage](https://raw.githubusercontent.com/mirageglobe/butlerfox/master/heroimage.png)
 
 # features #
 
