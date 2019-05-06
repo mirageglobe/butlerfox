@@ -79,7 +79,7 @@ fi
 # core ui options
 # set UI_CMD_<command number> = <bash command> <command definition>
 
-## x Core
+## x core
 export UI_CMD_DES_1="update"
 export UI_CMD_NIX_1="curl -L https://raw.githubusercontent.com/mirageglobe/butlerfox/master/butlerfox/install.sh | bash"
 export UI_CMD_MAC_1="curl -L https://raw.githubusercontent.com/mirageglobe/butlerfox/master/butlerfox/install.sh | bash"
@@ -88,7 +88,7 @@ export UI_CMD_DES_2="remove"
 export UI_CMD_NIX_2="sudo rm /usr/local/bin/samurai && sudo rm /usr/local/bin/samurai-mac.py && sudo rm /usr/local/bin/samurai-linux.py"
 export UI_CMD_MAC_2="sudo rm /usr/local/bin/samurai && sudo rm /usr/local/bin/samurai-mac.py && sudo rm /usr/local/bin/samurai-linux.py"
 
-## 1x / 2x Operating System
+## 1x / 2x operating system
 export UI_CMD_DES_10="change my login password"
 export UI_CMD_NIX_10="passwd"
 export UI_CMD_MAC_10="passwd"
@@ -143,7 +143,7 @@ export UI_CMD_DES_25="setup ubuntu auto upgrade (ubuntu recommended)"
 export UI_CMD_NIX_25="sudo apt install unattended-upgrades && dpkg-reconfigure --priority=low unattended-upgrades"
 
 ## 3x Platform and Pkg Managers
-export ui_cmd_des_31="install nodejs, npm via nvm"
+export UI_CMD_DES_31="install nodejs, npm via nvm"
 export UI_CMD_NIX_31="sudo apt update && curl https://raw.githubusercontent.com/creationix/nvm/v0.24.0/install.sh | bash"
 
 export UI_CMD_DES_32="install latest stable git"
