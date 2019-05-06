@@ -3,26 +3,40 @@ SHELL:=/bin/bash
 
 ##@ Tools
 
-.PHONY: initenv build lint test
+.PHONY: build test deploy
 # phony is used to make sure theres no similar file such as <target> that cause the make recipie not to work
 
-initenv: 					## preps and checks local development environment
-	@echo ":: checking build dependancies ::"
-	@echo ":: checking environment variables ::"
+# core commands
 
 build: 						## builds project
 	@echo ":: building project ::"
 
-run: 							## runs project
-	@echo ":: run project ::"
+test: 						## test project
+	@echo ":: testing project ::"
 
-lint: 						## set up lints using shellcheck
+deploy: 					## deploy files
+	@echo ":: deploying project ::"
+
+# helper commands
+
+build-init: 			## preps and checks local development environment
+	@echo ":: checking build dependancies ::"
+	command -v shellcheck
+	command -v bats
+	@echo ":: checking environment variables ::"
+	
+test-suite: 			## test project
+	@echo ":: testing project ::"
+	bats -r test/*
+
+test-lint: 				## set up lints using shellcheck
 	@echo ":: running lint ::"
 	shellcheck src/fox.sh
 
-test: 						## set up tests using bats-core
-	@echo ":: running bats-core test(s) ::"
-	bats -r test/*
+# misc commands
+
+run: 							## runs project
+	@echo ":: run project ::"
 
 ##@ Helpers
 
