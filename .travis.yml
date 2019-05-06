@@ -9,5 +9,5 @@ before_script:
   - nvm use node
   - npm install -g bats
 script:
-  - make lint
+  - make build
   - make test
