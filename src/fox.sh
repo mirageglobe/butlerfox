@@ -1,8 +1,5 @@
 #!/bin/sh
 
-# Author Jimmy MG Lim <mirageglobe@gmail.com>
-# Website www.mirageglobe.com
-
 # ----- include libaries
 
 # ----- arguments
@@ -11,26 +8,27 @@ JMG_TITLE='**'
 JMG_TEXT='  '
 
 JMG_OSTYPE=$(uname -s)
+
 # ----- constants
 
 # ----- common functions
 
 print_header () {
-  printf "\\n%s Samurai v2 (Mac/Linux) - your local assistant to run common commands on Linux and MacOSX(Darwin) using automated shell commands." "$JMG_TITLE"
+  printf "\\n%s butler fox (mac/linux) - your local assistant to run common commands on linux and macosx(darwin) using automated shell commands." "$JMG_TITLE"
 }
 
 print_help () {
   printf "\\n"
-  printf "\\n%s Usage:" "$JMG_TITLE"
+  printf "\\n%s usage:" "$JMG_TITLE"
   printf "\\n%s %s <command> [args]" "$JMG_TEXT" "$0"
   printf "\\n"
-  printf "\\n%s Commands :" "$JMG_TITLE"
+  printf "\\n%s commands :" "$JMG_TITLE"
   printf "\\n%s %s help                     # loads help" "$JMG_TEXT" "$0"
   printf "\\n%s %s ui                       # loads default list of ui commands" "$JMG_TEXT" "$0"
   printf "\\n%s %s ui-verbose               # loads default list of ui commands with verbose actual commands" "$JMG_TEXT" "$0"
   printf "\\n%s %s run <commandnumber>      # run command" "$JMG_TEXT" "$0"
   printf "\\n"
-  printf "\\n%s Examples :" "$JMG_TITLE"
+  printf "\\n%s examples :" "$JMG_TITLE"
   printf "\\n%s %s ui" "$JMG_TEXT" "$0"
   printf "\\n%s %s run 1" "$JMG_TEXT" "$0"
   printf "\\n"
@@ -78,110 +76,114 @@ if [ "$#" -lt "$EXPECTED_ARGS" ]; then
   exit $E_BADARGS
 fi
 
-# Core UI Options
+# core ui options
 # set UI_CMD_<command number> = <bash command> <command definition>
 
 ## x Core
-#UI_CMD_0=( "Exit Samurai" "clear" )
-export UI_CMD_DES_1="Update Samurai"
-export UI_CMD_NIX_1="curl -L https://raw.githubusercontent.com/mirageglobe/samurai/master/samurai/install.sh | bash"
+export UI_CMD_DES_1="update"
+export UI_CMD_NIX_1="curl -L https://raw.githubusercontent.com/mirageglobe/butlerfox/master/butlerfox/install.sh | bash"
+export UI_CMD_MAC_1="curl -L https://raw.githubusercontent.com/mirageglobe/butlerfox/master/butlerfox/install.sh | bash"
 
-export UI_CMD_DES_2="Remove Samurai"
+export UI_CMD_DES_2="remove"
 export UI_CMD_NIX_2="sudo rm /usr/local/bin/samurai && sudo rm /usr/local/bin/samurai-mac.py && sudo rm /usr/local/bin/samurai-linux.py"
+export UI_CMD_MAC_2="sudo rm /usr/local/bin/samurai && sudo rm /usr/local/bin/samurai-mac.py && sudo rm /usr/local/bin/samurai-linux.py"
 
 ## 1x / 2x Operating System
-export UI_CMD_DES_10="Change my login password"
+export UI_CMD_DES_10="change my login password"
 export UI_CMD_NIX_10="passwd"
 export UI_CMD_MAC_10="passwd"
 
-export UI_CMD_DES_11="Update debian/ubuntu and cleanup cache"
+export UI_CMD_DES_11="update debian/ubuntu and cleanup cache"
 export UI_CMD_NIX_11="sudo apt update && sudo apt upgrade && sudo apt autoclean && sudo apt autoremove"
 
-export UI_CMD_DES_12="Update debian/ubuntu distribution"
+export UI_CMD_DES_12="update debian/ubuntu distribution"
 export UI_CMD_NIX_12="sudo apt dist-upgrade"
 
-export UI_CMD_DES_13="Install build-essential"
+export UI_CMD_DES_13="install build-essential"
 export UI_CMD_NIX_13="sudo apt install build-essential"
 
-export UI_CMD_DES_14="Add virtualbox guest additions for debian/ubuntu (for virtualbox VMs)"
+export UI_CMD_DES_14="add virtualbox guest additions for debian/ubuntu (for virtualbox VMs)"
 export UI_CMD_NIX_14="sudo apt install virtualbox-guest-dkms virtualbox-guest-utils virtualbox-guest-x11"
 
-export UI_CMD_DES_15="Show users list"
+export UI_CMD_DES_15="show users list"
 export UI_CMD_NIX_15="column -ts: /etc/passwd | sort"
 
-export UI_CMD_DES_16="Restart shell"
+export UI_CMD_DES_16="restart shell"
 export UI_CMD_NIX_16="exec \$SHELL -l"
 
-export UI_CMD_DES_17="Show IP address"
+export UI_CMD_DES_17="show IP address"
 export UI_CMD_NIX_17="curl http://icanhazip.com"
 export UI_CMD_MAC_17="curl http://icanhazip.com"
 
-export UI_CMD_DES_18="Show disk space"
+export UI_CMD_DES_18="show disk space"
 export UI_CMD_NIX_18="df -h --total"
+export UI_CMD_MAC_18="df -h"
 
-export UI_CMD_DES_19="Show kernel build information"
+export UI_CMD_DES_19="show kernel build information"
 export UI_CMD_NIX_19="uname -a"
+export UI_CMD_MAC_19="uname -a"
 
-export UI_CMD_DES_20="Show ubuntu or *buntu-like version information"
+export UI_CMD_DES_20="show ubuntu or *buntu-like version information"
 export UI_CMD_NIX_20="lsb_release -a"
 
-export UI_CMD_DES_21="Show open ports and listening apps"
+export UI_CMD_DES_21="show open ports and listening apps"
 export UI_CMD_NIX_21="netstat -lnptu"
 
-export UI_CMD_DES_22="Show local SMB/CIFS shares on network"
+export UI_CMD_DES_22="show local SMB/CIFS shares on network"
 export UI_CMD_NIX_22="nmblookup -S '*'"
 
-export UI_CMD_DES_23="Show local mounted or mapped drives"
-export UI_CMD_NIX_23="df"
+export UI_CMD_DES_23="show local mounted or mapped drives"
+export UI_CMD_NIX_23="df -h"
+export UI_CMD_NIX_23="df -h"
 
-export UI_CMD_DES_24="Show memory, cache and swap"
+export UI_CMD_DES_24="show memory, cache and swap"
 export UI_CMD_NIX_24="egrep --color 'Mem|Cache|Swap' /proc/meminfo"
 
-export UI_CMD_DES_25="Setup Ubuntu Auto Upgrade (Ubuntu Recommended)"
+export UI_CMD_DES_25="setup ubuntu auto upgrade (ubuntu recommended)"
 export UI_CMD_NIX_25="sudo apt install unattended-upgrades && dpkg-reconfigure --priority=low unattended-upgrades"
 
 ## 3x Platform and Pkg Managers
-export UI_CMD_DES_31="Install nodejs, NPM via NVM"
+export ui_cmd_des_31="install nodejs, npm via nvm"
 export UI_CMD_NIX_31="sudo apt update && curl https://raw.githubusercontent.com/creationix/nvm/v0.24.0/install.sh | bash"
 
-export UI_CMD_DES_32="Install latest stable git"
+export UI_CMD_DES_32="install latest stable git"
 export UI_CMD_NIX_32="sudo add-apt-repository ppa:git-core/ppa && sudo apt update && sudo apt install git"
 
 ## 4x Security
-export UI_CMD_DES_40="Install clamav and clam daemon"
+export UI_CMD_DES_40="install clamav and clam daemon"
 export UI_CMD_NIX_40="sudo apt install clamav clamav-daemon"
 
-export UI_CMD_DES_41="Install chkrootkit"
+export UI_CMD_DES_41="install chkrootkit"
 export UI_CMD_NIX_41="sudo apt install chkrootkit"
 
-export UI_CMD_DES_42="Install rkhunter"
+export UI_CMD_DES_42="install rkhunter"
 export UI_CMD_NIX_42="sudo apt install rkhunter"
 
-export UI_CMD_DES_43="Install ufw and allow ssh port 22/80"
+export UI_CMD_DES_43="install ufw and allow ssh port 22/80"
 export UI_CMD_NIX_43="sudo apt install ufw && ufw allow ssh && ufw allow 80 && sudo ufw enable"
 
-export UI_CMD_DES_44="Install fail2ban with sendmail dependancy"
+export UI_CMD_DES_44="install fail2ban with sendmail dependancy"
 export UI_CMD_NIX_44="sudo apt install sendmail fail2ban"
 
 ## 5x Databases
-export UI_CMD_DES_50="Install sqlite (for all)"
+export UI_CMD_DES_50="install sqlite (for all)"
 export UI_CMD_NIX_50="sudo apt install sqlite"
 
-export UI_CMD_DES_51="Install mongodb 3.0 (for ubuntu 14.04.x trusty)"
+export UI_CMD_DES_51="install mongodb 3.0 (for ubuntu 14.04.x trusty)"
 export UI_CMD_NIX_51="sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10 && echo \"deb http://repo.mongodb.org/apt/ubuntu \"\$(lsb_release -sc)\"/mongodb-org/3.0 multiverse\" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.0.list && sudo apt-get update && sudo apt-get install -y mongodb-org"
 
-export UI_CMD_DES_52="Install mariadb 10.0 (for ubuntu 14.04.x trusty)"
+export UI_CMD_DES_52="install mariadb 10.0 (for ubuntu 14.04.x trusty)"
 export UI_CMD_NIX_52="sudo apt-get install software-properties-common && sudo apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0xcbcb082a1bb943db && sudo add-apt-repository \"deb http://lon1.mirrors.digitalocean.com/mariadb/repo/10.0/ubuntu trusty main\" && sudo apt-get update && sudo apt-get install mariadb-server"
 
 ## 6x Servers and Languages
-export UI_CMD_DES_60="Install nginx - ppa latest stable (for all)"
+export UI_CMD_DES_60="install nginx - ppa latest stable (for all)"
 export UI_CMD_NIX_60="apt update && sudo add-apt-repository ppa:nginx/stable && sudo apt install nginx"
 
-export UI_CMD_DES_61="Install php5 (fpm)"
+export UI_CMD_DES_61="install php5 (fpm)"
 export UI_CMD_NIX_61="sudo apt install php5-fpm php5-cli php5-mysqlnd"
 
 ## 7x Apps
-export UI_CMD_DES_70="Install AV suite (avconv pngquant graphicsmagick)"
+export UI_CMD_DES_70="install av suite (avconv pngquant graphicsmagick)"
 export UI_CMD_NIX_70="apt-get install libav-tools pngquant graphicsmagick"
 
 JMG_CMD=$1
@@ -230,7 +232,7 @@ if [ "$JMG_OS" != "NIL" ]; then
         fi
         ;;
       ui-verbose)
-        printf "\\n%s %s UI (%s)" "$JMG_TITLE" "$0" "$JMG_OS"
+        printf "\\n%s %s ui(%s)" "$JMG_TITLE" "$0" "$JMG_OS"
         printf "\\n"
 
       #for i in {1..100}; do\
