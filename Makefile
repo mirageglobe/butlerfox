@@ -1,3 +1,4 @@
+.PHONY: SHELL test clean all
 .DEFAULT_GOAL:=help
 SHELL:=/bin/bash
 
