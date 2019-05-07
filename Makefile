@@ -1,5 +1,7 @@
 .PHONY: SHELL test clean all
 .DEFAULT_GOAL:=help
+
+# set default shell to use
 SHELL:=/bin/bash
 
 ##@ Tools
@@ -20,17 +22,17 @@ deploy: 															## deploy files
 
 # helper commands
 
-build-init: 													## preps and checks local development environment
+build-init:
 	@echo ":: checking build dependancies ::"
 	command -v shellcheck
 	command -v bats
 	@echo ":: checking environment variables ::"
 
-test-suite: 													## test project
+test-suite:
 	@echo ":: testing project ::"
 	bats -r test/*
 
-test-lint: 														## set up lints using shellcheck
+test-lint:
 	@echo ":: running lint ::"
 	shellcheck src/fox.sh
 
