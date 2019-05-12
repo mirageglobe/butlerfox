@@ -33,6 +33,12 @@ test-lint: 														## set up lints using shellcheck
 	@echo ":: running lint ::"
 	shellcheck src/fox.sh
 
+deploy-init: 													## deploying
+	@echo ":: deploying binary ::"
+	cp src/fox.sh dist/fox-latest.sh
+	@echo ":: final test binary ::"
+	command -v dist/fox-latest.sh
+
 # misc commands
 
 run: 																	## runs project

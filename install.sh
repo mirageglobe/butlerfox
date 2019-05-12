@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
-# installs samurai.sh into /bin
-# files: samurai.sh
+# installs fox.sh as fox into /usr/local/bin
+# files: fox.sh
 
 # [›] tips:
 # - exit code such as exit 0 or exit 1 in sh. 0 is successful exit, and 1 or more is failed exit
@@ -9,9 +9,14 @@
 # ----- exit script on error
 set -e
 
+# ----- variables using env
+
+FOX_PREFIX=/usr/local/bin
+FOX_VERSION=2.0.0
+
 # ----- functions
 
-# checking sudo
+# checking and assigning sudo if user not root
 
 echo ":: checking sudo ::"
 
@@ -41,7 +46,7 @@ else
   exit 1;
 fi
 
-# remove old samurai files
+# remove old legacy-samurai/fox files
 
 echo ":: checking and removing legacy samurai/butlerfox files ::"
 
@@ -61,19 +66,20 @@ if [ -f /usr/local/bin/samurai-linux ]; then
 fi
 
 # install new project files
-echo ":: installing butlerfox to /usr/local/bin ::"
+echo ":: installing butler(fox) to $FOX_PREFIX ::"
 # example : curl -L -o master.zip http://github.com/zoul/Finch/zipball/master/
 # if install via github curl
-$SUDO curl -L https://raw.githubusercontent.com/mirageglobe/butlerfox/master/src/fox.sh -o /usr/local/bin/fox
+$SUDO curl -L https://raw.githubusercontent.com/mirageglobe/butlerfox/master/dist/fox-latest.sh -o $FOX_PREFIX/fox
 
-echo ":: symlinking/setting butlerfox ::"
-$SUDO chmod ug+x /usr/local/bin/fox
-#$SUDO chmod g+x -R /opt/samurai || { echo "[-] failed to install samurai-linux.py"; exit 1; }
+echo ":: symlinking/setting butler(fox) ::"
+$SUDO chmod ug+x $FOX_PREFIX/fox
+command -v fox || { echo ":: failed to install fox at $FOX_PREFIX. please log issue at https://github.com/mirageglobe/butlerfox ::"; exit 1; }
+echo ":: complete. please restart shell for path to update ::"
 
 # summary
 
 echo ":: summary ::"
-echo "  installed butlerfox into /usr/local/bin/fox"
+echo "  installed butlerfox into $FOX_PREFIX/fox"
 # echo "  symlinked /usr/local/bin/samurai.sh to /opt/samurai.sh"
-echo "  to uninstall, delete binary /usr/local/bin/fox"
+echo "  to uninstall, delete binary $FOX_PREFIX/fox"
 
