@@ -6,6 +6,22 @@
 - maintainer : jimmy mg lim (mirageglobe@gmail.com) / www.mirageglobe.com
 - source : https://github.com/mirageglobe/butlerfox
 
+```
+                              ....
+                           ..dmNNmds.   
+        .........         :mMMMMMMMMMo:
+    ::oyhdmmmmmddhyo::   .MMMMMMMMMMMm. 
+   :dMMMMMMMMMMMMMMMMm: .NMMMMMMMMMMMy.
+   :MMMMMMMMMMMMMMMMMMm:hMMMMmNMMMMMm.  
+ : :MMMMMMMMMMMMMMMMMMd::hhy:::MMMMN:
+:dhsMMMMMMMMMMMMMMMMMMdymh    :MMMM:
+ :hmMMMMMMMMMMMMMMMNmmdy:.    hMMMd:
+  :.ooosssssssssooooshs      :NMMMo:
+    os.odNNNNNdyo/---do      :dMNdo:
+    :y: :.:-.::      s:       ....
+     .:             .:
+```
+
 Butler Fox (inspired by batman's chief scientist, as well as various uber powered manga butlers) is an opinionated system helper tool that provides a simple interface for managing your machine. Butler Fox installs, manages, basic applications / packages for mac or linux systems. Butler Fox aims to drastically reduce learning curve and makes installations/monitoring easier.
 
 this project has two key goals
