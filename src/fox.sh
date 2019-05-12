@@ -78,7 +78,7 @@ if [ "$#" -lt "$EXPECTED_ARGS" ]; then
   exit $E_BADARGS
 fi
 
-# core ui options
+# core command options
 # set UI_CMD_<command number> = <bash command> <command definition>
 
 ## x core
@@ -193,7 +193,7 @@ export UI_CMD_DES_70="install av suite (avconv pngquant graphicsmagick)"
 export UI_CMD_NIX_70="apt-get install libav-tools pngquant graphicsmagick"
 
 JMG_CMD=$1
-# the 2nd tier variable such as "ui"
+# the 2nd tier variable such as "m"
 JMG_OPT=$2
 # the 3rd tier variable such as "12"
 
@@ -215,7 +215,7 @@ if [ "$JMG_OS" != "NIL" ]; then
     m)
       #print out list for os
       if [ -z "$JMG_OPT" ]; then
-        # if variable $2 for ui does not exist, print out list of variable
+        # if variable $2 for [m]enu does not exist, print out list of variable
         printf "\\n%s %s m (%s)" "$JMG_TITLE" "$0" "$JMG_OS"
         printf "\\n"
 
@@ -232,7 +232,7 @@ if [ "$JMG_OS" != "NIL" ]; then
       printf "\\n"
       printf "\\n"
     else
-      print_error "no options required - use ui-run instead"
+      print_error "no options required - use [m]enu instead"
       printf "\\n"
       printf "\\n"
         fi
@@ -257,11 +257,11 @@ if [ "$JMG_OS" != "NIL" ]; then
   r)
     #print out list for os
     if [ -z "$JMG_OPT" ]; then
-      # if variable $2 for ui does not exist, print out list of variable
+      # if variable $2 for [m]enu does not exist, print out list of variable
       print_error "command does not exist"
       printf "\\n"
     else
-      # runs ui_cmd with $2 and array 0 which is the command; see declare core ui options
+      # runs cmd with $2 and array 0 which is the command; see declare core [m]enu options
       JMG_CMD_DES=$(eval "echo \${UI_CMD_DES_$JMG_OPT}")
       JMG_CMD_CMD=$(eval "echo \${UI_CMD_${JMG_OS}_$JMG_OPT}")
 
