@@ -4,7 +4,7 @@
 
 # ----- arguments
 
-JMG_TITLE='**'
+JMG_TITLE='::'
 JMG_TEXT='  '
 
 JMG_OSTYPE=$(uname -s)
@@ -81,12 +81,12 @@ fi
 
 ## x core
 export UI_CMD_DES_1="update"
-export UI_CMD_NIX_1="curl -L https://raw.githubusercontent.com/mirageglobe/butlerfox/master/butlerfox/install.sh | bash"
-export UI_CMD_MAC_1="curl -L https://raw.githubusercontent.com/mirageglobe/butlerfox/master/butlerfox/install.sh | bash"
+export UI_CMD_NIX_1="curl -L https://raw.githubusercontent.com/mirageglobe/butlerfox/master/butlerfox/install.sh | sh"
+export UI_CMD_MAC_1="curl -L https://raw.githubusercontent.com/mirageglobe/butlerfox/master/butlerfox/install.sh | sh"
 
 export UI_CMD_DES_2="remove"
-export UI_CMD_NIX_2="sudo rm /usr/local/bin/samurai && sudo rm /usr/local/bin/samurai-mac.py && sudo rm /usr/local/bin/samurai-linux.py"
-export UI_CMD_MAC_2="sudo rm /usr/local/bin/samurai && sudo rm /usr/local/bin/samurai-mac.py && sudo rm /usr/local/bin/samurai-linux.py"
+export UI_CMD_NIX_2="sudo rm /usr/local/bin/samurai && sudo rm /usr/local/bin/samurai-mac.py && sudo rm /usr/local/bin/samurai-linux.py && sudo rm /usr/local/bin/fox"
+export UI_CMD_MAC_2="sudo rm /usr/local/bin/samurai && sudo rm /usr/local/bin/samurai-mac.py && sudo rm /usr/local/bin/samurai-linux.py && sudo rm /usr/local/bin/fox"
 
 ## 1x / 2x operating system
 export UI_CMD_DES_10="change my login password"
