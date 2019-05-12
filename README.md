@@ -48,7 +48,7 @@ requirements:
 
 to install on (debian / ubuntu / mac), fire up terminal and run:
 ```
-  $ which curl && sudo curl -L https://raw.githubusercontent.com/mirageglobe/butlerfox/master/install.sh | sh
+  $ which curl && sudo curl -L https://raw.githubusercontent.com/mirageglobe/butlerfox/master/install.sh | bash
 ```
 
 if you do not have curl, on debian/ubuntu you can do
@@ -117,6 +117,7 @@ when adding shell(sh/bash) commands, you can chain commands with four ways:
 
 - add bash completion commands
 - create user based executable rather than system wide executable (in home/.butlerfox directory and symlink from /usr/local/bin)
+- [done] install to /usr/local/bin
 - [done] consider butler names - al[ice] al[fred] / sebastian (anime) / walter (anime) / boye (famous dog) / fox
 - [done] consider https://shields.io/#/
 - [done] change to new unit test (bats-core)

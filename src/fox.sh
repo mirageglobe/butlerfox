@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 # ----- include libaries
 
@@ -83,8 +83,8 @@ fi
 
 ## x core
 export UI_CMD_DES_1="update butler(fox)"
-export UI_CMD_NIX_1="which curl && sudo curl -L https://raw.githubusercontent.com/mirageglobe/butlerfox/master/install.sh | sh"
-export UI_CMD_MAC_1="which curl && sudo curl -L https://raw.githubusercontent.com/mirageglobe/butlerfox/master/install.sh | sh"
+export UI_CMD_NIX_1="which curl && sudo curl -L https://raw.githubusercontent.com/mirageglobe/butlerfox/master/install.sh | bash"
+export UI_CMD_MAC_1="which curl && sudo curl -L https://raw.githubusercontent.com/mirageglobe/butlerfox/master/install.sh | bash"
 
 export UI_CMD_DES_2="remove butler(fox)"
 export UI_CMD_NIX_2="sudo rm /usr/local/bin/samurai && sudo rm /usr/local/bin/samurai-mac.py && sudo rm /usr/local/bin/samurai-linux.py && sudo rm /usr/local/bin/fox"
