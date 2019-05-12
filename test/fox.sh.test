@@ -12,12 +12,17 @@ SOURCE=src
   [ $status = 127 ]
 }
 
-@test "ensure that command : ui : works" {
-  run $SOURCE/fox.sh ui
+@test "ensure that command : m : works" {
+  run $SOURCE/fox.sh m
   [ $status = 0 ]
 }
 
-@test "ensure that command : run : works" {
-  run $SOURCE/fox.sh run
+@test "ensure that command : m-v : works" {
+  run $SOURCE/fox.sh m-v
+  [ $status = 0 ]
+}
+
+@test "ensure that command : r : works" {
+  run $SOURCE/fox.sh r
   [ $status = 0 ]
 }
