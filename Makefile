@@ -17,7 +17,7 @@ build: build-init											## build project
 test: test-suite test-lint 						## test project
 	@echo ":: test project - ok ::"
 
-deploy: 															## deploy files
+deploy: deploy-init										## deploy files
 	@echo ":: deploy project - ok ::"
 
 # helper commands
