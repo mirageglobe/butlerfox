@@ -56,14 +56,19 @@ if you do not have curl, on debian/ubuntu you can do
  $ sudo apt install curl
 ```
 
-to run and see options/help,
+to run and see main options/help,
 ```
-  $ sh fox.sh
+  $ fox
+```
+
+to list what butler(fox) can do,
+```
+  $ fox m
 ```
 
 to uninstall,
 ```
-  $ fox.sh ui 2
+  $ fox r 2
 ```
 
 to uninstall (legacy files),

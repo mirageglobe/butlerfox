@@ -8,29 +8,31 @@ JMG_TITLE='::'
 JMG_TEXT='  '
 
 JMG_OSTYPE=$(uname -s)
+# FOX_CMD=$0
+FOX_CMD=fox
 
 # ----- constants
 
 # ----- common functions
 
 print_header () {
-  printf "\\n%s butler fox (mac/linux) - your local assistant to run common commands on linux and macosx(darwin) using automated shell commands." "$JMG_TITLE"
+  printf "\\n%s butler fox :: what can I do for you ?" "$JMG_TITLE"
 }
 
 print_help () {
   printf "\\n"
-  printf "\\n%s usage:" "$JMG_TITLE"
-  printf "\\n%s %s <command> [args]" "$JMG_TEXT" "$0"
+  printf "\\n%s usage :" "$JMG_TITLE"
+  printf "\\n%s %s <command> [args]" "$JMG_TEXT" "$FOX_CMD"
   printf "\\n"
   printf "\\n%s commands :" "$JMG_TITLE"
-  printf "\\n%s %s help                     # loads help" "$JMG_TEXT" "$0"
-  printf "\\n%s %s ui                       # loads default list of ui commands" "$JMG_TEXT" "$0"
-  printf "\\n%s %s ui-verbose               # loads default list of ui commands with verbose actual commands" "$JMG_TEXT" "$0"
-  printf "\\n%s %s run <commandnumber>      # run command" "$JMG_TEXT" "$0"
+  printf "\\n%s %s help                     # default help" "$JMG_TEXT" "$FOX_CMD"
+  printf "\\n%s %s m                        # shows default list of menu commands" "$JMG_TEXT" "$FOX_CMD"
+  printf "\\n%s %s m-v                      # shows default list of menu commands verbosely" "$JMG_TEXT" "$FOX_CMD"
+  printf "\\n%s %s r <commandnumber>        # run command" "$JMG_TEXT" "$FOX_CMD"
   printf "\\n"
   printf "\\n%s examples :" "$JMG_TITLE"
-  printf "\\n%s %s ui" "$JMG_TEXT" "$0"
-  printf "\\n%s %s run 1" "$JMG_TEXT" "$0"
+  printf "\\n%s %s m" "$JMG_TEXT" "$FOX_CMD"
+  printf "\\n%s %s m 1" "$JMG_TEXT" "$FOX_CMD"
   printf "\\n"
   printf "\\n"
 }
@@ -206,11 +208,11 @@ if [ "$JMG_OS" != "NIL" ]; then
       printf "\\n%s %s Help (%s)" "$JMG_TITLE" "$0" "$JMG_OS"
       print_help "$0"
       ;;
-    ui)
+    m)
       #print out list for os
       if [ -z "$JMG_OPT" ]; then
         # if variable $2 for ui does not exist, print out list of variable
-        printf "\\n%s %s UI (%s)" "$JMG_TITLE" "$0" "$JMG_OS"
+        printf "\\n%s %s m (%s)" "$JMG_TITLE" "$0" "$JMG_OS"
         printf "\\n"
 
         #for i in {1..100}; do
@@ -231,8 +233,8 @@ if [ "$JMG_OS" != "NIL" ]; then
       printf "\\n"
         fi
         ;;
-      ui-verbose)
-        printf "\\n%s %s ui(%s)" "$JMG_TITLE" "$0" "$JMG_OS"
+      m-v)
+        printf "\\n%s %s m(%s)" "$JMG_TITLE" "$0" "$JMG_OS"
         printf "\\n"
 
       #for i in {1..100}; do\
@@ -248,7 +250,7 @@ if [ "$JMG_OS" != "NIL" ]; then
     printf "\\n"
     printf "\\n"
     ;;
-  run)
+  r)
     #print out list for os
     if [ -z "$JMG_OPT" ]; then
       # if variable $2 for ui does not exist, print out list of variable
