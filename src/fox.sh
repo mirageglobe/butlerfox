@@ -4,10 +4,10 @@
 
 # ----- arguments
 
-JMG_TITLE='::'
-JMG_TEXT='  '
+FOX_TITLE='::'
+FOX_TEXT='  '
 
-JMG_OSTYPE=$(uname -s)
+FOX_OSTYPE=$(uname -s)
 # FOX_CMD=$0
 FOX_CMD=fox
 
@@ -16,23 +16,23 @@ FOX_CMD=fox
 # ----- common functions
 
 print_header () {
-  printf "\\n%s butler fox :: what can I do for you ?" "$JMG_TITLE"
+  printf "\\n%s butler fox :: what can I do for you ?" "$FOX_TITLE"
 }
 
 print_help () {
   printf "\\n"
-  printf "\\n%s usage :" "$JMG_TITLE"
-  printf "\\n%s %s <command> [args]" "$JMG_TEXT" "$FOX_CMD"
+  printf "\\n%s usage :" "$FOX_TITLE"
+  printf "\\n%s %s <command> [args]" "$FOX_TEXT" "$FOX_CMD"
   printf "\\n"
-  printf "\\n%s commands :" "$JMG_TITLE"
-  printf "\\n%s %s help                     # default help" "$JMG_TEXT" "$FOX_CMD"
-  printf "\\n%s %s m                        # shows default list of menu commands" "$JMG_TEXT" "$FOX_CMD"
-  printf "\\n%s %s m-v                      # shows default list of menu commands verbosely" "$JMG_TEXT" "$FOX_CMD"
-  printf "\\n%s %s r <commandnumber>        # run command" "$JMG_TEXT" "$FOX_CMD"
+  printf "\\n%s commands :" "$FOX_TITLE"
+  printf "\\n%s %s help                     # default help" "$FOX_TEXT" "$FOX_CMD"
+  printf "\\n%s %s m                        # shows default list of menu commands" "$FOX_TEXT" "$FOX_CMD"
+  printf "\\n%s %s m-v                      # shows default list of menu commands verbosely" "$FOX_TEXT" "$FOX_CMD"
+  printf "\\n%s %s r <commandnumber>        # run command" "$FOX_TEXT" "$FOX_CMD"
   printf "\\n"
-  printf "\\n%s examples :" "$JMG_TITLE"
-  printf "\\n%s %s m" "$JMG_TEXT" "$FOX_CMD"
-  printf "\\n%s %s m 1" "$JMG_TEXT" "$FOX_CMD"
+  printf "\\n%s examples :" "$FOX_TITLE"
+  printf "\\n%s %s m" "$FOX_TEXT" "$FOX_CMD"
+  printf "\\n%s %s m 1" "$FOX_TEXT" "$FOX_CMD"
   printf "\\n"
   printf "\\n"
 }
@@ -48,7 +48,7 @@ print_error () {
 is_macos() {
   rtn_val=1 #note rtn boolean for error codes is 0 = true / 1 = false (reversed with boolean statements)
 
-  if echo "$JMG_OSTYPE" | grep -Fq 'Darwin'; then
+  if echo "$FOX_OSTYPE" | grep -Fq 'Darwin'; then
     rtn_val=0
   fi
 
@@ -58,7 +58,7 @@ is_macos() {
 is_linux() {
   rtn_val=1 #note rtn boolean for error codes is 0 = true / 1 = false (reversed with boolean statements)
 
-  if echo "$JMG_OSTYPE" | grep -Fq 'Linux'; then
+  if echo "$FOX_OSTYPE" | grep -Fq 'Linux'; then
     rtn_val=0
   fi
 
@@ -192,39 +192,39 @@ export UI_CMD_NIX_61="sudo apt install php5-fpm php5-cli php5-mysqlnd"
 export UI_CMD_DES_70="install av suite (avconv pngquant graphicsmagick)"
 export UI_CMD_NIX_70="apt-get install libav-tools pngquant graphicsmagick"
 
-JMG_CMD=$1
+FOX_CMD=$1
 # the 2nd tier variable such as "m"
-JMG_OPT=$2
+FOX_OPT=$2
 # the 3rd tier variable such as "12"
 
-JMG_OS="NIL"
+FOX_OS="NIL"
 
 if is_macos; then
-  JMG_OS="MAC"
+  FOX_OS="MAC"
 elif is_linux; then
-  JMG_OS="NIX"
+  FOX_OS="NIX"
 fi
 
 # default checks
-if [ "$JMG_OS" != "NIL" ]; then
-  case "$JMG_CMD" in
+if [ "$FOX_OS" != "NIL" ]; then
+  case "$FOX_CMD" in
     help)
-      printf "\\n%s %s Help (%s)" "$JMG_TITLE" "$0" "$JMG_OS"
+      printf "\\n%s %s Help (%s)" "$FOX_TITLE" "$0" "$FOX_OS"
       print_help "$0"
       ;;
     m)
       #print out list for os
-      if [ -z "$JMG_OPT" ]; then
+      if [ -z "$FOX_OPT" ]; then
         # if variable $2 for [m]enu does not exist, print out list of variable
-        printf "\\n%s %s m (%s)" "$JMG_TITLE" "$0" "$JMG_OS"
+        printf "\\n%s %s m (%s)" "$FOX_TITLE" "$0" "$FOX_OS"
         printf "\\n"
 
         #for i in {1..100}; do
         i=0; while [ $i -le 100 ]; do
-        JMG_CMD_DES=$(eval "echo \${UI_CMD_DES_$i}")
-        JMG_CMD_CMD=$(eval "echo \${UI_CMD_${JMG_OS}_$i}")
-        if [ -n "$JMG_CMD_CMD" ]; then
-          printf "\\n%s [%s] - %s" "$JMG_TEXT" "$i" "$JMG_CMD_DES"
+        FOX_CMD_DES=$(eval "echo \${UI_CMD_DES_$i}")
+        FOX_CMD_CMD=$(eval "echo \${UI_CMD_${FOX_OS}_$i}")
+        if [ -n "$FOX_CMD_CMD" ]; then
+          printf "\\n%s [%s] - %s" "$FOX_TEXT" "$i" "$FOX_CMD_DES"
         fi
         i=$(( i + 1 ))
       done
@@ -238,15 +238,15 @@ if [ "$JMG_OS" != "NIL" ]; then
         fi
         ;;
       m-v)
-        printf "\\n%s %s m(%s)" "$JMG_TITLE" "$0" "$JMG_OS"
+        printf "\\n%s %s m(%s)" "$FOX_TITLE" "$0" "$FOX_OS"
         printf "\\n"
 
       #for i in {1..100}; do\
       i=0; while [ $i -le 100 ]; do
-      JMG_CMD_DES=$(eval "echo \${UI_CMD_DES_$i}")
-      JMG_CMD_CMD=$(eval "echo \${UI_CMD_${JMG_OS}_$i}")
-      if [ -n "$JMG_CMD_CMD" ]; then
-        printf "\\n%s [%s] - %s ( %s )" "$JMG_TEXT" "$i" "$JMG_CMD_DES" "$JMG_CMD_CMD"
+      FOX_CMD_DES=$(eval "echo \${UI_CMD_DES_$i}")
+      FOX_CMD_CMD=$(eval "echo \${UI_CMD_${FOX_OS}_$i}")
+      if [ -n "$FOX_CMD_CMD" ]; then
+        printf "\\n%s [%s] - %s ( %s )" "$FOX_TEXT" "$i" "$FOX_CMD_DES" "$FOX_CMD_CMD"
       fi
       i=$(( i + 1 ))
     done
@@ -256,21 +256,21 @@ if [ "$JMG_OS" != "NIL" ]; then
     ;;
   r)
     #print out list for os
-    if [ -z "$JMG_OPT" ]; then
+    if [ -z "$FOX_OPT" ]; then
       # if variable $2 for [m]enu does not exist, print out list of variable
       print_error "command does not exist"
       printf "\\n"
     else
       # runs cmd with $2 and array 0 which is the command; see declare core [m]enu options
-      JMG_CMD_DES=$(eval "echo \${UI_CMD_DES_$JMG_OPT}")
-      JMG_CMD_CMD=$(eval "echo \${UI_CMD_${JMG_OS}_$JMG_OPT}")
+      FOX_CMD_DES=$(eval "echo \${UI_CMD_DES_$FOX_OPT}")
+      FOX_CMD_CMD=$(eval "echo \${UI_CMD_${FOX_OS}_$FOX_OPT}")
 
-      printf "\\n%s executing command" "$JMG_TITLE"
-      print_success "$JMG_CMD_DES ( $JMG_CMD_CMD )"
+      printf "\\n%s executing command" "$FOX_TITLE"
+      print_success "$FOX_CMD_DES ( $FOX_CMD_CMD )"
       printf "\\n"
       printf "\\n"
 
-      eval "$JMG_CMD_CMD"
+      eval "$FOX_CMD_CMD"
 
       printf "\\n"
       fi
