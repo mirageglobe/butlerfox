@@ -82,11 +82,11 @@ fi
 # set UI_CMD_<command number> = <bash command> <command definition>
 
 ## x core
-export UI_CMD_DES_1="update"
+export UI_CMD_DES_1="update butler(fox)"
 export UI_CMD_NIX_1="which curl && sudo curl -L https://raw.githubusercontent.com/mirageglobe/butlerfox/master/install.sh | sh"
 export UI_CMD_MAC_1="which curl && sudo curl -L https://raw.githubusercontent.com/mirageglobe/butlerfox/master/install.sh | sh"
 
-export UI_CMD_DES_2="remove"
+export UI_CMD_DES_2="remove butler(fox)"
 export UI_CMD_NIX_2="sudo rm /usr/local/bin/samurai && sudo rm /usr/local/bin/samurai-mac.py && sudo rm /usr/local/bin/samurai-linux.py && sudo rm /usr/local/bin/fox"
 export UI_CMD_MAC_2="sudo rm /usr/local/bin/samurai && sudo rm /usr/local/bin/samurai-mac.py && sudo rm /usr/local/bin/samurai-linux.py && sudo rm /usr/local/bin/fox"
 
@@ -136,7 +136,7 @@ export UI_CMD_NIX_22="nmblookup -S '*'"
 
 export UI_CMD_DES_23="show local mounted or mapped drives"
 export UI_CMD_NIX_23="df -h"
-export UI_CMD_NIX_23="df -h"
+export UI_CMD_MAC_23="df -h"
 
 export UI_CMD_DES_24="show memory, cache and swap"
 export UI_CMD_NIX_24="egrep --color 'Mem|Cache|Swap' /proc/meminfo"
@@ -145,6 +145,10 @@ export UI_CMD_DES_25="setup ubuntu auto upgrade (ubuntu recommended)"
 export UI_CMD_NIX_25="sudo apt install unattended-upgrades && dpkg-reconfigure --priority=low unattended-upgrades"
 
 ## 3x Platform and Pkg Managers
+export UI_CMD_DES_30="install homebrew (nix works / mac experimental)"
+export UI_CMD_NIX_30="curl https://raw.githubusercontent.com/Homebrew/install/master/install | ruby"
+export UI_CMD_MAC_30="curl https://raw.githubusercontent.com/Homebrew/install/master/install | ruby"
+
 export UI_CMD_DES_31="install nodejs, npm via nvm"
 export UI_CMD_NIX_31="sudo apt update && curl https://raw.githubusercontent.com/creationix/nvm/v0.24.0/install.sh | bash"
 
