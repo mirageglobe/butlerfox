@@ -237,7 +237,7 @@ if [ "$FOX_OS" != "NIL" ]; then
       fi
       ;;
     m-v)
-      printf "\\n%FOX_AVATAR (%s)" "$FOX_OS"
+      printf "\\n$FOX_AVATAR (%s)" "$FOX_OS"
       printf "\\n"
 
       #for i in {1..100}; do\
