@@ -4,35 +4,43 @@
 
 # ----- arguments
 
-FOX_TITLE='::'
-FOX_TEXT='  '
+FOX_TITLE='::'                # fox prefix for header output
+FOX_TEXT='  '                 # fox prefix for text output
 
+FOX_AVATAR=':: ButlerFox ::'  # fox prefix for speech
 FOX_OSTYPE=$(uname -s)
-# FOX_CMD=$0
-FOX_CMD=fox
 
-# ----- constants
+EXPECTED_ARGS=1               # number of expected arguments
+FOX_BIN=fox                   # the fox binary executable
+# FOX_BIN=$0
+FOX_CMD=$1                    # the 2nd tier variable such as "m"
+FOX_OPT=$2                    # the 3rd tier variable such as "12"
+FOX_OS="NIL"
+
+# error list
+
+E_BADARGS=65                  # Wrong number of arguments passed to script.
 
 # ----- common functions
 
-print_header () {
-  printf "\\n%s butler fox :: what can I do for you ?" "$FOX_TITLE"
+print_fox () {
+  printf "\\n$FOX_AVATAR  %s" "$1"
 }
 
 print_help () {
   printf "\\n"
   printf "\\n%s usage :" "$FOX_TITLE"
-  printf "\\n%s %s <command> [args]" "$FOX_TEXT" "$FOX_CMD"
+  printf "\\n%s %s <command> [args]" "$FOX_TEXT" "$FOX_BIN"
   printf "\\n"
   printf "\\n%s commands :" "$FOX_TITLE"
-  printf "\\n%s %s help                     # default help" "$FOX_TEXT" "$FOX_CMD"
-  printf "\\n%s %s m                        # shows default list of menu commands" "$FOX_TEXT" "$FOX_CMD"
-  printf "\\n%s %s m-v                      # shows default list of menu commands verbosely" "$FOX_TEXT" "$FOX_CMD"
-  printf "\\n%s %s r <commandnumber>        # run command" "$FOX_TEXT" "$FOX_CMD"
+  printf "\\n%s %s help                     # default help" "$FOX_TEXT" "$FOX_BIN"
+  printf "\\n%s %s m                        # shows default list of menu commands" "$FOX_TEXT" "$FOX_BIN"
+  printf "\\n%s %s m-v                      # shows default list of menu commands verbosely" "$FOX_TEXT" "$FOX_BIN"
+  printf "\\n%s %s r <commandnumber>        # run command" "$FOX_TEXT" "$FOX_BIN"
   printf "\\n"
   printf "\\n%s examples :" "$FOX_TITLE"
-  printf "\\n%s %s m" "$FOX_TEXT" "$FOX_CMD"
-  printf "\\n%s %s m 1" "$FOX_TEXT" "$FOX_CMD"
+  printf "\\n%s %s m" "$FOX_TEXT" "$FOX_BIN"
+  printf "\\n%s %s m 1" "$FOX_TEXT" "$FOX_BIN"
   printf "\\n"
   printf "\\n"
 }
@@ -69,12 +77,9 @@ is_linux() {
 
 # check arguments
 
-EXPECTED_ARGS=1
-E_BADARGS=65
-
 if [ "$#" -lt "$EXPECTED_ARGS" ]; then
-  print_header
-  print_help "$0"
+  print_fox "what can I do for you?"
+  print_help
   exit $E_BADARGS
 fi
 
@@ -192,13 +197,6 @@ export UI_CMD_NIX_61="sudo apt install php5-fpm php5-cli php5-mysqlnd"
 export UI_CMD_DES_70="install av suite (avconv pngquant graphicsmagick)"
 export UI_CMD_NIX_70="apt-get install libav-tools pngquant graphicsmagick"
 
-FOX_CMD=$1
-# the 2nd tier variable such as "m"
-FOX_OPT=$2
-# the 3rd tier variable such as "12"
-
-FOX_OS="NIL"
-
 if is_macos; then
   FOX_OS="MAC"
 elif is_linux; then
@@ -209,74 +207,75 @@ fi
 if [ "$FOX_OS" != "NIL" ]; then
   case "$FOX_CMD" in
     help)
-      printf "\\n%s %s Help (%s)" "$FOX_TITLE" "$0" "$FOX_OS"
-      print_help "$0"
+      printf "\\n%s %s (%s) ::" "$FOX_TITLE" "$FOX_BIN" "$FOX_OS"
+      print_help "$FOX_BIN"
       ;;
     m)
       #print out list for os
       if [ -z "$FOX_OPT" ]; then
         # if variable $2 for [m]enu does not exist, print out list of variable
-        printf "\\n%s %s m (%s)" "$FOX_TITLE" "$0" "$FOX_OS"
+        printf "\\n%s" "$FOX_AVATAR"
         printf "\\n"
 
         #for i in {1..100}; do
         i=0; while [ $i -le 100 ]; do
+          FOX_CMD_DES=$(eval "echo \${UI_CMD_DES_$i}")
+          FOX_CMD_CMD=$(eval "echo \${UI_CMD_${FOX_OS}_$i}")
+          if [ -n "$FOX_CMD_CMD" ]; then
+            printf "\\n%s [%s] - %s" "$FOX_TEXT" "$i" "$FOX_CMD_DES"
+          fi
+          i=$(( i + 1 ))
+        done
+
+        printf "\\n"
+        printf "\\n"
+
+      else
+        print_error "$FOX_AVATAR no options required - use [m]enu instead"
+        printf "\\n"
+        printf "\\n"
+      fi
+      ;;
+    m-v)
+      printf "\\n%FOX_AVATAR (%s)" "$FOX_OS"
+      printf "\\n"
+
+      #for i in {1..100}; do\
+      i=0; while [ $i -le 100 ]; do
         FOX_CMD_DES=$(eval "echo \${UI_CMD_DES_$i}")
         FOX_CMD_CMD=$(eval "echo \${UI_CMD_${FOX_OS}_$i}")
         if [ -n "$FOX_CMD_CMD" ]; then
-          printf "\\n%s [%s] - %s" "$FOX_TEXT" "$i" "$FOX_CMD_DES"
+          printf "\\n%s [%s] - %s ( %s )" "$FOX_TEXT" "$i" "$FOX_CMD_DES" "$FOX_CMD_CMD"
         fi
         i=$(( i + 1 ))
       done
 
       printf "\\n"
       printf "\\n"
-    else
-      print_error "no options required - use [m]enu instead"
-      printf "\\n"
-      printf "\\n"
-        fi
-        ;;
-      m-v)
-        printf "\\n%s %s m(%s)" "$FOX_TITLE" "$0" "$FOX_OS"
+      ;;
+    r)
+      #print out list for os
+      if [ -z "$FOX_OPT" ]; then
+        # if variable $2 for [m]enu does not exist, print out list of variable
+        print_error "$FOX_AVATAR command does not exist"
+        printf "\\n"
+      else
+        # runs cmd with $2 and array 0 which is the command; see declare core [m]enu options
+        FOX_CMD_DES=$(eval "echo \${UI_CMD_DES_$FOX_OPT}")
+        FOX_CMD_CMD=$(eval "echo \${UI_CMD_${FOX_OS}_$FOX_OPT}")
+
+        printf "\\n%s executing command" "$FOX_TITLE"
+        print_success "$FOX_CMD_DES ( $FOX_CMD_CMD )"
+        printf "\\n"
         printf "\\n"
 
-      #for i in {1..100}; do\
-      i=0; while [ $i -le 100 ]; do
-      FOX_CMD_DES=$(eval "echo \${UI_CMD_DES_$i}")
-      FOX_CMD_CMD=$(eval "echo \${UI_CMD_${FOX_OS}_$i}")
-      if [ -n "$FOX_CMD_CMD" ]; then
-        printf "\\n%s [%s] - %s ( %s )" "$FOX_TEXT" "$i" "$FOX_CMD_DES" "$FOX_CMD_CMD"
-      fi
-      i=$(( i + 1 ))
-    done
+        eval "$FOX_CMD_CMD"
 
-    printf "\\n"
-    printf "\\n"
-    ;;
-  r)
-    #print out list for os
-    if [ -z "$FOX_OPT" ]; then
-      # if variable $2 for [m]enu does not exist, print out list of variable
-      print_error "command does not exist"
-      printf "\\n"
-    else
-      # runs cmd with $2 and array 0 which is the command; see declare core [m]enu options
-      FOX_CMD_DES=$(eval "echo \${UI_CMD_DES_$FOX_OPT}")
-      FOX_CMD_CMD=$(eval "echo \${UI_CMD_${FOX_OS}_$FOX_OPT}")
-
-      printf "\\n%s executing command" "$FOX_TITLE"
-      print_success "$FOX_CMD_DES ( $FOX_CMD_CMD )"
-      printf "\\n"
-      printf "\\n"
-
-      eval "$FOX_CMD_CMD"
-
-      printf "\\n"
+        printf "\\n"
       fi
       ;;
     *)
       die
   esac
-    fi
+fi
 
