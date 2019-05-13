@@ -84,118 +84,118 @@ if [ "$#" -lt "$EXPECTED_ARGS" ]; then
 fi
 
 # core command options
-# set UI_CMD_<command number> = <bash command> <command definition>
+# set CMD_<command number> = <bash command> <command definition>
 
 ## x core
-export UI_CMD_DES_1="update butler(fox)"
-export UI_CMD_NIX_1="which curl && sudo curl -L https://raw.githubusercontent.com/mirageglobe/butlerfox/master/install.sh | bash"
-export UI_CMD_MAC_1="which curl && sudo curl -L https://raw.githubusercontent.com/mirageglobe/butlerfox/master/install.sh | bash"
+export CMD_DES_1="update butler(fox)"
+export CMD_NIX_1="which curl && sudo curl -L https://raw.githubusercontent.com/mirageglobe/butlerfox/master/install.sh | bash"
+export CMD_MAC_1="which curl && sudo curl -L https://raw.githubusercontent.com/mirageglobe/butlerfox/master/install.sh | bash"
 
-export UI_CMD_DES_2="remove butler(fox)"
-export UI_CMD_NIX_2="sudo rm /usr/local/bin/samurai && sudo rm /usr/local/bin/samurai-mac.py && sudo rm /usr/local/bin/samurai-linux.py && sudo rm /usr/local/bin/fox"
-export UI_CMD_MAC_2="sudo rm /usr/local/bin/samurai && sudo rm /usr/local/bin/samurai-mac.py && sudo rm /usr/local/bin/samurai-linux.py && sudo rm /usr/local/bin/fox"
+export CMD_DES_2="remove butler(fox)"
+export CMD_NIX_2="sudo rm /usr/local/bin/samurai && sudo rm /usr/local/bin/samurai-mac.py && sudo rm /usr/local/bin/samurai-linux.py && sudo rm /usr/local/bin/fox"
+export CMD_MAC_2="sudo rm /usr/local/bin/samurai && sudo rm /usr/local/bin/samurai-mac.py && sudo rm /usr/local/bin/samurai-linux.py && sudo rm /usr/local/bin/fox"
 
 ## 1x / 2x operating system
-export UI_CMD_DES_10="change my login password"
-export UI_CMD_NIX_10="passwd"
-export UI_CMD_MAC_10="passwd"
+export CMD_DES_10="change my login password"
+export CMD_NIX_10="passwd"
+export CMD_MAC_10="passwd"
 
-export UI_CMD_DES_11="update debian/ubuntu and cleanup cache"
-export UI_CMD_NIX_11="sudo apt update && sudo apt upgrade && sudo apt autoclean && sudo apt autoremove"
+export CMD_DES_11="update debian/ubuntu and cleanup cache"
+export CMD_NIX_11="sudo apt update && sudo apt upgrade && sudo apt autoclean && sudo apt autoremove"
 
-export UI_CMD_DES_12="update debian/ubuntu distribution"
-export UI_CMD_NIX_12="sudo apt dist-upgrade"
+export CMD_DES_12="update debian/ubuntu distribution"
+export CMD_NIX_12="sudo apt dist-upgrade"
 
-export UI_CMD_DES_13="install build-essential"
-export UI_CMD_NIX_13="sudo apt install build-essential"
+export CMD_DES_13="install build-essential"
+export CMD_NIX_13="sudo apt install build-essential"
 
-export UI_CMD_DES_14="add virtualbox guest additions for debian/ubuntu (for virtualbox VMs)"
-export UI_CMD_NIX_14="sudo apt install virtualbox-guest-dkms virtualbox-guest-utils virtualbox-guest-x11"
+export CMD_DES_14="add virtualbox guest additions for debian/ubuntu (for virtualbox VMs)"
+export CMD_NIX_14="sudo apt install virtualbox-guest-dkms virtualbox-guest-utils virtualbox-guest-x11"
 
-export UI_CMD_DES_15="show users list"
-export UI_CMD_NIX_15="column -ts: /etc/passwd | sort"
+export CMD_DES_15="show users list"
+export CMD_NIX_15="column -ts: /etc/passwd | sort"
 
-export UI_CMD_DES_16="restart shell"
-export UI_CMD_NIX_16="exec \$SHELL -l"
+export CMD_DES_16="restart shell"
+export CMD_NIX_16="exec \$SHELL -l"
 
-export UI_CMD_DES_17="show IP address"
-export UI_CMD_NIX_17="curl http://icanhazip.com"
-export UI_CMD_MAC_17="curl http://icanhazip.com"
+export CMD_DES_17="show IP address"
+export CMD_NIX_17="curl http://icanhazip.com"
+export CMD_MAC_17="curl http://icanhazip.com"
 
-export UI_CMD_DES_18="show disk space"
-export UI_CMD_NIX_18="df -h --total"
-export UI_CMD_MAC_18="df -h"
+export CMD_DES_18="show disk space"
+export CMD_NIX_18="df -h --total"
+export CMD_MAC_18="df -h"
 
-export UI_CMD_DES_19="show kernel build information"
-export UI_CMD_NIX_19="uname -a"
-export UI_CMD_MAC_19="uname -a"
+export CMD_DES_19="show kernel build information"
+export CMD_NIX_19="uname -a"
+export CMD_MAC_19="uname -a"
 
-export UI_CMD_DES_20="show ubuntu or *buntu-like version information"
-export UI_CMD_NIX_20="lsb_release -a"
+export CMD_DES_20="show ubuntu or *buntu-like version information"
+export CMD_NIX_20="lsb_release -a"
 
-export UI_CMD_DES_21="show open ports and listening apps"
-export UI_CMD_NIX_21="netstat -lnptu"
+export CMD_DES_21="show open ports and listening apps"
+export CMD_NIX_21="netstat -lnptu"
 
-export UI_CMD_DES_22="show local SMB/CIFS shares on network"
-export UI_CMD_NIX_22="nmblookup -S '*'"
+export CMD_DES_22="show local SMB/CIFS shares on network"
+export CMD_NIX_22="nmblookup -S '*'"
 
-export UI_CMD_DES_23="show local mounted or mapped drives"
-export UI_CMD_NIX_23="df -h"
-export UI_CMD_MAC_23="df -h"
+export CMD_DES_23="show local mounted or mapped drives"
+export CMD_NIX_23="df -h"
+export CMD_MAC_23="df -h"
 
-export UI_CMD_DES_24="show memory, cache and swap"
-export UI_CMD_NIX_24="egrep --color 'Mem|Cache|Swap' /proc/meminfo"
+export CMD_DES_24="show memory, cache and swap"
+export CMD_NIX_24="egrep --color 'Mem|Cache|Swap' /proc/meminfo"
 
-export UI_CMD_DES_25="setup ubuntu auto upgrade (ubuntu recommended)"
-export UI_CMD_NIX_25="sudo apt install unattended-upgrades && dpkg-reconfigure --priority=low unattended-upgrades"
+export CMD_DES_25="setup ubuntu auto upgrade (ubuntu recommended)"
+export CMD_NIX_25="sudo apt install unattended-upgrades && dpkg-reconfigure --priority=low unattended-upgrades"
 
 ## 3x Platform and Pkg Managers
-export UI_CMD_DES_30="install homebrew (nix works / mac experimental)"
-export UI_CMD_NIX_30="curl https://raw.githubusercontent.com/Homebrew/install/master/install | ruby"
-export UI_CMD_MAC_30="curl https://raw.githubusercontent.com/Homebrew/install/master/install | ruby"
+export CMD_DES_30="install homebrew (nix works / mac experimental)"
+export CMD_NIX_30="curl https://raw.githubusercontent.com/Homebrew/install/master/install | ruby"
+export CMD_MAC_30="curl https://raw.githubusercontent.com/Homebrew/install/master/install | ruby"
 
-export UI_CMD_DES_31="install nodejs, npm via nvm"
-export UI_CMD_NIX_31="sudo apt update && curl https://raw.githubusercontent.com/creationix/nvm/v0.24.0/install.sh | bash"
+export CMD_DES_31="install nodejs, npm via nvm"
+export CMD_NIX_31="sudo apt update && curl https://raw.githubusercontent.com/creationix/nvm/v0.24.0/install.sh | bash"
 
-export UI_CMD_DES_32="install latest stable git"
-export UI_CMD_NIX_32="sudo add-apt-repository ppa:git-core/ppa && sudo apt update && sudo apt install git"
+export CMD_DES_32="install latest stable git"
+export CMD_NIX_32="sudo add-apt-repository ppa:git-core/ppa && sudo apt update && sudo apt install git"
 
 ## 4x Security
-export UI_CMD_DES_40="install clamav and clam daemon"
-export UI_CMD_NIX_40="sudo apt install clamav clamav-daemon"
+export CMD_DES_40="install clamav and clam daemon"
+export CMD_NIX_40="sudo apt install clamav clamav-daemon"
 
-export UI_CMD_DES_41="install chkrootkit"
-export UI_CMD_NIX_41="sudo apt install chkrootkit"
+export CMD_DES_41="install chkrootkit"
+export CMD_NIX_41="sudo apt install chkrootkit"
 
-export UI_CMD_DES_42="install rkhunter"
-export UI_CMD_NIX_42="sudo apt install rkhunter"
+export CMD_DES_42="install rkhunter"
+export CMD_NIX_42="sudo apt install rkhunter"
 
-export UI_CMD_DES_43="install ufw and allow ssh port 22/80"
-export UI_CMD_NIX_43="sudo apt install ufw && ufw allow ssh && ufw allow 80 && sudo ufw enable"
+export CMD_DES_43="install ufw and allow ssh port 22/80"
+export CMD_NIX_43="sudo apt install ufw && ufw allow ssh && ufw allow 80 && sudo ufw enable"
 
-export UI_CMD_DES_44="install fail2ban with sendmail dependancy"
-export UI_CMD_NIX_44="sudo apt install sendmail fail2ban"
+export CMD_DES_44="install fail2ban with sendmail dependancy"
+export CMD_NIX_44="sudo apt install sendmail fail2ban"
 
 ## 5x Databases
-export UI_CMD_DES_50="install sqlite (for all)"
-export UI_CMD_NIX_50="sudo apt install sqlite"
+export CMD_DES_50="install sqlite (for all)"
+export CMD_NIX_50="sudo apt install sqlite"
 
-export UI_CMD_DES_51="install mongodb 3.0 (for ubuntu 14.04.x trusty)"
-export UI_CMD_NIX_51="sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10 && echo \"deb http://repo.mongodb.org/apt/ubuntu \"\$(lsb_release -sc)\"/mongodb-org/3.0 multiverse\" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.0.list && sudo apt-get update && sudo apt-get install -y mongodb-org"
+export CMD_DES_51="install mongodb 3.0 (for ubuntu 14.04.x trusty)"
+export CMD_NIX_51="sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10 && echo \"deb http://repo.mongodb.org/apt/ubuntu \"\$(lsb_release -sc)\"/mongodb-org/3.0 multiverse\" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.0.list && sudo apt-get update && sudo apt-get install -y mongodb-org"
 
-export UI_CMD_DES_52="install mariadb 10.0 (for ubuntu 14.04.x trusty)"
-export UI_CMD_NIX_52="sudo apt-get install software-properties-common && sudo apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0xcbcb082a1bb943db && sudo add-apt-repository \"deb http://lon1.mirrors.digitalocean.com/mariadb/repo/10.0/ubuntu trusty main\" && sudo apt-get update && sudo apt-get install mariadb-server"
+export CMD_DES_52="install mariadb 10.0 (for ubuntu 14.04.x trusty)"
+export CMD_NIX_52="sudo apt-get install software-properties-common && sudo apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0xcbcb082a1bb943db && sudo add-apt-repository \"deb http://lon1.mirrors.digitalocean.com/mariadb/repo/10.0/ubuntu trusty main\" && sudo apt-get update && sudo apt-get install mariadb-server"
 
 ## 6x Servers and Languages
-export UI_CMD_DES_60="install nginx - ppa latest stable (for all)"
-export UI_CMD_NIX_60="apt update && sudo add-apt-repository ppa:nginx/stable && sudo apt install nginx"
+export CMD_DES_60="install nginx - ppa latest stable (for all)"
+export CMD_NIX_60="apt update && sudo add-apt-repository ppa:nginx/stable && sudo apt install nginx"
 
-export UI_CMD_DES_61="install php5 (fpm)"
-export UI_CMD_NIX_61="sudo apt install php5-fpm php5-cli php5-mysqlnd"
+export CMD_DES_61="install php5 (fpm)"
+export CMD_NIX_61="sudo apt install php5-fpm php5-cli php5-mysqlnd"
 
 ## 7x Apps
-export UI_CMD_DES_70="install av suite (avconv pngquant graphicsmagick)"
-export UI_CMD_NIX_70="apt-get install libav-tools pngquant graphicsmagick"
+export CMD_DES_70="install av suite (avconv pngquant graphicsmagick)"
+export CMD_NIX_70="apt-get install libav-tools pngquant graphicsmagick"
 
 if is_macos; then
   FOX_OS="MAC"
@@ -219,8 +219,8 @@ if [ "$FOX_OS" != "NIL" ]; then
 
         #for i in {1..100}; do
         i=0; while [ $i -le 100 ]; do
-          FOX_CMD_DES=$(eval "echo \${UI_CMD_DES_$i}")
-          FOX_CMD_CMD=$(eval "echo \${UI_CMD_${FOX_OS}_$i}")
+          FOX_CMD_DES=$(eval "echo \${CMD_DES_$i}")
+          FOX_CMD_CMD=$(eval "echo \${CMD_${FOX_OS}_$i}")
           if [ -n "$FOX_CMD_CMD" ]; then
             printf "\\n%s [%s] - %s" "$FOX_TEXT" "$i" "$FOX_CMD_DES"
           fi
@@ -240,10 +240,10 @@ if [ "$FOX_OS" != "NIL" ]; then
       printf "\\n$FOX_AVATAR (%s)" "$FOX_OS"
       printf "\\n"
 
-      #for i in {1..100}; do\
+      # for i in {1..100}; do\
       i=0; while [ $i -le 100 ]; do
-        FOX_CMD_DES=$(eval "echo \${UI_CMD_DES_$i}")
-        FOX_CMD_CMD=$(eval "echo \${UI_CMD_${FOX_OS}_$i}")
+        FOX_CMD_DES=$(eval "echo \${CMD_DES_$i}")
+        FOX_CMD_CMD=$(eval "echo \${CMD_${FOX_OS}_$i}")
         if [ -n "$FOX_CMD_CMD" ]; then
           printf "\\n%s [%s] - %s ( %s )" "$FOX_TEXT" "$i" "$FOX_CMD_DES" "$FOX_CMD_CMD"
         fi
@@ -261,8 +261,8 @@ if [ "$FOX_OS" != "NIL" ]; then
         printf "\\n"
       else
         # runs cmd with $2 and array 0 which is the command; see declare core [m]enu options
-        FOX_CMD_DES=$(eval "echo \${UI_CMD_DES_$FOX_OPT}")
-        FOX_CMD_CMD=$(eval "echo \${UI_CMD_${FOX_OS}_$FOX_OPT}")
+        FOX_CMD_DES=$(eval "echo \${CMD_DES_$FOX_OPT}")
+        FOX_CMD_CMD=$(eval "echo \${CMD_${FOX_OS}_$FOX_OPT}")
 
         printf "\\n%s executing command" "$FOX_TITLE"
         print_success "$FOX_CMD_DES ( $FOX_CMD_CMD )"
