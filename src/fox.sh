@@ -231,6 +231,7 @@ if [ "$FOX_OS" != "NIL" ]; then
         printf "\\n"
 
       else
+        # variable $2 for [m]enu should exist here. run the command
         print_error "$FOX_AVATAR no options required - use [m]enu instead"
         printf "\\n"
         printf "\\n"
@@ -245,7 +246,7 @@ if [ "$FOX_OS" != "NIL" ]; then
         FOX_CMD_DES=$(eval "echo \${CMD_DES_$i}")
         FOX_CMD_CMD=$(eval "echo \${CMD_${FOX_OS}_$i}")
         if [ -n "$FOX_CMD_CMD" ]; then
-          printf "\\n%s [%s] - %s ( %s )" "$FOX_TEXT" "$i" "$FOX_CMD_DES" "$FOX_CMD_CMD"
+          printf "\\n%s [%s] - %s :: %s" "$FOX_TEXT" "$i" "$FOX_CMD_DES" "$FOX_CMD_CMD"
         fi
         i=$(( i + 1 ))
       done
