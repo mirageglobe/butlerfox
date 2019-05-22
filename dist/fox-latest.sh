@@ -78,6 +78,7 @@ is_linux() {
 # check arguments
 
 if [ "$#" -lt "$EXPECTED_ARGS" ]; then
+  printf "\\n"
   print_fox "what can I do for you?"
   print_help
   exit $E_BADARGS
@@ -136,6 +137,7 @@ export CMD_NIX_20="lsb_release -a"
 
 export CMD_DES_21="show open ports and listening apps"
 export CMD_NIX_21="netstat -lnptu"
+export CMD_MAC_21="sudo lsof -PiTCP -sTCP:LISTEN;"
 
 export CMD_DES_22="show local SMB/CIFS shares on network"
 export CMD_NIX_22="nmblookup -S '*'"
@@ -213,6 +215,7 @@ fi
 if [ "$FOX_OS" != "NIL" ]; then
   case "$FOX_CMD" in
     help)
+      printf "\\n"
       print_fox ":: $FOX_TITLE $FOX_BIN $FOX_OS"
       print_help "$FOX_BIN"
       ;;
@@ -240,12 +243,11 @@ if [ "$FOX_OS" != "NIL" ]; then
         FOX_CMD_DES=$(eval "echo \${CMD_DES_$FOX_OPT}")
         FOX_CMD_CMD=$(eval "echo \${CMD_${FOX_OS}_$FOX_OPT}")
 
+        printf "\\n"
         print_fox "executing command :: $FOX_CMD_DES ( $FOX_CMD_CMD )"
         printf "\\n"
         printf "\\n"
-
         eval "$FOX_CMD_CMD"
-        printf "\\n"
         printf "\\n"
       fi
       ;;
