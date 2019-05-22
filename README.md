@@ -48,32 +48,37 @@ requirements:
 
 to install on (debian / ubuntu / mac), fire up terminal and run:
 ```
-  $ which curl && sudo curl -L https://raw.githubusercontent.com/mirageglobe/butlerfox/master/install.sh | bash
+which curl && sudo curl -L https://raw.githubusercontent.com/mirageglobe/butlerfox/master/install.sh | bash
 ```
 
 if you do not have curl, on debian/ubuntu you can do
 ```
- $ sudo apt install curl
+sudo apt install curl
 ```
 
 to run and see main options/help,
 ```
-  $ fox
+fox
 ```
 
 to list what butler(fox) can do,
 ```
-  $ fox m
+fox m
+```
+
+to list verbosely what it actually does,
+```
+fox mm
 ```
 
 to uninstall,
 ```
-  $ fox r 2
+fox m 2
 ```
 
 to uninstall (legacy files),
 ```
-  $ sudo rm /usr/local/bin/samurai && rm /usr/local/bin/samurai-mac.py && rm /usr/local/bin/samurai-linux.py
+sudo rm /usr/local/bin/samurai && rm /usr/local/bin/samurai-mac.py && rm /usr/local/bin/samurai-linux.py
 ```
 
 # contribute
