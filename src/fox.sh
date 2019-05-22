@@ -25,7 +25,15 @@ E_BADARGS=65                  # Wrong number of arguments passed to script.
 # ----- common functions
 
 print_fox () {
-  printf "\\n$FOX_AVATAR  %s" "$1"
+  printf "$FOX_AVATAR  %s" "$1"
+}
+
+print_success () {
+  printf "\\n\\342\\234\\224  %s" "$1"
+}
+
+print_error () {
+  printf "\\n\\342\\234\\226  %s" "$1"
 }
 
 print_help () {
@@ -43,14 +51,6 @@ print_help () {
   printf "\\n%s %s m 1" "$FOX_TEXT" "$FOX_BIN"
   printf "\\n"
   printf "\\n"
-}
-
-print_success () {
-  printf "\\n\\342\\234\\224  %s" "$1"
-}
-
-print_error () {
-  printf "\\n\\342\\234\\226  %s" "$1"
 }
 
 is_macos() {
@@ -213,7 +213,7 @@ fi
 if [ "$FOX_OS" != "NIL" ]; then
   case "$FOX_CMD" in
     help)
-      printf "\\n%s %s (%s) ::" "$FOX_TITLE" "$FOX_BIN" "$FOX_OS"
+      print_fox ":: $FOX_TITLE" "$FOX_BIN" "$FOX_OS"
       print_help "$FOX_BIN"
       ;;
     m)
@@ -240,8 +240,7 @@ if [ "$FOX_OS" != "NIL" ]; then
         FOX_CMD_DES=$(eval "echo \${CMD_DES_$FOX_OPT}")
         FOX_CMD_CMD=$(eval "echo \${CMD_${FOX_OS}_$FOX_OPT}")
 
-        printf "\\n%s executing command" "$FOX_TITLE"
-        print_success "$FOX_CMD_DES ( $FOX_CMD_CMD )"
+        print_fox "executing command :: $FOX_CMD_DES ( $FOX_CMD_CMD )"
         printf "\\n"
         printf "\\n"
 

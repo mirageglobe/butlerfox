@@ -36,7 +36,7 @@ test-lint:
 	@echo ":: running lint ::"
 	shellcheck src/fox.sh
 
-deploy-init: 													## deploying
+deploy-init:
 	@echo ":: deploying binary ::"
 	cp src/fox.sh dist/fox-latest.sh
 	@echo ":: final test binary ::"
