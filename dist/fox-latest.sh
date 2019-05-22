@@ -117,14 +117,15 @@ export CMD_NIX_15="column -ts: /etc/passwd | sort"
 
 export CMD_DES_16="restart shell"
 export CMD_NIX_16="exec \$SHELL -l"
+export CMD_MAC_16="exec \$SHELL -l"
 
-export CMD_DES_17="show IP address"
-export CMD_NIX_17="curl http://icanhazip.com"
-export CMD_MAC_17="curl http://icanhazip.com"
+export CMD_DES_17="show external IP v4 address"
+export CMD_NIX_17="curl ipv4.icanhazip.com"
+export CMD_MAC_17="curl ipv4.icanhazip.com"
 
-export CMD_DES_18="show disk space"
-export CMD_NIX_18="df -h --total"
-export CMD_MAC_18="df -h"
+export CMD_DES_18="show external IP v6 address"
+export CMD_NIX_18="curl ipv6.icanhazip.com"
+export CMD_MAC_18="curl ipv6.icanhazip.com"
 
 export CMD_DES_19="show kernel build information"
 export CMD_NIX_19="uname -a"
@@ -139,8 +140,8 @@ export CMD_NIX_21="netstat -lnptu"
 export CMD_DES_22="show local SMB/CIFS shares on network"
 export CMD_NIX_22="nmblookup -S '*'"
 
-export CMD_DES_23="show local mounted or mapped drives"
-export CMD_NIX_23="df -h"
+export CMD_DES_23="show disk space and mounted drives"
+export CMD_NIX_23="df -h --total"
 export CMD_MAC_23="df -h"
 
 export CMD_DES_24="show memory, cache and swap"
@@ -154,11 +155,16 @@ export CMD_DES_30="install homebrew (nix works / mac experimental)"
 export CMD_NIX_30="curl https://raw.githubusercontent.com/Homebrew/install/master/install | ruby"
 export CMD_MAC_30="curl https://raw.githubusercontent.com/Homebrew/install/master/install | ruby"
 
-export CMD_DES_31="install nodejs, npm via nvm"
+export CMD_DES_31="install nvm (node version manager)"
 export CMD_NIX_31="sudo apt update && curl https://raw.githubusercontent.com/creationix/nvm/v0.24.0/install.sh | bash"
+export CMD_MAC_31="sudo apt update && curl https://raw.githubusercontent.com/creationix/nvm/v0.24.0/install.sh | bash"
 
-export CMD_DES_32="install latest stable git"
-export CMD_NIX_32="sudo add-apt-repository ppa:git-core/ppa && sudo apt update && sudo apt install git"
+export CMD_DES_32="install n (node version manager)"
+export CMD_NIX_32="sudo apt update && curl -L https://git.io/n-install | bash"
+export CMD_MAC_32="sudo apt update && brew install n"
+
+export CMD_DES_36="install latest stable git"
+export CMD_NIX_36="sudo add-apt-repository ppa:git-core/ppa && sudo apt update && sudo apt install git"
 
 ## 4x Security
 export CMD_DES_40="install clamav and clam daemon"
