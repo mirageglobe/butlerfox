@@ -132,15 +132,9 @@ export CMD_DES_19="show kernel build information"
 export CMD_NIX_19="uname -a"
 export CMD_MAC_19="uname -a"
 
-export CMD_DES_20="show ubuntu or *buntu-like version information"
-export CMD_NIX_20="lsb_release -a"
-
 export CMD_DES_21="show open ports and listening apps"
 export CMD_NIX_21="netstat -lnptu"
 export CMD_MAC_21="sudo lsof -PiTCP -sTCP:LISTEN;"
-
-export CMD_DES_22="show local SMB/CIFS shares on network"
-export CMD_NIX_22="nmblookup -S '*'"
 
 export CMD_DES_23="show disk space and mounted drives"
 export CMD_NIX_23="df -h --total"
@@ -148,9 +142,20 @@ export CMD_MAC_23="df -h"
 
 export CMD_DES_24="show memory, cache and swap"
 export CMD_NIX_24="egrep --color 'Mem|Cache|Swap' /proc/meminfo"
+export CMD_MAC_24="vm_stat; sysctl hw.memsize; sysctl vm.swapusage;"
 
-export CMD_DES_25="setup ubuntu auto upgrade (ubuntu recommended)"
-export CMD_NIX_25="sudo apt install unattended-upgrades && dpkg-reconfigure --priority=low unattended-upgrades"
+export CMD_DES_25="show process via ps"
+export CMD_NIX_25="ps -e -o 'uid pid pcpu pmem wq comm'"
+export CMD_MAC_25="ps -e -o 'uid pid pcpu pmem wq comm'"
+
+export CMD_DES_27="show local SMB/CIFS shares on network"
+export CMD_NIX_27="nmblookup -S '*'"
+
+export CMD_DES_28="show ubuntu or *buntu-like version information"
+export CMD_NIX_28="lsb_release -a"
+
+export CMD_DES_29="setup ubuntu auto upgrade (ubuntu recommended)"
+export CMD_NIX_29="sudo apt install unattended-upgrades && dpkg-reconfigure --priority=low unattended-upgrades"
 
 ## 3x Platform and Pkg Managers
 export CMD_DES_30="install homebrew (nix works / mac experimental)"
