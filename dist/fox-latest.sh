@@ -213,7 +213,7 @@ fi
 if [ "$FOX_OS" != "NIL" ]; then
   case "$FOX_CMD" in
     help)
-      print_fox ":: $FOX_TITLE" "$FOX_BIN" "$FOX_OS"
+      print_fox ":: $FOX_TITLE $FOX_BIN $FOX_OS"
       print_help "$FOX_BIN"
       ;;
     m)
