@@ -202,14 +202,21 @@ export CMD_DES_61="install php5 (fpm)"
 export CMD_NIX_61="sudo apt install php5-fpm php5-cli php5-mysqlnd"
 
 ## 7x common libraries and apps
-export CMD_DES_70="install build-essential"
-export CMD_NIX_70="sudo apt install build-essential"
 
-export CMD_DES_71="install av suite (avconv pngquant graphicsmagick)"
-export CMD_NIX_71="apt-get install libav-tools pngquant graphicsmagick"
 
-export CMD_DES_72="add virtualbox guest additions for debian/ubuntu (for virtualbox VMs)"
-export CMD_NIX_72="sudo apt install virtualbox-guest-dkms virtualbox-guest-utils virtualbox-guest-x11"
+export CMD_DES_70="show list of system installed libraries and applications"
+export CMD_NIX_70="sudo apt list --installed"
+
+export CMD_DES_71="install build-essential"
+export CMD_NIX_71="sudo apt install build-essential"
+
+export CMD_DES_72="install av suite (avconv pngquant graphicsmagick)"
+export CMD_NIX_72="apt-get install libav-tools pngquant graphicsmagick"
+
+export CMD_DES_73="add virtualbox guest additions for debian/ubuntu (for virtualbox VMs)"
+export CMD_NIX_73="sudo apt install virtualbox-guest-dkms virtualbox-guest-utils virtualbox-guest-x11"
+
+# setting prefix values
 
 if is_macos; then
   FOX_OS="MAC"
