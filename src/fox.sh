@@ -189,27 +189,25 @@ export CMD_NIX_44="sudo apt install sendmail fail2ban"
 export CMD_DES_50="install sqlite (for all)"
 export CMD_NIX_50="sudo apt install sqlite"
 
-export CMD_DES_51="install mongodb 3.0 (for ubuntu 14.04.x trusty)"
-export CMD_NIX_51="sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10 && echo \"deb http://repo.mongodb.org/apt/ubuntu \"\$(lsb_release -sc)\"/mongodb-org/3.0 multiverse\" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.0.list && sudo apt-get update && sudo apt-get install -y mongodb-org"
+export CMD_DES_51="install mariadb"
+export CMD_NIX_51="sudo apt update && sudo apt install mariadb-server"
 
-export CMD_DES_52="install mariadb 10.0 (for ubuntu 14.04.x trusty)"
-export CMD_NIX_52="sudo apt-get install software-properties-common && sudo apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0xcbcb082a1bb943db && sudo add-apt-repository \"deb http://lon1.mirrors.digitalocean.com/mariadb/repo/10.0/ubuntu trusty main\" && sudo apt-get update && sudo apt-get install mariadb-server"
+export CMD_DES_52="install postgres"
+export CMD_NIX_52="sudo apt update && sudo apt install postgresql"
 
 ## 6x common web servers and languages
 export CMD_DES_60="install nginx - ppa latest stable (for all)"
 export CMD_NIX_60="apt update && sudo add-apt-repository ppa:nginx/stable && sudo apt install nginx"
 
-export CMD_DES_61="install php5 (fpm)"
-export CMD_NIX_61="sudo apt install php5-fpm php5-cli php5-mysqlnd"
+export CMD_DES_61="install php7 (fpm)"
+export CMD_NIX_61="sudo apt install php-fpm php-cli php-mysqlnd"
 
 ## 7x common libraries and apps
-
-
 export CMD_DES_70="show list of system installed libraries and applications"
 export CMD_NIX_70="sudo apt list --installed"
 
 export CMD_DES_71="install build-essential"
-export CMD_NIX_71="sudo apt install build-essential"
+export CMD_NIX_71="sudo apt install build-essential software-properties-common"
 
 export CMD_DES_72="install av suite (avconv pngquant graphicsmagick)"
 export CMD_NIX_72="apt-get install libav-tools pngquant graphicsmagick"
