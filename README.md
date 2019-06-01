@@ -39,14 +39,16 @@ this project has two key goals
 - languages (ruby 2.x, php)
 - web servers (nginx)
 - db (mysql, mongodb, mariadb)
+- extended libraries (pngquant, libav)
 
 # to use
 
 requirements:
-- bourne shell (bash 4.0+)
+- debian jessie (14.04+) and above - as well as ubuntu
+- bourne shell (bash 4.0+) and above
 - curl
 
-to install on (debian / ubuntu / mac), fire up terminal and run:
+to install on (debian / ubuntu / mint / macos), fire up terminal and run:
 ```
 which curl && sudo curl -L https://raw.githubusercontent.com/mirageglobe/butlerfox/master/install.sh | bash
 ```
@@ -76,9 +78,9 @@ to uninstall,
 fox m 2
 ```
 
-to uninstall (legacy files),
+to manually uninstall (including legacy files),
 ```
-sudo rm /usr/local/bin/samurai && rm /usr/local/bin/samurai-mac.py && rm /usr/local/bin/samurai-linux.py
+sudo rm /usr/local/bin/samurai && rm /usr/local/bin/samurai-mac.py && rm /usr/local/bin/samurai-linux.py && rm /usr/local/bin/fox
 ```
 
 # contribute
@@ -108,7 +110,9 @@ $ make test
 a few points to note before submitting PR :
 
 - ensure this is tested on debian (as indicated in vagrantfile)
-- test on debian, ubuntu 12.04 lts, ubuntu 14.04 lts, ubuntu 16.04 lts, mac os x 10.9+ (maverick and above)
+- test on debian (jessie | stretch), ubuntu (16.04 lts | 18.04 lts), mac os x 10.11+ (el capitan | sierra | high sierra | mojave)
+
+when placing apps, it should always be in usr/local/bin/.. . see https://unix.stackexchange.com/questions/8656/usr-bin-vs-usr-local-bin-on-linux
 
 when adding shell(sh/bash) commands, you can chain commands with four ways:
 ```

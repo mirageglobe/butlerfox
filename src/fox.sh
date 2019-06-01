@@ -153,7 +153,7 @@ export CMD_DES_29="show local SMB/CIFS shares on network"
 export CMD_NIX_29="nmblookup -S '*'"
 
 ## 3x common platform and pkg managers
-export CMD_DES_30="install homebrew (nix works / mac experimental)"
+export CMD_DES_30="install homebrew (system package manager | macosx recommended)"
 export CMD_NIX_30="curl https://raw.githubusercontent.com/Homebrew/install/master/install | ruby"
 export CMD_MAC_30="curl https://raw.githubusercontent.com/Homebrew/install/master/install | ruby"
 
@@ -163,10 +163,11 @@ export CMD_MAC_31="sudo apt update && curl https://raw.githubusercontent.com/cre
 
 export CMD_DES_32="install n (node version manager)"
 export CMD_NIX_32="sudo apt update && curl -L https://git.io/n-install | bash"
-export CMD_MAC_32="sudo apt update && brew install n"
+export CMD_MAC_32="command -v brew && brew install n"
 
 export CMD_DES_36="install latest stable git"
 export CMD_NIX_36="sudo add-apt-repository ppa:git-core/ppa && sudo apt update && sudo apt install git"
+export CMD_MAC_36="command -v brew && brew install git"
 
 ## 4x common security
 export CMD_DES_40="install clamav and clam daemon"
