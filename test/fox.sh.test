@@ -7,7 +7,7 @@ SOURCE=src
   [ $status = 0 ]
 }
 
-@test "ensure that fake command returns error" {
+@test "ensure that fake command gracefully fails" {
   run $SOURCE/fox.sh randomcommand
   [ $status = 127 ]
 }
@@ -22,12 +22,12 @@ SOURCE=src
   [ $status = 0 ]
 }
 
-@test "ensure that command : m-v : works" {
+@test "ensure that command : m-v : gracefully fails" {
   run $SOURCE/fox.sh m-v
   [ $status = 127 ]
 }
 
-@test "ensure that command : r : fails" {
+@test "ensure that command : r : gracefully fails" {
   run $SOURCE/fox.sh r
   [ $status = 127 ]
 }

@@ -1,28 +1,6 @@
 #!/usr/bin/env bash
 
-# ----- include libaries
-
-# ----- arguments
-
-FOX_TITLE='::'                # fox prefix for header output
-FOX_TEXT='  '                 # fox prefix for text output
-
-FOX_AVATAR=':: ButlerFox ::'  # fox prefix for speech
-FOX_OSTYPE=$(uname -s)
-
-EXPECTED_ARGS=1               # number of expected arguments
-FOX_BIN=fox                   # the fox binary executable
-# FOX_BIN=$0
-
-FOX_CMD=$1                    # the 2nd tier variable such as "m"
-FOX_OPT=$2                    # the 3rd tier variable such as "12"
-FOX_OS="NIL"
-
-# error list
-
-E_BADARGS=65                  # Wrong number of arguments passed to script.
-
-# ----- common functions
+# === common functions
 
 print_fox () {
   printf "$FOX_AVATAR  %s" "$1"
@@ -73,19 +51,36 @@ is_linux() {
   return $rtn_val
 }
 
-# ----- main
+# === common variables
 
-# check arguments
+FOX_TITLE='::'                # fox prefix for header output
+FOX_TEXT='  '                 # fox prefix for text output
 
-if [ "$#" -lt "$EXPECTED_ARGS" ]; then
-  printf "\\n"
-  print_fox "what can I do for you?"
-  print_help
-  exit $E_BADARGS
+FOX_AVATAR=':: ButlerFox ::'  # fox prefix for speech
+FOX_OSTYPE=$(uname -s)
+
+EXPECTED_ARGS=0               # number of expected arguments
+FOX_BIN=fox                   # the fox binary executable
+# FOX_BIN=$0
+
+FOX_CMD=$1                    # the 2nd tier variable such as "m"
+FOX_OPT=$2                    # the 3rd tier variable such as "12"
+FOX_OS="NIL"
+
+# error list
+
+E_BADARGS=65                  # Wrong number of arguments passed to script.
+
+# ==> derived variables
+
+# setting prefix values
+if is_macos; then
+  FOX_OS="MAC"
+elif is_linux; then
+  FOX_OS="NIX"
 fi
 
-# core command options
-# set CMD_<command number> = <bash command> <command definition>
+# core command options - set cmd_<command number> = <bash command> <command definition>
 
 ## x core fox commands
 export CMD_DES_1="update butler(fox)"
@@ -215,12 +210,15 @@ export CMD_NIX_72="apt-get install libav-tools pngquant graphicsmagick"
 export CMD_DES_73="add virtualbox guest additions for debian/ubuntu (for virtualbox VMs)"
 export CMD_NIX_73="sudo apt install virtualbox-guest-dkms virtualbox-guest-utils virtualbox-guest-x11"
 
-# setting prefix values
 
-if is_macos; then
-  FOX_OS="MAC"
-elif is_linux; then
-  FOX_OS="NIX"
+# === main
+
+# validate standard args requirements : not required for this as returning help if 0 args
+if [ "$#" -lt "$EXPECTED_ARGS" ]; then
+  printf "\\n"
+  print_fox "what can I do for you?"
+  print_help
+  exit $E_BADARGS
 fi
 
 # default checks
@@ -280,8 +278,17 @@ if [ "$FOX_OS" != "NIL" ]; then
       printf "\\n"
       printf "\\n"
       ;;
+    '')
+      # catch empty
+      print_help "$FOX_BIN"
+      ;;
     *)
-      die
+      # catch error
+      print_fox "hmmm...?"
+      print_error ":: error :: expected command"
+      printf "\\n"
+      exit 127
+      ;;
   esac
 fi
 
