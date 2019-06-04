@@ -216,7 +216,7 @@ export CMD_NIX_73="sudo apt install virtualbox-guest-dkms virtualbox-guest-utils
 # validate standard args requirements : not required for this as returning help if 0 args
 if [ "$#" -lt "$EXPECTED_ARGS" ]; then
   printf "\\n"
-  print_fox "what can I do for you?"
+  print_fox "how may I be of assistance?"
   print_help
   exit $E_BADARGS
 fi
