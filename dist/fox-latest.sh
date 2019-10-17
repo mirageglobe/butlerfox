@@ -111,6 +111,7 @@ export CMD_MAC_14="exec \$SHELL -l"
 
 export CMD_DES_15="show users list"
 export CMD_NIX_15="column -ts: /etc/passwd | sort"
+export CMD_MAC_15="dscl . list /Users | grep -v '^_'"
 
 export CMD_DES_16="show disk space and mounted drives"
 export CMD_NIX_16="df -h --total"
