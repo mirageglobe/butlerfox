@@ -181,6 +181,10 @@ export CMD_NIX_43="sudo apt install ufw && ufw allow ssh && ufw allow 80 && sudo
 export CMD_DES_44="install fail2ban with sendmail dependancy"
 export CMD_NIX_44="sudo apt install sendmail fail2ban"
 
+export CMD_DES_45="generate ssh key using rsa"
+export CMD_NIX_45="sudo ssh-keygen -t rsa"
+export CMD_MAC_45="ssh-keygen -t rsa"
+
 ## 5x common databases
 export CMD_DES_50="install sqlite (for all)"
 export CMD_NIX_50="sudo apt install sqlite"
