@@ -11,6 +11,9 @@ SHELL:=/bin/bash
 
 # core commands
 
+all: 	build test deploy											## build test deploy project
+	@echo ":: build test deploy - ok ::"
+
 build: 	build-init													## build project
 	@echo ":: build project - ok ::"
 
