@@ -125,9 +125,9 @@ export CMD_DES_18="show process via ps"
 export CMD_NIX_18="ps -e -o 'uid pid pcpu pmem wq comm'"
 export CMD_MAC_18="ps -e -o 'uid pid pcpu pmem wq comm'"
 
-export CMD_DES_19="show kernel build information"
-export CMD_NIX_19="uname -a"
-export CMD_MAC_19="uname -a"
+export CMD_DES_19="show kernel build information and shell"
+export CMD_NIX_19="uname -a; echo $0"
+export CMD_MAC_19="uname -a; echo $0"
 
 export CMD_DES_20="show ubuntu or *buntu-like version information"
 export CMD_NIX_20="lsb_release -a"
