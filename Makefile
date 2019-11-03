@@ -7,18 +7,27 @@ SHELL:=/bin/bash
 ##@ Tools
 
 .PHONY: build test deploy
-# phony is used to make sure theres no similar file such as <target> that cause the make recipie not to work
+# phony is used to make sure there is no similar file such as <target> that cause the make recipe not to work
 
 # core commands
 
-build: build-init											## build project
+all: 	build test deploy											## build test deploy project
+	@echo ":: build test deploy - ok ::"
+
+build: 	build-init													## build project
 	@echo ":: build project - ok ::"
 
-test: test-suite test-lint 						## test project
+test: 	test-init test-core test-lint 			## test project
 	@echo ":: test project - ok ::"
 
-deploy: deploy-init										## deploy files
+deploy: deploy-init													## deploy files
 	@echo ":: deploy project - ok ::"
+
+# misc commands
+
+run: 																	## runs the main executable or help
+	@echo ":: run project main executable or help ::"
+	bash src/fox.sh
 
 # helper commands
 
@@ -27,25 +36,26 @@ build-init:
 	command -v shellcheck
 	command -v bats
 	@echo ":: checking environment variables ::"
+	@echo "no env variables required"
 
-test-suite:
-	@echo ":: testing project ::"
-	bats -r test/*
+test-init:
+	@echo ":: check test dependancies ::"
+	command -v shellcheck
+	command -v bats
 
 test-lint:
 	@echo ":: running lint ::"
 	shellcheck src/fox.sh
+
+test-core:
+	@echo ":: testing project ::"
+	bats -r test/*
 
 deploy-init:
 	@echo ":: deploying binary ::"
 	cp src/fox.sh dist/fox-latest.sh
 	@echo ":: final test binary ::"
 	command -v dist/fox-latest.sh
-
-# misc commands
-
-run: 																	## runs project
-	@echo ":: run project ::"
 
 ##@ Helpers
 

@@ -2,32 +2,32 @@
 
 SOURCE=src
 
-@test "ensure that app exists" {
+@test "ensure app exists" {
   run stat $SOURCE/fox.sh
   [ $status = 0 ]
 }
 
-@test "ensure that fake command returns error" {
+@test "ensure fake command gracefully fails" {
   run $SOURCE/fox.sh randomcommand
   [ $status = 127 ]
 }
 
-@test "ensure that command : m : works" {
+@test "ensure command : m : works" {
   run $SOURCE/fox.sh m
   [ $status = 0 ]
 }
 
-@test "ensure that command : mm : works" {
+@test "ensure command : mm : works" {
   run $SOURCE/fox.sh mm
   [ $status = 0 ]
 }
 
-@test "ensure that command : m-v : works" {
+@test "ensure command : m-v : gracefully fails" {
   run $SOURCE/fox.sh m-v
   [ $status = 127 ]
 }
 
-@test "ensure that command : r : fails" {
+@test "ensure command : r : gracefully fails" {
   run $SOURCE/fox.sh r
   [ $status = 127 ]
 }

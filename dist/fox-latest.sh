@@ -1,28 +1,6 @@
 #!/usr/bin/env bash
 
-# ----- include libaries
-
-# ----- arguments
-
-FOX_TITLE='::'                # fox prefix for header output
-FOX_TEXT='  '                 # fox prefix for text output
-
-FOX_AVATAR=':: ButlerFox ::'  # fox prefix for speech
-FOX_OSTYPE=$(uname -s)
-
-EXPECTED_ARGS=1               # number of expected arguments
-FOX_BIN=fox                   # the fox binary executable
-# FOX_BIN=$0
-
-FOX_CMD=$1                    # the 2nd tier variable such as "m"
-FOX_OPT=$2                    # the 3rd tier variable such as "12"
-FOX_OS="NIL"
-
-# error list
-
-E_BADARGS=65                  # Wrong number of arguments passed to script.
-
-# ----- common functions
+# === common functions
 
 print_fox () {
   printf "$FOX_AVATAR  %s" "$1"
@@ -73,19 +51,36 @@ is_linux() {
   return $rtn_val
 }
 
-# ----- main
+# === common variables
 
-# check arguments
+FOX_TITLE='::'                # fox prefix for header output
+FOX_TEXT='  '                 # fox prefix for text output
 
-if [ "$#" -lt "$EXPECTED_ARGS" ]; then
-  printf "\\n"
-  print_fox "what can I do for you?"
-  print_help
-  exit $E_BADARGS
+FOX_AVATAR=':: ButlerFox ::'  # fox prefix for speech
+FOX_OSTYPE=$(uname -s)
+
+EXPECTED_ARGS=0               # number of expected arguments
+FOX_BIN=fox                   # the fox binary executable
+# FOX_BIN=$0
+
+FOX_CMD=$1                    # the 2nd tier variable such as "m"
+FOX_OPT=$2                    # the 3rd tier variable such as "12"
+FOX_OS="NIL"
+
+# error list
+
+E_BADARGS=65                  # Wrong number of arguments passed to script.
+
+# ==> derived variables
+
+# setting prefix values
+if is_macos; then
+  FOX_OS="MAC"
+elif is_linux; then
+  FOX_OS="NIX"
 fi
 
-# core command options
-# set CMD_<command number> = <bash command> <command definition>
+# core command options - set cmd_<command number> = <bash command> <command definition>
 
 ## x core fox commands
 export CMD_DES_1="update butler(fox)"
@@ -116,6 +111,7 @@ export CMD_MAC_14="exec \$SHELL -l;"
 
 export CMD_DES_15="show users list"
 export CMD_NIX_15="column -ts: /etc/passwd | sort;"
+export CMD_MAC_15="dscl . list /Users | grep -v '^_';"
 
 export CMD_DES_16="show disk space and mounted drives"
 export CMD_NIX_16="df -h --total;"
@@ -129,9 +125,9 @@ export CMD_DES_18="show process via ps"
 export CMD_NIX_18="ps -e -o 'uid pid pcpu pmem wq comm';"
 export CMD_MAC_18="ps -e -o 'uid pid pcpu pmem wq comm';"
 
-export CMD_DES_19="show kernel build information"
-export CMD_NIX_19="uname -a;"
-export CMD_MAC_19="uname -a;"
+export CMD_DES_19="show kernel build information and shell"
+export CMD_NIX_19="uname -a; echo $0;"
+export CMD_MAC_19="uname -a; echo $0;"
 
 export CMD_DES_20="show ubuntu or *buntu-like version information"
 export CMD_NIX_20="lsb_release -a;"
@@ -185,6 +181,10 @@ export CMD_NIX_43="sudo apt install ufw && ufw allow ssh && ufw allow 80 && sudo
 export CMD_DES_44="install fail2ban with sendmail dependancy"
 export CMD_NIX_44="sudo apt install sendmail fail2ban;"
 
+export CMD_DES_45="generate ssh key using rsa"
+export CMD_NIX_45="sudo ssh-keygen -t rsa"
+export CMD_MAC_45="ssh-keygen -t rsa"
+
 ## 5x common databases
 export CMD_DES_50="install sqlite (for all)"
 export CMD_NIX_50="sudo apt install sqlite;"
@@ -215,12 +215,15 @@ export CMD_NIX_72="apt-get install libav-tools pngquant graphicsmagick;"
 export CMD_DES_73="add virtualbox guest additions for debian/ubuntu (for virtualbox VMs)"
 export CMD_NIX_73="sudo apt install virtualbox-guest-dkms virtualbox-guest-utils virtualbox-guest-x11;"
 
-# setting prefix values
 
-if is_macos; then
-  FOX_OS="MAC"
-elif is_linux; then
-  FOX_OS="NIX"
+# === main
+
+# validate standard args requirements : not required for this as returning help if 0 args
+if [ "$#" -lt "$EXPECTED_ARGS" ]; then
+  printf "\\n"
+  print_fox "how may I be of assistance?"
+  print_help
+  exit $E_BADARGS
 fi
 
 # default checks
@@ -280,8 +283,17 @@ if [ "$FOX_OS" != "NIL" ]; then
       printf "\\n"
       printf "\\n"
       ;;
+    '')
+      # catch empty
+      print_help "$FOX_BIN"
+      ;;
     *)
-      die
+      # catch error
+      print_fox "hmmm...?"
+      print_error ":: error :: expected command"
+      printf "\\n"
+      exit 127
+      ;;
   esac
 fi
 

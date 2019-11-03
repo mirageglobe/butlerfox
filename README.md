@@ -122,6 +122,17 @@ when adding shell(sh/bash) commands, you can chain commands with four ways:
   & run in background
 ```
 
+when returning error codes refer to http://tldp.org/LDP/abs/html/exitcodes.html
+
+- 1 = catchall for general errors
+- 2 = misuse of shell builtins
+- 126 = command invoked cannot execute
+- 127 = command not found
+- 128 = invalid argument to exit
+- 128+n = fatal error signal "n"
+- 130 = script terminated by control-c
+- 255 = exit status out of range
+
 # road map #
 
 - add bash completion commands
