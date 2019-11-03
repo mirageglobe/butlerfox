@@ -50,7 +50,7 @@ requirements:
 
 to install on (debian / ubuntu / mint / macos), fire up terminal and run:
 ```
-which curl && sudo curl -L https://raw.githubusercontent.com/mirageglobe/butlerfox/master/install.sh | bash
+which curl && curl -L https://raw.githubusercontent.com/mirageglobe/butlerfox/master/install.sh | bash
 ```
 
 if you do not have curl, on debian/ubuntu you can do
@@ -80,7 +80,10 @@ fox m 2
 
 to manually uninstall (including legacy files),
 ```
-sudo rm /usr/local/bin/samurai && rm /usr/local/bin/samurai-mac.py && rm /usr/local/bin/samurai-linux.py && rm /usr/local/bin/fox
+rm /usr/local/bin/samurai;
+rm /usr/local/bin/samurai-mac.py;
+rm /usr/local/bin/samurai-linux.py;
+rm /usr/local/bin/fox
 ```
 
 # contribute
@@ -116,10 +119,10 @@ when placing apps, it should always be in usr/local/bin/.. . see https://unix.st
 
 when adding shell(sh/bash) commands, you can chain commands with four ways:
 ```
-  ; = run regardless
-  && = run if previous succeed
-  || = run if previous fail
-  & run in background
+; = run regardless
+&& = run if previous succeed
+|| = run if previous fail
+& run in background
 ```
 
 when returning error codes refer to http://tldp.org/LDP/abs/html/exitcodes.html
