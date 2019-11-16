@@ -9,17 +9,17 @@
 ```
                               ....
                            ..::::::::.   
-        .........         :::::::::::::
-    ..::::::::::::::..   .::::::::::::. 
+        ..........        :::::::::::::
+    ..:=============:..   .::::::::::::. 
    :==================: .::::::::::::.
    :==================:::::::::::::::
- : :==================::::::::::::::
+ . .==================::::::::::::::
 ::::==================::::    :::::
- :::==================:::.    ::::
+ :::..==============..:::.    ::::
   :.:::::::::::::::::::      :::::
     ::.::::::::::.   ::      :::::.
-    ::: :.:.:::      ::        ::::.
-     ::             .:
+    ::: .::::.      ::        ::::.
+     ::             :
 ```
 
 Butler Fox (inspired by batman's chief scientist, as well as various uber powered manga butlers) is an opinionated system helper tool that provides a simple interface for managing your machine. Butler Fox helps to simplify package manager installs and execute common bash shell commands on mac or debian systems. Butler Fox aims to drastically reduce memory work, making installations/monitoring easier so you can focus on important things.
@@ -94,7 +94,7 @@ make                # list make file options
                     # do your fixes
 make lint           # lint (using shellcheck)
 make test           # test (using bats - ~~https://github.com/sstephenson/bats~~ https://github.com/bats-core/bats-core)
-make all            # lint (using shellcheck)
+make all            # runs lint test and builds to dist folder
 ```
 
 # road map
