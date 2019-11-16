@@ -77,7 +77,7 @@ curl -L https://raw.githubusercontent.com/mirageglobe/butlerfox/master/dist/fox-
 
 echo ":: symlinking/setting butler(fox) ::"
 chmod u+x $FOX_PATH/fox
-command -v fox || { echo ":: failed to install fox at $FOX_PATH. please log issue at https://github.com/mirageglobe/butlerfox ::"; exit 1; }
+# command -v fox || { echo ":: failed to install fox at $FOX_PATH. please log issue at https://github.com/mirageglobe/butlerfox ::"; exit 1; }
 echo ":: complete. please restart shell for path to update ::"
 
 # summary
@@ -85,6 +85,6 @@ echo ":: complete. please restart shell for path to update ::"
 echo ":: summary ::"
 echo "  installed butlerfox into $FOX_PATH/fox"
 echo "  add the following to your .bashrc or .zsh"
-echo "    export PATH=$FOX_PATH:$PATH"
+echo "    export PATH=$FOX_PATH:\$PATH"
 echo "  to uninstall, delete binary $FOX_PATH/fox"
 
