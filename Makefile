@@ -59,16 +59,16 @@ test-init:
 	command -v shellcheck
 	command -v bats
 
-test-lint:
-	@echo ":: running lint ::"
-	shellcheck src/fox.sh
-
 test-core:
 	@echo ":: testing project ::"
 	bats -r test/*
 
+test-lint:
+	@echo ":: running lint ::"
+	shellcheck src/fox.sh
+
 test-vagrant:
-	@echo ":: testing project ::"
+	@echo ":: spin up vagrant for test ::"
 	vagrant up
 
 deploy-init:
@@ -81,5 +81,5 @@ deploy-init:
 ##@ Helpers
 
 help:  ## display this help
-	@awk 'BEGIN {FS = ":.*##"; printf "\nUsage:\n  make \033[36m<target>\033[0m\n"} /^[a-zA-Z_-]+:.*?##/ { printf "  \033[36m%-15s\033[0m %s\n", $$1, $$2 } /^##@/ { printf "\n\033[1m%s\033[0m\n", substr($$0, 5) } ' $(MAKEFILE_LIST)
+	@awk 'BEGIN {FS = ":.*##"; printf "\nUsage:\n  make \033[36m<target>\033[0m\n"} /^[a-zA-Z0-9_-]+:.*?##/ { printf "  \033[36m%-15s\033[0m %s\n", $$1, $$2 } /^##@/ { printf "\n\033[1m%s\033[0m\n", substr($$0, 5) } ' $(MAKEFILE_LIST)
 	@printf "\n"
