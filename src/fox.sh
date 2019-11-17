@@ -56,7 +56,7 @@ is_linux() {
 FOX_TITLE='::'                # fox prefix for header output
 FOX_TEXT='  '                 # fox prefix for text output
 
-FOX_AVATAR=':: ButlerFox ::'  # fox prefix for speech
+FOX_AVATAR='[ButlerFox] '  # fox prefix for speech
 FOX_OSTYPE=$(uname -s)
 
 EXPECTED_ARGS=0               # number of expected arguments
@@ -84,21 +84,21 @@ fi
 
 ## x core fox commands
 export CMD_DES_1="update butler(fox)"
-export CMD_NIX_1="which curl && sudo curl -L https://raw.githubusercontent.com/mirageglobe/butlerfox/master/install.sh | bash;"
-export CMD_MAC_1="which curl && sudo curl -L https://raw.githubusercontent.com/mirageglobe/butlerfox/master/install.sh | bash;"
+export CMD_NIX_1="which curl && curl -L https://raw.githubusercontent.com/mirageglobe/butlerfox/master/install.sh | bash;"
+export CMD_MAC_1="which curl && curl -L https://raw.githubusercontent.com/mirageglobe/butlerfox/master/install.sh | bash;"
 
 export CMD_DES_2="remove butler(fox)"
-export CMD_NIX_2="sudo rm /usr/local/bin/samurai; sudo rm /usr/local/bin/samurai-mac.py; sudo rm /usr/local/bin/samurai-linux.py; sudo rm /usr/local/bin/fox;"
-export CMD_MAC_2="sudo rm /usr/local/bin/samurai; sudo rm /usr/local/bin/samurai-mac.py; sudo rm /usr/local/bin/samurai-linux.py; sudo rm /usr/local/bin/fox;"
+export CMD_NIX_2="rm /usr/local/bin/fox;"
+export CMD_MAC_2="rm /usr/local/bin/fox;"
 
 ## 1x / 2x common operating system commands
-export CMD_DES_10="update debian/ubuntu and cleanup cache"
+export CMD_DES_10="update debian/ubuntu and cleanup cache [sudo]"
 export CMD_NIX_10="sudo apt update && sudo apt upgrade && sudo apt autoclean && sudo apt autoremove;"
 
-export CMD_DES_11="update debian/ubuntu distribution"
+export CMD_DES_11="update debian/ubuntu distribution [sudo]"
 export CMD_NIX_11="sudo apt dist-upgrade;"
 
-export CMD_DES_12="setup ubuntu/debian auto upgrade (recommended)"
+export CMD_DES_12="setup ubuntu/debian auto upgrade (recommended) [sudo]"
 export CMD_NIX_12="sudo apt install unattended-upgrades && dpkg-reconfigure --priority=low unattended-upgrades;"
 
 export CMD_DES_13="update/change current user password (warning)"
@@ -141,7 +141,7 @@ export CMD_DES_26="show external IP v6 address"
 export CMD_NIX_26="curl ipv6.icanhazip.com;"
 export CMD_MAC_26="curl ipv6.icanhazip.com;"
 
-export CMD_DES_27="show open ports and listening apps"
+export CMD_DES_27="show open ports and listening apps [sudo]"
 export CMD_NIX_27="netstat -lnptu;"
 export CMD_MAC_27="sudo lsof -PiTCP -sTCP:LISTEN;"
 
@@ -153,66 +153,66 @@ export CMD_DES_30="install homebrew (system package manager | macosx recommended
 export CMD_NIX_30="curl https://raw.githubusercontent.com/Homebrew/install/master/install | ruby;"
 export CMD_MAC_30="curl https://raw.githubusercontent.com/Homebrew/install/master/install | ruby;"
 
-export CMD_DES_31="install nvm (node version manager)"
-export CMD_NIX_31="sudo apt update && curl https://raw.githubusercontent.com/creationix/nvm/v0.24.0/install.sh | bash;"
-export CMD_MAC_31="sudo apt update && curl https://raw.githubusercontent.com/creationix/nvm/v0.24.0/install.sh | bash;"
+export CMD_DES_31="install nvm (node version manager) [sudo]"
+export CMD_NIX_31="curl https://raw.githubusercontent.com/creationix/nvm/v0.24.0/install.sh | bash;"
+export CMD_MAC_31="curl https://raw.githubusercontent.com/creationix/nvm/v0.24.0/install.sh | bash;"
 
-export CMD_DES_32="install n (node version manager)"
-export CMD_NIX_32="sudo apt update && curl -L https://git.io/n-install | bash;"
-export CMD_MAC_32="command -v brew && brew install n;"
+export CMD_DES_32="install n (node version manager) [homebrew]"
+export CMD_NIX_32="curl -L https://git.io/n-install | bash;"
+export CMD_MAC_32="command -V brew && brew install n"
 
-export CMD_DES_36="install latest stable git"
+export CMD_DES_36="install latest stable git [sudo|homebrew]"
 export CMD_NIX_36="sudo add-apt-repository ppa:git-core/ppa && sudo apt update && sudo apt install git;"
 export CMD_MAC_36="command -v brew && brew install git;"
 
 ## 4x common security
-export CMD_DES_40="install clamav and clam daemon"
+export CMD_DES_40="install clamav and clam daemon [sudo]"
 export CMD_NIX_40="sudo apt install clamav clamav-daemon;"
 
-export CMD_DES_41="install chkrootkit"
+export CMD_DES_41="install chkrootkit [sudo]"
 export CMD_NIX_41="sudo apt install chkrootkit;"
 
-export CMD_DES_42="install rkhunter"
+export CMD_DES_42="install rkhunter [sudo]"
 export CMD_NIX_42="sudo apt install rkhunter;"
 
-export CMD_DES_43="install ufw and allow ssh port 22/80"
+export CMD_DES_43="install ufw and allow ssh port 22/80 [sudo]"
 export CMD_NIX_43="sudo apt install ufw && ufw allow ssh && ufw allow 80 && sudo ufw enable;"
 
-export CMD_DES_44="install fail2ban with sendmail dependancy"
+export CMD_DES_44="install fail2ban with sendmail dependancy [sudo]"
 export CMD_NIX_44="sudo apt install sendmail fail2ban;"
 
 export CMD_DES_45="generate ssh key using rsa"
-export CMD_NIX_45="sudo ssh-keygen -t rsa"
+export CMD_NIX_45="ssh-keygen -t rsa"
 export CMD_MAC_45="ssh-keygen -t rsa"
 
 ## 5x common databases
-export CMD_DES_50="install sqlite (for all)"
+export CMD_DES_50="install sqlite (for all) [sudo]"
 export CMD_NIX_50="sudo apt install sqlite;"
 
-export CMD_DES_51="install mariadb"
+export CMD_DES_51="install mariadb [sudo]"
 export CMD_NIX_51="sudo apt update && sudo apt install mariadb-server;"
 
-export CMD_DES_52="install postgres"
+export CMD_DES_52="install postgres [sudo]"
 export CMD_NIX_52="sudo apt update && sudo apt install postgresql;"
 
 ## 6x common web servers and languages
-export CMD_DES_60="install nginx - ppa latest stable (for all)"
+export CMD_DES_60="install nginx - ppa latest stable (for all) [sudo]"
 export CMD_NIX_60="apt update && sudo add-apt-repository ppa:nginx/stable && sudo apt install nginx;"
 
-export CMD_DES_61="install php7 (fpm)"
+export CMD_DES_61="install php7 (fpm) [sudo]"
 export CMD_NIX_61="sudo apt install php-fpm php-cli php-mysqlnd;"
 
 ## 7x common libraries and apps
-export CMD_DES_70="show list of system installed libraries and applications"
+export CMD_DES_70="show list of system installed libraries and applications [sudo]"
 export CMD_NIX_70="sudo apt list --installed;"
 
-export CMD_DES_71="install build-essential"
+export CMD_DES_71="install build-essential [sudo]"
 export CMD_NIX_71="sudo apt install build-essential software-properties-common;"
 
 export CMD_DES_72="install av suite (avconv pngquant graphicsmagick)"
 export CMD_NIX_72="apt-get install libav-tools pngquant graphicsmagick;"
 
-export CMD_DES_73="add virtualbox guest additions for debian/ubuntu (for virtualbox VMs)"
+export CMD_DES_73="add virtualbox guest additions for debian/ubuntu (for virtualbox VMs) [sudo]"
 export CMD_NIX_73="sudo apt install virtualbox-guest-dkms virtualbox-guest-utils virtualbox-guest-x11;"
 
 
