@@ -87,13 +87,13 @@ grep -q "/.fox.bash" "$HOME/.bashrc" && echo "[fox] found bash path. skipping up
 # summary
 
 cat << EOM 
-[fox] 
+[fox] sir, i have prepared a summary
 
 :: summary ::
+  installed butlerfox into $FOX_PATH/bin/fox
+  to uninstall, delete binary $FOX_PATH/fox
 
-complete. you may need to restart shell for your path to update
+[fox] all complete sir. you may need to restart shell for your path to update
 
-installed butlerfox into $FOX_PATH/bin/fox
-to uninstall, delete binary $FOX_PATH/fox
 EOM
 
