@@ -12,7 +12,7 @@ set -e
 # ----- variables using env
 
 FOX_PATH=$HOME/.fox
-FOX_VERSION=2.1.0
+FOX_VERSION=0.9.0
 
 # ----- functions
 
@@ -72,19 +72,28 @@ fi
 # install new project files
 
 echo ":: installing butler(fox) to $FOX_PATH ::"
-mkdir -pv $FOX_PATH
-curl -L https://raw.githubusercontent.com/mirageglobe/butlerfox/master/dist/fox-latest.sh -o $FOX_PATH/fox
+mkdir -pv $FOX_PATH/bin
+curl -L https://raw.githubusercontent.com/mirageglobe/butlerfox/master/dist/fox-latest.sh -o $FOX_PATH/bin/fox
+curl -L https://raw.githubusercontent.com/mirageglobe/butlerfox/master/dist/.fox.bash -o $FOX_PATH/.fox.bash
 
 echo ":: symlinking/setting butler(fox) ::"
-chmod u+x $FOX_PATH/fox
+chmod u+x $FOX_PATH/bin/fox
+
+# updating fox path
+grep -q "/.fox.bash" "$HOME/.bashrc" && echo "[fox] found bash path. skipping update." || echo "[ -f $FOX_PATH/.fox.bash ] && source $FOX_PATH/.fox.bash" >> $HOME/.bashrc
 # command -v fox || { echo ":: failed to install fox at $FOX_PATH. please log issue at https://github.com/mirageglobe/butlerfox ::"; exit 1; }
-echo ":: complete. please restart shell for path to update ::"
+
 
 # summary
 
-echo ":: summary ::"
-echo "  installed butlerfox into $FOX_PATH/fox"
-echo "  add the following to your .bashrc or .zsh"
-echo "    export PATH=$FOX_PATH:\$PATH"
-echo "  to uninstall, delete binary $FOX_PATH/fox"
+cat << EOM 
+[fox] 
+
+:: summary ::
+
+complete. you may need to restart shell for your path to update
+
+installed butlerfox into $FOX_PATH/bin/fox
+to uninstall, delete binary $FOX_PATH/fox
+EOM
 
