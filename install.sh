@@ -11,7 +11,7 @@ set -e
 
 # ----- variables using env
 
-FOX_PATH=$HOME/.fox
+FOX_PATH=~/.fox
 FOX_VERSION=0.9.0
 
 # ----- functions
@@ -79,8 +79,8 @@ curl -L https://raw.githubusercontent.com/mirageglobe/butlerfox/master/dist/.fox
 echo ":: symlinking/setting butler(fox) ::"
 chmod u+x $FOX_PATH/bin/fox
 
-# updating fox path
-grep -q "/.fox.bash" "$HOME/.bashrc" && echo "[fox] found bash path. skipping update." || echo "[ -f $FOX_PATH/.fox.bash ] && source $FOX_PATH/.fox.bash" >> $HOME/.bashrc
+# updating fox path by regex "/.fox/.bash"
+grep -q "$FOX_PATH/.fox/.fox.bash" "$HOME/.bashrc" && echo "[fox] found bash path. skipping update." || echo "[ -f $FOX_PATH/.fox.bash ] && source $FOX_PATH/.fox.bash" >> $HOME/.bashrc
 # command -v fox || { echo ":: failed to install fox at $FOX_PATH. please log issue at https://github.com/mirageglobe/butlerfox ::"; exit 1; }
 
 
