@@ -6,10 +6,11 @@
 - maintainer : jimmy mg lim (mirageglobe@gmail.com) / www.mirageglobe.com
 - source : https://github.com/mirageglobe/butlerfox
 
-## Announcement
-
 ```
-this project is in need of testers, please test it out and reach out to my email if you are interested to make this better. thanks.
+annoucements
+
+this project is in need of testers, please test it out and reach out to
+my email if you are interested to make this better. thanks.
 ```
 
 ```
