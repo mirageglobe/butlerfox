@@ -1,10 +1,16 @@
-# Butler Fox #
+# Butler Fox
 
 [![build](https://img.shields.io/travis/mirageglobe/butlerfox.svg)](https://travis-ci.org/mirageglobe/butlerfox)
 ![GitHub](https://img.shields.io/github/license/mirageglobe/butlerfox.svg)
 
 - maintainer : jimmy mg lim (mirageglobe@gmail.com) / www.mirageglobe.com
 - source : https://github.com/mirageglobe/butlerfox
+
+## Announcement
+
+```
+this project is in need of testers, please test it out and reach out to my email if you are interested to make this better. thanks.
+```
 
 ```
                               ....
@@ -32,7 +38,8 @@ this project has three key goals
 
 ![butlerfox heroimage](https://github.com/mirageglobe/butlerfox/blob/master/heroimage.png)
 
-# features #
+
+# features
 
 butlerfox has a full list of features which can be listed by running `fox m`. a few highlighted features are as below
 
