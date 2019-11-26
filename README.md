@@ -52,7 +52,7 @@ requirements
 
 to install on (debian / ubuntu / mint / macos), fire up terminal and run:
 ```
-which curl && curl -L https://raw.githubusercontent.com/mirageglobe/butlerfox/master/install.sh | bash
+command -V curl && curl -L https://raw.githubusercontent.com/mirageglobe/butlerfox/master/install.sh | bash
 ```
 
 to run and see main options/help,
