@@ -49,15 +49,15 @@ run: 																									## runs the main executable or help
 
 build-init:
 	@echo ":: checking build dependancies ::"
-	command -v shellcheck
-	command -v bats
+	command -V shellcheck
+	command -V bats
 	@echo ":: checking environment variables ::"
 	@echo "no env variables required"
 
 test-init:
 	@echo ":: check test dependancies ::"
-	command -v shellcheck
-	command -v bats
+	command -V shellcheck
+	command -V bats
 
 test-core:
 	@echo ":: testing project ::"
@@ -76,7 +76,7 @@ deploy-init:
 	cp src/fox.sh dist/fox-latest.sh
 	cp src/.fox.bash dist/.fox.bash
 	@echo ":: final test binary ::"
-	command -v dist/fox-latest.sh
+	command -V dist/fox-latest.sh
 
 ##@ Helpers
 
