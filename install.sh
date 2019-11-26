@@ -73,7 +73,7 @@ fi
 # install new project files
 
 echo ":: installing butlerfox ${FOX_AVATAR} to ${FOX_PATH} ::"
-mkdir -pv ${FOX_PATH}/bin
+mkdir -pv "${FOX_PATH}/bin"
 curl -L https://raw.githubusercontent.com/mirageglobe/butlerfox/master/dist/fox-latest.sh -o ${FOX_PATH}/bin/fox
 curl -L https://raw.githubusercontent.com/mirageglobe/butlerfox/master/dist/.fox.bash -o ${FOX_PATH}/.fox.bash
 
