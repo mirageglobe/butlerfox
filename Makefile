@@ -21,6 +21,33 @@ MENU := run help
 # ref - https://www.gnu.org/software/make/manual/html_node/One-Shell.html
 .ONESHELL:
 
+# === functions
+
+define fn_check_file_regex
+	cat $(1) || grep "$(2)"
+endef
+
+define fn_check_command_note
+	command -V $(1) || printf "$(2)"
+endef
+
+define fn_print_header
+	echo "";
+	echo "==> $(1)";
+	echo "";
+endef
+
+define fn_print_header_command
+	echo "";
+	echo "==> $(1)";
+	echo "";
+	$(2);
+endef
+
+define fn_print_tab
+	printf "%s\t\t%s\t\t%s\n" $(1) $(2) $(3)
+endef
+
 ##@ Tools
 
 # phony is used to make sure there is no similar file such as <target> that cause the make recipe not to work
@@ -30,13 +57,13 @@ MENU := run help
 all: 	build test deploy																## build test deploy project
 	@echo ":: build test deploy - ok ::"
 
-build: 	build-init																		## build project
+build: 	build-core																		## build project
 	@echo ":: build project - ok ::"
 
-test: 	test-init test-core test-lint 								## test project
+test: 	test-core 																		## test project
 	@echo ":: test project - ok ::"
 
-deploy: deploy-init																		## deploy files
+deploy: deploy-core																		## deploy files
 	@echo ":: deploy project - ok ::"
 
 # misc commands
@@ -47,35 +74,33 @@ run: 																									## runs the main executable or help
 
 # helper commands
 
-build-init:
-	@echo ":: checking build dependancies ::"
+build-core:
+	@$(call fn_print_header,"check build dependancies")
 	command -V shellcheck
 	command -V bats
 	@echo ":: checking environment variables ::"
 	@echo "no env variables required"
 
-test-init:
-	@echo ":: check test dependancies ::"
+test-core:
+	@$(call fn_print_header,"check test dependancies")
 	command -V shellcheck
 	command -V bats
-
-test-core:
+	@$(call fn_print_header,"run tests")
 	@echo ":: testing project ::"
 	bats -r test/*
-
-test-lint:
-	@echo ":: running lint ::"
+	@$(call fn_print_header,"run lint")
 	shellcheck src/fox.sh
 
-test-vagrant:
+test-vagrant: 																				## spin up vagrant test env
+	@$(call fn_print_header,"spin up local test env")
 	@echo ":: spin up vagrant for test ::"
 	vagrant up
 
-deploy-init:
-	@echo ":: deploying binary ::"
+deploy-core:
+	@$(call fn_print_header,"build distribution")
 	cp src/fox.sh dist/fox-latest.sh
 	cp src/.fox.bash dist/.fox.bash
-	@echo ":: final test binary ::"
+	@$(call fn_print_header,"test distribution")
 	command -V dist/fox-latest.sh
 
 ##@ Helpers
