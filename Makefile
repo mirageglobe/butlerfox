@@ -1,6 +1,6 @@
 
 # menu shortcuts targets
-MENU := build test deploy
+MENU := build test deploy build-core test-core deploy-core test-vagrant
 
 # menu helpers targets
 MENU := run help
