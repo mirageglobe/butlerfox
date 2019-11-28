@@ -93,7 +93,8 @@ test-core:
 
 test-vagrant: 																				## spin up vagrant test env
 	@$(call fn_print_header,"spin up local test env")
-	@echo ":: spin up vagrant for test ::"
+	command -V vagrant
+	vagrant plugin install vagrant-vbguest
 	vagrant up
 
 deploy-core:
