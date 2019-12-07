@@ -73,7 +73,7 @@ fi
 # install new project files
 
 echo ":: installing butlerfox ${FOX_AVATAR} to ${FOX_PATH} ::"
-mkdir -pv ${FOX_PATH}/bin
+mkdir -pv ${HOME}/.fox/bin
 curl -L https://raw.githubusercontent.com/mirageglobe/butlerfox/master/dist/fox-latest.sh -o ${FOX_PATH}/bin/fox
 curl -L https://raw.githubusercontent.com/mirageglobe/butlerfox/master/dist/.fox.bash -o ${FOX_PATH}/.fox.bash
 
@@ -81,7 +81,8 @@ echo ":: symlinking/setting butlerfox ${FOX_AVATAR} ::"
 chmod u+x ${FOX_PATH}/bin/fox
 
 # updating fox path by regex "/.fox/.bash"
-grep -q "${FOX_PATH}/.fox/.fox.bash" "${HOME}/.bashrc" && echo "[fox] found bash path. skipping update." || echo "[ -f ${FOX_PATH}/.fox.bash ] && source ${FOX_PATH}/.fox.bash" >> ${HOME}/.bashrc
+# grep -qxF 'export PATH="$HOME/.tools/bin:$PATH"' ${HOME}/.bashrc || echo '\nexport PATH="$HOME/.tools/bin:$PATH"' >> ${HOME}/.bashrc
+grep -qxF ".fox.bash" "${HOME}/.bashrc" && echo "[fox] found bash path. skipping update." || echo "[ -f ${FOX_PATH}/.fox.bash ] && source ${FOX_PATH}/.fox.bash" >> ${HOME}/.bashrc
 # command -v fox || { echo ":: failed to install fox at $FOX_PATH. please log issue at https://github.com/mirageglobe/butlerfox ::"; exit 1; }
 
 
