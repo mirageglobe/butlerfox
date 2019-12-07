@@ -215,6 +215,11 @@ export CMD_NIX_72="apt-get install libav-tools pngquant graphicsmagick;"
 export CMD_DES_73="add virtualbox guest additions for debian/ubuntu (for virtualbox VMs) [sudo]"
 export CMD_NIX_73="sudo apt install virtualbox-guest-dkms virtualbox-guest-utils virtualbox-guest-x11;"
 
+## 8x misc
+export CMD_DES_80="show calendar"
+export CMD_NIX_80="cal;"
+export CMD_MAC_80="cal;"
+
 
 # === main
 
