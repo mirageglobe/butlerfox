@@ -84,7 +84,7 @@ chmod u+x ${FOX_PATH}/
 # updating fox path by regex "/.fox/.bash"
 # grep -qxF 'export PATH="$HOME/.tools/bin:$PATH"' ${HOME}/.bashrc || echo '\nexport PATH="$HOME/.tools/bin:$PATH"' >> ${HOME}/.bashrc
 # grep -q (quiet) -x (entire line match)
-grep -q ".fox.bash" "${HOME}/.bashrc" && echo "[fox] found bash path. skipping update." || echo '[ -f ~/fox/.fox.bash ] && source ~/fox/.fox.bash' >> ${HOME}/.bashrc
+grep -q ".fox.bash" "${HOME}/.bashrc" && echo "[fox] found bash path. skipping update." || echo '[ -f ~/.fox/.fox.bash ] && source ~/.fox/.fox.bash' >> ${HOME}/.bashrc
 # command -v fox || { echo ":: failed to install fox at $FOX_PATH. please log issue at https://github.com/mirageglobe/butlerfox ::"; exit 1; }
 
 # summary
