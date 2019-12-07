@@ -80,6 +80,7 @@ curl -L https://raw.githubusercontent.com/mirageglobe/butlerfox/master/dist/.fox
 
 echo ":: symlinking/setting butlerfox ${FOX_AVATAR} ::"
 chmod u+x ${FOX_PATH}/
+chmod -R u+x ${FOX_PATH}/bin/
 
 # updating fox path by regex "/.fox/.bash"
 # grep -qxF 'export PATH="$HOME/.tools/bin:$PATH"' ${HOME}/.bashrc || echo '\nexport PATH="$HOME/.tools/bin:$PATH"' >> ${HOME}/.bashrc
