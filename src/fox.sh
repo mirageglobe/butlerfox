@@ -84,12 +84,8 @@ fi
 
 ## x core fox commands
 export CMD_DES_1="update butlerfox $FOX_AVATAR"
-export CMD_NIX_1="which curl && curl -L https://raw.githubusercontent.com/mirageglobe/butlerfox/master/install.sh | bash;"
-export CMD_MAC_1="which curl && curl -L https://raw.githubusercontent.com/mirageglobe/butlerfox/master/install.sh | bash;"
-
-export CMD_DES_2="remove butlerfox $FOX_AVATAR"
-export CMD_NIX_2="rm /usr/local/bin/fox;"
-export CMD_MAC_2="rm /usr/local/bin/fox;"
+export CMD_NIX_1="command -V curl && curl -L https://raw.githubusercontent.com/mirageglobe/butlerfox/master/install.sh | bash;"
+export CMD_MAC_1="command -V curl && curl -L https://raw.githubusercontent.com/mirageglobe/butlerfox/master/install.sh | bash;"
 
 ## 1x / 2x common operating system commands
 export CMD_DES_10="update debian/ubuntu and cleanup cache [sudo]"

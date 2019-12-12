@@ -7,27 +7,12 @@
 - source : https://github.com/mirageglobe/butlerfox
 
 ```
-annoucements
-
+Announcements
 this project is in need of testers, please test it out and reach out to
 my email if you are interested to make this better. thanks.
 ```
 
-```
-                              ....
-                           ..::::::::.   
-        ..........        :::::::::::::
-    ..:=============:..   .::::::::::::. 
-   :==================: .::::::::::::.
-   :==================:::::::::::::::
- . .==================::::::::::::::
-::::==================::::    :::::
- :::..==============..:::.    ::::
-  :.:::::::::::::::::::      :::::
-    ::.::::::::::.   ::      :::::.
-    ::: .::::.      ::        ::::.
-     ::             :
-```
+![butlerfox heroimage](https://github.com/mirageglobe/butlerfox/blob/master/heroimage.png)
 
 Butler Fox (inspired by batman's chief scientist, as well as various uber powered manga butlers) is an opinionated system helper tool that provides a simple interface for managing your machine. Butler Fox helps to simplify package manager installs and execute common bash shell commands on mac or debian systems. Butler Fox aims to drastically reduce memory work, making installations/monitoring easier so you can focus on important things.
 
@@ -37,10 +22,7 @@ this project has three key goals
 - to promote best practice security tooling and system hardening
 - ensure minimal dynamically linked 3rd party dependencies
 
-![butlerfox heroimage](https://github.com/mirageglobe/butlerfox/blob/master/heroimage.png)
-
-
-# features
+## features
 
 butlerfox has a full list of features which can be listed by running `fox m`. a few highlighted features are as below
 
@@ -71,15 +53,36 @@ fox mm          # list preset helper menu verbosely
 fox m 2         # uninstall fox
 ```
 
-to manually uninstall (legacy files), you may need to remove the following
+to uninstall, remove the ".fox" folder from your user directory
 ```
-rm /usr/local/bin/samurai;              
-rm /usr/local/bin/samurai-mac.py;
-rm /usr/local/bin/samurai-linux.py;
-rm /usr/local/bin/fox
+rm -fr ~/.fox
 ```
 
-# contribute
+to manually uninstall (legacy files), you may need to remove the following
+```
+rm /usr/local/bin/samurai;
+rm /usr/local/bin/samurai-mac.py;
+rm /usr/local/bin/samurai-linux.py;
+rm /usr/local/bin/fox;
+```
+
+# development
+
+```
+                              ....
+                           ..::::::::.
+        ..........        :::::::::::::
+    ..:=============:..   .::::::::::::.
+   :==================: .::::::::::::.
+   :==================:::::::::::::::
+ . .==================::::::::::::::
+::::==================::::    :::::
+ :::..==============..:::.    ::::
+  :.:::::::::::::::::::      :::::
+    ::.::::::::::.   ::      :::::.
+    ::: .::::.      ::        ::::.
+     ::             :
+```
 
 if you wish to contribute, you can use the vagrantfile to fire up and test. Feel free to suggest commands. You can read more about vagrant at http://docs.vagrantup.com/v2/getting-started/index.html
 
