@@ -155,11 +155,11 @@ export CMD_MAC_31="curl https://raw.githubusercontent.com/creationix/nvm/v0.24.0
 
 export CMD_DES_32="install n (node version manager) [homebrew]"
 export CMD_NIX_32="curl -L https://git.io/n-install | bash;"
-export CMD_MAC_32="command -V brew && brew install n"
+export CMD_MAC_32="command -V brew && brew install n;"
 
 export CMD_DES_36="install latest stable git [sudo|homebrew]"
 export CMD_NIX_36="sudo add-apt-repository ppa:git-core/ppa && sudo apt update && sudo apt install git;"
-export CMD_MAC_36="command -v brew && brew install git;"
+export CMD_MAC_36="command -V brew && brew install git;"
 
 ## 4x common security
 export CMD_DES_40="install clamav and clam daemon [sudo]"
