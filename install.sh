@@ -70,7 +70,6 @@ if [[ "${SUDO}" == "sudo" ]]; then
   fi
 fi
 
-
 # install new project files
 
 echo ":: installing butlerfox ${FOX_AVATAR} to ${FOX_PATH} ::"
@@ -101,24 +100,3 @@ ${FOX_AVATAR} sir, all complete. you may need to restart shell for your path to 
 
 EOM
 
-# fzf install example
-# Downloading bin/fzf ...
-#   - Already exists
-#   - Checking fzf executable ... 0.19.0
-
-# Generate /Users/jimmylmg/.fzf.bash ... OK
-# Generate /Users/jimmylmg/.fzf.zsh ... OK
-
-# Update /Users/jimmylmg/.bashrc:
-#   - [ -f ~/.fzf.bash ] && source ~/.fzf.bash
-#     - Already exists: line #11
-
-# Update /Users/jimmylmg/.zshrc:
-#   - [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-#     - Already exists: line #2
-
-# Finished. Restart your shell or reload config file.
-#    source ~/.bashrc  # bash
-#    source ~/.zshrc   # zsh
-
-# Use uninstall script to remove fzf.
