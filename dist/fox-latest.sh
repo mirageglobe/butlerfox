@@ -178,8 +178,8 @@ export CMD_DES_44="install fail2ban with sendmail dependancy [sudo]"
 export CMD_NIX_44="sudo apt install sendmail fail2ban;"
 
 export CMD_DES_45="generate ssh key using rsa"
-export CMD_NIX_45="ssh-keygen -t rsa"
-export CMD_MAC_45="ssh-keygen -t rsa"
+export CMD_NIX_45="ssh-keygen -t rsa -v -f mynewkeypair"
+export CMD_MAC_45="ssh-keygen -t rsa -v -f mynewkeypair"
 
 ## 5x common databases
 export CMD_DES_50="install sqlite (for all) [sudo]"
