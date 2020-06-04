@@ -1,16 +1,11 @@
-# Butler Fox
+# butler fox
 
 [![build](https://img.shields.io/travis/mirageglobe/butlerfox.svg)](https://travis-ci.org/mirageglobe/butlerfox)
 ![GitHub](https://img.shields.io/github/license/mirageglobe/butlerfox.svg)
+![liberapay](https://img.shields.io/liberapay/patrons/mirageglobe.svg?logo=liberapay)
 
 - maintainer : jimmy mg lim (mirageglobe@gmail.com) / www.mirageglobe.com
 - source : https://github.com/mirageglobe/butlerfox
-
-```
-Announcements
-this project is in need of testers, please test it out and reach out to
-my email if you are interested to make this better. thanks.
-```
 
 ![butlerfox heroimage](https://github.com/mirageglobe/butlerfox/blob/master/heroimage.png)
 
@@ -66,7 +61,7 @@ rm /usr/local/bin/samurai-linux.py;
 rm /usr/local/bin/fox;
 ```
 
-# development
+# contribute
 
 ```
                               ....
@@ -84,9 +79,18 @@ rm /usr/local/bin/fox;
      ::             :
 ```
 
-if you wish to contribute, you can use the vagrantfile to fire up and test. Feel free to suggest commands. You can read more about vagrant at http://docs.vagrantup.com/v2/getting-started/index.html
+there are a few ways you can help this project.
+
+- submitting bugs to maintainer mirageglobe@gmail.com
+- submitting prs
+- suggest improvements
+- support the project via liberapay (more info from the badge above)
+
+## pr
 
 requirements
+
+if you wish to contribute via pr, you can use the vagrantfile to fire up and test. Feel free to suggest commands. You can read more about vagrant at http://docs.vagrantup.com/v2/getting-started/index.html
 
 - bats-core test suite (https://github.com/bats-core/bats-core)
 - vagrant (optional)
