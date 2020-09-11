@@ -21,6 +21,7 @@ this project has three key goals
 
 butlerfox has a full list of features which can be listed by running `fox m`. a few highlighted features are as below
 
+- almost no dependencies
 - system (system updates, build-essential, debconf-util)
 - security tools (ufw)
 - servers and proxy (nginx)
@@ -36,11 +37,13 @@ requirements
 - curl
 
 to install on (debian / ubuntu / mint / macos), fire up terminal and run:
+
 ```
 command -V curl && curl -L https://raw.githubusercontent.com/mirageglobe/butlerfox/master/install.sh | bash
 ```
 
 to run and see main options/help,
+
 ```
 fox             # commands and help
 fox m           # list preset helper menu
@@ -49,11 +52,13 @@ fox m 2         # uninstall fox
 ```
 
 to uninstall, remove the ".fox" folder from your user directory
+
 ```
 rm -fr ~/.fox
 ```
 
-to manually uninstall (legacy files), you may need to remove the following
+if you have installed pre 2016 versions of fox (legacy version), you may optionally to remove the following files:
+
 ```
 rm /usr/local/bin/samurai;
 rm /usr/local/bin/samurai-mac.py;
@@ -114,7 +119,8 @@ make all            # runs lint test and builds to dist folder
 
 # road map
 
-- fix bash path export PATH="/Users/jimmylmg/.fox:$PATH"
+- export command to fzf for execution fox m | fzf | xargs -0 cat
+- fix bash path export PATH="/Users/myuser/.fox:$PATH"
 - add bash completion commands
 - [done] create user based executable rather than system wide executable (in home/.butlerfox directory and symlink from /usr/local/bin)
 - [done] install to /usr/local/bin
