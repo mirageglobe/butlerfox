@@ -15,20 +15,17 @@ print_error () {
 }
 
 print_help () {
-  printf "\\n"
   printf "\\n%s usage :" "$FOX_TITLE"
-  printf "\\n%s %s <command> [args]" "$FOX_TEXT" "$FOX_BIN"
+  printf "\\n%s %s <command> [args]" "$FOX_TAB" "$FOX_BIN"
   printf "\\n"
   printf "\\n%s commands :" "$FOX_TITLE"
-  printf "\\n%s %s help                     # default help" "$FOX_TEXT" "$FOX_BIN"
-  printf "\\n%s %s m                        # shows/runs menu commands" "$FOX_TEXT" "$FOX_BIN"
-  printf "\\n%s %s mm                       # shows default list of menu commands verbosely" "$FOX_TEXT" "$FOX_BIN"
+  printf "\\n%s %s help                     # default help" "$FOX_TAB" "$FOX_BIN"
+  printf "\\n%s %s m                        # shows/runs menu commands" "$FOX_TAB" "$FOX_BIN"
+  printf "\\n%s %s mm                       # shows default list of menu commands verbosely" "$FOX_TAB" "$FOX_BIN"
   printf "\\n"
   printf "\\n%s examples :" "$FOX_TITLE"
-  printf "\\n%s %s m" "$FOX_TEXT" "$FOX_BIN"
-  printf "\\n%s %s m 1" "$FOX_TEXT" "$FOX_BIN"
-  printf "\\n"
-  printf "\\n"
+  printf "\\n%s %s m" "$FOX_TAB" "$FOX_BIN"
+  printf "\\n%s %s m 1" "$FOX_TAB" "$FOX_BIN"
 }
 
 is_macos() {
@@ -54,14 +51,13 @@ is_linux() {
 # === common variables
 
 FOX_TITLE='::'                # fox prefix for header output
-FOX_TEXT='  '                 # fox prefix for text output
+FOX_AVATAR='[fox]'            # fox prefix for avatar speech
+FOX_TAB='  '                  # tab spacer
 
-FOX_AVATAR='[fox]'            # fox prefix for speech
 FOX_OSTYPE=$(uname -s)
 
 EXPECTED_ARGS=0               # number of expected arguments
-FOX_BIN=fox                   # the fox binary executable
-# FOX_BIN=$0
+FOX_BIN=fox                   # the fox binary executable or FOX_BIN=$0
 
 FOX_CMD=$1                    # the 2nd tier variable such as "m"
 FOX_OPT=$2                    # the 3rd tier variable such as "12"
@@ -71,7 +67,7 @@ FOX_OS="NIL"
 
 E_BADARGS=65                  # Wrong number of arguments passed to script.
 
-# ==> derived variables
+# === derived variables
 
 # setting prefix values
 if is_macos; then
@@ -216,6 +212,9 @@ export CMD_DES_80="show calendar"
 export CMD_NIX_80="cal;"
 export CMD_MAC_80="cal;"
 
+export CMD_DES_81="show weather"
+export CMD_NIX_81="curl wttr.in;"
+export CMD_MAC_81="curl wttr.in;"
 
 # === main
 
@@ -223,7 +222,9 @@ export CMD_MAC_80="cal;"
 if [ "$#" -lt "$EXPECTED_ARGS" ]; then
   printf "\\n"
   print_fox "how may I be of assistance?"
+  printf "\\n"
   print_help
+  printf "\\n"
   exit $E_BADARGS
 fi
 
@@ -233,13 +234,16 @@ if [ "$FOX_OS" != "NIL" ]; then
     help)
       printf "\\n"
       print_fox ":: $FOX_TITLE $FOX_BIN $FOX_OS"
+      printf "\\n"
       print_help "$FOX_BIN"
+      printf "\\n"
       ;;
     m)
       # print out list for os
       if [[ -z "$FOX_OPT" ]]; then
         # if variable $2 for [m]enu does not exist, print out list of variable
-        printf "\\n%s" "$FOX_AVATAR"
+        printf "\\n"
+        print_fox "here are a list of commands. use it by entering : fox m <number> such as fox m 81"
         printf "\\n"
 
         #for i in {1..100}; do
@@ -247,12 +251,11 @@ if [ "$FOX_OS" != "NIL" ]; then
           FOX_CMD_DES=$(eval "echo \${CMD_DES_$i}")
           FOX_CMD_CMD=$(eval "echo \${CMD_${FOX_OS}_$i}")
           if [ -n "$FOX_CMD_CMD" ]; then
-            printf "\\n%s [%s] - %s" "$FOX_TEXT" "$i" "$FOX_CMD_DES"
+            printf "\\n%s [%s] - %s" "$FOX_TAB" "$i" "$FOX_CMD_DES"
           fi
           i=$(( i + 1 ))
         done
 
-        printf "\\n"
         printf "\\n"
       else
         # runs cmd with $2 and array 0 which is the command; see declare core [m]enu options
@@ -261,7 +264,6 @@ if [ "$FOX_OS" != "NIL" ]; then
 
         printf "\\n"
         print_fox "executing command :: $FOX_CMD_DES ( $FOX_CMD_CMD )"
-        printf "\\n"
         printf "\\n"
         eval "$FOX_CMD_CMD"
         printf "\\n"
@@ -276,7 +278,7 @@ if [ "$FOX_OS" != "NIL" ]; then
         FOX_CMD_DES=$(eval "echo \${CMD_DES_$i}")
         FOX_CMD_CMD=$(eval "echo \${CMD_${FOX_OS}_$i}")
         if [ -n "$FOX_CMD_CMD" ]; then
-          printf "\\n%s [%s] - %s :: %s" "$FOX_TEXT" "$i" "$FOX_CMD_DES" "$FOX_CMD_CMD"
+          printf "\\n%s [%s] - %s :: %s" "$FOX_TAB" "$i" "$FOX_CMD_DES" "$FOX_CMD_CMD"
         fi
         i=$(( i + 1 ))
       done
@@ -287,6 +289,7 @@ if [ "$FOX_OS" != "NIL" ]; then
     '')
       # catch empty
       print_help "$FOX_BIN"
+      printf "\\n"
       ;;
     *)
       # catch error
@@ -297,4 +300,3 @@ if [ "$FOX_OS" != "NIL" ]; then
       ;;
   esac
 fi
-
