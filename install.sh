@@ -49,27 +49,6 @@ else
   exit 1;
 fi
 
-# remove old legacy-samurai/fox files if admin privileges
-
-if [[ "${SUDO}" == "sudo" ]]; then
-  echo ":: checking and removing legacy samurai/butlerfox files ::"
-
-  if [ -f /usr/local/bin/samurai ]; then
-    echo ":: found and removing legacy /usr/local/bin/samurai file ::"
-    ${SUDO} rm /usr/local/bin/samurai
-  fi
-
-  if [ -f /usr/local/bin/samurai-mac ]; then
-    echo ":: found and removing legacy /usr/local/bin/samurai-mac file ::"
-    ${SUDO} rm /usr/local/bin/samurai-mac.py
-  fi
-
-  if [ -f /usr/local/bin/samurai-linux ]; then
-    echo ":: found and removing legacy /usr/local/bin/samurai-linux file ::"
-    ${SUDO} rm /usr/local/bin/samurai-linux.py
-  fi
-fi
-
 # install new project files
 
 echo ":: installing butlerfox ${FOX_AVATAR} to ${FOX_PATH} ::"
@@ -85,7 +64,6 @@ chmod -R u+x ${FOX_PATH}/bin/
 # grep -qxF 'export PATH="$HOME/.tools/bin:$PATH"' ${HOME}/.bashrc || echo '\nexport PATH="$HOME/.tools/bin:$PATH"' >> ${HOME}/.bashrc
 # grep -q (quiet) -x (entire line match)
 grep -q ".fox.bash" "${HOME}/.bashrc" && echo "[fox] found bash path. skipping update." || echo '[ -f ~/.fox/.fox.bash ] && source ~/.fox/.fox.bash' >> ${HOME}/.bashrc
-# command -v fox || { echo ":: failed to install fox at $FOX_PATH. please log issue at https://github.com/mirageglobe/butlerfox ::"; exit 1; }
 
 # summary
 
@@ -97,6 +75,4 @@ ${FOX_AVATAR} sir, i have prepared a summary
   to uninstall, delete binary ${FOX_PATH}/fox
 
 ${FOX_AVATAR} sir, all complete. you may need to restart shell for your path to update
-
 EOM
-

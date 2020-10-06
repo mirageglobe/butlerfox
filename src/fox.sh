@@ -76,14 +76,14 @@ elif is_linux; then
   FOX_OS="NIX"
 fi
 
-# core command options - set cmd_<command number> = <bash command> <command definition>
+# === core command options - set cmd_<command number> = <bash command> <command definition>
 
-## x core fox commands
+# === === x core fox commands
 export CMD_DES_1="update butlerfox $FOX_AVATAR"
 export CMD_NIX_1="command -V curl && curl -L https://raw.githubusercontent.com/mirageglobe/butlerfox/master/install.sh | bash;"
 export CMD_MAC_1="command -V curl && curl -L https://raw.githubusercontent.com/mirageglobe/butlerfox/master/install.sh | bash;"
 
-## 1x / 2x common operating system commands
+# === === 1x / 2x common operating system commands
 export CMD_DES_10="update debian/ubuntu and cleanup cache [sudo]"
 export CMD_NIX_10="sudo apt update && sudo apt upgrade && sudo apt autoclean && sudo apt autoremove;"
 
@@ -124,7 +124,7 @@ export CMD_MAC_19="uname -a; echo $0;"
 export CMD_DES_20="show ubuntu or *buntu-like version information"
 export CMD_NIX_20="lsb_release -a;"
 
-## common networking
+# === === common networking
 export CMD_DES_25="show external IP v4 address"
 export CMD_NIX_25="curl ipv4.icanhazip.com;"
 export CMD_MAC_25="curl ipv4.icanhazip.com;"
@@ -140,7 +140,7 @@ export CMD_MAC_27="sudo lsof -PiTCP -sTCP:LISTEN;"
 export CMD_DES_29="show local SMB/CIFS shares on network"
 export CMD_NIX_29="nmblookup -S '*';"
 
-## 3x common platform and pkg managers
+# === === 3x common platform and pkg managers
 export CMD_DES_30="install homebrew (system package manager | macosx recommended)"
 export CMD_NIX_30="curl https://raw.githubusercontent.com/Homebrew/install/master/install | ruby;"
 export CMD_MAC_30="curl https://raw.githubusercontent.com/Homebrew/install/master/install | ruby;"
@@ -157,7 +157,7 @@ export CMD_DES_36="install latest stable git [sudo|homebrew]"
 export CMD_NIX_36="sudo add-apt-repository ppa:git-core/ppa && sudo apt update && sudo apt install git;"
 export CMD_MAC_36="command -V brew && brew install git;"
 
-## 4x common security
+# === === 4x common security
 export CMD_DES_40="install clamav and clam daemon [sudo]"
 export CMD_NIX_40="sudo apt install clamav clamav-daemon;"
 
@@ -177,7 +177,7 @@ export CMD_DES_45="generate ssh key using rsa"
 export CMD_NIX_45="ssh-keygen -t rsa -v -f mynewkeypair"
 export CMD_MAC_45="ssh-keygen -t rsa -v -f mynewkeypair"
 
-## 5x common databases
+# === === 5x common databases
 export CMD_DES_50="install sqlite (for all) [sudo]"
 export CMD_NIX_50="sudo apt install sqlite;"
 
@@ -187,14 +187,14 @@ export CMD_NIX_51="sudo apt update && sudo apt install mariadb-server;"
 export CMD_DES_52="install postgres [sudo]"
 export CMD_NIX_52="sudo apt update && sudo apt install postgresql;"
 
-## 6x common web servers and languages
+# === === 6x common web servers and languages
 export CMD_DES_60="install nginx - ppa latest stable (for all) [sudo]"
 export CMD_NIX_60="apt update && sudo add-apt-repository ppa:nginx/stable && sudo apt install nginx;"
 
 export CMD_DES_61="install php7 (fpm) [sudo]"
 export CMD_NIX_61="sudo apt install php-fpm php-cli php-mysqlnd;"
 
-## 7x common libraries and apps
+# === === 7x common libraries and apps
 export CMD_DES_70="show list of system installed libraries and applications [sudo]"
 export CMD_NIX_70="sudo apt list --installed;"
 

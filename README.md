@@ -32,9 +32,9 @@ butlerfox has a full list of features which can be listed by running `fox m`. a 
 
 requirements
 
-- debian jessie (14.04+) - (include ubuntu)
 - bourne shell (bash 4.0+)
 - curl
+- grep
 
 to install on (debian / ubuntu / mint / macos), fire up terminal and run:
 
@@ -57,13 +57,13 @@ to uninstall, remove the ".fox" folder from your user directory
 rm -fr ~/.fox
 ```
 
-if you have installed pre 2016 versions of fox (legacy version), you may optionally to remove the following files:
+if you have installed pre 2016 versions of fox (legacy version), you may safely remove the following files:
 
 ```
-rm /usr/local/bin/samurai;
-rm /usr/local/bin/samurai-mac.py;
-rm /usr/local/bin/samurai-linux.py;
-rm /usr/local/bin/fox;
+rm -i /usr/local/bin/samurai;
+rm -i /usr/local/bin/samurai-mac.py;
+rm -i /usr/local/bin/samurai-linux.py;
+rm -i /usr/local/bin/fox;
 ```
 
 # contribute
@@ -86,9 +86,9 @@ rm /usr/local/bin/fox;
 
 there are a few ways you can help this project.
 
-- submitting bugs to maintainer mirageglobe@gmail.com
-- submitting prs
-- suggest improvements
+- submitting bugs via github
+- submitting prs via github
+- suggest improvements via github
 - support the project via liberapay (more info from the badge above)
 
 ## pr
@@ -106,22 +106,24 @@ before submitting a PR
 - ensure this is tested on debian (as indicated in vagrantfile)
 - test on debian (jessie | stretch), ubuntu (16.04 lts | 18.04 lts), mac os x 10.11+ (el capitan | sierra | high sierra | mojave)
 
-to fix with PR
+steps to fix with PR
 
 ```
 vagrant up          # start up vagrant
+vagrant ssh         # ssh into test env
 make                # list make file options
                     # do your fixes
 make lint           # lint (using shellcheck)
 make test           # test (using bats - ~~https://github.com/sstephenson/bats~~ https://github.com/bats-core/bats-core)
+                    # conclude with final make all test
 make all            # runs lint test and builds to dist folder
 ```
 
 # road map
 
-- export command to fzf for execution fox m | fzf | xargs -0 cat
-- fix bash path export PATH="/Users/myuser/.fox:$PATH"
 - add bash completion commands
+- export command to fzf for execution fox m | fzf | xargs -0 cat
+- [done] fix bash path export PATH="/Users/myuser/.fox:$PATH"
 - [done] create user based executable rather than system wide executable (in home/.butlerfox directory and symlink from /usr/local/bin)
 - [done] install to /usr/local/bin
 - [done] consider butler names - al[ice] al[fred] / sebastian (anime) / walter (anime) / boye (famous dog) / fox
@@ -143,6 +145,7 @@ make all            # runs lint test and builds to dist folder
 when placing apps, it should always be in usr/local/bin/.. . see https://unix.stackexchange.com/questions/8656/usr-bin-vs-usr-local-bin-on-linux
 
 when adding shell(sh/bash) commands, you can chain commands with four ways:
+
 ```
 ; = run regardless
 && = run if previous succeed
@@ -166,4 +169,3 @@ when returning error codes refer to http://tldp.org/LDP/abs/html/exitcodes.html
 - http://www.python.org/dev/peps/pep-0008/#introduction
 - http://stackoverflow.com/questions/17606340/how-to-deploy-a-meteor-application-to-my-own-server
 - http://stackoverflow.com/questions/17537390/how-to-install-a-package-using-the-python-apt-api
-
