@@ -121,6 +121,8 @@ make all            # runs lint test and builds to dist folder
 
 # road map
 
+- add toybox to foxbox https://landley.net/toybox/bin/
+- add .foxbox for tooling management
 - add bash completion commands
 - export command to fzf for execution fox m | fzf | xargs -0 cat
 - [done] fix bash path export PATH="/Users/myuser/.fox:$PATH"
