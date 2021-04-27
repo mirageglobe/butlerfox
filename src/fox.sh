@@ -218,35 +218,26 @@ export CMD_MAC_81="curl wttr.in;"
 
 # === main
 
+# gap from cli
+echo ""
+
 # validate standard args requirements : not required for this as returning help if 0 args
 if [ "$#" -lt "$EXPECTED_ARGS" ]; then
-  printf "\\n"
   print_fox "how may I be of assistance?"
-  printf "\\n"
+  echo ""
   print_help
-  printf "\\n"
   exit $E_BADARGS
 fi
 
-# default checks
 if [ "$FOX_OS" != "NIL" ]; then
   case "$FOX_CMD" in
-    help)
-      printf "\\n"
-      print_fox ":: $FOX_TITLE $FOX_BIN $FOX_OS"
-      printf "\\n"
-      print_help "$FOX_BIN"
-      printf "\\n"
-      ;;
     m)
-      # print out list for os
+      # fox [m]enu list
       if [[ -z "$FOX_OPT" ]]; then
-        # if variable $2 for [m]enu does not exist, print out list of variable
-        printf "\\n"
+        # if variable $2 for [m]enu does not exist
         print_fox "here are a list of commands. use it by entering : fox m <number> such as fox m 81"
-        printf "\\n"
+        echo ""
 
-        #for i in {1..100}; do
         i=0; while [ $i -le 100 ]; do
           FOX_CMD_DES=$(eval "echo \${CMD_DES_$i}")
           FOX_CMD_CMD=$(eval "echo \${CMD_${FOX_OS}_$i}")
@@ -255,25 +246,21 @@ if [ "$FOX_OS" != "NIL" ]; then
           fi
           i=$(( i + 1 ))
         done
-
-        printf "\\n"
       else
         # runs cmd with $2 and array 0 which is the command; see declare core [m]enu options
         FOX_CMD_DES=$(eval "echo \${CMD_DES_$FOX_OPT}")
         FOX_CMD_CMD=$(eval "echo \${CMD_${FOX_OS}_$FOX_OPT}")
 
-        printf "\\n"
         print_fox "executing command :: $FOX_CMD_DES ( $FOX_CMD_CMD )"
-        printf "\\n"
+        echo ""
         eval "$FOX_CMD_CMD"
-        printf "\\n"
       fi
       ;;
     mm)
+      # fox [m]enu list verbose
       printf "\\n$FOX_AVATAR (%s)" "$FOX_OS"
-      printf "\\n"
+      echo ""
 
-      # for i in {1..100}; do\
       i=0; while [ $i -le 100 ]; do
         FOX_CMD_DES=$(eval "echo \${CMD_DES_$i}")
         FOX_CMD_CMD=$(eval "echo \${CMD_${FOX_OS}_$i}")
@@ -282,21 +269,29 @@ if [ "$FOX_OS" != "NIL" ]; then
         fi
         i=$(( i + 1 ))
       done
-
-      printf "\\n"
-      printf "\\n"
+      ;;
+    help)
+      # fox help
+      print_fox ":: $FOX_TITLE $FOX_BIN $FOX_OS"
+      echo ""
+      print_help "$FOX_BIN"
       ;;
     '')
       # catch empty
+      print_fox ":: $FOX_TITLE $FOX_BIN $FOX_OS"
+      echo ""
       print_help "$FOX_BIN"
-      printf "\\n"
       ;;
     *)
       # catch error
       print_fox "hmmm...?"
       print_error ":: error :: expected command"
-      printf "\\n"
+      echo ""
       exit 127
       ;;
   esac
 fi
+
+# gap
+echo ""
+echo ""
