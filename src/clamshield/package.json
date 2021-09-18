@@ -2,8 +2,8 @@
   "name": "clamshield",
   "main": "main.js",
   "devDependencies": {
-    "electron": "^11.1.1",
-    "electron-packager": "^15.2.0"
+    "electron": "^14.0.0",
+    "electron-packager": "^15.4.0"
   },
   "version": "1.0.0",
   "description": "yet another opensource desktop ui for mac linux and windows based on clamav",
