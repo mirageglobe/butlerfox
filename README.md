@@ -97,7 +97,7 @@ requirements
 
 if you wish to contribute via pr, you can use the vagrantfile to fire up and test. Feel free to suggest commands. You can read more about vagrant at http://docs.vagrantup.com/v2/getting-started/index.html
 
-- bats-core test suite (https://github.com/bats-core/bats-core)
+- bats-core test suite (https://github.com/bats-core/bats-core) : to install : brew install bats-core
 - vagrant (optional)
 - semver (optional)
 
