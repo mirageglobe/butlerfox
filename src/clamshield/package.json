@@ -1,0 +1,20 @@
+{
+  "name": "clamshield",
+  "main": "main.js",
+  "devDependencies": {
+    "electron": "^11.1.1",
+    "electron-packager": "^15.2.0"
+  },
+  "version": "1.0.0",
+  "description": "yet another opensource desktop ui for mac linux and windows based on clamav",
+  "dependencies": {},
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "antivirus"
+  ],
+  "author": "Jimmy MG Lim",
+  "license": "ISC"
+}

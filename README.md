@@ -121,6 +121,7 @@ make all            # runs lint test and builds to dist folder
 
 # road map
 
+- integrate hound project
 - add toybox to foxbox https://landley.net/toybox/bin/
 - add .foxbox for tooling management
 - add bash completion commands
