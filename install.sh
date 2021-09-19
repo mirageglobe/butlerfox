@@ -3,9 +3,6 @@
 # installs fox.sh as fox into /usr/local/bin
 # files: fox.sh
 
-# [›] tips:
-# - exit code such as exit 0 or exit 1 in sh. 0 is successful exit, and 1 or more is failed exit
-
 # ----- exit script on error
 set -e
 
@@ -13,8 +10,6 @@ set -e
 
 FOX_AVATAR="[fox]"
 FOX_PATH="${HOME}/.fox"
-FOX_PATH_TILDE="~/.fox"
-FOX_VERSION=0.9.0
 
 # ----- functions
 
@@ -24,10 +19,11 @@ echo ":: checking sudo ::"
 
 if [[ $(id -u) != 0 ]]; then
   if command -v sudo >/dev/null 2>&1; then
-    SUDO="sudo"
+    echo ":: sudo exists ::"
+    # SUDO="sudo"
   else
     echo ":: sudo not installed or no admin privileges detected ::"
-    SUDO=""
+    # SUDO=""
     # exit 1
   fi
 fi
