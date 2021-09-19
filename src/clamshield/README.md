@@ -17,7 +17,7 @@ to run electron
 
 ```sh
   n auto
-  npm start
+  yarn start
 ```
 
 # guidelines
