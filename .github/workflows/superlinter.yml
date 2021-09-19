@@ -1,28 +1,55 @@
-name: ci
+---
+#################################
+#################################
+## Super Linter GitHub Actions ##
+#################################
+#################################
+name: Lint Code Base
 
-# run this workflow every time a new commit pushed to your repository
+#
+# Documentation:
+# https://help.github.com/en/articles/workflow-syntax-for-github-actions
+#
+
+#############################
+# Start the job on all push #
+#############################
 on:
-  # on all branches
   push:
+    branches-ignore: [master, main]
+    # Remove the line above to run when pushing to master
+  pull_request:
+    branches: [master, main]
 
-  # allows you to run this workflow manually from the actions tab
-  workflow_dispatch:
-
+###############
+# Set the Job #
+###############
 jobs:
-  # set the job key. the key is displayed as the job name when a job name is not provided
-  super-lint:
-    name: Lint code base
-    # set the type of machine to run on
+  build:
+    # Name the Job
+    name: Lint Code Base
+    # Set the agent to run on
     runs-on: ubuntu-latest
 
+    ##################
+    # Load all steps #
+    ##################
     steps:
-      # checks out a copy of your repository on the ubuntu-latest machine
-      - name: Checkout code
+      ##########################
+      # Checkout the code base #
+      ##########################
+      - name: Checkout Code
         uses: actions/checkout@v2
+        with:
+          # Full git history is needed to get a proper list of changed files within `super-linter`
+          fetch-depth: 0
 
-      # runs the super-linter action
-      - name: Run Super-Linter
-        uses: github/super-linter@v3
+      ################################
+      # Run Linter against code base #
+      ################################
+      - name: Lint Code Base
+        uses: github/super-linter@v4
         env:
-          DEFAULT_BRANCH: master
+          VALIDATE_ALL_CODEBASE: false
+          DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
