@@ -7,7 +7,18 @@
 - maintainer : jimmy mg lim (mirageglobe@gmail.com) / www.mirageglobe.com
 - source : https://github.com/mirageglobe/butlerfox
 
-![butlerfox heroimage](https://github.com/mirageglobe/butlerfox/blob/master/heroimage.png)
+```
+                             .::::::.
+        ..:=====:..        .::::::::::.
+    ..:=============:..   .::::::::::::.    Butler
+   :==================: .::::::::::::.      Fox
+   :==================:::::::::::::::
+ .::.=================::::::::::::::
+ :::..==============..:::.    ::::
+  :.:::::::::::::::::::      :::::
+    :: .:::::.      ::        ::::.
+     ::             :
+```
 
 Butler Fox (inspired by batman's chief scientist, as well as various uber powered manga butlers) is an opinionated system helper tool that provides a simple interface for managing your machine. Butler Fox helps to simplify package manager installs and execute common bash shell commands on mac or debian systems. Butler Fox aims to drastically reduce memory work, making installations/monitoring easier so you can focus on important things.
 
@@ -68,22 +79,6 @@ rm -i /usr/local/bin/fox;
 
 # contribute
 
-```
-                              ....
-                           ..::::::::.
-        ..........        :::::::::::::
-    ..:=============:..   .::::::::::::.
-   :==================: .::::::::::::.
-   :==================:::::::::::::::
- . .==================::::::::::::::
-::::==================::::    :::::
- :::..==============..:::.    ::::
-  :.:::::::::::::::::::      :::::
-    ::.::::::::::.   ::      :::::.
-    ::: .::::.      ::        ::::.
-     ::             :
-```
-
 there are a few ways you can help this project.
 
 - submitting bugs via github
@@ -128,7 +123,7 @@ make all            # runs lint test and builds to dist folder
 - export command to fzf for execution fox m | fzf | xargs -0 cat
 - [done] fix bash path export PATH="/Users/myuser/.fox:$PATH"
 - [done] create user based executable rather than system wide executable (in home/.butlerfox directory and symlink from /usr/local/bin)
-- [done] install to /usr/local/bin
+- [done] install to /usr/local/bin ( https://unix.stackexchange.com/questions/8656/usr-bin-vs-usr-local-bin-on-linux )
 - [done] consider butler names - al[ice] al[fred] / sebastian (anime) / walter (anime) / boye (famous dog) / fox
 - [done] consider https://shields.io/#/
 - [done] change to new unit test (bats-core)
@@ -142,30 +137,6 @@ make all            # runs lint test and builds to dist folder
 - [done] cleaned up old samurai code
 - [done] spawned new samuraiv2 as samurai.py
 - [done] created minisamurai which is the current minified version of samurai2
-
-# helper notes
-
-when placing apps, it should always be in usr/local/bin/.. . see https://unix.stackexchange.com/questions/8656/usr-bin-vs-usr-local-bin-on-linux
-
-when adding shell(sh/bash) commands, you can chain commands with four ways:
-
-```
-; = run regardless
-&& = run if previous succeed
-|| = run if previous fail
-& run in background
-```
-
-when returning error codes refer to http://tldp.org/LDP/abs/html/exitcodes.html
-
-- 1 = catchall for general errors
-- 2 = misuse of shell builtins
-- 126 = command invoked cannot execute
-- 127 = command not found
-- 128 = invalid argument to exit
-- 128+n = fatal error signal "n"
-- 130 = script terminated by control-c
-- 255 = exit status out of range
 
 # references
 
