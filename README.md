@@ -99,19 +99,19 @@ if you wish to contribute via pr, you can use the vagrantfile to fire up and tes
 before submitting a PR
 
 - ensure this is tested on debian (as indicated in vagrantfile)
-- test on debian (jessie | stretch), ubuntu (16.04 lts | 18.04 lts), mac os x 10.11+ (el capitan | sierra | high sierra | mojave)
+- test on debian, mac os x 10.11+
 
 steps to fix with PR
 
-```
-vagrant up          # start up vagrant
-vagrant ssh         # ssh into test env
-make                # list make file options
-                    # do your fixes
-make lint           # lint (using shellcheck)
-make test           # test (using bats - ~~https://github.com/sstephenson/bats~~ https://github.com/bats-core/bats-core)
-                    # conclude with final make all test
-make all            # runs lint test and builds to dist folder
+```bash
+vagrant up                      # start up vagrant
+vagrant ssh                     # ssh into vagrantbox test env
+cd /synced_folder               # change to host synced_folder
+make                            # list make file options
+                                # do your fixes
+make lint                       # lint (using shellcheck)
+make test                       # test (using bats - ~~https://github.com/sstephenson/bats~~ https://github.com/bats-core/bats-core)
+make all                        # conclude with final make all test which runs lint test and builds to dist folder
 ```
 
 # road map
@@ -143,3 +143,7 @@ make all            # runs lint test and builds to dist folder
 - http://www.python.org/dev/peps/pep-0008/#introduction
 - http://stackoverflow.com/questions/17606340/how-to-deploy-a-meteor-application-to-my-own-server
 - http://stackoverflow.com/questions/17537390/how-to-install-a-package-using-the-python-apt-api
+
+# common issues
+
+- none
