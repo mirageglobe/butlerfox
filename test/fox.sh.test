@@ -1,6 +1,6 @@
 #!/usr/bin/env bats
 
-SOURCE=src
+SOURCE=src/fox-sh
 
 @test "ensure app exists" {
   run stat $SOURCE/fox.sh
