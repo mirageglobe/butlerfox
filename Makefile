@@ -3,7 +3,7 @@
 MENU += help readme
 
 # main
-MENU := build build-alpine test deploy vagrant-testenv
+MENU := build build-hound build-graph test deploy vagrant-testenv
 
 # defaults
 .PHONY: all clean test $(MENU)
@@ -52,11 +52,17 @@ build: 													## build project
 	@echo ":: checking environment variables ::"
 	@echo "no env variables required"
 
-build-alpine:										## builds alpine docker container
+build-hound:										## builds alpine based butlerfox-hound image
 	@echo ":: build alpine container :: output as butlerfox-hound"
 	docker build -f ./src/hound-docker/Dockerfile -t butlerfox-hound .
 	@echo "to run container use : docker run butlerfox-hound"
 	@echo "to run interactive container and publish to host port use : docker run -p 127.0.0.1:8080:8080 -it butlerfox-hound bash"
+
+build-graph:										## builds debian based butlerfox-graph image
+	@echo ":: build alpine container :: output as butlerfox-hound"
+	docker build -f ./src/graph-docker/Dockerfile -t butlerfox-hound .
+	@echo "to run container use : docker run butlerfox-graph"
+	@echo "to run interactive container and publish to host port use : docker run -p 127.0.0.1:8080:8080 -it butlerfox-graph bash"
 
 test: 													## test project
 	@echo ":: check dependancies ::"
