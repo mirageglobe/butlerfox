@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 # installs fox.sh as fox into /usr/local/bin
 # files: fox.sh
@@ -49,8 +49,8 @@ fi
 
 echo ":: installing butlerfox ${FOX_AVATAR} to ${FOX_PATH} ::"
 mkdir -pv ${FOX_PATH}/bin
-curl -L https://raw.githubusercontent.com/mirageglobe/butlerfox/master/dist/fox-latest.sh -o ${FOX_PATH}/bin/fox
-curl -L https://raw.githubusercontent.com/mirageglobe/butlerfox/master/dist/.fox.bash -o ${FOX_PATH}/.fox.bash
+curl -fsSL https://raw.githubusercontent.com/mirageglobe/butler-fox/main/dist/fox-latest.sh -o ${FOX_PATH}/bin/fox
+curl -fsSL https://raw.githubusercontent.com/mirageglobe/butler-fox/main/dist/.fox.bash -o ${FOX_PATH}/.fox.bash
 
 echo ":: symlinking/setting butlerfox ${FOX_AVATAR} ::"
 chmod u+x ${FOX_PATH}/

@@ -1,95 +1,39 @@
-
-# helpers
-MENU += help readme
-
-# main
-MENU := build build-hound build-graph test deploy vagrant-testenv
-
-# defaults
-.PHONY: all clean test $(MENU)
-
-# === variables
-
-# set default target
 .DEFAULT_GOAL := help
 
-# sets all lines in the recipe to be passed in a single shell invocation
-.ONESHELL:
+IMAGE := butler-fox-sandbox
 
-# === helper functions
+.PHONY: help menu build image test sandbox deploy
 
-define fn_print_header
-	echo "";
-	echo "==> $(1)";
-	echo "";
-endef
+help:
+	@printf "\n  \033[33mbutler-fox\033[0m\n"
+	@printf "\n  usage: make <target>\n\n"
+	@awk '/^[a-zA-Z_-]+:.*##/ { printf "  \033[36m%-15s\033[0m %s\n", substr($$1, 1, length($$1)-1), substr($$0, index($$0, "##")+3) }' $(MAKEFILE_LIST)
+	@printf "\n"
 
-##@ Helpers
+menu: ## show this menu (alias for help)
+	@make help
 
-help:														## display this help
-	@awk 'BEGIN { FS = ":.*##"; printf "\nUsage:\n  make \033[36m<target>\033[0m\n"; } \
-		/^[a-zA-Z0-9_-]+:.*?##/ { printf "  \033[36m%-30s\033[0m %s\n", $$1, $$2; } \
-		/^##@/ { printf "\n\033[1m%s\033[0m\n", substr($$0, 5); } \
-		END { printf ""; }' $(MAKEFILE_LIST)
+build: ## check dependencies
+	command -V docker
 
-readme:													## show information and notes
-	# === information and notes
-	@touch README.md
-	@cat README.md
+image: ## build local sandbox image (run once)
+	docker build -t $(IMAGE) .
 
+test: ## lint and test in sandbox container
+	docker run --rm -v "$(PWD)":/app -w /app $(IMAGE) bash -c "\
+		shellcheck src/fox-sh/fox.sh && \
+		bats -r test/* && \
+		bash install.sh && \
+		~/.fox/bin/fox help"
 
-##@ Menu
+sandbox: ## interactive container with fox hot-reloaded from src/
+	docker run --rm -it \
+		-e TERM \
+		-e COLORTERM \
+		-v "$(PWD)/src/fox-sh/fox.sh":/usr/local/bin/fox \
+		$(IMAGE) \
+		bash -c "chmod +x /usr/local/bin/fox && echo '' && echo '[fox] sandbox ready. try: fox help' && echo '' && exec bash"
 
-# core commands
-
-all: 	build test deploy					## build test deploy project
-	@echo ":: build test deploy - ok ::"
-
-build: 													## build project
-	@echo ":: check dependancies ::"
-	command -V shellcheck
-	command -V bats
-	@echo ":: checking environment variables ::"
-	@echo "no env variables required"
-
-build-hound:										## builds alpine based butlerfox-hound image
-	@echo ":: build alpine container :: output as butlerfox-hound"
-	docker build -f ./src/hound-docker/Dockerfile -t butlerfox-hound .
-	@echo "to run container use : docker run butlerfox-hound"
-	@echo "to run interactive container and publish to host port use : docker run -p 127.0.0.1:8080:8080 -it butlerfox-hound bash"
-
-build-graph:										## builds debian based butlerfox-graph image
-	@echo ":: build alpine container :: output as butlerfox-hound"
-	docker build -f ./src/graph-docker/Dockerfile -t butlerfox-hound .
-	@echo "to run container use : docker run butlerfox-graph"
-	@echo "to run interactive container and publish to host port use : docker run -p 127.0.0.1:8080:8080 -it butlerfox-graph bash"
-
-test: 													## test project
-	@echo ":: check dependancies ::"
-	command -V shellcheck
-	command -V bats
-	@echo ":: run test ::"
-	bats -r test/*
-	@echo ":: run lint ::"
-	shellcheck src/fox-sh/fox.sh
-
-deploy: 												## build to distribution folder
-	@echo ":: build to dist folder ::"
+deploy: ## sync artefacts to dist/
 	cp src/fox-sh/fox.sh dist/fox-latest.sh
 	cp src/fox-sh/.fox.bash dist/.fox.bash
-	@echo ":: test distribution dist/fox-latest.sh ::"
-	command -V dist/fox-latest.sh
-
-# misc commands
-
-run: 														## runs the main executable or help
-	@echo ":: run project main executable or help ::"
-	bash dist/fox-latest.sh
-
-# helper commands
-
-vagrant-testenv: 								## spin up vagrant test environment
-	@$(call fn_print_header,"spin up local test env")
-	command -V vagrant
-	vagrant plugin install vagrant-vbguest
-	vagrant up
