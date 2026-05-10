@@ -315,45 +315,23 @@ make sandbox  # interactive shell with fox hot-reloaded from src/
 
 ---
 
-### phase 2 — near term
+### phase 2 — complete ✓
 
-**`fox system` — extend**
-
-| subcommand | command                              | platform    |
-| :---       | :---                                 | :---        |
-| `users`    | `dscl` (mac) / `column /etc/passwd` (linux) | mac + linux |
-| `version`  | `sw_vers` (mac) / `lsb_release -a` (linux) | mac + linux |
-| `weather`  | `curl wttr.in`                       | mac + linux |
-
-- [ ] `[fox-sh]` add `users`, `version`, `weather` to `fox_system`  [easy]
-- [ ] `[fox-sh]` add bats tests for new `fox system` subcommands  [easy]
-
-**`fox network` — new**
-
-| subcommand | command                        | platform    |
-| :---       | :---                           | :---        |
-| `ip4`      | `curl ipv4.icanhazip.com`      | mac + linux |
-| `ip6`      | `curl ipv6.icanhazip.com`      | mac + linux |
-| `ports`    | `lsof -PiTCP` (mac) / `netstat -lnptu` (linux) | mac + linux |
-| `notes`    | reference + local notes        | mac + linux |
-
-- [ ] `[fox-sh]` implement `fox_network` — ip4, ip6, ports, notes  [easy]
-- [ ] `[fox-sh]` add bats tests for `fox network`  [easy]
-
-**`fox ssh` — new**
-
-| subcommand | command                                   | platform    |
-| :---       | :---                                      | :---        |
-| `keygen`   | `ssh-keygen -t ed25519 -C "$(whoami)"`    | mac + linux |
-| `copy-id`  | `ssh-copy-id <host>`                      | mac + linux |
-| `notes`    | reference + local notes                   | mac + linux |
-
-- [ ] `[fox-sh]` implement `fox_ssh` — keygen (ed25519), copy-id, notes  [easy]
-- [ ] `[fox-sh]` add bats tests for `fox ssh`  [easy]
+- [x] `[fox-sh]` add `users`, `version`, `weather`, `restart` to `fox_system`  [easy]
+- [x] `[fox-sh]` implement `fox_network` — ip4, ip6, ports, notes  [easy]
+- [x] `[fox-sh]` implement `fox_ssh` — keygen (ed25519), copy-id, notes  [easy]
+- [x] `[fox-sh]` implement `fox_git` — branch, prune, show, size, notes  [easy]
+- [x] `[fox-sh]` implement `fox_docker` — show, ps, rm, imgprune, notes  [easy]
+- [x] `[fox-sh]` implement `fox_tar` — notes  [easy]
+- [x] `[fox-sh]` implement `fox_rsync` — notes  [easy]
+- [x] `[fox-sh]` implement `fox_tmux` — notes  [easy]
+- [x] `[fox-sh]` implement `fox_date` — now, stamp, time, notes  [easy]
+- [x] `[fox-sh]` add `fox_require` dependency check helper  [easy]
+- [x] `[fox-sh]` local notes support `.md` and `.txt` (dropped `.sh` for safety)  [easy]
 
 ---
 
-### phase 3 — planned
+### phase 3 — near term
 
 **`fox pkg`**
 
@@ -371,13 +349,28 @@ make sandbox  # interactive shell with fox hot-reloaded from src/
 | subcommand    | command                              | platform |
 | :---          | :---                                 | :---     |
 | `ufw`         | install + allow ssh/80, enable       | linux    |
-| `clamav`      | install clamav + clamav-daemon       | linux    |
+| `clamav`      | install clamav + clamav-daemon; freshclam; scan with exclude dirs | linux |
 | `fail2ban`    | install sendmail + fail2ban          | linux    |
 | `chkrootkit`  | install chkrootkit                   | linux    |
 | `rkhunter`    | install rkhunter                     | linux    |
 | `notes`       | reference + local notes              | linux    |
 
 - [ ] `[fox-sh]` implement `fox_security` — ufw, clamav, fail2ban, chkrootkit, rkhunter, notes  [medium]
+- note: `legacy/clamshield-cli/` contains reference scan patterns (exclude dirs, max-filesize, freshclam flow) to draw from for clamav notes content
+
+**script safety scanning**
+
+scan `fox.sh` for unsafe patterns beyond what shellcheck covers — guards against injection vectors and dangerous constructs that could be introduced as the tool grows.
+
+| check | what to scan for |
+| :--- | :--- |
+| no `eval` | `eval` of any user-controlled or external input |
+| no dynamic `source` | `source` / `.` of any file other than known local notes path (already removed `.sh` local notes) |
+| no unvalidated external input | `$FOX_CMD`, `$FOX_OPT` passed to shell constructs without quoting |
+| update URL integrity | `fox update` curls a script — verify it targets the canonical release URL only |
+
+- [ ] `[fox-sh]` add scan step to `make test` — grep for `eval`, dynamic `source`, and bare curl-pipe patterns  [easy]
+- [ ] `[fox-sh]` bats test: assert `fox update` URL matches expected release endpoint  [easy]
 
 **distribution**
 
@@ -387,8 +380,6 @@ make sandbox  # interactive shell with fox hot-reloaded from src/
 
 ### ideas
 
-- `[fox-sh]` `fox git` — status, log, branch, stash, cleanup, notes
-- `[fox-sh]` `fox docker` — ps, images, cleanup, exec, logs, notes
 - `[fox-sh]` `fox python` — uv, venv, pip notes
 - `[fox-sh]` `fox node` — nvm, install, notes
 - `[fox-sh]` `fox ssl` — inspect, verify, generate certificates

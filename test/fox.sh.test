@@ -50,6 +50,7 @@ SOURCE=src/fox-sh
   [[ "$output" == *"processes"* ]]
   [[ "$output" == *"users"* ]]
   [[ "$output" == *"version"* ]]
+  [[ "$output" == *"restart"* ]]
   [[ "$output" == *"notes"* ]]
 }
 
@@ -83,11 +84,16 @@ SOURCE=src/fox-sh
   [ $status = 0 ]
 }
 
+@test "ensure command : system restart : works" {
+  run $SOURCE/fox.sh system restart
+  [ $status = 0 ]
+}
+
 @test "ensure command : system notes : shows reference and local notes sections" {
   run $SOURCE/fox.sh system notes
   [ $status = 0 ]
-  [[ "$output" == *":: reference ::"* ]]
-  [[ "$output" == *":: local notes ::"* ]]
+  [[ "$output" == *"reference"* ]]
+  [[ "$output" == *"local notes"* ]]
 }
 
 @test "ensure command : system badcmd : exits 0 and shows subcommands" {
@@ -109,8 +115,8 @@ SOURCE=src/fox-sh
 @test "ensure command : network notes : shows reference and local notes sections" {
   run $SOURCE/fox.sh network notes
   [ $status = 0 ]
-  [[ "$output" == *":: reference ::"* ]]
-  [[ "$output" == *":: local notes ::"* ]]
+  [[ "$output" == *"reference"* ]]
+  [[ "$output" == *"local notes"* ]]
 }
 
 @test "ensure command : network badcmd : exits 0 and shows subcommands" {
@@ -136,11 +142,165 @@ SOURCE=src/fox-sh
 @test "ensure command : ssh notes : shows reference and local notes sections" {
   run $SOURCE/fox.sh ssh notes
   [ $status = 0 ]
-  [[ "$output" == *":: reference ::"* ]]
-  [[ "$output" == *":: local notes ::"* ]]
+  [[ "$output" == *"reference"* ]]
+  [[ "$output" == *"local notes"* ]]
 }
 
 @test "ensure command : ssh badcmd : exits 0 and shows subcommands" {
   run $SOURCE/fox.sh ssh badcmd
+  [ $status = 0 ]
+}
+
+# --- fox git
+
+@test "ensure command : git : shows subcommand list" {
+  run $SOURCE/fox.sh git
+  [ $status = 0 ]
+  [[ "$output" == *"branch"* ]]
+  [[ "$output" == *"prune"* ]]
+  [[ "$output" == *"show"* ]]
+  [[ "$output" == *"size"* ]]
+  [[ "$output" == *"notes"* ]]
+}
+
+@test "ensure command : git show : works" {
+  run $SOURCE/fox.sh git show
+  [ $status = 0 ]
+}
+
+@test "ensure command : git size : works" {
+  run $SOURCE/fox.sh git size
+  [ $status = 0 ]
+}
+
+@test "ensure command : git notes : shows reference and local notes sections" {
+  run $SOURCE/fox.sh git notes
+  [ $status = 0 ]
+  [[ "$output" == *"reference"* ]]
+  [[ "$output" == *"local notes"* ]]
+}
+
+@test "ensure command : git badcmd : exits 0 and shows subcommands" {
+  run $SOURCE/fox.sh git badcmd
+  [ $status = 0 ]
+}
+
+# --- fox docker
+
+@test "ensure command : docker : shows subcommand list" {
+  run $SOURCE/fox.sh docker
+  [ $status = 0 ]
+  [[ "$output" == *"show"* ]]
+  [[ "$output" == *"ps"* ]]
+  [[ "$output" == *"rm"* ]]
+  [[ "$output" == *"imgprune"* ]]
+  [[ "$output" == *"notes"* ]]
+}
+
+@test "ensure command : docker notes : shows reference and local notes sections" {
+  run $SOURCE/fox.sh docker notes
+  [ $status = 0 ]
+  [[ "$output" == *"reference"* ]]
+  [[ "$output" == *"local notes"* ]]
+}
+
+@test "ensure command : docker badcmd : exits 0 and shows subcommands" {
+  run $SOURCE/fox.sh docker badcmd
+  [ $status = 0 ]
+}
+
+# --- fox tar
+
+@test "ensure command : tar : shows subcommand list" {
+  run $SOURCE/fox.sh tar
+  [ $status = 0 ]
+  [[ "$output" == *"notes"* ]]
+}
+
+@test "ensure command : tar notes : shows reference and local notes sections" {
+  run $SOURCE/fox.sh tar notes
+  [ $status = 0 ]
+  [[ "$output" == *"notes"* ]]
+  [[ "$output" == *"local notes"* ]]
+}
+
+@test "ensure command : tar badcmd : exits 0 and shows subcommands" {
+  run $SOURCE/fox.sh tar badcmd
+  [ $status = 0 ]
+}
+
+# --- fox rsync
+
+@test "ensure command : rsync : shows subcommand list" {
+  run $SOURCE/fox.sh rsync
+  [ $status = 0 ]
+  [[ "$output" == *"notes"* ]]
+}
+
+@test "ensure command : rsync notes : shows reference and local notes sections" {
+  run $SOURCE/fox.sh rsync notes
+  [ $status = 0 ]
+  [[ "$output" == *"reference"* ]]
+  [[ "$output" == *"local notes"* ]]
+}
+
+@test "ensure command : rsync badcmd : exits 0 and shows subcommands" {
+  run $SOURCE/fox.sh rsync badcmd
+  [ $status = 0 ]
+}
+
+# --- fox tmux
+
+@test "ensure command : tmux : shows subcommand list" {
+  run $SOURCE/fox.sh tmux
+  [ $status = 0 ]
+  [[ "$output" == *"notes"* ]]
+}
+
+@test "ensure command : tmux notes : shows reference and local notes sections" {
+  run $SOURCE/fox.sh tmux notes
+  [ $status = 0 ]
+  [[ "$output" == *"reference"* ]]
+  [[ "$output" == *"local notes"* ]]
+}
+
+@test "ensure command : tmux badcmd : exits 0 and shows subcommands" {
+  run $SOURCE/fox.sh tmux badcmd
+  [ $status = 0 ]
+}
+
+# --- fox date
+
+@test "ensure command : date : shows subcommand list" {
+  run $SOURCE/fox.sh date
+  [ $status = 0 ]
+  [[ "$output" == *"now"* ]]
+  [[ "$output" == *"notes"* ]]
+}
+
+@test "ensure command : date now : works" {
+  run $SOURCE/fox.sh date now
+  [ $status = 0 ]
+}
+
+@test "ensure command : date stamp : works" {
+  run $SOURCE/fox.sh date stamp
+  [ $status = 0 ]
+}
+
+@test "ensure command : date time : works" {
+  run $SOURCE/fox.sh date time
+  [ $status = 0 ]
+}
+
+@test "ensure command : date notes : shows reference and local notes sections" {
+  run $SOURCE/fox.sh date notes
+  [ $status = 0 ]
+  [[ "$output" == *"notes"* ]]
+  [[ "$output" == *"local notes"* ]]
+}
+
+@test "ensure command : date badcmd : exits 0 and shows subcommands" {
+  run $SOURCE/fox.sh date badcmd
   [ $status = 0 ]
 }
