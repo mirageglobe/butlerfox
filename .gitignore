@@ -4,3 +4,5 @@ node_modules/
 *.box
 [._]*.sw[a-p]
 *~
+.claude/
+*.log
