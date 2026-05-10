@@ -1,5 +1,7 @@
 #!/usr/bin/env bats
 
+bats_require_minimum_version 1.5.0
+
 SOURCE=src/fox-sh
 
 @test "ensure app exists" {
@@ -7,27 +9,138 @@ SOURCE=src/fox-sh
   [ $status = 0 ]
 }
 
-@test "ensure fake command gracefully fails" {
-  run $SOURCE/fox.sh randomcommand
-  [ $status = 127 ]
+@test "ensure unknown command gracefully fails" {
+  run -127 $SOURCE/fox.sh randomcommand
 }
 
-@test "ensure command : m : works" {
-  run $SOURCE/fox.sh m
+# --- update / uninstall
+
+@test "ensure command : update : fails gracefully without network or install dir" {
+  FOX_HOME=$(mktemp -d)
+  mkdir -p "$FOX_HOME/bin"
+  HOME="$FOX_HOME" run $SOURCE/fox.sh update
+  rm -rf "$FOX_HOME"
+  [ $status -ne 127 ]
+}
+
+@test "ensure command : uninstall : removes install directory" {
+  FOX_HOME=$(mktemp -d)
+  mkdir -p "$FOX_HOME/.fox/bin"
+  touch "$FOX_HOME/.fox/bin/fox"
+  HOME="$FOX_HOME" run $SOURCE/fox.sh uninstall
+  [ $status = 0 ]
+  [ ! -d "$FOX_HOME/.fox" ]
+  rm -rf "$FOX_HOME"
+}
+
+@test "ensure command : uninstall : fails gracefully when not installed" {
+  FOX_HOME=$(mktemp -d)
+  HOME="$FOX_HOME" run $SOURCE/fox.sh uninstall
+  [ $status = 1 ]
+  rm -rf "$FOX_HOME"
+}
+
+# --- fox system
+
+@test "ensure command : system : shows subcommand list" {
+  run $SOURCE/fox.sh system
+  [ $status = 0 ]
+  [[ "$output" == *"disk"* ]]
+  [[ "$output" == *"memory"* ]]
+  [[ "$output" == *"processes"* ]]
+  [[ "$output" == *"users"* ]]
+  [[ "$output" == *"version"* ]]
+  [[ "$output" == *"notes"* ]]
+}
+
+@test "ensure command : system info : works" {
+  run $SOURCE/fox.sh system info
   [ $status = 0 ]
 }
 
-@test "ensure command : mm : works" {
-  run $SOURCE/fox.sh mm
+@test "ensure command : system disk : works" {
+  run $SOURCE/fox.sh system disk
   [ $status = 0 ]
 }
 
-@test "ensure command : m-v : gracefully fails" {
-  run $SOURCE/fox.sh m-v
-  [ $status = 127 ]
+@test "ensure command : system memory : works" {
+  run $SOURCE/fox.sh system memory
+  [ $status = 0 ]
 }
 
-@test "ensure command : r : gracefully fails" {
-  run $SOURCE/fox.sh r
-  [ $status = 127 ]
+@test "ensure command : system processes : works" {
+  run $SOURCE/fox.sh system processes
+  [ $status = 0 ]
+}
+
+@test "ensure command : system users : works" {
+  run $SOURCE/fox.sh system users
+  [ $status = 0 ]
+}
+
+@test "ensure command : system version : works" {
+  run $SOURCE/fox.sh system version
+  [ $status = 0 ]
+}
+
+@test "ensure command : system notes : shows reference and local notes sections" {
+  run $SOURCE/fox.sh system notes
+  [ $status = 0 ]
+  [[ "$output" == *":: reference ::"* ]]
+  [[ "$output" == *":: local notes ::"* ]]
+}
+
+@test "ensure command : system badcmd : exits 0 and shows subcommands" {
+  run $SOURCE/fox.sh system badcmd
+  [ $status = 0 ]
+}
+
+# --- fox network
+
+@test "ensure command : network : shows subcommand list" {
+  run $SOURCE/fox.sh network
+  [ $status = 0 ]
+  [[ "$output" == *"ip4"* ]]
+  [[ "$output" == *"ip6"* ]]
+  [[ "$output" == *"ports"* ]]
+  [[ "$output" == *"notes"* ]]
+}
+
+@test "ensure command : network notes : shows reference and local notes sections" {
+  run $SOURCE/fox.sh network notes
+  [ $status = 0 ]
+  [[ "$output" == *":: reference ::"* ]]
+  [[ "$output" == *":: local notes ::"* ]]
+}
+
+@test "ensure command : network badcmd : exits 0 and shows subcommands" {
+  run $SOURCE/fox.sh network badcmd
+  [ $status = 0 ]
+}
+
+# --- fox ssh
+
+@test "ensure command : ssh : shows subcommand list" {
+  run $SOURCE/fox.sh ssh
+  [ $status = 0 ]
+  [[ "$output" == *"keygen"* ]]
+  [[ "$output" == *"copy-id"* ]]
+  [[ "$output" == *"notes"* ]]
+}
+
+@test "ensure command : ssh copy-id : fails without host arg" {
+  run $SOURCE/fox.sh ssh copy-id
+  [ $status = 1 ]
+}
+
+@test "ensure command : ssh notes : shows reference and local notes sections" {
+  run $SOURCE/fox.sh ssh notes
+  [ $status = 0 ]
+  [[ "$output" == *":: reference ::"* ]]
+  [[ "$output" == *":: local notes ::"* ]]
+}
+
+@test "ensure command : ssh badcmd : exits 0 and shows subcommands" {
+  run $SOURCE/fox.sh ssh badcmd
+  [ $status = 0 ]
 }
