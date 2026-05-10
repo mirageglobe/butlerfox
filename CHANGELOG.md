@@ -7,7 +7,7 @@ versioning: [semantic versioning](https://semver.org/spec/v2.0.0.html)
 
 ---
 
-## [0.2.0] - 2026-05-10
+## [1.0.0] - 2026-05-10
 
 ### added
 
@@ -33,7 +33,7 @@ versioning: [semantic versioning](https://semver.org/spec/v2.0.0.html)
 
 ---
 
-## [0.1.0] - 2026-05-10
+## [0.1.0] - 2026-05-10 (legacy — numbered-menu era, pre-rewrite)
 
 ### added
 
