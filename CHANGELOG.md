@@ -7,6 +7,32 @@ versioning: [semantic versioning](https://semver.org/spec/v2.0.0.html)
 
 ---
 
+## [0.2.0] - 2026-05-10
+
+### added
+
+- `fox git` — branch (datestamp + random adjective-animal name), prune, show, size, notes
+- `fox docker` — show, ps, rm, imgprune, notes
+- `fox tar` — notes reference for tar, zip, xz
+- `fox rsync` — notes reference for rsync and scp
+- `fox tmux` — notes reference for sessions, windows, panes
+- `fox date` — now, stamp, time, notes
+- `fox system restart` — restart current shell via `exec $SHELL -l`
+- `fox_require` helper — exits with clear error when a dependency is not on PATH
+- `fox_notes_header` helper — dim styled section headers for notes output
+- local notes now accept `.md` and `.txt` (dropped `.sh` for safety)
+- help menu grouped into `tools` and `fox` sections
+- `notes` subcommand visually separated with blank line in per-tool help
+- git added to sandbox Dockerfile for git subcommand tests (45 tests total)
+
+### changed
+
+- notes layout: section headers (`reference`, `notes`, `local notes`) now styled with dim color
+- notes sections use heredocs with a helper rather than printf chains
+- local notes file lookup order: `.md` → `.txt` (cat only; no shell execution)
+
+---
+
 ## [0.1.0] - 2026-05-10
 
 ### added
